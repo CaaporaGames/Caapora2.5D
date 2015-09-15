@@ -19,22 +19,22 @@ public class Caapora : MonoBehaviour {
 
 		if (Input.GetKeyDown (KeyCode.LeftArrow)) {
 		
-			gameObject.GetComponent<IsoObject>().position += new Vector3(-1 , 0, 0);
+			gameObject.GetComponent<IsoObject>().position += new Vector3(-0.1f , 0, 0);
 		}
 
 		if (Input.GetKeyDown(KeyCode.RightArrow)) {
 			
-			gameObject.GetComponent<IsoObject>().position += new Vector3(1 , 0, 0);
+			gameObject.GetComponent<IsoObject>().position += new Vector3(0.1f , 0, 0);
 		}
 
 		if (Input.GetKeyDown(KeyCode.DownArrow)) {
 			
-			gameObject.GetComponent<IsoObject>().position += new Vector3(0 , -1, 0);
+			gameObject.GetComponent<IsoObject>().position += new Vector3(0 , -0.1f, 0);
 		}
 
 		if (Input.GetKeyDown(KeyCode.UpArrow)) {
 			
-			gameObject.GetComponent<IsoObject>().position += new Vector3(0 , 1, 0);
+			gameObject.GetComponent<IsoObject>().position += new Vector3(0 , 0.1f, 0);
 		}
 
 	
