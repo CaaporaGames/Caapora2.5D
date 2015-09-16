@@ -18,33 +18,35 @@ public class Caapora : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		if (Input.GetKey (KeyCode.UpArrow) || Input.GetKey (KeyCode.DownArrow) || Input.GetKey (KeyCode.RightArrow) || Input.GetKey (KeyCode.LeftArrow)) {
 
-		if (Input.GetKeyDown(KeyCode.LeftArrow)) {
+			if (Input.GetKey (KeyCode.LeftArrow)) {
 		
-			gameObject.GetComponent<IsoObject>().position += new Vector3(-0.1f , 0, 0);
-            animator.SetTrigger("CaaporaWest");
+				gameObject.GetComponent<IsoObject> ().position += new Vector3 (-0.1f, 0, 0);
+				animator.SetTrigger ("CaaporaWest");
 
-		} 
-        if (Input.GetKeyDown(KeyCode.RightArrow)) {
+			} 
+			if (Input.GetKey (KeyCode.RightArrow)) {
 			
-			gameObject.GetComponent<IsoObject>().position += new Vector3(0.1f , 0, 0);
-            animator.SetTrigger("CaaporaEast");
+				gameObject.GetComponent<IsoObject> ().position += new Vector3 (0.1f, 0, 0);
+				animator.SetTrigger ("CaaporaEast");
 
-        } 
-        if (Input.GetKeyDown(KeyCode.DownArrow)) {
+			} 
+			if (Input.GetKey (KeyCode.DownArrow)) {
 			
-			gameObject.GetComponent<IsoObject>().position += new Vector3(0 , -0.1f, 0);
-            animator.SetTrigger("CaaporaSouth");
+				gameObject.GetComponent<IsoObject> ().position += new Vector3 (0, -0.1f, 0);
+				animator.SetTrigger ("CaaporaSouth");
 
-        }
-        if (Input.GetKeyDown(KeyCode.UpArrow)) {
+			}
+			if (Input.GetKey (KeyCode.UpArrow)) {
 			
-			gameObject.GetComponent<IsoObject>().position += new Vector3(0 , 0.1f, 0);
-            animator.SetTrigger("CaaporaNorth");
+				gameObject.GetComponent<IsoObject> ().position += new Vector3 (0, 0.1f, 0);
+				animator.SetTrigger ("CaaporaNorth");
 
-        }
-        if (!Input.GetKeyDown(KeyCode.UpArrow) || !Input.GetKeyDown(KeyCode.DownArrow) || !Input.GetKeyDown(KeyCode.RightArrow) || !Input.GetKeyDown(KeyCode.LeftArrow))
-        {
+			}
+
+		}else {
+        
             animator.SetTrigger("CaaporaIdle");
         }
 
