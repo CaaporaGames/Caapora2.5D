@@ -8,6 +8,11 @@ function Update () {
 
 }
 
+
+function OnMouseDown () {
+		Application.LoadLevel ("Caapora");
+}
+
 function OnGUI () {
 
 	GUI.Button(Rect(Screen.width / 2 + 130, Screen.height /2, 150, 40), "Start Game");
