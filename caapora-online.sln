@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "caapora-online.CSharp", "caapora-online.CSharp.csproj", "{B970C871-E31C-806E-8C22-1E70A1E7DD1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "caapora-online.CSharp.Editor", "caapora-online.CSharp.Editor.csproj", "{3BCE28C9-7EC5-C1D3-0AB1-7D55BF893ABC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B970C871-E31C-806E-8C22-1E70A1E7DD1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B970C871-E31C-806E-8C22-1E70A1E7DD1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B970C871-E31C-806E-8C22-1E70A1E7DD1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B970C871-E31C-806E-8C22-1E70A1E7DD1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BCE28C9-7EC5-C1D3-0AB1-7D55BF893ABC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BCE28C9-7EC5-C1D3-0AB1-7D55BF893ABC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BCE28C9-7EC5-C1D3-0AB1-7D55BF893ABC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BCE28C9-7EC5-C1D3-0AB1-7D55BF893ABC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
