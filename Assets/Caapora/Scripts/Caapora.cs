@@ -2,10 +2,17 @@
 using System.Collections;
 using IsoTools;
 
+[RequireComponent(typeof(IsoRigidbody))]
 public class Caapora : MonoBehaviour {
 
     // public GameObject gameObject = null;
     public Animator animator;
+
+	public float speed = 4.0f;
+	
+	IsoRigidbody _isoRigidbody = null;
+
+
 
 	// Use this for initialization
 	void Start () {
@@ -13,8 +20,13 @@ public class Caapora : MonoBehaviour {
         animator = GetComponent<Animator>();
         // gameObject = Instantiate(Resources.Load("Prefabs/FloorPrefab")) as GameObject;
 
+		_isoRigidbody = GetComponent<IsoRigidbody>();
+		if ( !_isoRigidbody ) {
+			throw new UnityException("PlayerController. IsoRigidbody component not found!");
+		}
+
 		// posiçao inicial do caipora
-		gameObject.GetComponent<IsoObject> ().position += new Vector3 (0, 0, 0);
+		//gameObject.GetComponent<IsoObject> ().position += new Vector3 (0, 0, 0);
 
     }
 	
@@ -22,32 +34,41 @@ public class Caapora : MonoBehaviour {
 	void Update () {
 
 		//if (Input.GetKey (KeyCode.UpArrow) || Input.GetKey (KeyCode.DownArrow) || Input.GetKey (KeyCode.RightArrow) || Input.GetKey (KeyCode.LeftArrow)) {
+		Debug.Log("vel = " + _isoRigidbody.velocity);
 
-			if (Input.GetKey (KeyCode.LeftArrow)) {
+			if (Input.GetKey(KeyCode.LeftArrow)) {
 		
-				gameObject.GetComponent<IsoObject> ().position += new Vector3 (-0.1f, 0, 0);
+				_isoRigidbody.velocity = IsoUtils.Vec3ChangeX(_isoRigidbody.velocity, -speed);
+				Debug.Log("Entrou em leftArrow vel = -" + speed  + _isoRigidbody.velocity);
 				animator.SetTrigger ("CaaporaWest");
 
 			} 
-			if (Input.GetKey (KeyCode.RightArrow)) {
+			else if (Input.GetKey (KeyCode.RightArrow)) {
 			
-				gameObject.GetComponent<IsoObject> ().position += new Vector3 (0.1f, 0, 0);
+				_isoRigidbody.velocity = IsoUtils.Vec3ChangeX(_isoRigidbody.velocity,  speed);
 				animator.SetTrigger ("CaaporaEast");
 
 			} 
-			if (Input.GetKey (KeyCode.DownArrow)) {
+			else if (Input.GetKey (KeyCode.DownArrow)) {
 			
-				gameObject.GetComponent<IsoObject> ().position += new Vector3 (0, -0.1f, 0);
+				_isoRigidbody.velocity = IsoUtils.Vec3ChangeY(_isoRigidbody.velocity, -speed);
 				animator.SetTrigger ("CaaporaSouth");
 
 
 			}
-			if (Input.GetKey (KeyCode.UpArrow)) {
+			else if (Input.GetKey (KeyCode.UpArrow)) {
 			
-				gameObject.GetComponent<IsoObject> ().position += new Vector3 (0, 0.1f, 0);
+				_isoRigidbody.velocity = IsoUtils.Vec3ChangeY(_isoRigidbody.velocity,  speed);
 				animator.SetTrigger ("CaaporaNorth");
 
 			}
+
+
+		if (gameObject.GetComponent<IsoObject> ().positionZ < -5) {
+		
+			Application.LoadLevel("GameOver");
+
+		}
 
 	//	}else {
         
