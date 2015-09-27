@@ -3,14 +3,40 @@ using System.Collections;
 using IsoTools;
 
 public class Caapora : MonoBehaviour {
+
+	public int life;
 	
 	// public GameObject gameObject = null;
 	public Animator animator;
 	public float speed = 0.2f;
+	public GameObject go;
+
+
+	void OnIsoCollisionEnter(IsoCollision iso_collision) {
+
+
+		if ( iso_collision.gameObject.name == "chamas" ) {
+
+
+			var objeto = iso_collision.gameObject.GetComponent<IsoRigidbody>();
+			if ( objeto ) {
+			
+				Destroy(objeto.gameObject);
+
+			//	objeto.transform.parent = transform;
+			}
+		}
+	}
 	
 	// Use this for initialization
 	void Start () {
+
+		// go = Instantiate(Resources.Load("Prefabs/moitaPrefab")) as GameObject; 
 		
+		//	go.transform.parent = this.transform; 		
+		
+		
+
 		animator = GetComponent<Animator>();
 		// gameObject = Instantiate(Resources.Load("Prefabs/FloorPrefab")) as GameObject;
 		
@@ -21,7 +47,9 @@ public class Caapora : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+
+	//	go.transform.position = this.transform.position;
+
 		//if (Input.GetKey (KeyCode.UpArrow) || Input.GetKey (KeyCode.DownArrow) || Input.GetKey (KeyCode.RightArrow) || Input.GetKey (KeyCode.LeftArrow)) {
 		
 		if (Input.GetKey (KeyCode.LeftArrow)) {
@@ -52,7 +80,7 @@ public class Caapora : MonoBehaviour {
 
 		if (Input.GetKeyDown (KeyCode.Space)) {
 			
-			gameObject.GetComponent<IsoObject> ().position += new Vector3 (0, 0, 5f);
+			gameObject.GetComponent<IsoRigidbody> ().velocity += new Vector3 (0, 0, 10f);
 			animator.SetTrigger ("Caapora-Norte");
 			
 		}
