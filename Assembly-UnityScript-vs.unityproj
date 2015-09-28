@@ -51,6 +51,7 @@
      <Compile Include="Assets\Caapora\Scripts\GUI\Tutorial.js" />
      <Compile Include="Assets\Caapora\Scripts\GUI\Winner.js" />
      <Compile Include="Assets\Caapora\Scripts\Pause.js" />
+     <None Include="Assets\Tiled2Unity\Prefabs\_ReadMe.txt" />
      <None Include="Assets\Tiled2Unity\Shaders\shaTiledMap.shader" />
      <None Include="Assets\Tiled2Unity\Tiled2Unity.export.txt" />
      <None Include="Assets\Tiled2Unity\Materials\_ReadMe.txt" />

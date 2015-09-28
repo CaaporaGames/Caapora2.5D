@@ -42,17 +42,20 @@ public class Caapora : Hero {
 		}
 	}
 	
+
+		void Awake () {
+			//	StartCoroutine(AnimateCaapora());
+		}
+
+
 	// Use this for initialization
 	void Start () {
 
-		//StartCoroutine(RemoveBalloon());
+	//	StartCoroutine(RemoveBalloon());
 
-
-
-
-//		 go = Instantiate(Resources.Load("Prefabs/SpeechBubblePrefab")) as GameObject; 
-		
-//		 go.transform.parent = this.transform; 		
+	//		 go = Instantiate(Resources.Load("Prefabs/SpeechBubblePrefab")) as GameObject; 
+			
+	//		 go.transform.parent = this.transform; 		
 
 
 		animator = GetComponent<Animator>();
@@ -72,25 +75,30 @@ public class Caapora : Hero {
 
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
 
 
 
-
-		int h = (int) (Input.GetAxisRaw("Horizontal"));
-        int v = (int) (Input.GetAxisRaw("Vertical"));
+			// Checar movimentaçao do controle
+			int h = (int) (Input.GetAxisRaw("Horizontal"));
+     		int v = (int) (Input.GetAxisRaw("Vertical"));
 
             if (h != 0)
             {
                 v = 0;
             }
 
+			// checa se houve algum controle do teclado ou controle
             if (h != 0 || v != 0)
-        {
-            //Call AttemptMove passing in the generic parameter Wall, since that is what Player may interact with if they encounter one (by attacking it)
-            //Pass in horizontal and vertical as parameters to specify the direction to move Player in.
-            AttemptMove<Wall>(h, v);
-        }
+	        {
+	            //Call AttemptMove passing in the generic parameter Wall, since that is what Player may interact with if they encounter one (by attacking it)
+	            //Pass in horizontal and vertical as parameters to specify the direction to move Player in.
+	         
+
+				//AttemptMove<Wall>(h, v);  // desabilitado 
+				Debug.Log("h " + h + " v " + v);
+
+	        }
 
 
 			//		go.transform.position = this.transform.position;
@@ -224,6 +232,8 @@ public class Caapora : Hero {
         //Set canMove to true if Move was successful, false if failed.
         bool canMove = Move(xDir, yDir, out hit);
 
+			Debug.Log ("canMove :" + canMove);
+
         //Check if nothing was hit by linecast
         if (hit.transform == null)
             //If nothing was hit, return and don't execute further code.
@@ -255,9 +265,6 @@ public class Caapora : Hero {
 	}
 
 
-	void Awake () {
-	//	StartCoroutine(AnimateCaapora());
-	}
 
 
 	IEnumerator AnimateCaapora(){
