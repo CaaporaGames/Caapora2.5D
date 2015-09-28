@@ -60,8 +60,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _material: {fileID: 0}
   _isTrigger: 0
-  _size: {x: 1, y: 1, z: 1}
-  _offset: {x: .5, y: .5, z: .5}
+  _size: {x: 1, y: 1, z: .200000003}
+  _offset: {x: .5, y: .5, z: 0}
 --- !u!114 &11495392
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -112,6 +112,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: _isKinematic
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _size.z
+      value: .200000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _offset.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

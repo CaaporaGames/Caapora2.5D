@@ -9,3 +9,9 @@ EditorBuildSettings:
     path: Assets/Caapora/Scenes/MenuPrincipal.unity
   - enabled: 1
     path: Assets/Caapora/Scenes/Caapora.unity
+  - enabled: 1
+    path: Assets/Caapora/Scenes/GameOver.unity
+  - enabled: 1
+    path: Assets/Caapora/Scenes/Winner.unity
+  - enabled: 1
+    path: Assets/Caapora/Scenes/Tutorial.unity

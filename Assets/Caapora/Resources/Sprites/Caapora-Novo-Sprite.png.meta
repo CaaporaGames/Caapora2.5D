@@ -1,0 +1,374 @@
+fileFormatVersion: 2
+guid: c2063a753c8e7404082d2d00342f6a10
+timeCreated: 1443222414
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Caapora-Novo-Sprite_0
+    21300002: Caapora-Novo-Sprite_1
+    21300004: Caapora-Novo-Sprite_2
+    21300006: Caapora-Novo-Sprite_3
+    21300008: Caapora-Novo-Sprite_4
+    21300010: Caapora-Novo-Sprite_5
+    21300012: Caapora-Novo-Sprite_6
+    21300014: Caapora-Novo-Sprite_7
+    21300016: Caapora-Novo-Sprite_8
+    21300018: Caapora-Novo-Sprite_9
+    21300020: Caapora-Novo-Sprite_10
+    21300022: Caapora-Novo-Sprite_11
+    21300024: Caapora-Novo-Sprite_12
+    21300026: Caapora-Novo-Sprite_13
+    21300028: Caapora-Novo-Sprite_14
+    21300030: Caapora-Novo-Sprite_15
+    21300032: Caapora-Novo-Sprite_16
+    21300034: Caapora-Novo-Sprite_17
+    21300036: Caapora-Novo-Sprite_18
+    21300038: Caapora-Novo-Sprite_19
+    21300040: Caapora-Novo-Sprite_20
+    21300042: Caapora-Novo-Sprite_21
+    21300044: Caapora-Novo-Sprite_22
+    21300046: Caapora-Novo-Sprite_23
+    21300048: Caapora-Novo-Sprite_24
+    21300050: Caapora-Novo-Sprite_25
+    21300052: Caapora-Novo-Sprite_26
+    21300054: Caapora-Novo-Sprite_27
+    21300056: Caapora-Novo-Sprite_28
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Caapora-Novo-Sprite_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 429
+        width: 39
+        height: 79
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Caapora-Novo-Sprite_1
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 428
+        width: 41
+        height: 79
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Caapora-Novo-Sprite_2
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 428
+        width: 38
+        height: 79
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Caapora-Novo-Sprite_3
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 465
+        width: 15
+        height: 7
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Caapora-Novo-Sprite_4
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 338
+        width: 39
+        height: 79
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Caapora-Novo-Sprite_5
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 337
+        width: 41
+        height: 79
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Caapora-Novo-Sprite_6
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 337
+        width: 38
+        height: 79
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Caapora-Novo-Sprite_7
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 364
+        width: 13
+        height: 10
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Caapora-Novo-Sprite_8
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 367
+        width: 5
+        height: 7
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Caapora-Novo-Sprite_9
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 250
+        width: 44
+        height: 71
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Caapora-Novo-Sprite_10
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 250
+        width: 34
+        height: 74
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Caapora-Novo-Sprite_11
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 251
+        width: 26
+        height: 72
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Caapora-Novo-Sprite_12
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 253
+        width: 42
+        height: 69
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Caapora-Novo-Sprite_13
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 280
+        width: 24
+        height: 8
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Caapora-Novo-Sprite_14
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 160
+        width: 42
+        height: 71
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Caapora-Novo-Sprite_15
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 159
+        width: 26
+        height: 73
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Caapora-Novo-Sprite_16
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 158
+        width: 35
+        height: 74
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Caapora-Novo-Sprite_17
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 159
+        width: 45
+        height: 73
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Caapora-Novo-Sprite_18
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 0
+        width: 212
+        height: 228
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Caapora-Novo-Sprite_19
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 131
+        width: 8
+        height: 6
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Caapora-Novo-Sprite_21
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 74
+        width: 29
+        height: 53
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 5, y: 0, z: 0, w: 0}
+    - name: Caapora-Novo-Sprite_20
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 75
+        width: 17
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Caapora-Novo-Sprite_22
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 75
+        width: 11
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Caapora-Novo-Sprite_23
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 74
+        width: 13
+        height: 53
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Caapora-Novo-Sprite_24
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 75
+        width: 22
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Caapora-Novo-Sprite_25
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 74
+        width: 16
+        height: 54
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Caapora-Novo-Sprite_26
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 75
+        width: 10
+        height: 53
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Caapora-Novo-Sprite_27
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 75
+        width: 16
+        height: 53
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Caapora-Novo-Sprite_28
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 75
+        width: 21
+        height: 53
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

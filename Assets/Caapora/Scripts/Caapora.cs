@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 using IsoTools;
+using UnityEngine.UI;
 
 namespace Completed { 
 public class Caapora : Hero {
 
+<<<<<<< HEAD
     // public GameObject gameObject = null;
     public Animator animator;
     public float range;
@@ -16,13 +18,57 @@ public class Caapora : Hero {
 
     // Use this for initialization
     void Start () {
+=======
+	public int life;
+    protected bool paused = true;
+	
+	// public GameObject gameObject = null;
+	public Animator animator;
+	public float speed = 0.2f;
+	public GameObject go;
+	public IsoObject caapora;
+	public float savedTimeState;
+	Text txt;
 
-        animator = GetComponent<Animator>();
-        // gameObject = Instantiate(Resources.Load("Prefabs/FloorPrefab")) as GameObject;
 
-		// posiçao inicial do caipora
+	void OnIsoCollisionEnter(IsoCollision iso_collision) {
+
+
+		if ( iso_collision.gameObject.name == "chamas" ) {
+
+
+
+			var objeto = iso_collision.gameObject.GetComponent<IsoRigidbody>();
+			if ( objeto ) {
+			
+				Destroy(objeto.gameObject);
+
+			//	objeto.transform.parent = transform;
+			}
+		}
+	}
+	
+	// Use this for initialization
+	void Start () {
+>>>>>>> 86ec5fba854b2c5cc7c1fabf08439fc3bd345d49
+
+		//StartCoroutine(RemoveBalloon());
+
+
+
+
+//		 go = Instantiate(Resources.Load("Prefabs/SpeechBubblePrefab")) as GameObject; 
+		
+//		 go.transform.parent = this.transform; 		
+
+
+		animator = GetComponent<Animator>();
+		// gameObject = Instantiate(Resources.Load("Prefabs/FloorPrefab")) as GameObject;
+		
+		// posiçao inicial do 
 		gameObject.GetComponent<IsoObject> ().position += new Vector3 (0, 0, 0);
 
+<<<<<<< HEAD
         rb2D = GetComponent<Rigidbody2D>();
 
         boxCollider = GetComponent<IsoBoxCollider>();
@@ -30,10 +76,25 @@ public class Caapora : Hero {
         inverseMoveTime = 1f / moveTime;
 
     }
+=======
+
+
+		
+	}
+>>>>>>> 86ec5fba854b2c5cc7c1fabf08439fc3bd345d49
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 
+
+//	 	if (paused) {
+//			savedTimeState = Time.timeScale;
+//			Time.timeScale = 0; 
+//		} else {
+//			Time.timeScale = savedTimeState;
+//		}
+
+<<<<<<< HEAD
         int h = (int) (Input.GetAxisRaw("Horizontal"));
         int v = (int) (Input.GetAxisRaw("Vertical"));
 
@@ -58,28 +119,62 @@ public class Caapora : Hero {
 		
 				gameObject.GetComponent<IsoObject> ().position += new Vector3 (-0.1f, 0, 0);
 				animator.SetTrigger ("CaaporaWest");
+=======
 
+>>>>>>> 86ec5fba854b2c5cc7c1fabf08439fc3bd345d49
+
+			//		go.transform.position = this.transform.position;
+			
+			//if (Input.GetKey (KeyCode.UpArrow) || Input.GetKey (KeyCode.DownArrow) || Input.GetKey (KeyCode.RightArrow) || Input.GetKey (KeyCode.LeftArrow)) {
+			
+			if (Input.GetKey (KeyCode.LeftArrow)) {
+				
+				gameObject.GetComponent<IsoObject> ().position += new Vector3 (-this.speed, 0, 0);
+				animator.SetTrigger ("Caapora-left");
+				
 			} 
 			if (Input.GetKey (KeyCode.RightArrow)) {
-			
-				gameObject.GetComponent<IsoObject> ().position += new Vector3 (0.1f, 0, 0);
-				animator.SetTrigger ("CaaporaEast");
-
+				
+				gameObject.GetComponent<IsoObject> ().position += new Vector3 (this.speed, 0, 0);
+				animator.SetTrigger ("Caapora-right");
+				
 			} 
 			if (Input.GetKey (KeyCode.DownArrow)) {
-			
-				gameObject.GetComponent<IsoObject> ().position += new Vector3 (0, -0.1f, 0);
-				animator.SetTrigger ("CaaporaSouth");
-
-
+				
+				gameObject.GetComponent<IsoObject> ().position += new Vector3 (0, -this.speed, 0);
+				animator.SetTrigger ("Caapora-Sul");
+				
+				
 			}
 			if (Input.GetKey (KeyCode.UpArrow)) {
-			
-				gameObject.GetComponent<IsoObject> ().position += new Vector3 (0, 0.1f, 0);
-				animator.SetTrigger ("CaaporaNorth");
-
+				
+				gameObject.GetComponent<IsoObject> ().position += new Vector3 (0, this.speed, 0);
+				animator.SetTrigger ("Caapora-Norte");
+				
 			}
+			
+			if (Input.GetKeyDown (KeyCode.Space)) {
 
+				paused = paused ? false : true;
+				
+				
+				gameObject.GetComponent<IsoRigidbody> ().velocity += new Vector3 (0, 0, 10f);
+				animator.SetTrigger ("Caapora-Norte");
+				
+			}
+			
+			if (gameObject.GetComponent<IsoObject> ().positionZ < -5) {
+				
+				Application.LoadLevel("GameOver");
+				
+			}
+			
+			//	}else {
+			
+			//        animator.SetTrigger("CaaporaIdle");
+			//    }
+
+<<<<<<< HEAD
 	//	}else{
         
     //        animator.SetTrigger("CaaporaIdle");
@@ -90,9 +185,26 @@ public class Caapora : Hero {
             animator.SetTrigger("CaaporaIdle");
         }
 
+=======
 	
+
+		
+		
 	}
 
+	void OnPauseGame ()
+	{
+		paused = true;
+	}
+	
+>>>>>>> 86ec5fba854b2c5cc7c1fabf08439fc3bd345d49
+	
+	void OnResumeGame ()
+	{
+		paused = false;
+	}
+
+<<<<<<< HEAD
     
         protected bool Move(int xDir, int yDir, out RaycastHit2D hit)
         {
@@ -178,5 +290,46 @@ public class Caapora : Hero {
     }
 
 }
+=======
+
+	IEnumerator RemoveBalloon() {
+		
+		Debug.Log("Before Waiting 5 seconds");
+		yield return new WaitForSeconds(2);
+		textBallon.AtiveBallon (false);
+		Debug.Log("After Waiting 5 Seconds");
+	}
+
+
+	void Awake () {
+		StartCoroutine(AnimateCaapora());
+	}
+
+
+	IEnumerator AnimateCaapora(){
+
+		caapora = gameObject.GetComponent<IsoObject> ();
+		
+		for (int i = 0; i < 20; i++)
+		{
+			caapora.position += new Vector3 (0, this.speed, 0);
+
+			yield return new WaitForSeconds(.08f);
+		}
+	}
+
+
+
+
+	void OnGUI(){
+		
+	
+		GUI.Label(new Rect(0,0,300,50), "Player Position X " + gameObject.GetComponent<IsoObject>().positionX);
+		GUI.Label(new Rect(0,50,300,50), "Player Position Y " + gameObject.GetComponent<IsoObject>().positionY);
+		GUI.Label(new Rect(0,100,300,50), "Player Position Z " + gameObject.GetComponent<IsoObject>().positionZ);
+
+	
+	}
+>>>>>>> 86ec5fba854b2c5cc7c1fabf08439fc3bd345d49
 
 }
