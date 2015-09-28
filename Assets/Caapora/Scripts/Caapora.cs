@@ -6,24 +6,18 @@ using UnityEngine.UI;
 namespace Completed { 
 public class Caapora : Hero {
 
-<<<<<<< HEAD
-    // public GameObject gameObject = null;
-    public Animator animator;
-    public float range;
-    private Rigidbody2D rb2D;
-    private float inverseMoveTime;
-    private IsoBoxCollider boxCollider;
-    private float moveTime;
-    private LayerMask blockingLayer;
 
-    // Use this for initialization
-    void Start () {
-=======
 	public int life;
     protected bool paused = true;
 	
 	// public GameObject gameObject = null;
 	public Animator animator;
+	public float range;
+    private Rigidbody2D rb2D;
+    private float inverseMoveTime;
+    private IsoBoxCollider boxCollider;
+    private float moveTime;
+    private LayerMask blockingLayer;
 	public float speed = 0.2f;
 	public GameObject go;
 	public IsoObject caapora;
@@ -50,7 +44,6 @@ public class Caapora : Hero {
 	
 	// Use this for initialization
 	void Start () {
->>>>>>> 86ec5fba854b2c5cc7c1fabf08439fc3bd345d49
 
 		//StartCoroutine(RemoveBalloon());
 
@@ -68,7 +61,7 @@ public class Caapora : Hero {
 		// posiçao inicial do 
 		gameObject.GetComponent<IsoObject> ().position += new Vector3 (0, 0, 0);
 
-<<<<<<< HEAD
+
         rb2D = GetComponent<Rigidbody2D>();
 
         boxCollider = GetComponent<IsoBoxCollider>();
@@ -76,26 +69,15 @@ public class Caapora : Hero {
         inverseMoveTime = 1f / moveTime;
 
     }
-=======
 
-
-		
-	}
->>>>>>> 86ec5fba854b2c5cc7c1fabf08439fc3bd345d49
 	
 	// Update is called once per frame
 	void FixedUpdate () {
 
 
-//	 	if (paused) {
-//			savedTimeState = Time.timeScale;
-//			Time.timeScale = 0; 
-//		} else {
-//			Time.timeScale = savedTimeState;
-//		}
 
-<<<<<<< HEAD
-        int h = (int) (Input.GetAxisRaw("Horizontal"));
+
+		int h = (int) (Input.GetAxisRaw("Horizontal"));
         int v = (int) (Input.GetAxisRaw("Vertical"));
 
             if (h != 0)
@@ -110,18 +92,6 @@ public class Caapora : Hero {
             AttemptMove<Wall>(h, v);
         }
 
-        // transform.position += new Vector3(xPos, yPos, 0);
-
-
-        //if (Input.GetKey (KeyCode.UpArrow) || Input.GetKey (KeyCode.DownArrow) || Input.GetKey (KeyCode.RightArrow) || Input.GetKey (KeyCode.LeftArrow)) {
-
-        if (Input.GetKey (KeyCode.LeftArrow)) {
-		
-				gameObject.GetComponent<IsoObject> ().position += new Vector3 (-0.1f, 0, 0);
-				animator.SetTrigger ("CaaporaWest");
-=======
-
->>>>>>> 86ec5fba854b2c5cc7c1fabf08439fc3bd345d49
 
 			//		go.transform.position = this.transform.position;
 			
@@ -174,21 +144,7 @@ public class Caapora : Hero {
 			//        animator.SetTrigger("CaaporaIdle");
 			//    }
 
-<<<<<<< HEAD
-	//	}else{
-        
-    //        animator.SetTrigger("CaaporaIdle");
-    //    }
 
-        if (!(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow)))
-        {
-            animator.SetTrigger("CaaporaIdle");
-        }
-
-=======
-	
-
-		
 		
 	}
 
@@ -197,14 +153,13 @@ public class Caapora : Hero {
 		paused = true;
 	}
 	
->>>>>>> 86ec5fba854b2c5cc7c1fabf08439fc3bd345d49
+
 	
 	void OnResumeGame ()
 	{
 		paused = false;
 	}
 
-<<<<<<< HEAD
     
         protected bool Move(int xDir, int yDir, out RaycastHit2D hit)
         {
@@ -289,8 +244,7 @@ public class Caapora : Hero {
     {
     }
 
-}
-=======
+
 
 	IEnumerator RemoveBalloon() {
 		
@@ -302,7 +256,7 @@ public class Caapora : Hero {
 
 
 	void Awake () {
-		StartCoroutine(AnimateCaapora());
+	//	StartCoroutine(AnimateCaapora());
 	}
 
 
@@ -330,6 +284,8 @@ public class Caapora : Hero {
 
 	
 	}
->>>>>>> 86ec5fba854b2c5cc7c1fabf08439fc3bd345d49
+
+
+	}
 
 }
