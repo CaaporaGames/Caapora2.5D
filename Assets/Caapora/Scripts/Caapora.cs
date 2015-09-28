@@ -12,6 +12,7 @@ public class Caapora : MonoBehaviour {
 	public Animator animator;
 	public float speed = 0.2f;
 	public GameObject go;
+	public IsoObject caapora;
 	public float savedTimeState;
 	Text txt;
 
@@ -49,7 +50,7 @@ public class Caapora : MonoBehaviour {
 		animator = GetComponent<Animator>();
 		// gameObject = Instantiate(Resources.Load("Prefabs/FloorPrefab")) as GameObject;
 		
-		// posiçao inicial do caipora
+		// posiçao inicial do 
 		gameObject.GetComponent<IsoObject> ().position += new Vector3 (0, 0, 0);
 
 
@@ -145,6 +146,24 @@ public class Caapora : MonoBehaviour {
 		yield return new WaitForSeconds(2);
 		textBallon.AtiveBallon (false);
 		Debug.Log("After Waiting 5 Seconds");
+	}
+
+
+	void Awake () {
+		StartCoroutine(AnimateCaapora());
+	}
+
+
+	IEnumerator AnimateCaapora(){
+
+		caapora = gameObject.GetComponent<IsoObject> ();
+		
+		for (int i = 0; i < 20; i++)
+		{
+			caapora.position += new Vector3 (0, this.speed, 0);
+
+			yield return new WaitForSeconds(.08f);
+		}
 	}
 
 
