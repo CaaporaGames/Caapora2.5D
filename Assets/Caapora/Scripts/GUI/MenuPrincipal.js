@@ -1,5 +1,7 @@
 ﻿#pragma strict
 
+var customSkin : GUISkin;
+
 function Start () {
 
 }
@@ -9,6 +11,8 @@ function Update () {
 }
 
 function OnGUI () {
+
+	GUI.skin = customSkin;
 
 	if(GUI.Button(Rect(Screen.width / 2 + 130, Screen.height /2, 150, 40), "Start Game")){
 		Application.LoadLevel("Tutorial");

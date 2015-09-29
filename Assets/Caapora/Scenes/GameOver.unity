@@ -492,3 +492,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a335b2057f740d488d49fb21be489e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  customSkin: {fileID: 11400000, guid: 0e6e3a0c79be67e4296b874594bfb116, type: 2}

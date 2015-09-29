@@ -1,19 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State expanded="True">
-          <Node name="Assembly-CSharp" expanded="True">
-            <Node name="Caapora" expanded="True">
-              <Node name="Scripts" expanded="True">
-                <Node name="text.cs" selected="True" />
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Caapora\Scripts\GUI\Tutorial.js">
+    <Files>
+      <File FileName="Assets\Caapora\Scripts\GUI\MenuPrincipal.js" Line="23" Column="2" />
+      <File FileName="Assets\Caapora\Scripts\GUI\Winner.js" Line="3" Column="1" />
+      <File FileName="Assets\Caapora\Scripts\GUI\GameOver.js" Line="23" Column="2" />
+      <File FileName="Assets\Caapora\Scripts\GUI\Tutorial.js" Line="17" Column="68" />
+    </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
