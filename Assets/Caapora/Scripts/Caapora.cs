@@ -95,7 +95,7 @@ public class Caapora : Hero {
 	            //Pass in horizontal and vertical as parameters to specify the direction to move Player in.
 	         
 
-				//AttemptMove<Wall>(h, v);  // desabilitado 
+				AttemptMove<Wall>(h, v);  // desabilitado 
 				Debug.Log("h " + h + " v " + v);
 
 	        }

@@ -8,27 +8,32 @@ public class text : MonoBehaviour {
 	public Text textBox;
 	//Store all your text in this string array
 	string[] goatText = new string[]{
-		"1. Laik's super awesome custom typewriter script", 
-		"2. You can click to skip to the next text", 
-		"3. All text is stored in a single string array", 
-		"4. Ok, now we can continue","" +
-		"5. End Kappa"};
+		"1. Ola! Eu sou o Caapora", 
+		"2. Nossa! O que fizeram com a floresta", 
+		"3. De onde veio todo esse fogo!", 
+		"4. Me ajude a apagar as chamas",
+		"5. Basta pegar o balde logo ali e e jogar onde ha fogo" ,
+		"6. Nao temos tempo a perder. Vamos la!"};
 
 
 	int currentlyDisplayingText = 0;
 
 	// Use this for initialization
 	void Start () {
-	
+
+
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
+
+		// InvokeRepeating("SkipToNextText", .01f, 1.0f);
+
 		if (Input.GetKey (KeyCode.A)) {
 			
-			SkipToNextText();
+
 			
 		}
 
@@ -37,7 +42,8 @@ public class text : MonoBehaviour {
 	
 
 	void Awake () {
-		StartCoroutine(AnimateText());
+
+		StartCoroutine(AnimateFrase ());
 	}
 
 	//This is a function for a button you press to skip to the next text
@@ -48,15 +54,35 @@ public class text : MonoBehaviour {
 		if (currentlyDisplayingText>goatText.Length) {
 			currentlyDisplayingText=0;
 		}
-		StartCoroutine(AnimateText());
+		StartCoroutine(AnimateText("lalalal"));
 	}
+
+
+	IEnumerator AnimateFrase(){
+	
+
+		for (int i = 0; i < goatText.Length ; i++) {
+			//StopAllCoroutines();
+			Debug.Log("Passou aqui em AnimateFrase");
+			StartCoroutine(AnimateText(goatText[i]));
+			yield return new WaitForSeconds(3f);
+		}
+
+		Destroy(GameObject.Find ("txtBalloon"));
+
+
+
+	}
+
+
+	// Para cada letra leva um certo tempo para mostrar
 	//Note that the speed you want the typewriter effect to be going at is the yield waitforseconds (in my case it's 1 letter for every      0.03 seconds, replace this with a public float if you want to experiment with speed in from the editor)
-	IEnumerator AnimateText(){
+	IEnumerator AnimateText(string str){
 		txt = transform.GetComponent<Text> ();
 
-		for (int i = 0; i < (goatText[currentlyDisplayingText].Length+1); i++)
+		for (int i = 0; i < (str.Length+1); i++)
 		{
-			txt.text = goatText[currentlyDisplayingText].Substring(0, i);
+			txt.text = str.Substring(0, i);
 			yield return new WaitForSeconds(.07f);
 		}
 	}
