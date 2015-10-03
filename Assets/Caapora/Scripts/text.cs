@@ -8,12 +8,14 @@ public class text : MonoBehaviour {
 	public Text textBox;
 	//Store all your text in this string array
 	string[] goatText = new string[]{
-		"1. Ola! Eu sou o Caapora", 
-		"2. Nossa! O que fizeram com a floresta", 
-		"3. De onde veio todo esse fogo!", 
-		"4. Me ajude a apagar as chamas",
-		"5. Basta pegar o balde logo ali e e jogar onde ha fogo" ,
-		"6. Nao temos tempo a perder. Vamos la!"};
+		"Ola! Eu sou o Caapora", 
+		"Nossa! O que fizeram com a floresta", 
+		"De onde veio todo esse fogo!", 
+		"Me ajude a apagar as chamas",
+		"Basta pegar o balde logo ali" ,
+		"e jogar onde ha fogo",
+		"Nao temos tempo a perder.",
+		"Vamos la!"};
 
 
 	int currentlyDisplayingText = 0;

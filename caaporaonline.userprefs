@@ -1,9 +1,25 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="c:\Users\Daniel\Desktop\Projeto Caapora\caaporaonline\Assets\IsoTools\Scripts\IsoCollider.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Caapora\Scripts\PlayerBehavior.cs">
     <Files>
-      <File FileName="c:\Users\Daniel\Desktop\Projeto Caapora\caaporaonline\Assets\IsoTools\Scripts\IsoCollider.cs" Line="75" Column="46" />
+      <File FileName="Assets\Caapora\Scripts\PlayerBehavior.cs" Line="78" Column="7" />
+      <File FileName="Assets\Caapora\Scripts\CaaporaV2.cs" Line="1" Column="1" />
+      <File FileName="Assets\generator.cs" Line="1" Column="1" />
+      <File FileName="Assets\Caapora\Scripts\CharacterBase.cs" Line="1" Column="1" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Assembly-CSharp" expanded="True">
+            <Node name="Caapora" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="PlayerBehavior.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

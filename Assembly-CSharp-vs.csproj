@@ -46,10 +46,10 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Caapora\Scripts\Caapora.cs" />
      <Compile Include="Assets\Caapora\Scripts\CaaporaV2.cs" />
-     <Compile Include="Assets\Caapora\Scripts\Enemy.cs" />
-     <Compile Include="Assets\Caapora\Scripts\Hero.cs" />
+     <Compile Include="Assets\Caapora\Scripts\CharacterBase.cs" />
+     <Compile Include="Assets\Caapora\Scripts\Inimigo.cs" />
+     <Compile Include="Assets\Caapora\Scripts\PlayerBehavior.cs" />
      <Compile Include="Assets\Caapora\Scripts\Wall.cs" />
      <Compile Include="Assets\Caapora\Scripts\generateWorld.cs" />
      <Compile Include="Assets\Caapora\Scripts\levelController.cs" />
@@ -78,6 +78,8 @@
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TileAnimator.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TiledInitialShaderProperties.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TiledMap.cs" />
+     <Compile Include="Assets\generator.cs" />
+     <Compile Include="Assets\inimigo.cs" />
      <Compile Include="Assets\textBallon.cs" />
      <None Include="Assets\Tiled2Unity\Prefabs\_ReadMe.txt" />
      <None Include="Assets\Tiled2Unity\Shaders\shaTiledMap.shader" />
