@@ -49,4 +49,5 @@ public class levelController : MonoBehaviour {
 	public static float GetNextXp() {
 		return levelController.instance.xpFirstLevel * (GetCurrentLevel() + 1) * levelController.instance.difficultFactor;
 	}
+	
 }

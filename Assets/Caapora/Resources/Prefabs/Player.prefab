@@ -328,13 +328,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf6d11e3e15f2c41809ce5e79ada4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseLife: 0
+  baseEnergy: 0
+  baseDefense: 0
+  baseAttack: 0
   life: 0
+  paused: 1
   animator: {fileID: 0}
   range: 0
+  rb2D: {fileID: 0}
+  inverseMoveTime: 0
+  boxCollider: {fileID: 0}
+  moveTime: 0
+  blockingLayer: {}
   speed: .200000003
   go: {fileID: 0}
   caapora: {fileID: 0}
   savedTimeState: 0
+  txt: {fileID: 0}
 --- !u!114 &11426844
 MonoBehaviour:
   m_ObjectHideFlags: 1

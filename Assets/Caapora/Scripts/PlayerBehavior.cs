@@ -4,10 +4,8 @@ using IsoTools;
 using UnityEngine.UI;
 
 namespace Completed { 
-public class Caapora : Hero {
+public class PlayerBehavior : CharacterBase {
 
-
-	public int life;
     protected bool paused = true;
 	
 	// public GameObject gameObject = null;
@@ -49,7 +47,7 @@ public class Caapora : Hero {
 
 
 	// Use this for initialization
-	void Start () {
+	protected void Start () {
 
 	//	StartCoroutine(RemoveBalloon());
 
@@ -57,6 +55,8 @@ public class Caapora : Hero {
 			
 	//		 go.transform.parent = this.transform; 		
 
+		base.Start();
+		currentLevel = levelController.GetCurrentLevel();
 
 		animator = GetComponent<Animator>();
 		// gameObject = Instantiate(Resources.Load("Prefabs/FloorPrefab")) as GameObject;
