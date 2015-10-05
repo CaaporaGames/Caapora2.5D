@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: fe1d478a9e4699b4eb67d1d18d8b1683
-timeCreated: 1443628003
+timeCreated: 1444056187
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -43,7 +43,7 @@ TextureImporter:
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -1
-  maxTextureSize: 2048
+  maxTextureSize: 512
   textureSettings:
     filterMode: -1
     aniso: 16
@@ -73,8 +73,8 @@ TextureImporter:
         y: 255
         width: 49
         height: 85
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Enemy_1
       rect:
@@ -83,8 +83,8 @@ TextureImporter:
         y: 255
         width: 49
         height: 85
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Enemy_2
       rect:
@@ -93,8 +93,8 @@ TextureImporter:
         y: 255
         width: 49
         height: 85
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Enemy_3
       rect:
@@ -103,8 +103,8 @@ TextureImporter:
         y: 255
         width: 49
         height: 85
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Enemy_4
       rect:
@@ -113,8 +113,8 @@ TextureImporter:
         y: 170
         width: 49
         height: 85
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Enemy_5
       rect:
@@ -123,8 +123,8 @@ TextureImporter:
         y: 170
         width: 49
         height: 85
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Enemy_6
       rect:
@@ -133,8 +133,8 @@ TextureImporter:
         y: 170
         width: 49
         height: 85
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Enemy_7
       rect:
@@ -143,8 +143,8 @@ TextureImporter:
         y: 170
         width: 49
         height: 85
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Enemy_8
       rect:
@@ -153,8 +153,8 @@ TextureImporter:
         y: 85
         width: 49
         height: 85
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Enemy_9
       rect:
@@ -163,8 +163,8 @@ TextureImporter:
         y: 85
         width: 49
         height: 85
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Enemy_10
       rect:
@@ -173,8 +173,8 @@ TextureImporter:
         y: 85
         width: 49
         height: 85
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Enemy_11
       rect:
@@ -183,8 +183,8 @@ TextureImporter:
         y: 85
         width: 49
         height: 85
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Enemy_12
       rect:
@@ -193,8 +193,8 @@ TextureImporter:
         y: 0
         width: 49
         height: 85
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Enemy_13
       rect:
@@ -203,8 +203,8 @@ TextureImporter:
         y: 0
         width: 49
         height: 85
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Enemy_14
       rect:
@@ -213,8 +213,8 @@ TextureImporter:
         y: 0
         width: 49
         height: 85
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Enemy_15
       rect:
@@ -223,8 +223,8 @@ TextureImporter:
         y: 0
         width: 49
         height: 85
-      alignment: 7
-      pivot: {x: .5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
