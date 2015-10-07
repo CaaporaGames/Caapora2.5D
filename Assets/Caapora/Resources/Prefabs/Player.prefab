@@ -104,8 +104,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 152348}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 287.999969, y: 48.0000076, z: 40.9999466}
-  m_LocalScale: {x: 50, y: 50, z: 50}
+  m_LocalPosition: {x: 239.999985, y: 56.0000038, z: 2.49999976}
+  m_LocalScale: {x: 10.2629347, y: 11.3857155, z: 50}
   m_Children:
   - {fileID: 429178}
   - {fileID: 22482746}
@@ -143,7 +143,7 @@ Camera:
   far clip plane: 1000
   field of view: 173.551987
   orthographic: 1
-  orthographic size: 110
+  orthographic size: 100
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -278,7 +278,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 3}
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 8
     m_FontStyle: 1
     m_BestFit: 1
@@ -325,27 +325,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 152348}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccf6d11e3e15f2c41809ce5e79ada4fa, type: 3}
+  m_Script: {fileID: 11500000, guid: 6008a65c23770c9468377d2e985427da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseLife: 0
-  baseEnergy: 0
-  baseDefense: 0
-  baseAttack: 0
-  life: 0
-  paused: 1
+  currentLevel: 0
+  basicStats:
+    startLife: 0
+    startMana: 0
+    strenght: 0
+    magic: 0
+    agillity: 0
+    baseDefence: 0
+    baseAttack: 0
   animator: {fileID: 0}
   range: 0
-  rb2D: {fileID: 0}
-  inverseMoveTime: 0
-  boxCollider: {fileID: 0}
-  moveTime: 0
-  blockingLayer: {}
-  speed: .200000003
+  speed: .100000001
   go: {fileID: 0}
   caapora: {fileID: 0}
   savedTimeState: 0
-  txt: {fileID: 0}
 --- !u!114 &11426844
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -402,7 +399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mode: 0
   _size: {x: 1, y: 1.20000005, z: 1.20000005}
-  _position: {x: 11, y: -7, z: 1}
+  _position: {x: 10, y: -5, z: 1}
   _isAlignment: 1
   _isShowBounds: 1
 --- !u!114 &11455056
@@ -510,7 +507,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 548467643
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c2063a753c8e7404082d2d00342f6a10, type: 3}
+  m_Sprite: {fileID: 21300006, guid: 72a48faeb559e3d43bde4bc1c20377a7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!222 &22214240
 CanvasRenderer:
@@ -555,8 +552,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 10.1000366, y: 1.20001221}
-  m_SizeDelta: {x: 85.0500031, y: 26.2000008}
+  m_AnchoredPosition: {x: 3, y: -1.20000005}
+  m_SizeDelta: {x: 88, y: 34.9000015}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22479244
 RectTransform:
@@ -573,8 +570,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -373, y: -175.600006}
-  m_SizeDelta: {x: 100, y: 50}
+  m_AnchoredPosition: {x: -296, y: -42.3499985}
+  m_SizeDelta: {x: 171, y: 84.6999969}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22482746
 RectTransform:
