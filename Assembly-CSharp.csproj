@@ -47,7 +47,7 @@
   <ItemGroup>
      <Compile Include="Assets\Caapora\Scripts\CaaporaV2.cs" />
      <Compile Include="Assets\Caapora\Scripts\CharacterBase.cs" />
-     <Compile Include="Assets\Caapora\Scripts\Inimigo.cs" />
+     <Compile Include="Assets\Caapora\Scripts\EnemyBehavior.cs" />
      <Compile Include="Assets\Caapora\Scripts\PlayerBehavior.cs" />
      <Compile Include="Assets\Caapora\Scripts\Wall.cs" />
      <Compile Include="Assets\Caapora\Scripts\generateWorld.cs" />
@@ -78,7 +78,6 @@
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TiledInitialShaderProperties.cs" />
      <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TiledMap.cs" />
      <Compile Include="Assets\generator.cs" />
-     <Compile Include="Assets\inimigo.cs" />
      <Compile Include="Assets\textBallon.cs" />
      <None Include="Assets\Tiled2Unity\Prefabs\_ReadMe.txt" />
      <None Include="Assets\Tiled2Unity\Shaders\shaTiledMap.shader" />
@@ -89,17 +88,11 @@
      <None Include="Assets\Tiled2Unity\License.txt" />
      <None Include="Assets\Tiled2Unity\Imported\_ReadMe.txt" />
      <None Include="Assets\Tiled2Unity\Meshes\_ReadMe.txt" />
- <Reference Include="UnityEngine.Advertisements">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Analytics">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Cecil">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/Mono.Cecil.dll</HintPath>

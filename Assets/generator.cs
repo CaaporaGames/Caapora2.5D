@@ -8,7 +8,7 @@ public class generator : MonoBehaviour {
 	
 		float cellY;
 		float cellX;
-		int mapize = 50;
+		int mapize = 20;
 		int tile_width = 34;
 		int tile_height = 16;
 

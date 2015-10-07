@@ -1,9 +1,9 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using IsoTools;
 
 
-public class inimigo : MonoBehaviour {
+public class EnemyBehavior : CharacterBase {
 
 	public float speed = 0.2f;
 	public Animator animator;
@@ -20,26 +20,26 @@ public class inimigo : MonoBehaviour {
 		if (Input.GetKey (KeyCode.A)) {
 			
 			gameObject.GetComponent<IsoObject> ().position += new Vector3 (-this.speed, 0, 0);
-			animator.SetTrigger ("Enemy-left");
+			animator.SetTrigger ("Left");
 			
 		} 
 		if (Input.GetKey (KeyCode.D)) {
 			
 			gameObject.GetComponent<IsoObject> ().position += new Vector3 (this.speed, 0, 0);
-			animator.SetTrigger ("Enemy-right");
+			animator.SetTrigger ("Right");
 			
 		} 
 		if (Input.GetKey (KeyCode.W)) {
 			
 			gameObject.GetComponent<IsoObject> ().position += new Vector3 (0, this.speed, 0);
-			animator.SetTrigger ("Enemy-up");
+			animator.SetTrigger ("Up");
 			
 			
 		}
 		if (Input.GetKey (KeyCode.S)) {
 			
 			gameObject.GetComponent<IsoObject> ().position += new Vector3 (0, -this.speed, 0);
-			animator.SetTrigger ("Enemy-down");
+			animator.SetTrigger ("Down");
 			
 		}
 

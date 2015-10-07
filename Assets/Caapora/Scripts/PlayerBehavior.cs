@@ -120,14 +120,14 @@ public class PlayerBehavior : CharacterBase {
 			if (Input.GetKey (KeyCode.DownArrow)) {
 				
 				gameObject.GetComponent<IsoObject> ().position += new Vector3 (0, -this.speed, 0);
-				animator.SetTrigger ("Caapora-Sul");
+				animator.SetTrigger ("Caapora-Norte");
 				
 				
 			}
 			if (Input.GetKey (KeyCode.UpArrow)) {
 				
 				gameObject.GetComponent<IsoObject> ().position += new Vector3 (0, this.speed, 0);
-				animator.SetTrigger ("Caapora-Norte");
+				animator.SetTrigger ("Caapora-Sul");
 				
 			}
 			
