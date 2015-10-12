@@ -43,10 +43,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mode: 0
-  _size: {x: 1, y: 1, z: 1}
+  _size: {x: 2, y: 2, z: 4}
   _position: {x: 0, y: 0, z: 1}
   _isAlignment: 1
-  _isShowBounds: 0
+  _isShowBounds: 1
 --- !u!114 &11422344
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -73,7 +73,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4febe544112bb4678bdd59fa963c802d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isKinematic: 0
+  _isKinematic: 1
   _interpolation: 0
   _collisionDetectionMode: 0
 --- !u!212 &21241614
@@ -111,15 +111,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: _size.x
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: _size.y
-      value: 1.70000005
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: _size.z
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: _offset.z
@@ -127,6 +127,14 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: _position.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _isKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _isShowBounds
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

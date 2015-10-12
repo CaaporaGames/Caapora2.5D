@@ -8,6 +8,8 @@ public class textBallon : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		instance = this;
+		AtiveBallon (false);
+
 	
 		//InvokeRepeating( this.AtiveBallon(), .01, 1.0);
 

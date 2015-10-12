@@ -10,8 +10,8 @@ GameObject:
   - 4: {fileID: 400226}
   - 212: {fileID: 21241554}
   - 114: {fileID: 11461710}
-  - 114: {fileID: 11480020}
   - 114: {fileID: 11481396}
+  - 114: {fileID: 11496664}
   m_Layer: 0
   m_Name: treePrefab
   m_TagString: Untagged
@@ -47,21 +47,6 @@ MonoBehaviour:
   _position: {x: 14, y: -21, z: 1}
   _isAlignment: 1
   _isShowBounds: 1
---- !u!114 &11480020
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 119148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b256250c588ee4e4590a3e58eaa69b1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _material: {fileID: 0}
-  _isTrigger: 0
-  _size: {x: 3, y: 3, z: 4}
-  _offset: {x: 1.5, y: 1.60000002, z: -1}
 --- !u!114 &11481396
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -76,6 +61,21 @@ MonoBehaviour:
   _isKinematic: 1
   _interpolation: 0
   _collisionDetectionMode: 0
+--- !u!114 &11496664
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b256250c588ee4e4590a3e58eaa69b1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _material: {fileID: 0}
+  _isTrigger: 0
+  _size: {x: 2, y: 2, z: 4}
+  _offset: {x: 1, y: 1, z: 2}
 --- !u!212 &21241554
 SpriteRenderer:
   m_ObjectHideFlags: 1

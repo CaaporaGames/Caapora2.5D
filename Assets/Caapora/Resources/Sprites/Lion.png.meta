@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 31e49b5eb8bc02a42a3213b775f25482
-timeCreated: 1444246698
+timeCreated: 1444642472
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -49,7 +49,6 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
@@ -69,8 +68,8 @@ TextureImporter:
         y: 240
         width: 80
         height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Lion_1
       rect:
@@ -79,8 +78,8 @@ TextureImporter:
         y: 240
         width: 80
         height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Lion_2
       rect:
@@ -89,8 +88,8 @@ TextureImporter:
         y: 240
         width: 80
         height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Lion_3
       rect:
@@ -99,18 +98,18 @@ TextureImporter:
         y: 160
         width: 80
         height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Lion_4
       rect:
         serializedVersion: 2
-        x: 80
-        y: 160
+        x: 79
+        y: 161
         width: 80
         height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Lion_5
       rect:
@@ -119,8 +118,8 @@ TextureImporter:
         y: 160
         width: 80
         height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Lion_6
       rect:
@@ -129,8 +128,8 @@ TextureImporter:
         y: 80
         width: 80
         height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Lion_7
       rect:
@@ -139,8 +138,8 @@ TextureImporter:
         y: 80
         width: 80
         height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Lion_8
       rect:
@@ -149,8 +148,8 @@ TextureImporter:
         y: 80
         width: 80
         height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Lion_9
       rect:
@@ -159,8 +158,8 @@ TextureImporter:
         y: 0
         width: 80
         height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Lion_10
       rect:
@@ -169,8 +168,8 @@ TextureImporter:
         y: 0
         width: 80
         height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Lion_11
       rect:
@@ -179,8 +178,8 @@ TextureImporter:
         y: 0
         width: 80
         height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

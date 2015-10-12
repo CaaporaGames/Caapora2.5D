@@ -31,6 +31,7 @@ GameObject:
   - 114: {fileID: 11463482}
   - 114: {fileID: 11435368}
   - 114: {fileID: 11416148}
+  - 114: {fileID: 11452404}
   m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
@@ -179,7 +180,6 @@ AudioSource:
   m_Pitch: 1
   Loop: 1
   Mute: 0
-  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -271,12 +271,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: .941176474, g: .221453279, b: .221453279, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 8
@@ -303,12 +297,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: caff4d258ab9ceb4c8bf3583b16b5a78, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -339,7 +327,7 @@ MonoBehaviour:
     baseAttack: 0
   animator: {fileID: 0}
   range: 0
-  speed: .100000001
+  speed: .200000003
   go: {fileID: 0}
   caapora: {fileID: 0}
   savedTimeState: 0
@@ -402,6 +390,19 @@ MonoBehaviour:
   _position: {x: 10, y: -5, z: 1}
   _isAlignment: 1
   _isShowBounds: 1
+--- !u!114 &11452404
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 152348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7e4da2ae131ea84abf55dd8b0d0f162, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LastUsedDoorPosition: {x: 0, y: 0, z: 0}
+  PathID: 0
 --- !u!114 &11455056
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -424,7 +425,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 243f3d5695eb52844bace2d61b3a5c0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  txt: {fileID: 0}
   textBox: {fileID: 0}
+  goatText:
+  - 4f6c612120457520736f75206f20436161706f7261
+  - 4e6f73736121204f207175652066697a6572616d20636f6d206120666c6f7265737461
+  - 4465206f6e6465207665696f20746f646f206573736520666f676f21
+  - 4d6520616a756465206120617061676172206173206368616d6173
+  - 4261737461207065676172206f2062616c6465206c6f676f20616c69
+  - 65206a6f676172206f6e646520686120666f676f
+  - 4e616f2074656d6f732074656d706f2061207065726465722e
+  - 56616d6f73206c6121
+  currentlyDisplayingText: 0
 --- !u!114 &11463482
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -612,7 +624,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: speed
-      value: 10
+      value: .200000003
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

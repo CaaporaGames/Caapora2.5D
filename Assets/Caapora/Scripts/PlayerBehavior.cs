@@ -20,47 +20,33 @@ public class PlayerBehavior : CharacterBase {
 	public GameObject go;
 	public IsoObject caapora;
 	public float savedTimeState;
+
+	public static bool isPlayingAnimation = false;
+	public static PlayerBehavior instance;
+
+
 	Text txt;
 
-
-	void OnIsoCollisionEnter(IsoCollision iso_collision) {
-
-
-		if ( iso_collision.gameObject.name == "chamas" ) {
-
-
-
-			var objeto = iso_collision.gameObject.GetComponent<IsoRigidbody>();
-			if ( objeto ) {
-			
-				Destroy(objeto.gameObject);
-
-			//	objeto.transform.parent = transform;
-			}
-		}
-	}
-	
-
-		void Awake () {
-			//	StartCoroutine(AnimateCaapora());
-		}
-
+ 
 
 	// Use this for initialization
 	protected void Start () {
+		
 
-	//	StartCoroutine(RemoveBalloon());
-
-	//		 go = Instantiate(Resources.Load("Prefabs/SpeechBubblePrefab")) as GameObject; 
-			
-	//		 go.transform.parent = this.transform; 		
 
 		base.Start();
+
+			instance = this;
+		
+		
+		
+		// StartCoroutine(CaaporaConversation.AnimateFrase());
+
+
 		currentLevel = levelController.GetCurrentLevel();
 
 		animator = GetComponent<Animator>();
-		// gameObject = Instantiate(Resources.Load("Prefabs/FloorPrefab")) as GameObject;
-		
+	
 		// posiçao inicial do 
 		gameObject.GetComponent<IsoObject> ().position += new Vector3 (0, 0, 0);
 
@@ -71,11 +57,19 @@ public class PlayerBehavior : CharacterBase {
 
         inverseMoveTime = 1f / moveTime;
 
+
     }
 
 	
 	// Update is called once per frame
 	void Update () {
+
+		
+			// quando terminar muda o estado da animaçao
+			//if (!isPlayingAnimation)
+			//	StartCoroutine(CaaporaConversation.AnimateFrase ());
+
+			Debug.Log("Valor de isPA: " + isPlayingAnimation);
 
 
 
@@ -101,37 +95,28 @@ public class PlayerBehavior : CharacterBase {
 	        }
 
 
-			//		go.transform.position = this.transform.position;
-			
-			//if (Input.GetKey (KeyCode.UpArrow) || Input.GetKey (KeyCode.DownArrow) || Input.GetKey (KeyCode.RightArrow) || Input.GetKey (KeyCode.LeftArrow)) {
-			
 			if (Input.GetKey (KeyCode.LeftArrow)) {
 				
 				gameObject.GetComponent<IsoObject> ().position += new Vector3 (-this.speed, 0, 0);
 				animator.SetTrigger ("Caapora-left");
 				
-			} 
-			if (Input.GetKey (KeyCode.RightArrow)) {
+			} else if (Input.GetKey (KeyCode.RightArrow)) {
 				
 				gameObject.GetComponent<IsoObject> ().position += new Vector3 (this.speed, 0, 0);
 				animator.SetTrigger ("Caapora-right");
 				
-			} 
-			if (Input.GetKey (KeyCode.DownArrow)) {
+			} else if (Input.GetKey (KeyCode.DownArrow)) {
 				
 				gameObject.GetComponent<IsoObject> ().position += new Vector3 (0, -this.speed, 0);
 				animator.SetTrigger ("Caapora-Norte");
 				
 				
-			}
-			if (Input.GetKey (KeyCode.UpArrow)) {
+			} else if (Input.GetKey (KeyCode.UpArrow)) {
 				
 				gameObject.GetComponent<IsoObject> ().position += new Vector3 (0, this.speed, 0);
 				animator.SetTrigger ("Caapora-Sul");
 				
-			}
-			
-			if (Input.GetKeyDown (KeyCode.Space)) {
+			} else if (Input.GetKeyDown (KeyCode.Space)) {
 
 				paused = paused ? false : true;
 				
@@ -139,6 +124,10 @@ public class PlayerBehavior : CharacterBase {
 				gameObject.GetComponent<IsoRigidbody> ().velocity += new Vector3 (0, 0, 10f);
 				animator.SetTrigger ("Caapora-Norte");
 				
+			} else if(!isPlayingAnimation){ // Caso nao esteja precionando nenhuma tecla
+
+				animator.SetTrigger ("CaaporaIdle");	
+			
 			}
 			
 			if (gameObject.GetComponent<IsoObject> ().positionZ < -5) {
@@ -147,13 +136,7 @@ public class PlayerBehavior : CharacterBase {
 				
 			}
 			
-			//	}else {
-			
-			//        animator.SetTrigger("CaaporaIdle");
-			//    }
 
-
-		
 	}
 
 	void OnPauseGame ()
@@ -258,23 +241,51 @@ public class PlayerBehavior : CharacterBase {
 
 	IEnumerator RemoveBalloon() {
 		
-		Debug.Log("Before Waiting 5 seconds");
 		yield return new WaitForSeconds(2);
 		textBallon.AtiveBallon (false);
-		Debug.Log("After Waiting 5 Seconds");
+		
+
+	}
+
+	public static IEnumerator ShakePlayer(){
+
+			instance.caapora = instance.gameObject.GetComponent<IsoObject> ();
+	
+			for (int i = 0; i < 10; i++) {
+
+				instance.caapora.position += new Vector3 (0, 0, instance.speed  );
+			
+				yield return new WaitForSeconds(.08f);	
+
+			
+			}
+		
 	}
 
 
 
 
-	IEnumerator AnimateCaapora(){
+	public static IEnumerator AnimateCaapora(string direction, int steps){
 
-		caapora = gameObject.GetComponent<IsoObject> ();
+		Debug.Log ("Entrou em animateCaapora");
 		
-		for (int i = 0; i < 20; i++)
-		{
-			caapora.position += new Vector3 (0, this.speed, 0);
+		isPlayingAnimation = true;
+		
 
+		instance.caapora = instance.gameObject.GetComponent<IsoObject> ();
+		
+
+		for (int i = 0; i < steps; i++)
+		{
+			
+
+			instance.GetComponent<Animator>().SetTrigger(direction);
+
+			instance.caapora.position += new Vector3 (0, instance.speed, 0);
+
+			// caso seja a ultima animaçao
+			isPlayingAnimation = (i == steps - 1) ? false : true;
+			
 			yield return new WaitForSeconds(.08f);
 		}
 	}
