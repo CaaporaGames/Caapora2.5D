@@ -29,9 +29,9 @@ GameObject:
   - 95: {fileID: 9584822}
   - 114: {fileID: 11450868}
   - 114: {fileID: 11463482}
-  - 114: {fileID: 11435368}
   - 114: {fileID: 11416148}
   - 114: {fileID: 11452404}
+  - 114: {fileID: 11426604}
   m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
@@ -105,7 +105,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 152348}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 239.999985, y: 56.0000038, z: 2.49999976}
+  m_LocalPosition: {x: 495.999969, y: -55.9999847, z: 33.6181793}
   m_LocalScale: {x: 10.2629347, y: 11.3857155, z: 50}
   m_Children:
   - {fileID: 429178}
@@ -144,7 +144,7 @@ Camera:
   far clip plane: 1000
   field of view: 173.551987
   orthographic: 1
-  orthographic size: 100
+  orthographic size: 130
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -283,7 +283,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Hi There! I'm Caapora
+  m_Text: "Ol\xE1!"
 --- !u!114 &11405072
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -327,10 +327,25 @@ MonoBehaviour:
     baseAttack: 0
   animator: {fileID: 0}
   range: 0
-  speed: .200000003
+  speed: .300000012
   go: {fileID: 0}
   caapora: {fileID: 0}
   savedTimeState: 0
+--- !u!114 &11426604
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 152348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b256250c588ee4e4590a3e58eaa69b1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _material: {fileID: 0}
+  _isTrigger: 0
+  _size: {x: 1, y: 1.20000005, z: 1.20000005}
+  _offset: {x: .5, y: .600000024, z: .600000024}
 --- !u!114 &11426844
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -339,7 +354,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 154120}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c66c2086f51172c4fa239ed51b0996eb, type: 3}
+  m_Script: {fileID: 11500000, guid: 100aff2849879ba4582c5d7037266bc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &11432990
@@ -359,21 +374,6 @@ MonoBehaviour:
   _tileHeight: 16
   _stepDepth: .100000001
   _startDepth: 1
---- !u!114 &11435368
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 152348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b256250c588ee4e4590a3e58eaa69b1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _material: {fileID: 0}
-  _isTrigger: 0
-  _size: {x: 1, y: 1, z: 2}
-  _offset: {x: .5, y: .5, z: 0}
 --- !u!114 &11450868
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -387,7 +387,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mode: 0
   _size: {x: 1, y: 1.20000005, z: 1.20000005}
-  _position: {x: 10, y: -5, z: 1}
+  _position: {x: 11, y: -20, z: 1}
   _isAlignment: 1
   _isShowBounds: 1
 --- !u!114 &11452404
@@ -403,6 +403,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LastUsedDoorPosition: {x: 0, y: 0, z: 0}
   PathID: 0
+  baldeCheio: {fileID: 0}
 --- !u!114 &11455056
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -422,21 +423,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 179374}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 243f3d5695eb52844bace2d61b3a5c0b, type: 3}
+  m_Script: {fileID: 11500000, guid: 67414fa7dc0604b4c855952a1cb324c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txt: {fileID: 0}
   textBox: {fileID: 0}
-  goatText:
-  - 4f6c612120457520736f75206f20436161706f7261
-  - 4e6f73736121204f207175652066697a6572616d20636f6d206120666c6f7265737461
-  - 4465206f6e6465207665696f20746f646f206573736520666f676f21
-  - 4d6520616a756465206120617061676172206173206368616d6173
-  - 4261737461207065676172206f2062616c6465206c6f676f20616c69
-  - 65206a6f676172206f6e646520686120666f676f
-  - 4e616f2074656d6f732074656d706f2061207065726465722e
-  - 56616d6f73206c6121
-  currentlyDisplayingText: 0
 --- !u!114 &11463482
 MonoBehaviour:
   m_ObjectHideFlags: 1

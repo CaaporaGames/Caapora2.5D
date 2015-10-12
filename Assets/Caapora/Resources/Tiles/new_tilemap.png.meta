@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 5327504318240fa45a1e2b5317ea060c
-timeCreated: 1444588554
+timeCreated: 1444655712
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -79,7 +79,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 1.5
+  spritePixelsToUnits: 2
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
@@ -92,8 +92,8 @@ TextureImporter:
         y: 137
         width: 68
         height: 96
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: iso_tiles_1
       rect:
@@ -170,10 +170,10 @@ TextureImporter:
         serializedVersion: 2
         x: 740
         y: 190
-        width: 63
-        height: 32
-      alignment: 0
-      pivot: {x: .5, y: .5}
+        width: 64
+        height: 40
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: iso_tiles_9
       rect:
@@ -292,8 +292,8 @@ TextureImporter:
         y: 49
         width: 52
         height: 116
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: iso_tiles_21
       rect:
@@ -412,8 +412,8 @@ TextureImporter:
         y: 45
         width: 62
         height: 75
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: iso_tiles_33
       rect:
