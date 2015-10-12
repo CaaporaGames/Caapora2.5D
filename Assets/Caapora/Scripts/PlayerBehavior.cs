@@ -27,16 +27,20 @@ public class PlayerBehavior : CharacterBase {
 
 	Text txt;
 
- 
+
+	void Awake(){
+		
+			instance = this;
+		
+	}
+
+ 	
 
 	// Use this for initialization
 	protected void Start () {
 		
 
-
 		base.Start();
-
-			instance = this;
 		
 		
 		
@@ -64,15 +68,6 @@ public class PlayerBehavior : CharacterBase {
 	// Update is called once per frame
 	void Update () {
 
-		
-			// quando terminar muda o estado da animaçao
-			//if (!isPlayingAnimation)
-			//	StartCoroutine(CaaporaConversation.AnimateFrase ());
-
-			Debug.Log("Valor de isPA: " + isPlayingAnimation);
-
-
-
 			// Checar movimentaçao do controle
 			int h = (int) (Input.GetAxisRaw("Horizontal"));
      		int v = (int) (Input.GetAxisRaw("Vertical"));
@@ -90,7 +85,7 @@ public class PlayerBehavior : CharacterBase {
 	         
 
 				AttemptMove<Wall>(h, v);  // desabilitado 
-				Debug.Log("h " + h + " v " + v);
+		
 
 	        }
 
@@ -215,7 +210,6 @@ public class PlayerBehavior : CharacterBase {
         //Set canMove to true if Move was successful, false if failed.
         bool canMove = Move(xDir, yDir, out hit);
 
-			Debug.Log ("canMove :" + canMove);
 
         //Check if nothing was hit by linecast
         if (hit.transform == null)
@@ -247,6 +241,32 @@ public class PlayerBehavior : CharacterBase {
 
 	}
 
+
+		public static IEnumerator AnimateCaapora(string direction, int steps){
+			
+
+			
+			isPlayingAnimation = true;
+			
+			
+			instance.caapora = instance.gameObject.GetComponent<IsoObject> ();
+			
+			
+			for (int i = 0; i < steps; i++)
+			{
+				
+				
+				instance.GetComponent<Animator>().SetTrigger(direction);
+				
+				instance.caapora.position += new Vector3 (0, instance.speed, 0);
+				
+				// caso seja a ultima animaçao
+				isPlayingAnimation = (i == steps - 1) ? false : true;
+				
+				yield return new WaitForSeconds(.08f);
+			}
+		}
+
 	public static IEnumerator ShakePlayer(){
 
 			instance.caapora = instance.gameObject.GetComponent<IsoObject> ();
@@ -261,34 +281,7 @@ public class PlayerBehavior : CharacterBase {
 			}
 		
 	}
-
-
-
-
-	public static IEnumerator AnimateCaapora(string direction, int steps){
-
-		Debug.Log ("Entrou em animateCaapora");
 		
-		isPlayingAnimation = true;
-		
-
-		instance.caapora = instance.gameObject.GetComponent<IsoObject> ();
-		
-
-		for (int i = 0; i < steps; i++)
-		{
-			
-
-			instance.GetComponent<Animator>().SetTrigger(direction);
-
-			instance.caapora.position += new Vector3 (0, instance.speed, 0);
-
-			// caso seja a ultima animaçao
-			isPlayingAnimation = (i == steps - 1) ? false : true;
-			
-			yield return new WaitForSeconds(.08f);
-		}
-	}
 
 
 

@@ -8,8 +8,11 @@ public class EnemyBehavior : CharacterBase {
 	public float speed = 0.2f;
 	public Animator animator;
 	// Use this for initialization
-	void Start () {
+	protected void Start () {
 		animator = GetComponent<Animator>();
+
+		base.Start();
+		currentLevel = levelController.GetCurrentLevel();
 
 	}
 	

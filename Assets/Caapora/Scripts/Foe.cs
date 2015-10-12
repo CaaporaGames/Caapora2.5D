@@ -38,7 +38,7 @@ public class Foe : MonoBehaviour {
 	
 	public static IEnumerator moveInSquarePath(){
 
-		Debug.Log ("Entrou em moveInSquarePath");
+
 		instance.StartCoroutine (AnimateFoe("Lion_Down", 10));
 		yield return new WaitForSeconds(3f); 
 		instance.StartCoroutine (AnimateFoe ("Lion_Left", 10));
@@ -50,8 +50,7 @@ public class Foe : MonoBehaviour {
 
 	public static IEnumerator AnimateFoe(string direction, int steps){
 		
-		Debug.Log ("Entrou em animateFoe");
-		
+
 		isPlayingAnimation = true;
 
 		instance.foe = instance.gameObject.GetComponent<IsoObject> ();

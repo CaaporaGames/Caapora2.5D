@@ -68,11 +68,15 @@ public class GameManager: MonoBehaviour {
 	// Executa a Introduçao passo a passo
 	public IEnumerator Introduction(){
 
-		Debug.Log ("Entrou em Introduction");
+
+	
 		StartCoroutine (Completed.PlayerBehavior.AnimateCaapora ("Caapora-left", 30));
 		yield return new WaitForSeconds(3f);
+
 		StartCoroutine (Completed.PlayerBehavior.ShakePlayer());
 		yield return new WaitForSeconds(1f);
+
+
 		textBallon.AtiveBallon (true);
 		StartCoroutine (CaaporaConversation.AnimateFrase());
 	

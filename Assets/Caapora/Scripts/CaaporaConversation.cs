@@ -23,11 +23,17 @@ public class CaaporaConversation : MonoBehaviour {
 
 	int currentlyDisplayingText = 0;
 
+	void Awake(){
+	
+		
+		instance = this;
+	
+	}
+
 	// Use this for initialization
 	void Start () {
 	
 
-		instance = this;
 
 
 
@@ -58,8 +64,8 @@ public class CaaporaConversation : MonoBehaviour {
 	public static IEnumerator AnimateFrase(){
 	
 	
-		Debug.Log ("passou em animate frase");
 
+		
 		for (int i = 0; i < instance.goatText.Length ; i++) {
 			//StopAllCoroutines();
 
