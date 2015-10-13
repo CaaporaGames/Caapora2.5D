@@ -66,7 +66,7 @@ public class PlayerBehavior : CharacterBase {
 
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 
 			// Checar movimentaçao do controle
 			int h = (int) (Input.GetAxisRaw("Horizontal"));
@@ -126,7 +126,8 @@ public class PlayerBehavior : CharacterBase {
 			}
 			
 			if (gameObject.GetComponent<IsoObject> ().positionZ < -5) {
-				
+
+				Destroy(gameObject);
 				Application.LoadLevel("GameOver");
 				
 			}
@@ -284,17 +285,6 @@ public class PlayerBehavior : CharacterBase {
 		
 
 
-
-
-	void OnGUI(){
-		
-	
-		GUI.Label(new Rect(0,0,300,50), "Player Position X " + gameObject.GetComponent<IsoObject>().positionX);
-		GUI.Label(new Rect(0,50,300,50), "Player Position Y " + gameObject.GetComponent<IsoObject>().positionY);
-		GUI.Label(new Rect(0,100,300,50), "Player Position Z " + gameObject.GetComponent<IsoObject>().positionZ);
-
-	
-	}
 
 
 	}
