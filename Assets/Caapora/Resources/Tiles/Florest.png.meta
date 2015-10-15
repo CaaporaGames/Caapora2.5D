@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 9ba8fa4c24aecfd49a103ed0ad1bbab3
-timeCreated: 1444874388
+timeCreated: 1444949803
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -112,7 +112,7 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: 0
+    filterMode: 1
     aniso: 16
     mipBias: -1
     wrapMode: 1
@@ -196,10 +196,10 @@ TextureImporter:
     - name: Florest_19
       rect:
         serializedVersion: 2
-        x: 90
+        x: 92
         y: 420
-        width: 30
-        height: 30
+        width: 28
+        height: 27
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -366,10 +366,10 @@ TextureImporter:
     - name: Florest_106
       rect:
         serializedVersion: 2
-        x: 300
+        x: 301
         y: 270
-        width: 30
-        height: 30
+        width: 29
+        height: 26
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
