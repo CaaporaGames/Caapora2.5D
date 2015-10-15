@@ -400,7 +400,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mode: 0
   _size: {x: 1, y: 1.20000005, z: 1.20000005}
-  _position: {x: 11, y: 0, z: 1}
+  _position: {x: 11, y: 0, z: 0}
   _isAlignment: 1
   _isShowBounds: 1
 --- !u!114 &11452404
@@ -623,11 +623,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: _position.z
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: speed
       value: .200000003
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

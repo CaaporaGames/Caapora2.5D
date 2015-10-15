@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 138782}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -623.999939, y: -72.0000153, z: 8.69999695}
-  m_LocalScale: {x: 51.4074326, y: 57.0949745, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -75,7 +75,7 @@ MonoBehaviour:
   _size: {x: 1, y: 1, z: 1}
   _position: {x: -24, y: 15, z: 0}
   _isAlignment: 1
-  _isShowBounds: 1
+  _isShowBounds: 0
 --- !u!212 &21290354
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -108,7 +108,19 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _isShowBounds
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 138782}

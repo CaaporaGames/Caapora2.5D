@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 126194}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -799.999939, y: 15.9999771, z: 1.10000002}
-  m_LocalScale: {x: 45.3756104, y: 55.2049255, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -59,7 +59,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mode: 0
   _size: {x: 1, y: 1, z: 1}
-  _position: {x: -27, y: 23, z: 3}
+  _position: {x: -27, y: 23, z: 0}
   _isAlignment: 1
   _isShowBounds: 1
 --- !u!114 &11497594
@@ -115,10 +115,18 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: _position.z
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: _isShowBounds
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
