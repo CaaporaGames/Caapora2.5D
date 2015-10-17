@@ -75,7 +75,7 @@ MonoBehaviour:
   _size: {x: 1, y: 1, z: 2}
   _position: {x: 0, y: 0, z: 0}
   _isAlignment: 1
-  _isShowBounds: 1
+  _isShowBounds: 0
 --- !u!212 &21237212
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -98,7 +98,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: .111111112
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: 548467643
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300068, guid: 5327504318240fa45a1e2b5317ea060c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -115,7 +115,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: _isShowBounds
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: _position.z
@@ -144,6 +144,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: _size.y
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_SortingLayerID
+      value: 548467643
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
