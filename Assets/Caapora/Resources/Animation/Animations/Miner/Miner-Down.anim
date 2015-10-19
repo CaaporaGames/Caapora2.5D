@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Caapora-Sul
+  m_Name: Miner-Down
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -18,13 +18,13 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300002, guid: 72a48faeb559e3d43bde4bc1c20377a7, type: 3}
+      value: {fileID: 21300002, guid: d04b5a2930fe85e4095a5b254fa3c0ae, type: 3}
     - time: .142857149
-      value: {fileID: 21300000, guid: 72a48faeb559e3d43bde4bc1c20377a7, type: 3}
+      value: {fileID: 21300000, guid: d04b5a2930fe85e4095a5b254fa3c0ae, type: 3}
     - time: .285714298
-      value: {fileID: 21300004, guid: 72a48faeb559e3d43bde4bc1c20377a7, type: 3}
+      value: {fileID: 21300004, guid: d04b5a2930fe85e4095a5b254fa3c0ae, type: 3}
     - time: .428571433
-      value: {fileID: 21300000, guid: 72a48faeb559e3d43bde4bc1c20377a7, type: 3}
+      value: {fileID: 21300000, guid: d04b5a2930fe85e4095a5b254fa3c0ae, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -43,10 +43,10 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300002, guid: 72a48faeb559e3d43bde4bc1c20377a7, type: 3}
-    - {fileID: 21300000, guid: 72a48faeb559e3d43bde4bc1c20377a7, type: 3}
-    - {fileID: 21300004, guid: 72a48faeb559e3d43bde4bc1c20377a7, type: 3}
-    - {fileID: 21300000, guid: 72a48faeb559e3d43bde4bc1c20377a7, type: 3}
+    - {fileID: 21300002, guid: d04b5a2930fe85e4095a5b254fa3c0ae, type: 3}
+    - {fileID: 21300000, guid: d04b5a2930fe85e4095a5b254fa3c0ae, type: 3}
+    - {fileID: 21300004, guid: d04b5a2930fe85e4095a5b254fa3c0ae, type: 3}
+    - {fileID: 21300000, guid: d04b5a2930fe85e4095a5b254fa3c0ae, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_StartTime: 0
