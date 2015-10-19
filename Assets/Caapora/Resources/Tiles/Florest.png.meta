@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 9ba8fa4c24aecfd49a103ed0ad1bbab3
-timeCreated: 1444949803
+timeCreated: 1445216742
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -112,7 +112,7 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: 1
+    filterMode: 0
     aniso: 16
     mipBias: -1
     wrapMode: 1
@@ -120,7 +120,6 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
@@ -220,8 +219,8 @@ TextureImporter:
         y: 302
         width: 116
         height: 146
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Florest_28
       rect:
@@ -240,8 +239,8 @@ TextureImporter:
         y: 359
         width: 31
         height: 61
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Florest_34
       rect:
@@ -250,8 +249,8 @@ TextureImporter:
         y: 361
         width: 29
         height: 60
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Florest_38
       rect:
@@ -660,8 +659,8 @@ TextureImporter:
         y: 60
         width: 60
         height: 60
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Florest_199
       rect:

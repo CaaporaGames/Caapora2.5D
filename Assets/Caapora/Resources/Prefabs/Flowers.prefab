@@ -10,8 +10,8 @@ GameObject:
   - 4: {fileID: 496754}
   - 212: {fileID: 21298360}
   - 114: {fileID: 11439096}
-  - 114: {fileID: 11470248}
   - 114: {fileID: 11433212}
+  - 114: {fileID: 11485962}
   m_Layer: 0
   m_Name: Flowers
   m_TagString: Untagged
@@ -57,11 +57,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mode: 0
-  _size: {x: 1, y: 1, z: 1}
+  _size: {x: 1, y: 1, z: 2}
   _position: {x: 0, y: 0, z: 1}
   _isAlignment: 1
   _isShowBounds: 1
---- !u!114 &11470248
+--- !u!114 &11485962
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -74,8 +74,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _material: {fileID: 0}
   _isTrigger: 0
-  _size: {x: 2, y: 2, z: 1.5}
-  _offset: {x: .111111112, y: .111111112, z: 0}
+  _size: {x: 1, y: 1, z: 2}
+  _offset: {x: .5, y: .5, z: 1}
 --- !u!212 &21298360
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -127,7 +127,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: _size.z
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: _size.y

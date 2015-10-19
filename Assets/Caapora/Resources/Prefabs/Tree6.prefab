@@ -11,7 +11,7 @@ GameObject:
   - 212: {fileID: 21267852}
   - 114: {fileID: 11416758}
   - 114: {fileID: 11450260}
-  - 114: {fileID: 11407998}
+  - 114: {fileID: 11407552}
   m_Layer: 0
   m_Name: Tree6
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11407998
+--- !u!114 &11407552
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -44,8 +44,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _material: {fileID: 0}
   _isTrigger: 0
-  _size: {x: 1, y: 1, z: 1}
-  _offset: {x: .5, y: .5, z: .5}
+  _size: {x: 1.5, y: 1.5, z: 3}
+  _offset: {x: .75, y: .75, z: 1.5}
 --- !u!114 &11416758
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -58,10 +58,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mode: 0
-  _size: {x: 1, y: 1, z: 1}
+  _size: {x: 1.5, y: 1.5, z: 3}
   _position: {x: -14, y: 14, z: 0}
   _isAlignment: 1
-  _isShowBounds: 0
+  _isShowBounds: 1
 --- !u!114 &11450260
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -112,6 +112,22 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_SortingLayerID
       value: 548467643
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _size.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _isShowBounds
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _size.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _size.y
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

@@ -10,8 +10,6 @@ GameObject:
   - 4: {fileID: 412090}
   - 212: {fileID: 21254968}
   - 114: {fileID: 11499160}
-  - 114: {fileID: 11458280}
-  - 114: {fileID: 11432020}
   m_Layer: 0
   m_Name: grassPrefab
   m_TagString: Untagged
@@ -26,40 +24,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 193128}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.7999992, y: -7.5999999, z: 0}
+  m_LocalPosition: {x: -800, y: 6.99997711, z: 22.1000633}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11432020
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 193128}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b256250c588ee4e4590a3e58eaa69b1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _material: {fileID: 0}
-  _isTrigger: 0
-  _size: {x: 1, y: 1, z: .200000003}
-  _offset: {x: .5, y: .5, z: 0}
---- !u!114 &11458280
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 193128}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4febe544112bb4678bdd59fa963c802d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _isKinematic: 1
-  _interpolation: 0
-  _collisionDetectionMode: 0
 --- !u!114 &11499160
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -72,8 +41,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mode: 0
-  _size: {x: 1, y: 1, z: 1}
-  _position: {x: 0, y: 0, z: 0}
+  _size: {x: 1, y: 1, z: .200000003}
+  _position: {x: -21, y: 6, z: 0}
   _isAlignment: 1
   _isShowBounds: 0
 --- !u!212 &21254968

@@ -1,0 +1,726 @@
+fileFormatVersion: 2
+guid: 08e2cedca1c804742b3dc531c0fc9dd8
+timeCreated: 1445216468
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Signs_BIGEXAMPLE_0
+    21300002: Signs_BIGEXAMPLE_1
+    21300004: Signs_BIGEXAMPLE_2
+    21300006: Signs_BIGEXAMPLE_3
+    21300008: Signs_BIGEXAMPLE_4
+    21300010: Signs_BIGEXAMPLE_5
+    21300012: Signs_BIGEXAMPLE_6
+    21300014: Signs_BIGEXAMPLE_7
+    21300016: Signs_BIGEXAMPLE_8
+    21300018: Signs_BIGEXAMPLE_9
+    21300020: Signs_BIGEXAMPLE_10
+    21300022: Signs_BIGEXAMPLE_11
+    21300024: Signs_BIGEXAMPLE_12
+    21300026: Signs_BIGEXAMPLE_13
+    21300028: Signs_BIGEXAMPLE_14
+    21300030: Signs_BIGEXAMPLE_15
+    21300032: Signs_BIGEXAMPLE_16
+    21300034: Signs_BIGEXAMPLE_17
+    21300036: Signs_BIGEXAMPLE_18
+    21300038: Signs_BIGEXAMPLE_19
+    21300040: Signs_BIGEXAMPLE_20
+    21300042: Signs_BIGEXAMPLE_21
+    21300044: Signs_BIGEXAMPLE_22
+    21300046: Signs_BIGEXAMPLE_23
+    21300048: Signs_BIGEXAMPLE_24
+    21300050: Signs_BIGEXAMPLE_25
+    21300052: Signs_BIGEXAMPLE_26
+    21300054: Signs_BIGEXAMPLE_27
+    21300056: Signs_BIGEXAMPLE_28
+    21300058: Signs_BIGEXAMPLE_29
+    21300060: Signs_BIGEXAMPLE_30
+    21300062: Signs_BIGEXAMPLE_31
+    21300064: Signs_BIGEXAMPLE_32
+    21300066: Signs_BIGEXAMPLE_33
+    21300068: Signs_BIGEXAMPLE_34
+    21300070: Signs_BIGEXAMPLE_35
+    21300072: Signs_BIGEXAMPLE_36
+    21300074: Signs_BIGEXAMPLE_37
+    21300076: Signs_BIGEXAMPLE_38
+    21300078: Signs_BIGEXAMPLE_39
+    21300080: Signs_BIGEXAMPLE_40
+    21300082: Signs_BIGEXAMPLE_41
+    21300084: Signs_BIGEXAMPLE_42
+    21300086: Signs_BIGEXAMPLE_43
+    21300088: Signs_BIGEXAMPLE_44
+    21300090: Signs_BIGEXAMPLE_45
+    21300092: Signs_BIGEXAMPLE_46
+    21300094: Signs_BIGEXAMPLE_47
+    21300096: Signs_BIGEXAMPLE_48
+    21300098: Signs_BIGEXAMPLE_49
+    21300100: Signs_BIGEXAMPLE_50
+    21300102: Signs_BIGEXAMPLE_51
+    21300104: Signs_BIGEXAMPLE_52
+    21300106: Signs_BIGEXAMPLE_53
+    21300108: Signs_BIGEXAMPLE_54
+    21300110: Signs_BIGEXAMPLE_55
+    21300112: Signs_BIGEXAMPLE_56
+    21300114: Signs_BIGEXAMPLE_57
+    21300116: Signs_BIGEXAMPLE_58
+    21300118: Signs_BIGEXAMPLE_59
+    21300120: Signs_BIGEXAMPLE_60
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 5
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Signs_BIGEXAMPLE_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 584
+        width: 92
+        height: 182
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_1
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 584
+        width: 92
+        height: 182
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_2
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 584
+        width: 92
+        height: 184
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_3
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 575
+        width: 92
+        height: 193
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_4
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 584
+        width: 92
+        height: 182
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_5
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 584
+        width: 89
+        height: 182
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_6
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 584
+        width: 89
+        height: 182
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_7
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 584
+        width: 89
+        height: 182
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_8
+      rect:
+        serializedVersion: 2
+        x: 869
+        y: 584
+        width: 89
+        height: 182
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_9
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 704
+        width: 89
+        height: 29
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_10
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 704
+        width: 89
+        height: 29
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_11
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 479
+        width: 92
+        height: 194
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_12
+      rect:
+        serializedVersion: 2
+        x: 962
+        y: 581
+        width: 89
+        height: 89
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_13
+      rect:
+        serializedVersion: 2
+        x: 1061
+        y: 581
+        width: 89
+        height: 89
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 479
+        width: 385
+        height: 98
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_15
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 383
+        width: 143
+        height: 98
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_16
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 477
+        width: 101
+        height: 100
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 3, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_17
+      rect:
+        serializedVersion: 2
+        x: 866
+        y: 431
+        width: 92
+        height: 137
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_18
+      rect:
+        serializedVersion: 2
+        x: 962
+        y: 479
+        width: 89
+        height: 95
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_19
+      rect:
+        serializedVersion: 2
+        x: 1061
+        y: 479
+        width: 89
+        height: 95
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_20
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 440
+        width: 92
+        height: 29
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_21
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 410
+        width: 92
+        height: 59
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_22
+      rect:
+        serializedVersion: 2
+        x: 959
+        y: 383
+        width: 89
+        height: 95
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_23
+      rect:
+        serializedVersion: 2
+        x: 1064
+        y: 383
+        width: 88
+        height: 95
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_24
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 410
+        width: 92
+        height: 29
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_25
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 0
+        width: 92
+        height: 385
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_26
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 0
+        width: 92
+        height: 385
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_27
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 287
+        width: 92
+        height: 95
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_28
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 293
+        width: 98
+        height: 89
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_29
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 347
+        width: 92
+        height: 29
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_30
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 311
+        width: 92
+        height: 59
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_31
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 0
+        width: 290
+        height: 385
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_32
+      rect:
+        serializedVersion: 2
+        x: 866
+        y: 287
+        width: 92
+        height: 95
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_33
+      rect:
+        serializedVersion: 2
+        x: 962
+        y: 287
+        width: 92
+        height: 95
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_34
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 287
+        width: 92
+        height: 95
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_35
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 317
+        width: 92
+        height: 29
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_36
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 191
+        width: 92
+        height: 95
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_37
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 197
+        width: 98
+        height: 89
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_38
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 251
+        width: 92
+        height: 29
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_39
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 215
+        width: 92
+        height: 59
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_40
+      rect:
+        serializedVersion: 2
+        x: 866
+        y: 191
+        width: 92
+        height: 95
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_41
+      rect:
+        serializedVersion: 2
+        x: 962
+        y: 191
+        width: 92
+        height: 95
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_42
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 191
+        width: 92
+        height: 95
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_43
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 221
+        width: 92
+        height: 29
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_44
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 95
+        width: 92
+        height: 95
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_45
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 101
+        width: 98
+        height: 89
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_46
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 155
+        width: 92
+        height: 29
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_47
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 119
+        width: 92
+        height: 59
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_48
+      rect:
+        serializedVersion: 2
+        x: 866
+        y: 95
+        width: 92
+        height: 95
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_49
+      rect:
+        serializedVersion: 2
+        x: 962
+        y: 95
+        width: 92
+        height: 95
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_50
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 95
+        width: 92
+        height: 95
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_51
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 125
+        width: 92
+        height: 29
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_52
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 0
+        width: 92
+        height: 94
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_53
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 5
+        width: 98
+        height: 89
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_54
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 59
+        width: 92
+        height: 29
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_55
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 23
+        width: 92
+        height: 59
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_56
+      rect:
+        serializedVersion: 2
+        x: 866
+        y: 0
+        width: 92
+        height: 94
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_57
+      rect:
+        serializedVersion: 2
+        x: 962
+        y: 0
+        width: 92
+        height: 94
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_58
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 0
+        width: 92
+        height: 94
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_59
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 29
+        width: 92
+        height: 29
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Signs_BIGEXAMPLE_60
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 481
+        width: 114
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 12, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

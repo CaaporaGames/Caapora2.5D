@@ -18,7 +18,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Caapora/Scenes/Map3.unity
   - enabled: 1
-    path: Assets/Caapora/Scenes/Map6.unity
+    path: Assets/Caapora/Scenes/Map1.unity
   - enabled: 1
     path: Assets/Caapora/Scenes/Map10.unity
   - enabled: 1
@@ -40,4 +40,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Caapora/Scenes/Map9.unity
   - enabled: 1
-    path: Assets/Caapora/Scenes/Map1.unity
+    path: Assets/Caapora/Scenes/Map6.unity

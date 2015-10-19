@@ -8,8 +8,8 @@ static class Coodenadas
 {
 
 	public enum Map1 : long { x = -58, y = 27 };
-	public enum Map2 : long { x = -33, y = 27 };
-	public enum Map3 : long { x = 8, y = 11 }; // Provisorio
+	public enum Map2 : long { x = -32, y = 27 };
+	public enum Map3 : long { x = -4, y = 27 }; // Provisorio
 	public enum Map4 : long { x = 21, y = 27 };
 
 
@@ -113,13 +113,28 @@ public class GameManager: MonoBehaviour {
 
 
 	        // Map1 to Map2
-			case "map1GateEast":
+			case "map1GateEastPrefab":
 				movePlayer("Map1","Map2");
 				break;
 		
 			// Map1 to Map8	
 			case "map1GateSouth":
 				movePlayer("Map1", "Map8");
+				break;
+
+			// Map2 to Map1	
+			case "map2GateWestPrefab":
+				movePlayer("Map2", "Map1");
+				break;
+
+			// Map2 to Map3	
+			case "map2GateEastPrefab":
+				movePlayer("Map2", "Map3");
+				break;
+
+			// Map3 to Map2	
+			case "map3GateWestPrefab":
+				movePlayer("Map3", "Map2");
 				break;
 
 	        // Map8 to Map1
@@ -177,11 +192,6 @@ public class GameManager: MonoBehaviour {
 				movePlayer("Map6","Map11");
 				break;
 
-
-			// Map3 to Map2
-			case "map3GateWestPrefab":
-				movePlayer("Map3","Map2");
-				break;
 				
 			// Map3 to Map4
 			case "map3GateEastPrefab":

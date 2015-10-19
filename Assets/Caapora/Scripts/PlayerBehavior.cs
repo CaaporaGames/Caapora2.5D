@@ -16,7 +16,7 @@ public class PlayerBehavior : CharacterBase {
     private IsoBoxCollider boxCollider;
     private float moveTime;
     private LayerMask blockingLayer;
-	public float speed = 0.2f;
+	public float speed = 0.1f;
 	public GameObject go;
 	public IsoObject caapora;
 	public float savedTimeState;
@@ -53,7 +53,7 @@ public class PlayerBehavior : CharacterBase {
 	
 		// posiçao inicial do 
 		gameObject.GetComponent<IsoObject> ().position += new Vector3 (0, 0, 0);
-
+		
 
         rb2D = GetComponent<Rigidbody2D>();
 
@@ -66,7 +66,10 @@ public class PlayerBehavior : CharacterBase {
 
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
+
+
+			IsoRigidbody iso_rigidyBody = gameObject.GetComponent<IsoRigidbody> ();
 
 			// Checar movimentaçao do controle
 			int h = (int) (Input.GetAxisRaw("Horizontal"));
@@ -90,38 +93,49 @@ public class PlayerBehavior : CharacterBase {
 	        }
 
 
-			if (Input.GetKey (KeyCode.LeftArrow)) {
-				
-				gameObject.GetComponent<IsoObject> ().position += new Vector3 (-this.speed, 0, 0);
-				animator.SetTrigger ("Caapora-left");
-				
-			} else if (Input.GetKey (KeyCode.RightArrow)) {
-				
-				gameObject.GetComponent<IsoObject> ().position += new Vector3 (this.speed, 0, 0);
-				animator.SetTrigger ("Caapora-right");
-				
-			} else if (Input.GetKey (KeyCode.DownArrow)) {
-				
-				gameObject.GetComponent<IsoObject> ().position += new Vector3 (0, -this.speed, 0);
-				animator.SetTrigger ("Caapora-Norte");
-				
-				
-			} else if (Input.GetKey (KeyCode.UpArrow)) {
-				
-				gameObject.GetComponent<IsoObject> ().position += new Vector3 (0, this.speed, 0);
-				animator.SetTrigger ("Caapora-Sul");
-				
-			} else if (Input.GetKeyDown (KeyCode.Space)) {
+			if (iso_rigidyBody) {
 
-				paused = paused ? false : true;
-				
-				
-				gameObject.GetComponent<IsoRigidbody> ().velocity += new Vector3 (0, 0, 10f);
-				animator.SetTrigger ("Caapora-Norte");
-				
-			} else if(!isPlayingAnimation){ // Caso nao esteja precionando nenhuma tecla
-
-				animator.SetTrigger ("CaaporaIdle");	
+				if (Input.GetKey (KeyCode.LeftArrow)) {
+					
+					//gameObject.GetComponent<IsoObject> ().position += new Vector3 (-this.speed, 0, 0);
+					
+					iso_rigidyBody.velocity = new Vector3 (-this.speed, 0, 0);
+					
+					animator.SetTrigger ("Caapora-left");
+					
+				} else if (Input.GetKey (KeyCode.RightArrow)) {
+					
+					//gameObject.GetComponent<IsoObject> ().position += new Vector3 (this.speed, 0, 0);
+					iso_rigidyBody.velocity = new Vector3 (this.speed, 0, 0);
+					animator.SetTrigger ("Caapora-right");
+					
+				} else if (Input.GetKey (KeyCode.DownArrow)) {
+					
+					//gameObject.GetComponent<IsoObject> ().position += new Vector3 (0, -this.speed, 0);
+					iso_rigidyBody.velocity = new Vector3 (0, -this.speed, 0);
+					animator.SetTrigger ("Caapora-Norte");
+					
+					
+				} else if (Input.GetKey (KeyCode.UpArrow)) {
+					
+					//gameObject.GetComponent<IsoObject> ().position += new Vector3 (0, this.speed, 0);
+					iso_rigidyBody.velocity = new Vector3 (0, this.speed, 0);
+					animator.SetTrigger ("Caapora-Sul");
+					
+				} else if (Input.GetKeyDown (KeyCode.Space)) {
+					
+					paused = paused ? false : true;
+					
+					
+					//gameObject.GetComponent<IsoRigidbody> ().velocity += new Vector3 (0, 0, 10f);
+					iso_rigidyBody.velocity = new Vector3 (0, 0, this.speed);
+					animator.SetTrigger ("Caapora-Norte");
+					
+				} else if(!isPlayingAnimation){ // Caso nao esteja precionando nenhuma tecla
+					
+					animator.SetTrigger ("CaaporaIdle");	
+					
+				}
 			
 			}
 			
