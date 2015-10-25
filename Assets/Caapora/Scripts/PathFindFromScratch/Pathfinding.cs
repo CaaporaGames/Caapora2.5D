@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using IsoTools;
 
 namespace PathFinding {
 public class Pathfinding : MonoBehaviour {
@@ -14,17 +15,19 @@ public class Pathfinding : MonoBehaviour {
 	}
 	
 	void Update() {
-		FindPath(seeker.position,target.position);
-	}
+
+        // posição no formato isometrico
+		FindPath(seeker.GetComponent<IsoObject>().position , target.GetComponent<IsoObject>().position);
+            
+
+
+    }
 	
 	void FindPath(Vector3 startPos, Vector3 targetPos) {
+
+           
 		Node startNode = grid.NodeFromWorldPoint(startPos);
 		Node targetNode = grid.NodeFromWorldPoint(targetPos);
-
-        Debug.Log("startPos = " + startPos);
-
-            Debug.Log("statyNodeX = " + startNode.gridX);
-            Debug.Log("statyNodeY = " + startNode.gridY);
 
             List<Node> openSet = new List<Node>();
 

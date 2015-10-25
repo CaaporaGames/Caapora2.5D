@@ -21,8 +21,8 @@ namespace PathFinding {
 
 
         //gridWorldSize = gameObject.GetComponent<IsoObject>().size;
-
         iso_object = gameObject.GetComponent<IsoObject>();    
+
 		nodeDiameter = nodeRadius*2;
 		gridSizeX = Mathf.RoundToInt(gridWorldSize.x/nodeDiameter);
 		gridSizeY = Mathf.RoundToInt(gridWorldSize.y/nodeDiameter);
@@ -31,37 +31,48 @@ namespace PathFinding {
 
 	
 	void CreateGrid() {
-		grid = new Node[gridSizeX,gridSizeY];
+        // Cria um grade vazia com o tamanho passador por parametros 
+         grid = new Node[gridSizeX,gridSizeY];
 
-         Vector3 worldBottomLeft = transform.position - Vector3.right * gridWorldSize.x/2 - Vector3.forward * gridWorldSize.y/2;
+            // Pega a posição Base
+            Vector3 worldBottomLeft = iso_object.GetComponent<IsoObject>().position; //- Vector3.right * gridWorldSize.x/2 - Vector3.forward * gridWorldSize.y/2;
 
-        worldBottomLeft = Quaternion.Euler(-90, 0, 0) * worldBottomLeft;
+     //   worldBottomLeft = Quaternion.Euler(-90, 0, 0) * worldBottomLeft;
 
-
+        // Popula a grade com as posições de acordo com o código
 		for (int x = 0; x < gridSizeX; x ++) {
 			for (int y = 0; y < gridSizeY; y ++) {
 
+
+                    // Calcula as posições na grade
                     Vector3 worldPoint = worldBottomLeft + Vector3.right * (x * nodeDiameter + nodeRadius) + Vector3.up * (y * nodeDiameter + nodeRadius);
 
-                     worldPoint = Quaternion.Euler(90, 0, 0) * worldPoint; // não sei porque mas é invertido o sinal
+                    // Converte posição para isometrico
+                    worldPoint = iso_object.isoWorld.IsoToScreen(worldPoint);
 
+                    // Caso haja um colisão com algum elemento do tipo unwalkableMask passado como parametro seta a variavel walkable para true
                     bool walkable = !(Physics.CheckSphere(worldPoint,nodeRadius,unwalkableMask));
-				grid[x,y] = new Node(walkable,worldPoint, x,y);
+
+                    // popula a grade com o nó
+                    grid[x,y] = new Node(walkable, worldPoint , x,y);
 			}
 		}
 	}
 	
+    // retorna um vizinho de cada vez respeitando as restrições de limites de mapa
 	public List<Node> GetNeighbours(Node node) {
 		List<Node> neighbours = new List<Node>();
-		
+		// Verifica as posições vizinhas que são de -1 à 1 
 		for (int x = -1; x <= 1; x++) {
 			for (int y = -1; y <= 1; y++) {
+                // exclui a própria posição    
 				if (x == 0 && y == 0)
 					continue;
 				
 				int checkX = node.gridX + x;
 				int checkY = node.gridY + y;
 				
+                 // respeita os limites do mapa e exclui posição do proprio elemento   
 				if (checkX >= 0 && checkX < gridSizeX && checkY >= 0 && checkY < gridSizeY) {
 					neighbours.Add(grid[checkX,checkY]);
 				}
@@ -72,24 +83,34 @@ namespace PathFinding {
 	}
 
 	
-	// worldPosition: posição do objeto alvo
+	// worldPosition: posição do objeto alvo no formato isometrico
     // gridWorldSize: valor dos parametros 
+    // Retorna: posição do objeto na grade
 	public Node NodeFromWorldPoint(Vector3 worldPosition) {
-		float percentX = (worldPosition.x + gridWorldSize.x/2) / gridWorldSize.x;
-		float percentY = (worldPosition.z + gridWorldSize.y/2) / gridWorldSize.y;
 
-		percentX = Mathf.Clamp01(percentX);
-		percentY = Mathf.Clamp01(percentY);
+        // solução temporária pois o valor do tamanho da grade está como um número pequeno pois está no formato isometrico
+       // gridWorldSize = new Vector3(300, 300, 1);
+    
+        // Distancia entr
+        float percentX = (worldPosition.x + gridWorldSize.x/2) / gridWorldSize.x;
+		float percentY = (worldPosition.y + gridWorldSize.y/2) / gridWorldSize.y;
+            Debug.Log("Valor de percenty: " + percentY);
 
-		
-		int x = Mathf.RoundToInt((gridSizeX-1) * percentX);
-		int y = Mathf.RoundToInt((gridSizeY-1) * percentY);
-		return grid[x,y]; 
+            percentX = Mathf.Clamp01(percentX);
+	    	percentY = Mathf.Clamp01(percentY);
+
+
+            int x = Mathf.RoundToInt((gridSizeX-1) * percentX);
+		    int y = Mathf.RoundToInt((gridSizeY-1) * percentY);
+
+          
+            // está utilizando coordenadas isometricas
+            return grid[x,y]; 
 	}
 	
 	public List<Node> path;
 
-
+    // Apenas exibe as grades
 	void OnDrawGizmos() {
 
 
@@ -105,14 +126,14 @@ namespace PathFinding {
             // up = y axis ( down -y )
             // foward = z exis ( backward -z )
 
-            teste = Quaternion.Euler(-90,  0, 0) *  teste;
+            // teste = Quaternion.Euler(-90,  0, 0) *  teste;
 
             // Exibe o Contorno na tela
             //Gizmos.DrawWireCube(gameObject.GetComponent<IsoObject>().transform.position, teste);
 
-            Gizmos.DrawWireCube(transform.position, teste);
+     
 
-            // IsoUtils.DrawCube( iso_object.isoWorld, iso_object.position + iso_object.size * 0.5f, iso_object.size, Color.green);
+             IsoUtils.DrawCube( iso_object.isoWorld, iso_object.position + iso_object.size * 0.5f, iso_object.size, Color.green);
 
 
             Gizmos.color = Color.cyan;
@@ -122,9 +143,12 @@ namespace PathFinding {
 				Gizmos.color = (n.walkable)?Color.white:Color.red;
 				if (path != null)
 					if (path.Contains(n))
-						Gizmos.color = Color.black;
-				Gizmos.DrawCube(n.worldPosition, Vector3.one * (nodeDiameter-.1f));
-			}
+						Gizmos.color = Color.red;
+
+
+                    Gizmos.DrawCube(n.worldPosition, Vector3.one * (nodeDiameter - .1f));
+                       // IsoUtils.DrawCube(iso_object.isoWorld, n.worldPosition, Vector3.one * (nodeDiameter-.1f), Gizmos.color);
+                }
 		}
 	}
 }
