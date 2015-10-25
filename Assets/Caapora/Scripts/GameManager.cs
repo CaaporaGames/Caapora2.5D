@@ -253,8 +253,9 @@ public class GameManager: MonoBehaviour {
 	}
 
 	void Start(){
+
 	
-	//	StartCoroutine (Introduction());
+	 	// StartCoroutine (Introduction());
 	
 	}
 

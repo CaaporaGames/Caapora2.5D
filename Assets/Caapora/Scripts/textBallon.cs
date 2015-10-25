@@ -14,7 +14,8 @@ public class textBallon : MonoBehaviour {
 
 	}
 	void Start () {
-	
+		
+
 		AtiveBallon (false);
 
 	

@@ -16,10 +16,11 @@ public class PlayerBehavior : CharacterBase {
     private IsoBoxCollider boxCollider;
     private float moveTime;
     private LayerMask blockingLayer;
-	public float speed = 0.1f;
+	public float speed = 5f;
 	public GameObject go;
 	public IsoObject caapora;
 	public float savedTimeState;
+	public IsoRigidbody iso_rigidyBody;
 
 	public static bool isPlayingAnimation = false;
 	public static PlayerBehavior instance;
@@ -42,9 +43,6 @@ public class PlayerBehavior : CharacterBase {
 
 		base.Start();
 		
-		
-		
-		// StartCoroutine(CaaporaConversation.AnimateFrase());
 
 
 		currentLevel = levelController.GetCurrentLevel();
@@ -69,7 +67,7 @@ public class PlayerBehavior : CharacterBase {
 	void Update () {
 
 
-			IsoRigidbody iso_rigidyBody = gameObject.GetComponent<IsoRigidbody> ();
+			iso_rigidyBody = gameObject.GetComponent<IsoRigidbody> ();
 
 			// Checar movimentaçao do controle
 			int h = (int) (Input.GetAxisRaw("Horizontal"));
@@ -259,22 +257,23 @@ public class PlayerBehavior : CharacterBase {
 
 		public static IEnumerator AnimateCaapora(string direction, int steps){
 			
-
+			instance.caapora = instance.gameObject.GetComponent<IsoObject> ();
 			
 			isPlayingAnimation = true;
 			
 			
-			instance.caapora = instance.gameObject.GetComponent<IsoObject> ();
-			
-			
+					
 			for (int i = 0; i < steps; i++)
 			{
-				
+
+				Debug.Log("Passou em animate caapora for");
 				
 				instance.GetComponent<Animator>().SetTrigger(direction);
 				
-				instance.caapora.position += new Vector3 (0, instance.speed, 0);
-				
+				 instance.caapora.position += new Vector3 (0, instance.speed, 0);
+				//instance.iso_rigidyBody.velocity = new Vector3 (0, -instance.speed, 0);
+
+
 				// caso seja a ultima animaçao
 				isPlayingAnimation = (i == steps - 1) ? false : true;
 				
@@ -288,8 +287,9 @@ public class PlayerBehavior : CharacterBase {
 	
 			for (int i = 0; i < 10; i++) {
 
-				instance.caapora.position += new Vector3 (0, 0, instance.speed  );
-			
+				//instance.caapora.position += new Vector3 (0, 0, instance.speed  );
+				instance.iso_rigidyBody.velocity = new Vector3 ( 0, 0, 0.5f);
+
 				yield return new WaitForSeconds(.08f);	
 
 			
