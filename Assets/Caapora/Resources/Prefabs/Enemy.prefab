@@ -76,7 +76,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mode: 0
   _size: {x: 1, y: 1, z: 1}
-  _position: {x: 0, y: 0, z: 0}
+  _position: {x: 0, y: 0, z: 1}
   _isAlignment: 1
   _isShowBounds: 1
 --- !u!114 &11486318
@@ -146,6 +146,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: _size.z
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _position.z
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
