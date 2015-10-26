@@ -6,24 +6,58 @@ using IsoTools;
 namespace PathFinding {
 public class Pathfinding : MonoBehaviour {
 	
-	public Transform seeker, target;
-	
-	Grid grid;
+	public IsoObject seekerIso, target;
+    public Vector3 cachedSeekerPos, cachedTargetPos;
+    private bool move = false, canStart = true;
+
+        Grid grid;
 	
 	void Awake() {
 		grid = GetComponent<Grid>();
 	}
-	
-	void Update() {
-
-        // posição no formato isometrico
-		FindPath(seeker.GetComponent<IsoObject>().position , target.GetComponent<IsoObject>().position);
-            
 
 
-    }
-	
-	void FindPath(Vector3 startPos, Vector3 targetPos) {
+   void Start()
+        {
+
+            seekerIso = seekerIso.GetComponent<IsoObject>();
+            target = target.GetComponent<IsoObject>();
+
+            cachedSeekerPos = seekerIso.position;
+            cachedTargetPos = target.position;
+
+        }
+
+
+
+       void Update()
+       {
+           if (Input.GetKeyDown(KeyCode.Space))
+               move = true;
+
+           // enquanto nao inicia deixa as posições originais
+           if (!move && canStart)
+           {
+               if (cachedSeekerPos != seekerIso.position)
+               {
+                   cachedSeekerPos = seekerIso.position;
+                   FindPath(seekerIso.position, target.position);
+               }
+               if (cachedTargetPos != target.position)
+               {
+                   cachedTargetPos = target.position;
+                   FindPath(seekerIso.position, target.position);
+               }
+           }
+
+           // inicia IA
+           else
+           {
+               AnimatePath();
+           }
+       }
+
+        void FindPath(Vector3 startPos, Vector3 targetPos) {
 
            
 		Node startNode = grid.NodeFromWorldPoint(startPos);
@@ -90,5 +124,68 @@ public class Pathfinding : MonoBehaviour {
 			return 14*dstY + 10* (dstX-dstY);
 		return 14*dstX + 10 * (dstY-dstX);
 	}
-}
-}
+
+      
+
+        void AnimatePath()
+        {
+            move = false;
+            canStart = false;
+            Vector3 currentPos = seekerIso.position;
+            if (grid.path != null)
+            {
+                Debug.Log("ANIMATING PATH");
+                Debug.Log("PathX = " + grid.path[1].gridX);
+                Debug.Log("PathY = " + grid.path[1].gridY);
+                StartCoroutine(UpdatePosition(currentPos, grid.path[0], 0));
+            }
+        }
+
+
+
+
+
+        IEnumerator UpdatePosition(Vector3 currentPos, Node n, int index)
+        {
+            // Debug.Log ("Started Coroutine...");
+            float t = 0.0f;
+            // Vector3 correctedPathPos = new Vector3(n.GetWorldPos().x, 1, n.GetWorldPos().z);
+
+            // não sei porque, mas foi necessário fazer a coversão
+            // foi necessário criar uma variável apenas para essa finalizade para não sobrescrever a posição original
+            Vector3 tmpWorldPosition  = seekerIso.isoWorld.ScreenToIso(n.worldPosition);
+           
+
+            Vector3 correctedPathPos = new Vector3(tmpWorldPosition.x, tmpWorldPosition.y, 0);
+
+            while (t < 1f)
+            {
+                t += Time.deltaTime;
+
+
+                seekerIso.position =   Vector3.Lerp(currentPos, correctedPathPos, t);
+
+                // Vector3.MoveTowards(currentPos, correctedPathPos, t);
+
+                yield return null;
+            }
+
+
+           // Debug.Log ("Finished updating...");
+
+            seekerIso.position = correctedPathPos;
+            currentPos = correctedPathPos;
+
+            // Debug.Log("Caminhos = " + grid.path.Count);
+
+            // Para cada ponto do caminho executa novamente este método
+            index++;
+            if (index < grid.path.Count)
+                StartCoroutine(UpdatePosition(currentPos, grid.path[index], index));
+            else
+                canStart = true;
+        } 
+
+
+    } // end Pathfinding 
+} // end namespace Pathfinding

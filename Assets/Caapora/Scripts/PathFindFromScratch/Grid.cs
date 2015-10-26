@@ -8,6 +8,7 @@ namespace PathFinding {
     [ExecuteInEditMode]
     public class Grid : MonoBehaviour {
 
+
     public IsoObject iso_object; 
 	public LayerMask unwalkableMask;
 	public Vector3 gridWorldSize;
@@ -19,9 +20,9 @@ namespace PathFinding {
 	
 	void Start() {
 
-
-        //gridWorldSize = gameObject.GetComponent<IsoObject>().size;
-        iso_object = gameObject.GetComponent<IsoObject>();    
+     
+            //gridWorldSize = gameObject.GetComponent<IsoObject>().size;
+            iso_object = gameObject.GetComponent<IsoObject>();    
 
 		nodeDiameter = nodeRadius*2;
 		gridSizeX = Mathf.RoundToInt(gridWorldSize.x/nodeDiameter);
@@ -94,7 +95,7 @@ namespace PathFinding {
         // Distancia entr
         float percentX = (worldPosition.x + gridWorldSize.x/2) / gridWorldSize.x;
 		float percentY = (worldPosition.y + gridWorldSize.y/2) / gridWorldSize.y;
-            Debug.Log("Valor de percenty: " + percentY);
+            //Debug.Log("Valor de percenty: " + percentY);
 
             percentX = Mathf.Clamp01(percentX);
 	    	percentY = Mathf.Clamp01(percentY);
@@ -132,8 +133,8 @@ namespace PathFinding {
             //Gizmos.DrawWireCube(gameObject.GetComponent<IsoObject>().transform.position, teste);
 
      
-
-             IsoUtils.DrawCube( iso_object.isoWorld, iso_object.position + iso_object.size * 0.5f, iso_object.size, Color.green);
+            // exibe o contorno
+            // IsoUtils.DrawCube( iso_object.isoWorld, iso_object.position + iso_object.size * 0.5f, iso_object.size, Color.green);
 
 
             Gizmos.color = Color.cyan;
@@ -143,7 +144,7 @@ namespace PathFinding {
 				Gizmos.color = (n.walkable)?Color.white:Color.red;
 				if (path != null)
 					if (path.Contains(n))
-						Gizmos.color = Color.red;
+						Gizmos.color = Color.black;
 
 
                     Gizmos.DrawCube(n.worldPosition, Vector3.one * (nodeDiameter - .1f));
@@ -151,6 +152,10 @@ namespace PathFinding {
                 }
 		}
 	}
-}
-}
+
+
+        
+
+    } // end Grid 
+}  // namesapace
 
