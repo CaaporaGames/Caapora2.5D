@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 9ba8fa4c24aecfd49a103ed0ad1bbab3
-timeCreated: 1445216742
+timeCreated: 1446301729
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -120,6 +120,7 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
+  allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
@@ -165,9 +166,9 @@ TextureImporter:
     - name: Florest_9
       rect:
         serializedVersion: 2
-        x: 270
+        x: 271
         y: 450
-        width: 30
+        width: 31
         height: 30
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -215,8 +216,8 @@ TextureImporter:
     - name: Florest_24
       rect:
         serializedVersion: 2
-        x: 242
-        y: 302
+        x: 243
+        y: 299
         width: 116
         height: 146
       alignment: 7
@@ -515,9 +516,9 @@ TextureImporter:
     - name: Florest_139
       rect:
         serializedVersion: 2
-        x: 334
+        x: 330
         y: 179
-        width: 27
+        width: 31
         height: 61
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -527,7 +528,7 @@ TextureImporter:
         serializedVersion: 2
         x: 362
         y: 180
-        width: 58
+        width: 56
         height: 60
       alignment: 0
       pivot: {x: .5, y: .5}
@@ -598,7 +599,7 @@ TextureImporter:
         x: 423
         y: 119
         width: 57
-        height: 60
+        height: 59
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 1, y: 0, z: 0, w: 0}
@@ -661,7 +662,7 @@ TextureImporter:
         height: 60
       alignment: 7
       pivot: {x: .5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 2, z: 0, w: 0}
     - name: Florest_199
       rect:
         serializedVersion: 2
