@@ -51,9 +51,17 @@ namespace PathFinding {
                     // Converte posição para isometrico
                     worldPoint = iso_object.isoWorld.IsoToScreen(worldPoint);
 
+                    
                     // Caso haja um colisão com algum elemento do tipo unwalkableMask passado como parametro seta a variavel walkable para true
-                    bool walkable = !(Physics.CheckSphere(worldPoint,nodeRadius,unwalkableMask));
+                    bool walkable = !(Physics.CheckSphere(worldPoint,nodeRadius ,unwalkableMask));
 
+                   // if (walkable)
+                   // {
+                   //     var floor = Instantiate(Resources.Load("Prefabs/chamas")) as GameObject;
+                   //     floor.transform.position = worldPoint;
+                   // }
+
+                    
                     // popula a grade com o nó
                     grid[x,y] = new Node(walkable, worldPoint , x,y);
 			}
@@ -141,13 +149,13 @@ namespace PathFinding {
 
             if (grid != null) {
 			foreach (Node n in grid) {
-				Gizmos.color = (n.walkable)?Color.white:Color.red;
+				Gizmos.color = (n.walkable) ?  Color.white : Color.red;
 				if (path != null)
 					if (path.Contains(n))
 						Gizmos.color = Color.black;
 
 
-                    Gizmos.DrawCube(n.worldPosition, Vector3.one * (nodeDiameter - .1f));
+                          Gizmos.DrawCube(n.worldPosition, Vector3.one * (nodeDiameter - .1f));
                        // IsoUtils.DrawCube(iso_object.isoWorld, n.worldPosition, Vector3.one * (nodeDiameter-.1f), Gizmos.color);
                 }
 		}

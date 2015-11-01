@@ -219,7 +219,7 @@ public class GameManager: MonoBehaviour {
 			}
 		}
 		
-		if ( iso_collision.gameObject.name == "chamas" ) {
+		if ( iso_collision.gameObject.name == "chamas"  || iso_collision.gameObject.name == "chamas(Clone)") {
 			
 
 			var objeto = iso_collision.gameObject.GetComponent<IsoRigidbody>();
