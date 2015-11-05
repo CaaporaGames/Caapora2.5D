@@ -260,7 +260,6 @@ public class GameManager: MonoBehaviour {
 	}
 
 
-
 	
 	public static GameManager instance
 	{
@@ -307,10 +306,6 @@ public class GameManager: MonoBehaviour {
 		GUI.Label(new Rect(0,100,300,50), "Player Position Z :" + gameObject.GetComponent<IsoObject>().positionZ);
 
 		GUI.Label(new Rect(0,150,300,50), "Mapa Atual :" + PlayerPrefs.GetString("CurrentMap"));
-
-
-
-
 
 		
 		

@@ -32,7 +32,8 @@ GameObject:
   - 114: {fileID: 11463482}
   - 114: {fileID: 11416148}
   - 114: {fileID: 11452404}
-  - 114: {fileID: 11426604}
+  - 114: {fileID: 11404610}
+  - 114: {fileID: 11483396}
   m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
@@ -56,7 +57,7 @@ GameObject:
   - 82: {fileID: 8202894}
   m_Layer: 8
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,7 +105,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 152348}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -80.0000153, y: 183.999985, z: 20.500042}
+  m_LocalPosition: {x: -224.000015, y: 288, z: 20.2000408}
   m_LocalScale: {x: 10.2629347, y: 11.3857155, z: 50}
   m_Children:
   - {fileID: 429178}
@@ -143,7 +144,7 @@ Camera:
   far clip plane: 1000
   field of view: 173.551987
   orthographic: 1
-  orthographic size: 150
+  orthographic size: 129
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -283,6 +284,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Ol\xE1!"
+--- !u!114 &11404610
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 152348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b256250c588ee4e4590a3e58eaa69b1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _material: {fileID: 0}
+  _isTrigger: 0
+  _size: {x: 1, y: 1.20000005, z: 1.20000005}
+  _offset: {x: .5, y: .600000024, z: .600000024}
 --- !u!114 &11405072
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -337,7 +353,7 @@ MonoBehaviour:
     baseAttack: 0
   animator: {fileID: 0}
   range: 0
-  speed: .200000003
+  speed: 3
   go: {fileID: 0}
   caapora: {fileID: 0}
   savedTimeState: 0
@@ -363,21 +379,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 10
---- !u!114 &11426604
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 152348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b256250c588ee4e4590a3e58eaa69b1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _material: {fileID: 0}
-  _isTrigger: 0
-  _size: {x: 1, y: 1.20000005, z: 1.20000005}
-  _offset: {x: .5, y: .600000024, z: .600000024}
 --- !u!114 &11432990
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -408,9 +409,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mode: 0
   _size: {x: 1, y: 1.20000005, z: 1.20000005}
-  _position: {x: 9, y: 14, z: 0}
+  _position: {x: 9, y: 23, z: 2}
   _isAlignment: 1
-  _isShowBounds: 1
+  _isShowBounds: 0
 --- !u!114 &11452404
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -464,9 +465,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4febe544112bb4678bdd59fa963c802d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isKinematic: 1
+  _isKinematic: 0
   _interpolation: 0
   _collisionDetectionMode: 0
+--- !u!114 &11483396
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 152348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b9e4c41c23103c48a6ba83ab294c9ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cachedSeekerPos: {x: 0, y: 0, z: 0}
+  cachedTargetPos: {x: 0, y: 0, z: 0}
+  grid: {fileID: 0}
 --- !u!124 &12498396
 Behaviour:
   m_ObjectHideFlags: 1
@@ -561,7 +576,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 9.80000019, y: 3.0999999}
+  m_AnchoredPosition: {x: 10.3999996, y: 2.4000001}
   m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22479244
@@ -611,7 +626,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: _isShowBounds
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: MainCamera
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

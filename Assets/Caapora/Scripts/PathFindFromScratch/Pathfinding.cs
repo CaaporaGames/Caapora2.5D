@@ -3,28 +3,54 @@ using System.Collections;
 using System.Collections.Generic;
 using IsoTools;
 
+
+
 namespace PathFinding {
-public class Pathfinding : MonoBehaviour {
-	
-	public IsoObject seekerIso, target;
+    public class Pathfinding : MonoBehaviour {
+
+    private IsoObject seekerIso;
+    private Vector3 _targetPos;
     public Vector3 cachedSeekerPos, cachedTargetPos;
+    public Grid grid;
+    private bool _start = false;
     private bool move = false, canStart = true;
 
-        Grid grid;
-	
-	void Awake() {
-		grid = GetComponent<Grid>();
+
+
+        public Vector3 targetPos
+        {
+            get { return _targetPos; }
+            set {
+                        _targetPos = value;
+            }
+        }
+
+
+
+
+
+        public bool click
+        {
+            get { return _start; }
+            set
+            {
+                _start = value;
+            }
+        }
+
+
+        void Awake() {
+		grid = grid.GetComponent<Grid>();
 	}
 
 
    void Start()
         {
 
-            seekerIso = seekerIso.GetComponent<IsoObject>();
-            target = target.GetComponent<IsoObject>();
-
+            seekerIso = GetComponent<IsoObject>();
+            // posicao no modo isometrico
             cachedSeekerPos = seekerIso.position;
-            cachedTargetPos = target.position;
+            cachedTargetPos = _targetPos;
 
         }
 
@@ -32,21 +58,23 @@ public class Pathfinding : MonoBehaviour {
 
        void Update()
        {
-           if (Input.GetKeyDown(KeyCode.Space))
-               move = true;
 
-           // enquanto nao inicia deixa as posições originais
-           if (!move && canStart)
+           if (_start) {
+          //      move = true;
+          //      click = false;
+            }
+            // enquanto nao inicia deixa as posições originais
+            if (!move && canStart)
            {
                if (cachedSeekerPos != seekerIso.position)
                {
                    cachedSeekerPos = seekerIso.position;
-                   FindPath(seekerIso.position, target.position);
+                   FindPath(seekerIso.position, _targetPos);
                }
-               if (cachedTargetPos != target.position)
+               if (cachedTargetPos != _targetPos)
                {
-                   cachedTargetPos = target.position;
-                   FindPath(seekerIso.position, target.position);
+                   cachedTargetPos = _targetPos;
+                   FindPath(seekerIso.position, _targetPos);
                }
            }
 
@@ -130,13 +158,11 @@ public class Pathfinding : MonoBehaviour {
         void AnimatePath()
         {
             move = false;
-            canStart = false;
+
             Vector3 currentPos = seekerIso.position;
             if (grid.path != null)
             {
                 Debug.Log("ANIMATING PATH");
-                Debug.Log("PathX = " + grid.path[1].gridX);
-                Debug.Log("PathY = " + grid.path[1].gridY);
                 StartCoroutine(UpdatePosition(currentPos, grid.path[0], 0));
             }
         }
@@ -154,9 +180,14 @@ public class Pathfinding : MonoBehaviour {
             // não sei porque, mas foi necessário fazer a coversão
             // foi necessário criar uma variável apenas para essa finalizade para não sobrescrever a posição original
             Vector3 tmpWorldPosition  = seekerIso.isoWorld.ScreenToIso(n.worldPosition);
-           
 
-            Vector3 correctedPathPos = new Vector3(tmpWorldPosition.x, tmpWorldPosition.y, 0);
+         //   Debug.Log("node position =" + n.worldPosition);
+
+         //   Debug.Log("node position converted =" + tmpWorldPosition);
+
+         //   Debug.Log("player position  =" + currentPos);
+
+            Vector3 correctedPathPos = tmpWorldPosition;
 
             while (t < 1f)
             {
@@ -172,18 +203,22 @@ public class Pathfinding : MonoBehaviour {
 
 
            // Debug.Log ("Finished updating...");
-
             seekerIso.position = correctedPathPos;
+
+           // Debug.Log("seeker pos after = " + seekerIso.position);
             currentPos = correctedPathPos;
 
-            // Debug.Log("Caminhos = " + grid.path.Count);
+            Debug.Log("Caminhos = " + index);
 
             // Para cada ponto do caminho executa novamente este método
             index++;
             if (index < grid.path.Count)
                 StartCoroutine(UpdatePosition(currentPos, grid.path[index], index));
             else
-                canStart = true;
+            {
+                canStart = false;   
+            }
+                
         } 
 
 

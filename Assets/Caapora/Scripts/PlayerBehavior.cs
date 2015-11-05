@@ -2,6 +2,7 @@
 using System.Collections;
 using IsoTools;
 using UnityEngine.UI;
+using Pathfinding;
 
 namespace Completed { 
 public class PlayerBehavior : CharacterBase {
@@ -43,7 +44,7 @@ public class PlayerBehavior : CharacterBase {
 
 		base.Start();
 		
-
+       
 
 		currentLevel = levelController.GetCurrentLevel();
 
@@ -66,86 +67,174 @@ public class PlayerBehavior : CharacterBase {
 	// Update is called once per frame
 	void Update () {
 
+            moveUpdate();
+			
+			/*
+			if (gameObject.GetComponent<IsoObject> ().positionZ < -15) {
 
-			iso_rigidyBody = gameObject.GetComponent<IsoRigidbody> ();
+				Destroy(gameObject);
+				Application.LoadLevel("GameOver");
+				
+			}*/
+			
 
-			// Checar movimentaçao do controle
-			int h = (int) (Input.GetAxisRaw("Horizontal"));
-     		int v = (int) (Input.GetAxisRaw("Vertical"));
+	}
+
+   void moveUpdate()
+        {
+
+          
+            // quando clicar com o botão esquerdo do Mouse
+            if (Input.GetButtonDown("Fire1"))
+            {
+         
+                // seta a posição alvo do player para a posição do clique no mapa
+                GetComponent<PathFinding.Pathfinding>().targetPos = new Vector3(1, 20, 0);
+
+
+
+                Debug.Log("Posicao clique =" + GetComponent<PathFinding.Pathfinding>().targetPos);
+
+                // necessário executar apos um periodo de tempo para dar tempo de pegar a posição
+                StartCoroutine(clicked());
+
+            }
+
+
+            // Debug.Log("Touches = " + Input.touchCount);
+
+
+            iso_rigidyBody = gameObject.GetComponent<IsoRigidbody>();
+
+            // Checar movimentaçao do controle
+            int h = (int)(Input.GetAxisRaw("Horizontal"));
+            int v = (int)(Input.GetAxisRaw("Vertical"));
 
             if (h != 0)
             {
                 v = 0;
             }
 
-			// checa se houve algum controle do teclado ou controle
+            // checa se houve algum controle do teclado ou controle
             if (h != 0 || v != 0)
-	        {
-	            //Call AttemptMove passing in the generic parameter Wall, since that is what Player may interact with if they encounter one (by attacking it)
-	            //Pass in horizontal and vertical as parameters to specify the direction to move Player in.
-	         
-
-				AttemptMove<Wall>(h, v);  // desabilitado 
-		
-
-	        }
+            {
+                //Call AttemptMove passing in the generic parameter Wall, since that is what Player may interact with if they encounter one (by attacking it)
+                //Pass in horizontal and vertical as parameters to specify the direction to move Player in.
 
 
-			if (iso_rigidyBody) {
+                AttemptMove<Wall>(h, v);  // desabilitado 
 
-				if (Input.GetKey (KeyCode.LeftArrow)) {
-					
-					//gameObject.GetComponent<IsoObject> ().position += new Vector3 (-this.speed, 0, 0);
-					
-					iso_rigidyBody.velocity = new Vector3 (-this.speed, 0, 0);
-					
-					animator.SetTrigger ("Caapora-left");
-					
-				} else if (Input.GetKey (KeyCode.RightArrow)) {
-					
-					//gameObject.GetComponent<IsoObject> ().position += new Vector3 (this.speed, 0, 0);
-					iso_rigidyBody.velocity = new Vector3 (this.speed, 0, 0);
-					animator.SetTrigger ("Caapora-right");
-					
-				} else if (Input.GetKey (KeyCode.DownArrow)) {
-					
-					//gameObject.GetComponent<IsoObject> ().position += new Vector3 (0, -this.speed, 0);
-					iso_rigidyBody.velocity = new Vector3 (0, -this.speed, 0);
-					animator.SetTrigger ("Caapora-Norte");
-					
-					
-				} else if (Input.GetKey (KeyCode.UpArrow)) {
-					
-					//gameObject.GetComponent<IsoObject> ().position += new Vector3 (0, this.speed, 0);
-					iso_rigidyBody.velocity = new Vector3 (0, this.speed, 0);
-					animator.SetTrigger ("Caapora-Sul");
-					
-				} else if (Input.GetKeyDown (KeyCode.Space)) {
-					
-					paused = paused ? false : true;
-					
-					
-					//gameObject.GetComponent<IsoRigidbody> ().velocity += new Vector3 (0, 0, 10f);
-					iso_rigidyBody.velocity = new Vector3 (0, 0, this.speed);
-					animator.SetTrigger ("Caapora-Norte");
-					
-				} else if(!isPlayingAnimation){ // Caso nao esteja precionando nenhuma tecla
-					
-					animator.SetTrigger ("CaaporaIdle");	
-					
-				}
-			
-			}
-			
-			if (gameObject.GetComponent<IsoObject> ().positionZ < -5) {
 
-				Destroy(gameObject);
-				Application.LoadLevel("GameOver");
-				
-			}
-			
+            }
 
-	}
+
+            if (iso_rigidyBody)
+            {
+
+                if (Input.GetKey(KeyCode.LeftArrow))
+                {
+
+                    moveLeft();
+
+                }
+                else if (Input.GetKey(KeyCode.RightArrow))
+                {
+
+                    moveRight();
+
+                }
+                else if (Input.GetKey(KeyCode.DownArrow))
+                {
+
+                    moveDown();
+
+                }
+                else if (Input.GetKey(KeyCode.UpArrow))
+                {
+
+                    moveUp();
+
+                }
+                else if (Input.GetKeyDown(KeyCode.Space))
+                {
+
+                    paused = paused ? false : true;
+
+                    Jump();
+                  
+
+                }
+                else if (!isPlayingAnimation)
+                { // Caso nao esteja precionando nenhuma tecla
+
+                    animator.SetTrigger("CaaporaIdle");
+
+                }
+
+            }
+
+        }
+
+
+
+        void moveLeft()
+        {
+
+            //gameObject.GetComponent<IsoObject> ().position += new Vector3 (-this.speed, 0, 0);
+
+            iso_rigidyBody.velocity = new Vector3(-this.speed, 0, 0);
+
+            animator.SetTrigger("Caapora-left");
+
+        }
+
+        void moveRight()
+        {
+
+            //gameObject.GetComponent<IsoObject> ().position += new Vector3 (this.speed, 0, 0);
+            iso_rigidyBody.velocity = new Vector3(this.speed, 0, 0);
+            animator.SetTrigger("Caapora-right");
+
+        }
+
+
+        void moveDown()
+        {
+            //gameObject.GetComponent<IsoObject> ().position += new Vector3 (0, -this.speed, 0);
+            iso_rigidyBody.velocity = new Vector3(0, -this.speed, 0);
+            animator.SetTrigger("Caapora-Norte");
+
+
+        }
+
+
+        void moveUp()
+        {
+            //gameObject.GetComponent<IsoObject> ().position += new Vector3 (0, this.speed, 0);
+            iso_rigidyBody.velocity = new Vector3(0, this.speed, 0);
+            animator.SetTrigger("Caapora-Sul");
+
+        }
+
+
+
+        void Jump()
+        {
+            //gameObject.GetComponent<IsoRigidbody> ().velocity += new Vector3 (0, 0, 10f);
+            iso_rigidyBody.velocity = new Vector3(0, 0, this.speed);
+            animator.SetTrigger("Caapora-Norte");
+
+        }
+
+        // Seta a Flag para iniciar o Pathfinding apos um segundo para pegar a posição antes
+        public IEnumerator clicked()
+        {
+            // aguarda um segundo
+            yield return new WaitForSeconds(1);
+            // Inicia percurso 
+            GetComponent<PathFinding.Pathfinding>().click = true;
+
+        }
 
 	void OnPauseGame ()
 	{

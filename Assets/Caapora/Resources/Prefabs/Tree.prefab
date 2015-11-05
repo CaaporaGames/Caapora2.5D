@@ -75,7 +75,7 @@ MonoBehaviour:
   _size: {x: 1.5, y: 1.5, z: 3}
   _position: {x: 0, y: 0, z: 0}
   _isAlignment: 1
-  _isShowBounds: 1
+  _isShowBounds: 0
 --- !u!212 &21290354
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -119,7 +119,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: _isShowBounds
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: _size.z

@@ -46,7 +46,7 @@ MonoBehaviour:
   _size: {x: 2, y: 2, z: 4}
   _position: {x: 0, y: 0, z: 1}
   _isAlignment: 1
-  _isShowBounds: 1
+  _isShowBounds: 0
 --- !u!114 &11422344
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -135,7 +135,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: _isShowBounds
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

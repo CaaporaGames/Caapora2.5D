@@ -44,7 +44,7 @@ MonoBehaviour:
   _size: {x: 1, y: 1, z: .200000003}
   _position: {x: -21, y: 6, z: 0}
   _isAlignment: 1
-  _isShowBounds: 1
+  _isShowBounds: 0
 --- !u!212 &21254968
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -80,7 +80,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: _isShowBounds
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: _isKinematic

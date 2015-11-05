@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 9ba8fa4c24aecfd49a103ed0ad1bbab3
-timeCreated: 1446301729
+timeCreated: 1446728308
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -120,7 +120,6 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
@@ -600,8 +599,8 @@ TextureImporter:
         y: 119
         width: 57
         height: 59
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 1, y: 0, z: 0, w: 0}
     - name: Florest_180
       rect:

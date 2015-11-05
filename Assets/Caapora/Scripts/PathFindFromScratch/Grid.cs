@@ -119,6 +119,7 @@ namespace PathFinding {
 	
 	public List<Node> path;
 
+    // Debug
     // Apenas exibe as grades
 	void OnDrawGizmos() {
 
@@ -152,7 +153,12 @@ namespace PathFinding {
 				Gizmos.color = (n.walkable) ?  Color.white : Color.red;
 				if (path != null)
 					if (path.Contains(n))
-						Gizmos.color = Color.black;
+                        {
+                            Gizmos.color = Color.black;
+                            Debug.Log("Dot Position = " + n.worldPosition);
+
+                        }
+						
 
 
                           Gizmos.DrawCube(n.worldPosition, Vector3.one * (nodeDiameter - .1f));
