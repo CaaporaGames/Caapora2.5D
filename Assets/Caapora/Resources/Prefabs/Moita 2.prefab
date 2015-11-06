@@ -11,7 +11,6 @@ GameObject:
   - 212: {fileID: 21202362}
   - 114: {fileID: 11481646}
   - 114: {fileID: 11403204}
-  - 114: {fileID: 11447736}
   m_Layer: 0
   m_Name: Moita 2
   m_TagString: Untagged
@@ -45,21 +44,6 @@ MonoBehaviour:
   _isKinematic: 1
   _interpolation: 0
   _collisionDetectionMode: 0
---- !u!114 &11447736
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 123002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b256250c588ee4e4590a3e58eaa69b1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _material: {fileID: 0}
-  _isTrigger: 0
-  _size: {x: 1, y: 1, z: 1}
-  _offset: {x: .5, y: .5, z: .5}
 --- !u!114 &11481646
 MonoBehaviour:
   m_ObjectHideFlags: 1
