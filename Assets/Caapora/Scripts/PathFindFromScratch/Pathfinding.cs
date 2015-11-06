@@ -42,12 +42,7 @@ namespace PathFinding {
         }
 
 
-        void Awake() {
-		grid = grid.GetComponent<Grid>();
-	}
-
-
-   void Start()
+        void Start()
         {
 
          

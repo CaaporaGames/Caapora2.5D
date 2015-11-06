@@ -1,15 +1,16 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
 using System.Collections;
 using IsoTools;
 using UnityEngine.UI;
-using Pathfinding;
 
 namespace Completed { 
 public class PlayerBehavior : CharacterBase {
 
+    // Flag para o pause nao funcionando ainda
     protected bool paused = true;
 	
-	// public GameObject gameObject = null;
+    // Armazena o componente da animação
 	public Animator animator;
 	public float range;
     private Rigidbody2D rb2D;
@@ -17,6 +18,7 @@ public class PlayerBehavior : CharacterBase {
     private IsoBoxCollider boxCollider;
     private float moveTime;
     private LayerMask blockingLayer;
+
 	public float speed = 5f;
 	public GameObject go;
 	public IsoObject caapora;
@@ -35,19 +37,21 @@ public class PlayerBehavior : CharacterBase {
 
 	Text txt;
 
-
+    // Rômulo Lima
 	void Awake(){
-		
+		    
+            // Acessar recursos de metodos estaticos
 			instance = this;
 		
 	}
 
  	
-
+    // Rômulo Lima 
+    // Mateus Souza    
 	// Use this for initialization
 	protected void Start () {
 		
-
+        // Herda da classe base
 		base.Start();
 
 
@@ -70,28 +74,29 @@ public class PlayerBehavior : CharacterBase {
 
     }
 
-	
+	// Rômulo Lima
 	// Update is called once per frame
 	void Update () {
 
+
+            // Movimentação pelo teclado do player através de flags
             moveUpdate();
 
             // Habilitar a movimentação por clique no local
-           // moveToPlace();
-			
-			
-			if (gameObject.GetComponent<IsoObject> ().positionZ < -15) {
+            // moveToPlace();
 
-				Destroy(gameObject);
-				Application.LoadLevel("GameOver");
-				
-			}
+         
 			
 
 	}
 
 
-   void moveToPlace()
+
+
+
+        // Rômulo Lima
+        // Controle de Movimentação por clique na posição desejada 
+        void moveToPlace()
         {
 
             // Movimentação por clique na posição desejada
@@ -99,8 +104,8 @@ public class PlayerBehavior : CharacterBase {
             var _currentPosition = GetComponent<IsoObject>();
 
 
-            Debug.Log("prevPositon =" + prevPosition);
-            Debug.Log("Posicao atual =" + _currentPosition.position);
+           // Debug.Log("prevPositon =" + prevPosition);
+           // Debug.Log("Posicao atual =" + _currentPosition.position);
 
 
             // Animação por identificação de movimentação
@@ -152,7 +157,7 @@ public class PlayerBehavior : CharacterBase {
             //GetComponent<PathFinding.Pathfinding>().targetPos = new Vector3(13, 13, 0);
 
             // quando clicar com o botão esquerdo do Mouse
-            //if (Input.GetButtonDown("Fire1"))
+            // if (Input.GetButtonDown("Fire1"))
 
 
             if (Input.touchCount > 0)
@@ -162,9 +167,9 @@ public class PlayerBehavior : CharacterBase {
 
                 var clickIsoPosition = gameObject.GetComponent<IsoObject>().isoWorld.TouchIsoTilePosition(0);
                 // seta a posição alvo do player para a posição do clique no mapa
-                GetComponent<PathFinding.Pathfinding>().targetPos = clickIsoPosition;
+                // GetComponent<PathFinding.Pathfinding>().targetPos = clickIsoPosition;
 
-                Debug.Log("Posicao do clique do mouse foi = " + clickIsoPosition);
+               // Debug.Log("Posicao do clique do mouse foi = " + clickIsoPosition);
 
                 // necessário executar apos um periodo de tempo para dar tempo de pegar a posição
                 StartCoroutine(clicked());
@@ -173,7 +178,11 @@ public class PlayerBehavior : CharacterBase {
 
         }
 
-   void moveUpdate()
+
+        // Rômulo Lima
+        // Mateus Souza
+        // Controle de movimentação por teclado 
+        void moveUpdate()
         {
             
 
@@ -254,7 +263,7 @@ public class PlayerBehavior : CharacterBase {
         }
 
 
-
+        // Métodos com movimentação
        public void moveLeft()
         {
 
@@ -304,6 +313,11 @@ public class PlayerBehavior : CharacterBase {
 
         }
 
+
+        // End métodos com movimentação
+    
+        // Rômulo Lima        
+        // Ativado com o clique do mouse o touch
         // Seta a Flag para iniciar o Pathfinding apos um segundo para pegar a posição antes
         public IEnumerator clicked()
         {
@@ -315,19 +329,24 @@ public class PlayerBehavior : CharacterBase {
 
         }
 
-	void OnPauseGame ()
-	{
-		paused = true;
-	}
+
+        // Romulo Lima
+        // Não funciona ainda
+	    void OnPauseGame ()
+	    {
+		    paused = true;
+	    }
 	
 
-	
-	void OnResumeGame ()
-	{
-		paused = false;
-	}
+	    // Não funciona ainda
+	    void OnResumeGame ()
+	    {
+		    paused = false;
+	    }
 
     
+        // Mateus Souza
+        // ???????
         protected bool Move(int xDir, int yDir, out RaycastHit2D hit)
         {
             //Store start position to move from, based on objects current transform position.
@@ -359,6 +378,8 @@ public class PlayerBehavior : CharacterBase {
             return false;
         }
 
+        // Mateus Souza 
+        // ??????
         protected IEnumerator SmoothMovement(Vector3 end)
         {
             //Calculate the remaining distance to move based on the square magnitude of the difference between current position and end parameter. 
@@ -382,73 +403,94 @@ public class PlayerBehavior : CharacterBase {
             }
         }
 
-    protected virtual void AttemptMove<T>(int xDir, int yDir)
+        // Mateus Souza 
+        // ??????
+        protected virtual void AttemptMove<T>(int xDir, int yDir)
+                where T : Component
+        {
+            //Hit will store whatever our linecast hits when Move is called.
+            RaycastHit2D hit;
+
+            //Set canMove to true if Move was successful, false if failed.
+            bool canMove = Move(xDir, yDir, out hit);
+
+
+            //Check if nothing was hit by linecast
+            if (hit.transform == null)
+                //If nothing was hit, return and don't execute further code.
+                return;
+
+            //Get a component reference to the component of type T attached to the object that was hit
+            T hitComponent = hit.transform.GetComponent<T>();
+
+            //If canMove is false and hitComponent is not equal to null, meaning MovingObject is blocked and has hit something it can interact with.
+            if (!canMove && hitComponent != null)
+
+                //Call the OnCantMove function and pass it hitComponent as a parameter.
+                OnCantMove(hitComponent);
+        }
+
+        // Mateus Souza
+        protected void OnCantMove<T>(T component)
             where T : Component
-    {
-        //Hit will store whatever our linecast hits when Move is called.
-        RaycastHit2D hit;
-
-        //Set canMove to true if Move was successful, false if failed.
-        bool canMove = Move(xDir, yDir, out hit);
+        {
+        }
 
 
-        //Check if nothing was hit by linecast
-        if (hit.transform == null)
-            //If nothing was hit, return and don't execute further code.
-            return;
-
-        //Get a component reference to the component of type T attached to the object that was hit
-        T hitComponent = hit.transform.GetComponent<T>();
-
-        //If canMove is false and hitComponent is not equal to null, meaning MovingObject is blocked and has hit something it can interact with.
-        if (!canMove && hitComponent != null)
-
-            //Call the OnCantMove function and pass it hitComponent as a parameter.
-            OnCantMove(hitComponent);
-    }
-
-    protected void OnCantMove<T>(T component)
-        where T : Component
-    {
-    }
-
-
-
-	IEnumerator RemoveBalloon() {
+        // Remove Balão de coversa da tela
+	    IEnumerator RemoveBalloon() {
 		
-		yield return new WaitForSeconds(2);
-		textBallon.AtiveBallon (false);
+		    yield return new WaitForSeconds(2);
+		    ConversationPanel.ActivePanel (false);
 		
 
-	}
+	    }
 
 
+        // Rômulo Lima
+        // Usado para criar animações onde o personagem se move sozinho
+        // @param1 string direction : direção que o personagem irá se mover
+        // @param2 int step : a quantidade de passos que ele dará na direção
 		public static IEnumerator AnimateCaapora(string direction, int steps){
-			
+		
 			instance.caapora = instance.gameObject.GetComponent<IsoObject> ();
-			
+
+           
+            // Flag para animação automática
 			isPlayingAnimation = true;
 			
-			
-					
+
 			for (int i = 0; i < steps; i++)
-			{
+            {
 
-				Debug.Log("Passou em animate caapora for");
-				
-				instance.GetComponent<Animator>().SetTrigger(direction);
-				
-				 instance.caapora.position += new Vector3 (0, instance.speed, 0);
-				//instance.iso_rigidyBody.velocity = new Vector3 (0, -instance.speed, 0);
+                if(direction == "left")
+                    instance._moveLeft = true;
 
+                if (direction == "right")
+                    instance._moveRight = true;
 
-				// caso seja a ultima animaçao
-				isPlayingAnimation = (i == steps - 1) ? false : true;
+                if (direction == "up")
+                    instance._moveUp = true;
+
+                if (direction == "down")
+                    instance._moveDown = true;
+
+                // caso seja a ultima animaçao
+                isPlayingAnimation = (i == steps - 1) ? false : true;
 				
 				yield return new WaitForSeconds(.08f);
 			}
-		}
 
+            // Ao encerrar a animação zera as Flags
+            instance._moveLeft = false;
+            instance._moveRight = false;
+            instance._moveUp = false;
+            instance._moveDown = false;
+        }
+
+
+        // Romulo Lima
+        // Balança o caipora
 	public static IEnumerator ShakePlayer(){
 
 			instance.caapora = instance.gameObject.GetComponent<IsoObject> ();
@@ -465,8 +507,7 @@ public class PlayerBehavior : CharacterBase {
 		
 	}
 
-
-
+        // Métodos de Flags para ativar a movimentação
         public bool moveUpClick
         {
             get
@@ -520,6 +561,8 @@ public class PlayerBehavior : CharacterBase {
             }
         }
 
+
+        // End Flags para ajudar na movimentação
 
 
 

@@ -70,7 +70,7 @@ public class CaaporaConversation : MonoBehaviour {
 			instance.StartCoroutine(AnimateText(instance.goatText[i]));
 			yield return new WaitForSeconds(3f);
 		}
-		Destroy(GameObject.Find ("txtBalloon"));
+		Destroy(GameObject.Find ("Tela de Conversa"));
 		
 
 	}

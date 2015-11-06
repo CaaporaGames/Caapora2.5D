@@ -16,7 +16,7 @@ static class Coodenadas
 }
 
 
-
+// ######## Esta Classe implementa o padrão de projeto Singleton e tem como função gerenciar todos os estados do game
 public class GameManager: MonoBehaviour {
 	private static GameManager _instance;
 	//used to store latest used door
@@ -25,12 +25,68 @@ public class GameManager: MonoBehaviour {
 	// ID da ultimo caminho passado
 	public int PathID;
 	public Sprite baldeCheio;
-	//public Animator enemy;
+    //public Animator enemy;
+
+    // Construtor implementando Singleton
+    public static GameManager instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = GameObject.FindObjectOfType<GameManager>();
+
+                //Tell unity not to destroy this object when loading a new scene!
+                DontDestroyOnLoad(_instance.gameObject);
+            }
+
+            return _instance;
+        }
+    }
+
+    void Start()
+    {
+        // Habilita ou não a animação de introdução
+         StartCoroutine (Introduction());
+
+    }
 
 
 
-	// Facilita a transferencia de um mapa para outro
-	void movePlayer(string source, string destination, string portal ){
+    void Awake()
+    {
+        if (_instance == null)
+        {
+            //If I am the first instance, make me the Singleton
+            _instance = this;
+            DontDestroyOnLoad(this);
+        }
+        else
+        {
+            //If a Singleton already exists and you find
+            //another reference in scene, destroy it!
+            if (this != _instance)
+                Destroy(this.gameObject);
+        }
+    }
+
+
+
+
+
+
+
+    void Update()
+        {
+
+            // Condições para o game over
+            GameOVer();
+
+        }
+         
+
+    // Facilita a transferencia de um mapa para outro
+    void movePlayer(string source, string destination, string portal ){
 
 		float x = 0f, y = 0f;
 
@@ -62,7 +118,23 @@ public class GameManager: MonoBehaviour {
 
 
 
-	void OnIsoCollisionEnter(IsoCollision iso_collision) {
+    // Rômulo Lima
+    void GameOVer()
+    {
+
+        if (gameObject.GetComponent<IsoObject>().positionZ < -15)
+        {
+
+            Destroy(gameObject);
+            Application.LoadLevel("GameOver");
+
+        }
+
+    }
+
+
+
+    void OnIsoCollisionEnter(IsoCollision iso_collision) {
 
         var GateName = iso_collision.gameObject.name;
 
@@ -126,44 +198,20 @@ public class GameManager: MonoBehaviour {
 		}
 	}
 
-	void Start(){
-
-	
-	 	// StartCoroutine (Introduction());
-	
-	}
-
-
-	
-	public static GameManager instance
-	{
-		get
-		{
-			if(_instance == null)
-			{
-				_instance = GameObject.FindObjectOfType<GameManager>();
-				
-				//Tell unity not to destroy this object when loading a new scene!
-				DontDestroyOnLoad(_instance.gameObject);
-			}
-			
-			return _instance;
-		}
-	}
 
 	// Executa a Introduçao passo a passo
 	public IEnumerator Introduction(){
 
 
 	
-		StartCoroutine (Completed.PlayerBehavior.AnimateCaapora ("Caapora-left", 30));
+		StartCoroutine (Completed.PlayerBehavior.AnimateCaapora ("right", 30));
 		yield return new WaitForSeconds(3f);
 
 		StartCoroutine (Completed.PlayerBehavior.ShakePlayer());
 		yield return new WaitForSeconds(1f);
 
 
-		textBallon.AtiveBallon (true);
+		ConversationPanel.ActivePanel (true);
 		StartCoroutine (CaaporaConversation.AnimateFrase());
 	
 
@@ -186,21 +234,4 @@ public class GameManager: MonoBehaviour {
 	}
 
 
-	
-	void Awake() 
-	{
-		if(_instance == null)
-		{
-			//If I am the first instance, make me the Singleton
-			_instance = this;
-			DontDestroyOnLoad(this);
-		}
-		else
-		{
-			//If a Singleton already exists and you find
-			//another reference in scene, destroy it!
-			if(this != _instance)
-				Destroy(this.gameObject);
-		}
-	}
 }
