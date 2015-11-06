@@ -74,8 +74,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _material: {fileID: 0}
   _isTrigger: 0
-  _size: {x: 1, y: 1, z: 1}
-  _offset: {x: .5, y: .5, z: .5}
+  _size: {x: .899999976, y: .899999976, z: 1.20000005}
+  _offset: {x: .5, y: .5, z: -.300000012}
 --- !u!212 &21254926
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -124,6 +124,22 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: _position.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _size.x
+      value: .899999976
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _size.y
+      value: .899999976
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _size.z
+      value: 1.20000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _offset.z
+      value: -.300000012
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

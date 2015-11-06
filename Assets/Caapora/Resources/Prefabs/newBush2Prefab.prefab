@@ -58,8 +58,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _material: {fileID: 0}
   _isTrigger: 0
-  _size: {x: 1, y: 1, z: 2}
-  _offset: {x: .5, y: .5, z: 1}
+  _size: {x: .699999988, y: .699999988, z: 1.5}
+  _offset: {x: .5, y: .5, z: .5}
 --- !u!114 &11492854
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -123,7 +123,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: _size.z
-      value: 2.5
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: _position.x
@@ -139,15 +139,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: _size.x
-      value: 1.5
+      value: .699999988
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: _size.y
-      value: 1.5
+      value: .699999988
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_SortingLayerID
       value: 548467643
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _offset.z
+      value: .5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
