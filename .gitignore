@@ -6,7 +6,7 @@
 !/Assets/
 !/ProjectSettings/
 !.gitignore
-
+!/AndroidApp
 # OS Stuff
 .DS_Store
 ._*

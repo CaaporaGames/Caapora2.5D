@@ -155,13 +155,16 @@ namespace PathFinding {
 					if (path.Contains(n))
                         {
                             Gizmos.color = Color.black;
-                            Debug.Log("Dot Position = " + n.worldPosition);
+                           // Debug.Log("Dot Position = " + n.worldPosition);
 
                         }
-						
 
+                            // Exemplo de codigo para instanciar isoObject
+                            // var floor = new GameObject();
+                            // floor.AddComponent<IsoObject>();
+                            // floor.transform.position = n.worldPosition;
 
-                          Gizmos.DrawCube(n.worldPosition, Vector3.one * (nodeDiameter - .1f));
+                    Gizmos.DrawCube(n.worldPosition, Vector3.one * (nodeDiameter - .1f));
                        // IsoUtils.DrawCube(iso_object.isoWorld, n.worldPosition, Vector3.one * (nodeDiameter-.1f), Gizmos.color);
                 }
 		}

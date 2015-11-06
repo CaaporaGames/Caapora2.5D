@@ -22,9 +22,15 @@ public class PlayerBehavior : CharacterBase {
 	public IsoObject caapora;
 	public float savedTimeState;
 	public IsoRigidbody iso_rigidyBody;
-
+    public static Vector3 prevPosition;
+    // Sinalizador para a movimentação automática com Pathfinding
+    public static bool stopWalking = false;
 	public static bool isPlayingAnimation = false;
 	public static PlayerBehavior instance;
+    public bool _moveUp = false, _moveDown = false, _moveLeft = false, _moveRight = false;
+
+
+
 
 
 	Text txt;
@@ -43,8 +49,9 @@ public class PlayerBehavior : CharacterBase {
 		
 
 		base.Start();
-		
-       
+
+
+        instance = this;
 
 		currentLevel = levelController.GetCurrentLevel();
 
@@ -68,39 +75,110 @@ public class PlayerBehavior : CharacterBase {
 	void Update () {
 
             moveUpdate();
+
+            // Habilitar a movimentação por clique no local
+           // moveToPlace();
 			
-			/*
+			
 			if (gameObject.GetComponent<IsoObject> ().positionZ < -15) {
 
 				Destroy(gameObject);
 				Application.LoadLevel("GameOver");
 				
-			}*/
+			}
 			
 
 	}
 
-   void moveUpdate()
+
+   void moveToPlace()
         {
 
-          
-            // quando clicar com o botão esquerdo do Mouse
-            if (Input.GetButtonDown("Fire1"))
+            // Movimentação por clique na posição desejada
+            var velocidade = gameObject.GetComponent<IsoRigidbody>().velocity;
+            var _currentPosition = GetComponent<IsoObject>();
+
+
+            Debug.Log("prevPositon =" + prevPosition);
+            Debug.Log("Posicao atual =" + _currentPosition.position);
+
+
+            // Animação por identificação de movimentação
+            if (prevPosition == Vector3.zero || stopWalking)
             {
-         
+                animator.SetTrigger("Caapora-Iddle");
+                _moveUp = false; _moveDown = false; _moveLeft = false; _moveRight = false;
+            }
+             
+            else
+            {
+
+                if (prevPosition.x > _currentPosition.positionX)
+                {
+                    _moveLeft = true;
+                    Debug.Log("caapora-left");
+                }
+
+
+                else if (prevPosition.x < _currentPosition.positionX)
+                {
+                    animator.SetTrigger("Caapora-right");
+                    Debug.Log("caapora-right");
+
+                }
+
+
+
+                else if (prevPosition.y < _currentPosition.positionY)
+                {
+                    animator.SetTrigger("Caapora-Norte");
+                    Debug.Log("caapora-norte");
+
+                }
+
+
+                else if (prevPosition.y > _currentPosition.positionY)
+                {
+                    animator.SetTrigger("Caapora-Sul");
+                    Debug.Log("caapora-sul");
+                }
+
+
+
+            }
+
+
+            // seta a posição alvo do player para a posição do clique no mapa
+            //GetComponent<PathFinding.Pathfinding>().targetPos = new Vector3(13, 13, 0);
+
+            // quando clicar com o botão esquerdo do Mouse
+            //if (Input.GetButtonDown("Fire1"))
+
+
+            if (Input.touchCount > 0)
+            {
+
+                //var clickIsoPosition = gameObject.GetComponent<IsoObject>().isoWorld.MouseIsoTilePosition();
+
+                var clickIsoPosition = gameObject.GetComponent<IsoObject>().isoWorld.TouchIsoTilePosition(0);
                 // seta a posição alvo do player para a posição do clique no mapa
-                GetComponent<PathFinding.Pathfinding>().targetPos = new Vector3(1, 20, 0);
+                GetComponent<PathFinding.Pathfinding>().targetPos = clickIsoPosition;
 
-
-
-                Debug.Log("Posicao clique =" + GetComponent<PathFinding.Pathfinding>().targetPos);
+                Debug.Log("Posicao do clique do mouse foi = " + clickIsoPosition);
 
                 // necessário executar apos um periodo de tempo para dar tempo de pegar a posição
                 StartCoroutine(clicked());
 
             }
 
+        }
 
+   void moveUpdate()
+        {
+            
+
+
+           
             // Debug.Log("Touches = " + Input.touchCount);
 
 
@@ -131,25 +209,25 @@ public class PlayerBehavior : CharacterBase {
             if (iso_rigidyBody)
             {
 
-                if (Input.GetKey(KeyCode.LeftArrow))
+                if (Input.GetKey(KeyCode.LeftArrow) || _moveLeft)
                 {
 
                     moveLeft();
 
                 }
-                else if (Input.GetKey(KeyCode.RightArrow))
+                else if (Input.GetKey(KeyCode.RightArrow) || _moveRight)
                 {
 
                     moveRight();
 
                 }
-                else if (Input.GetKey(KeyCode.DownArrow))
+                else if (Input.GetKey(KeyCode.DownArrow) || _moveDown)
                 {
 
                     moveDown();
 
                 }
-                else if (Input.GetKey(KeyCode.UpArrow))
+                else if (Input.GetKey(KeyCode.UpArrow) || _moveUp)
                 {
 
                     moveUp();
@@ -177,10 +255,10 @@ public class PlayerBehavior : CharacterBase {
 
 
 
-        void moveLeft()
+       public void moveLeft()
         {
 
-            //gameObject.GetComponent<IsoObject> ().position += new Vector3 (-this.speed, 0, 0);
+
 
             iso_rigidyBody.velocity = new Vector3(-this.speed, 0, 0);
 
@@ -188,19 +266,19 @@ public class PlayerBehavior : CharacterBase {
 
         }
 
-        void moveRight()
+        public void moveRight()
         {
 
-            //gameObject.GetComponent<IsoObject> ().position += new Vector3 (this.speed, 0, 0);
+            
             iso_rigidyBody.velocity = new Vector3(this.speed, 0, 0);
             animator.SetTrigger("Caapora-right");
 
         }
 
 
-        void moveDown()
+        public void moveDown()
         {
-            //gameObject.GetComponent<IsoObject> ().position += new Vector3 (0, -this.speed, 0);
+         
             iso_rigidyBody.velocity = new Vector3(0, -this.speed, 0);
             animator.SetTrigger("Caapora-Norte");
 
@@ -208,9 +286,9 @@ public class PlayerBehavior : CharacterBase {
         }
 
 
-        void moveUp()
+        public void moveUp()
         {
-            //gameObject.GetComponent<IsoObject> ().position += new Vector3 (0, this.speed, 0);
+            
             iso_rigidyBody.velocity = new Vector3(0, this.speed, 0);
             animator.SetTrigger("Caapora-Sul");
 
@@ -218,7 +296,7 @@ public class PlayerBehavior : CharacterBase {
 
 
 
-        void Jump()
+        public void Jump()
         {
             //gameObject.GetComponent<IsoRigidbody> ().velocity += new Vector3 (0, 0, 10f);
             iso_rigidyBody.velocity = new Vector3(0, 0, this.speed);
@@ -229,6 +307,7 @@ public class PlayerBehavior : CharacterBase {
         // Seta a Flag para iniciar o Pathfinding apos um segundo para pegar a posição antes
         public IEnumerator clicked()
         {
+            Debug.Log("Clicou e habilitou o _start");
             // aguarda um segundo
             yield return new WaitForSeconds(1);
             // Inicia percurso 
@@ -385,11 +464,66 @@ public class PlayerBehavior : CharacterBase {
 			}
 		
 	}
-		
+
+
+
+        public bool moveUpClick
+        {
+            get
+            {
+                return this._moveUp;
+            }
+            set
+            {
+                this._moveUp = value;
+            }
+        }
+
+
+
+        public bool moveDownClick
+        {
+            get
+            {
+                return this._moveDown;
+            }
+            set
+            {
+                this._moveDown = value;
+            }
+        }
+
+
+
+        public bool moveLeftClick
+        {
+            get
+            {
+                return this._moveLeft;
+            }
+            set
+            {
+                this._moveLeft = value;
+            }
+        }
+
+
+        public bool moveRightClick
+        {
+            get
+            {
+                return this._moveRight;
+            }
+            set
+            {
+                this._moveRight = value;
+            }
+        }
 
 
 
 
-	}
+
+    }
 
 }

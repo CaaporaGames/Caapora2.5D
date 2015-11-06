@@ -13,12 +13,15 @@ namespace PathFinding {
     public Vector3 cachedSeekerPos, cachedTargetPos;
     public Grid grid;
     private bool _start = false;
-    private bool move = false, canStart = true;
-
-
-
+    private bool move = false, canStart = false;
+    public IEnumerator updatePosition;
+        public IEnumerator animatePath;
+      
+       
         public Vector3 targetPos
         {
+
+      
             get { return _targetPos; }
             set {
                         _targetPos = value;
@@ -47,6 +50,8 @@ namespace PathFinding {
    void Start()
         {
 
+         
+
             seekerIso = GetComponent<IsoObject>();
             // posicao no modo isometrico
             cachedSeekerPos = seekerIso.position;
@@ -58,14 +63,22 @@ namespace PathFinding {
 
        void Update()
        {
+           // Debug.Log("Valor de Canstart = " + canStart);
+           // Debug.Log("Valor de move = " +  move);
+           // Debug.Log("Valor de _start = " + _start );
 
-           if (_start) {
-          //      move = true;
-          //      click = false;
+            // Se clicar inicia
+            if (_start) {
+                Debug.Log("Habilitou o move pelo _start");
+                move = true;
+                canStart = true;
             }
             // enquanto nao inicia deixa as posições originais
             if (!move && canStart)
            {
+
+                Debug.Log("Movimentacao desabilitada ");
+
                if (cachedSeekerPos != seekerIso.position)
                {
                    cachedSeekerPos = seekerIso.position;
@@ -81,7 +94,8 @@ namespace PathFinding {
            // inicia IA
            else
            {
-               AnimatePath();
+                if(canStart)
+                     AnimatePath();
            }
        }
 
@@ -158,22 +172,25 @@ namespace PathFinding {
         void AnimatePath()
         {
             move = false;
-
+            click = false;
+        
             Vector3 currentPos = seekerIso.position;
-            if (grid.path != null)
-            {
-                Debug.Log("ANIMATING PATH");
-                StartCoroutine(UpdatePosition(currentPos, grid.path[0], 0));
+
+            Debug.Log("ANIMATING PATH");
+
+            if (canStart) { 
+              updatePosition = UpdatePosition(currentPos, grid.path[0], 0);
+              StartCoroutine(updatePosition);
             }
+
         }
 
 
-
-
-
+     
+       
         IEnumerator UpdatePosition(Vector3 currentPos, Node n, int index)
         {
-            // Debug.Log ("Started Coroutine...");
+   
             float t = 0.0f;
             // Vector3 correctedPathPos = new Vector3(n.GetWorldPos().x, 1, n.GetWorldPos().z);
 
@@ -181,42 +198,55 @@ namespace PathFinding {
             // foi necessário criar uma variável apenas para essa finalizade para não sobrescrever a posição original
             Vector3 tmpWorldPosition  = seekerIso.isoWorld.ScreenToIso(n.worldPosition);
 
-         //   Debug.Log("node position =" + n.worldPosition);
 
-         //   Debug.Log("node position converted =" + tmpWorldPosition);
-
-         //   Debug.Log("player position  =" + currentPos);
 
             Vector3 correctedPathPos = tmpWorldPosition;
 
-            while (t < 1f)
+            while (t < 0.5f)
             {
                 t += Time.deltaTime;
 
-
+            
                 seekerIso.position =   Vector3.Lerp(currentPos, correctedPathPos, t);
 
+
+                Completed.PlayerBehavior.stopWalking = false;
+                // Apenas para o caipora, seta a posição anterior para movimentação automática
+                Completed.PlayerBehavior.prevPosition = currentPos;
                 // Vector3.MoveTowards(currentPos, correctedPathPos, t);
 
                 yield return null;
             }
 
 
-           // Debug.Log ("Finished updating...");
             seekerIso.position = correctedPathPos;
 
-           // Debug.Log("seeker pos after = " + seekerIso.position);
+     
             currentPos = correctedPathPos;
 
-            Debug.Log("Caminhos = " + index);
-
+      
             // Para cada ponto do caminho executa novamente este método
             index++;
             if (index < grid.path.Count)
-                StartCoroutine(UpdatePosition(currentPos, grid.path[index], index));
+            {
+
+                  updatePosition = UpdatePosition(currentPos, grid.path[index], index);
+
+                  StartCoroutine(updatePosition);
+                  // grid.path.Remove(grid.path[index]);
+                  Debug.Log("Caminho " + index + " Alcançado");
+       
+            }
+               
             else
             {
-                canStart = false;   
+
+                Completed.PlayerBehavior.stopWalking = true;
+                Debug.Log("UpdatePositio finalizado");
+                canStart = false;
+                StopCoroutine(updatePosition);
+                               
+
             }
                 
         } 

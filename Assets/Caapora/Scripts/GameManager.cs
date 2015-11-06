@@ -7,21 +7,10 @@ using IsoTools;
 static class Coodenadas
 {
 
-	public enum Map1 : long { x = -58, y = 27 };
-	public enum Map2 : long { x = -32, y = 27 };
-	public enum Map3 : long { x = -4, y = 27 }; // Provisorio
-	public enum Map4 : long { x = 21, y = 27 };
-
-
-	public enum Map8 : long { x = -58, y = -2 };
-	public enum Map7 : long { x = -33, y = -2 };
-	public enum Map6 : long { x = -4, y = -2 };
-	public enum Map5 : long { x = 21, y = -2 };
-
-	public enum Map9 : long { x = -58, y = -27 };
-	public enum Map10 : long { x = -33, y = -27 };
-	public enum Map11 : long { x = -4, y = -27 };
-	public enum Map12 : long { x = 21, y = -27 };
+	public enum North : long { x = 12, y = 0 };
+	public enum South : long { x = 14, y = 24 };
+	public enum East : long { x = 12, y = 12 }; // Provisorio
+	public enum West : long { x = 0, y = 12 };
 
 	
 }
@@ -41,58 +30,26 @@ public class GameManager: MonoBehaviour {
 
 
 	// Facilita a transferencia de um mapa para outro
-	void movePlayer(string source, string destination ){
+	void movePlayer(string source, string destination, string portal ){
 
 		float x = 0f, y = 0f;
 
-		switch (destination) {
-			case "Map1":
-				x = (float)Coodenadas.Map1.x;
-				y = (float)Coodenadas.Map1.y;
+		switch (portal) {
+			case "GateEast":
+				x = (float)Coodenadas.West.x;
+				y = (float)Coodenadas.West.y;
 				break;
-			case "Map2":
-				x = (float)Coodenadas.Map2.x;
-				y = (float)Coodenadas.Map2.y;
+			case "GateWest":
+				x = (float)Coodenadas.East.x;
+				y = (float)Coodenadas.East.y;
 				break;
-			case "Map3":
-				x = (float)Coodenadas.Map3.x;
-				y = (float)Coodenadas.Map3.y;
+			case "GateNorth":
+				x = (float)Coodenadas.South.x;
+				y = (float)Coodenadas.South.y;
 				break;
-			case "Map4":
-				x = (float)Coodenadas.Map4.x;
-				y = (float)Coodenadas.Map4.y;
-				break;
-			case "Map5":
-				x = (float)Coodenadas.Map5.x;
-				y = (float)Coodenadas.Map5.y;
-				break;
-			case "Map6":
-				x = (float)Coodenadas.Map6.x;
-				y = (float)Coodenadas.Map6.y;
-				break;
-			case "Map7":
-				x = (float)Coodenadas.Map7.x;
-				y = (float)Coodenadas.Map7.y;
-				break;
-			case "Map8":
-				x = (float)Coodenadas.Map8.x;
-				y = (float)Coodenadas.Map8.y;
-				break;
-			case "Map9":
-				x = (float)Coodenadas.Map8.x;
-				y = (float)Coodenadas.Map8.y;
-				break;
-			case "Map10":
-				x = (float)Coodenadas.Map8.x;
-				y = (float)Coodenadas.Map8.y;
-				break;
-			case "Map11":
-				x = (float)Coodenadas.Map8.x;
-				y = (float)Coodenadas.Map8.y;
-				break;
-			case "Map12":
-				x = (float)Coodenadas.Map8.x;
-				y = (float)Coodenadas.Map8.y;
+			case "GateSouth":
+				x = (float)Coodenadas.North.x;
+				y = (float)Coodenadas.North.y;
 				break;
 		}
 
@@ -107,109 +64,26 @@ public class GameManager: MonoBehaviour {
 
 	void OnIsoCollisionEnter(IsoCollision iso_collision) {
 
+        var GateName = iso_collision.gameObject.name;
 
-		// Baseado na colisao com os portoes faz a movimentaçao do personagem
-		switch(iso_collision.gameObject.name){
+        var source = "";
+        var destination = "";
 
+        
+        for(int i = 0; i < 10; i++)
+        {
+            var mapName = GameObject.Find("Map" + i);
 
-	        // Map1 to Map2
-			case "map1GateEastPrefab":
-				movePlayer("Map1","Map2");
-				break;
-		
-			// Map1 to Map8	
-			case "map1GateSouth":
-				movePlayer("Map1", "Map8");
-				break;
+            if ( mapName != null)
+                Debug.Log("Mapa = " + mapName);
 
-			// Map2 to Map1	
-			case "map2GateWestPrefab":
-				movePlayer("Map2", "Map1");
-				break;
-
-			// Map2 to Map3	
-			case "map2GateEastPrefab":
-				movePlayer("Map2", "Map3");
-				break;
-
-			// Map3 to Map2	
-			case "map3GateWestPrefab":
-				movePlayer("Map3", "Map2");
-				break;
-
-	        // Map8 to Map1
-			case "map8GateNorthPrefab":
-				movePlayer("Map8","Map1");
-				break;
-
-			// Map8 to Map7
-			case "map8GateEastPrefab":
-				movePlayer("Map8","Map7");
-				break;
+        }
 
 
-			// Map8 to Map9
-			case "map8GateSouthPrefab":
-				movePlayer("Map8","Map7");
-				break;
-			
-			// Map7 to Map8
-			case "map7GateWestPrefab":
-				movePlayer("Map8","Map7");
-				break;
-			
-			// Map7 to Map2
-			case "map7GateNorthPrefab":
-				movePlayer("Map8","Map7");
-				break;
-			
-			// Map7 to Map6
-			case "map7GateEastPrefab":
-				movePlayer("Map8","Map7");
-				break;
-			
-			// Map7 to Map10
-			case "map7GateSouthPrefab":
-				movePlayer("Map8","Map7");
-				break;
-			
-			// Map6 to Map7
-			case "map6GateWestPrefab":
-				movePlayer("Map6","Map7");
-				break;
-			
-			// Map6 to Map3
-			case "map6GateNorthPrefab":
-				movePlayer("Map6","Map3");
-				break;	
-			// Map6 to Map5
-			case "map6GateEastPrefab":
-				movePlayer("Map6","Map5");
-				break;
-			
-			// Map6 to Map11
-			case "map6GateSouthPrefab":
-				movePlayer("Map6","Map11");
-				break;
+       // movePlayer(source, destination, GateName);
 
-				
-			// Map3 to Map4
-			case "map3GateEastPrefab":
-				movePlayer("Map3","Map4");
-				break;	
-
-			// Map3 to Map6
-			case "map3GateSouthPrefab":
-				movePlayer("Map3","Map6");
-				break;
-				
-
-
-			
-		}
-		
-		// Colisao com o balde vazio
-		if (iso_collision.gameObject.name == "baldevazio") {
+        // Colisao com o balde vazio
+        if (iso_collision.gameObject.name == "baldevazio") {
 		
 			var objeto = iso_collision.gameObject.GetComponent<IsoRigidbody>();
 			if ( objeto ) {
