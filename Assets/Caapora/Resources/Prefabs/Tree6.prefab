@@ -45,7 +45,7 @@ MonoBehaviour:
   _material: {fileID: 0}
   _isTrigger: 0
   _size: {x: 1.5, y: 1.5, z: 3}
-  _offset: {x: .75, y: .75, z: 1.5}
+  _offset: {x: .75, y: .75, z: 1.29999995}
 --- !u!114 &11416758
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -132,6 +132,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: _isKinematic
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _offset.z
+      value: 1.29999995
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
