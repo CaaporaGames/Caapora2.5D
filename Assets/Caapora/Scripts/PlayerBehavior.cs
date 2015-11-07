@@ -29,7 +29,7 @@ public class PlayerBehavior : CharacterBase {
     public static bool stopWalking = false;
 	public static bool isPlayingAnimation = false;
 	public static PlayerBehavior instance;
-    public bool _moveUp = false, _moveDown = false, _moveLeft = false, _moveRight = false, _jump = false;
+    public bool _moveUp = false, _moveDown = false, _moveLeft = false, _moveRight = false, _AKey = false, _BKey = false;
 
     private float _life = 1000;
 
@@ -244,7 +244,7 @@ public class PlayerBehavior : CharacterBase {
                     moveUp();
 
                 }
-                else if (Input.GetKeyDown(KeyCode.Space) || _jump)
+                else if (Input.GetKeyDown(KeyCode.Space) || _BKey)
                 {
 
                     paused = paused ? false : true;
@@ -477,7 +477,7 @@ public class PlayerBehavior : CharacterBase {
                     instance._moveDown = true;
 
                 if (direction == "jump")
-                    instance._jump = true;
+                    instance._AKey = true;
 
                 // caso seja a ultima animaçao
                 isPlayingAnimation = (i == steps - 1) ? false : true;
@@ -490,7 +490,7 @@ public class PlayerBehavior : CharacterBase {
             instance._moveRight = false;
             instance._moveUp = false;
             instance._moveDown = false;
-            instance._jump = false;
+            instance._AKey = false;
         }
 
 
@@ -567,15 +567,28 @@ public class PlayerBehavior : CharacterBase {
         }
 
 
-        public bool jumpClick
+        public bool AClick
         {
             get
             {
-                return this._jump;
+                return this._AKey;
             }
             set
             {
-                this._jump= value;
+                this._AKey= value;
+            }
+        }
+
+
+        public bool BClick
+        {
+            get
+            {
+                return this._BKey;
+            }
+            set
+            {
+                this._BKey = value;
             }
         }
 
@@ -590,6 +603,8 @@ public class PlayerBehavior : CharacterBase {
                 this._life = value;
             }
         }
+
+
 
         // End Flags para ajudar na movimentação
 

@@ -2,6 +2,7 @@
 using System.Collections;
 using IsoTools;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 
 
@@ -49,8 +50,9 @@ public class GameManager: MonoBehaviour {
 
     void Start()
     {
+      
         // Habilita ou não a animação de introdução
-         StartCoroutine (Introduction());
+        StartCoroutine (Introduction());
 
         // Recebe a instancia do player
         player = Completed.PlayerBehavior.instance;
@@ -87,7 +89,7 @@ public class GameManager: MonoBehaviour {
 
 
         // Atualiza o valor do status na interface
-        GameObject.Find("CharStats/hp").GetComponent<Text>().text = player.life.ToString(); ;
+        GameObject.Find("GUI/Inventory/CharStats/hp").GetComponent<Text>().text = player.life.ToString(); ;
 
 
             // Condições para o game over
@@ -158,14 +160,22 @@ public class GameManager: MonoBehaviour {
        // movePlayer(source, destination, GateName);
 
         // Colisao com o balde vazio
-        if (iso_collision.gameObject.name == "baldevazio") {
-		
-			var objeto = iso_collision.gameObject.GetComponent<IsoRigidbody>();
-			if ( objeto ) {
-				
-				// pega o balde
-			//	objeto.transform.parent = transform;
-			}
+        if (iso_collision.gameObject.name == "baldeVazioPrefab") {
+
+            // Exibe a dica de tecla
+            Advice.ShowAdvice(true);
+
+            // Chaca por entrada de dados
+            if (Input.GetKeyDown(KeyCode.A) || player.AClick)
+            {
+                GameObject.Find("item1").GetComponent<Image>().sprite = Resources.Load("Sprites/balde", typeof(Sprite)) as Sprite;
+
+                Destroy(iso_collision.gameObject);
+
+            }
+              
+
+
 		}
 		
 		if ( iso_collision.gameObject.name == "chamas"  || iso_collision.gameObject.name == "chamas(Clone)") {
@@ -187,7 +197,7 @@ public class GameManager: MonoBehaviour {
 		}
 
 
-        
+       
 
 		if ( iso_collision.gameObject.name == "waterPrefab" ) {
 
@@ -209,6 +219,16 @@ public class GameManager: MonoBehaviour {
 		}
 	}
 
+   
+
+
+    // Rômulo Lima
+    // Sair do Jogo
+    public void Exit()
+    {
+        Debug.Log("Apertou sair");
+        Application.Quit();
+    }
 
     // Romulo Lima
     // Anima o Sprite na colisao, fica piscando em vermelho
@@ -254,6 +274,14 @@ public class GameManager: MonoBehaviour {
 
 
 	}
+
+    // Rômulo Lima
+    // desabilita a tela de conversassão
+    public void hideConversationPanel()
+    {
+
+        GameObject.Find("Tela de Conversa").SetActive(false);
+    }
 
 
 	void OnGUI(){

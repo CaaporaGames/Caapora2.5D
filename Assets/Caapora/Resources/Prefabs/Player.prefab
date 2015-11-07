@@ -362,7 +362,8 @@ MonoBehaviour:
   _moveDown: 0
   _moveLeft: 0
   _moveRight: 0
-  _jump: 0
+  _AKey: 0
+  _BKey: 0
 --- !u!114 &11424456
 MonoBehaviour:
   m_ObjectHideFlags: 1
