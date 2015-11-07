@@ -29,7 +29,9 @@ public class PlayerBehavior : CharacterBase {
     public static bool stopWalking = false;
 	public static bool isPlayingAnimation = false;
 	public static PlayerBehavior instance;
-    public bool _moveUp = false, _moveDown = false, _moveLeft = false, _moveRight = false;
+    public bool _moveUp = false, _moveDown = false, _moveLeft = false, _moveRight = false, _AKey = false, _BKey = false;
+
+    private float _life = 1000;
 
 
 
@@ -57,7 +59,7 @@ public class PlayerBehavior : CharacterBase {
 
         instance = this;
 
-		currentLevel = levelController.GetCurrentLevel();
+		currentLevel = StatsController.GetCurrentLevel();
 
 		animator = GetComponent<Animator>();
 	
@@ -242,7 +244,7 @@ public class PlayerBehavior : CharacterBase {
                     moveUp();
 
                 }
-                else if (Input.GetKeyDown(KeyCode.Space))
+                else if (Input.GetKeyDown(KeyCode.Space) || _BKey)
                 {
 
                     paused = paused ? false : true;
@@ -307,9 +309,8 @@ public class PlayerBehavior : CharacterBase {
 
         public void Jump()
         {
-            //gameObject.GetComponent<IsoRigidbody> ().velocity += new Vector3 (0, 0, 10f);
             iso_rigidyBody.velocity = new Vector3(0, 0, this.speed);
-            animator.SetTrigger("Caapora-Norte");
+
 
         }
 
@@ -475,6 +476,9 @@ public class PlayerBehavior : CharacterBase {
                 if (direction == "down")
                     instance._moveDown = true;
 
+                if (direction == "jump")
+                    instance._AKey = true;
+
                 // caso seja a ultima animaçao
                 isPlayingAnimation = (i == steps - 1) ? false : true;
 				
@@ -486,6 +490,7 @@ public class PlayerBehavior : CharacterBase {
             instance._moveRight = false;
             instance._moveUp = false;
             instance._moveDown = false;
+            instance._AKey = false;
         }
 
 
@@ -560,6 +565,45 @@ public class PlayerBehavior : CharacterBase {
                 this._moveRight = value;
             }
         }
+
+
+        public bool AClick
+        {
+            get
+            {
+                return this._AKey;
+            }
+            set
+            {
+                this._AKey= value;
+            }
+        }
+
+
+        public bool BClick
+        {
+            get
+            {
+                return this._BKey;
+            }
+            set
+            {
+                this._BKey = value;
+            }
+        }
+
+        public float life
+        {
+            get
+            {
+                return this._life;
+            }
+            set
+            {
+                this._life = value;
+            }
+        }
+
 
 
         // End Flags para ajudar na movimentação

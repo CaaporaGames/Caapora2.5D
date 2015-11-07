@@ -28,6 +28,7 @@ GameObject:
   - 223: {fileID: 22316772}
   - 114: {fileID: 11423172}
   - 114: {fileID: 11474770}
+  - 114: {fileID: 11463212}
   m_Layer: 5
   m_Name: TelaConversaPrefab
   m_TagString: Untagged
@@ -62,6 +63,7 @@ GameObject:
   - 224: {fileID: 22409386}
   - 222: {fileID: 22269972}
   - 114: {fileID: 11417068}
+  - 114: {fileID: 11465446}
   m_Layer: 5
   m_Name: Fala
   m_TagString: Untagged
@@ -94,9 +96,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-    ligula eget dolor ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis
-    eu pede mollis pretium. Integer tincidunt...
+  m_Text: 
 --- !u!114 &11423172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -139,6 +139,29 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11463212
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 100aff2849879ba4582c5d7037266bc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11465446
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67414fa7dc0604b4c855952a1cb324c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textBox: {fileID: 0}
 --- !u!114 &11474770
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -225,7 +248,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -58.5999985, y: -155.899994}
+  m_AnchoredPosition: {x: 69, y: -151}
   m_SizeDelta: {x: 603.299988, y: 113.300003}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22421176
@@ -259,7 +282,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -473.299988, y: -157.350006}
+  m_AnchoredPosition: {x: -318, y: -142}
   m_SizeDelta: {x: 167.699997, y: 156.300003}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22477916

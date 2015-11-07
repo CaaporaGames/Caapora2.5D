@@ -4,6 +4,8 @@ using IsoTools;
 
 public class spreadFrame : MonoBehaviour {
 
+
+    public float demage = 50;
     public float spreadTime = 3f;
 	// Use this for initialization
 	void Start () {

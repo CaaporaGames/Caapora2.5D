@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using IsoTools;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 
 
@@ -21,6 +23,8 @@ public class GameManager: MonoBehaviour {
 	private static GameManager _instance;
 	//used to store latest used door
 	public Vector3 LastUsedDoorPosition;
+
+    public Completed.PlayerBehavior player;
 
 	// ID da ultimo caminho passado
 	public int PathID;
@@ -46,8 +50,12 @@ public class GameManager: MonoBehaviour {
 
     void Start()
     {
+      
         // Habilita ou não a animação de introdução
-         StartCoroutine (Introduction());
+        StartCoroutine (Introduction());
+
+        // Recebe a instancia do player
+        player = Completed.PlayerBehavior.instance;
 
     }
 
@@ -72,12 +80,83 @@ public class GameManager: MonoBehaviour {
 
 
 
+    void CatchItem(GameObject item)
+    {
 
 
 
+    }
+
+
+
+    void AddItemToInventory(GameObject item)
+    {
+
+        item.GetComponent<Image>().sprite = Resources.Load("Sprites/balde", typeof(Sprite)) as Sprite;
+
+    }
+
+
+    bool canCatch(GameObject go)
+    {
+        // Percorre todos as posicoes vizinhas
+        for (int x = -1; x <= 1; x++)
+        {
+            for (int y = -1; y <= 1; y++) {
+
+                  
+                
+                if (Mathf.RoundToInt(go.GetComponent<IsoObject>().positionX) == Mathf.RoundToInt(player.GetComponent<IsoObject>().positionX + x)  &&
+                        Mathf.RoundToInt(go.GetComponent<IsoObject>().positionY) == Mathf.RoundToInt(player.GetComponent<IsoObject>().positionY + y))
+                {
+
+                    Debug.Log("É vizinho!");
+                    return true;
+                }
+                   
+
+             }
+        }
+
+
+        return false;
+
+
+    }
 
     void Update()
         {
+
+        GameObject baldeTeste = GameObject.Find("baldeVazioPrefab"); ;
+
+
+        if (canCatch(baldeTeste))
+        {
+
+
+
+            // Checa por entrada de dados
+            if (Input.GetKeyDown(KeyCode.A) || player.AClick)
+            {
+                // Exibe a dica de tecla
+                Advice.ShowAdvice(false);
+
+                AddItemToInventory(GameObject.Find("item1"));
+
+                Destroy(baldeTeste);
+
+            }
+
+        }
+        
+            
+       
+
+
+
+        // Atualiza o valor do status na interface
+        GameObject.Find("GUI/Inventory/CharStats/hp").GetComponent<Text>().text = player.life.ToString(); ;
+
 
             // Condições para o game over
             GameOVer();
@@ -122,7 +201,7 @@ public class GameManager: MonoBehaviour {
     void GameOVer()
     {
 
-        if (gameObject.GetComponent<IsoObject>().positionZ < -15)
+        if (gameObject.GetComponent<IsoObject>().positionZ < -15 || player.life <= 0)
         {
 
             Destroy(gameObject);
@@ -138,35 +217,33 @@ public class GameManager: MonoBehaviour {
 
         var GateName = iso_collision.gameObject.name;
 
-        var source = "";
-        var destination = "";
-
+    
+        if(GateName == "GateEast")
+             movePlayer("Map1", "Map2", GateName);
         
-        for(int i = 0; i < 10; i++)
-        {
-            var mapName = GameObject.Find("Map" + i);
-
-            if ( mapName != null)
-                Debug.Log("Mapa = " + mapName);
-
-        }
 
 
        // movePlayer(source, destination, GateName);
 
         // Colisao com o balde vazio
-        if (iso_collision.gameObject.name == "baldevazio") {
-		
-			var objeto = iso_collision.gameObject.GetComponent<IsoRigidbody>();
-			if ( objeto ) {
-				
-				// pega o balde
-			//	objeto.transform.parent = transform;
-			}
+        if (iso_collision.gameObject.name == "baldeVazioPrefab") {
+
+            Debug.Log("Colidindo com o balde");
+            // Exibe a dica de tecla
+            Advice.ShowAdvice(true);
+
+          
+
 		}
 		
 		if ( iso_collision.gameObject.name == "chamas"  || iso_collision.gameObject.name == "chamas(Clone)") {
-			
+
+            // Reduz o life do caipora de acordo com o demage do objeto
+            player.life = player.life - iso_collision.gameObject.GetComponent<spreadFrame>().demage;
+
+            StartCoroutine(CaaporaHit());
+
+
 
 			var objeto = iso_collision.gameObject.GetComponent<IsoRigidbody>();
 			if ( objeto ) {
@@ -177,6 +254,8 @@ public class GameManager: MonoBehaviour {
 			}
 		}
 
+
+       
 
 		if ( iso_collision.gameObject.name == "waterPrefab" ) {
 
@@ -198,9 +277,44 @@ public class GameManager: MonoBehaviour {
 		}
 	}
 
+   
 
-	// Executa a Introduçao passo a passo
-	public IEnumerator Introduction(){
+
+    // Rômulo Lima
+    // Sair do Jogo
+    public void Exit()
+    {
+        Debug.Log("Apertou sair");
+        Application.Quit();
+    }
+
+    // Romulo Lima
+    // Anima o Sprite na colisao, fica piscando em vermelho
+    public IEnumerator CaaporaHit()
+    {
+
+        float t = 0.0f;
+
+        // Forma gradativa de fazer transição
+        while (t < 1f)
+            {
+                t += Time.deltaTime;
+
+                GetComponent<SpriteRenderer>().color = Color.Lerp(Color.red, Color.white, t);
+                yield return null;
+          
+
+        }
+
+             
+
+
+
+    }
+
+
+    // Executa a Introduçao passo a passo
+    public IEnumerator Introduction(){
 
 
 	
@@ -218,6 +332,14 @@ public class GameManager: MonoBehaviour {
 
 
 	}
+
+    // Rômulo Lima
+    // desabilita a tela de conversassão
+    public void hideConversationPanel()
+    {
+
+        GameObject.Find("Tela de Conversa").SetActive(false);
+    }
 
 
 	void OnGUI(){

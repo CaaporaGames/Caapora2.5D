@@ -12,7 +12,7 @@ public class EnemyBehavior : CharacterBase {
 		animator = GetComponent<Animator>();
 
 		base.Start();
-		currentLevel = levelController.GetCurrentLevel();
+		currentLevel = StatsController.GetCurrentLevel();
 
 	}
 	
