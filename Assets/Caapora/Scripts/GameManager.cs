@@ -80,12 +80,78 @@ public class GameManager: MonoBehaviour {
 
 
 
+    void CatchItem(GameObject item)
+    {
 
 
 
+    }
+
+
+
+    void AddItemToInventory(GameObject item)
+    {
+
+        item.GetComponent<Image>().sprite = Resources.Load("Sprites/balde", typeof(Sprite)) as Sprite;
+
+    }
+
+
+    bool canCatch(GameObject go)
+    {
+        // Percorre todos as posicoes vizinhas
+        for (int x = -1; x <= 1; x++)
+        {
+            for (int y = -1; y <= 1; y++) {
+
+                  
+                
+                if (Mathf.RoundToInt(go.GetComponent<IsoObject>().positionX) == Mathf.RoundToInt(player.GetComponent<IsoObject>().positionX + x)  &&
+                        Mathf.RoundToInt(go.GetComponent<IsoObject>().positionY) == Mathf.RoundToInt(player.GetComponent<IsoObject>().positionY + y))
+                {
+
+                    Debug.Log("É vizinho!");
+                    return true;
+                }
+                   
+
+             }
+        }
+
+
+        return false;
+
+
+    }
 
     void Update()
         {
+
+        GameObject baldeTeste = GameObject.Find("baldeVazioPrefab"); ;
+
+
+        if (canCatch(baldeTeste))
+        {
+
+
+
+            // Checa por entrada de dados
+            if (Input.GetKeyDown(KeyCode.A) || player.AClick)
+            {
+                // Exibe a dica de tecla
+                Advice.ShowAdvice(false);
+
+                AddItemToInventory(GameObject.Find("item1"));
+
+                Destroy(baldeTeste);
+
+            }
+
+        }
+        
+            
+       
+
 
 
         // Atualiza o valor do status na interface
@@ -162,19 +228,11 @@ public class GameManager: MonoBehaviour {
         // Colisao com o balde vazio
         if (iso_collision.gameObject.name == "baldeVazioPrefab") {
 
+            Debug.Log("Colidindo com o balde");
             // Exibe a dica de tecla
             Advice.ShowAdvice(true);
 
-            // Chaca por entrada de dados
-            if (Input.GetKeyDown(KeyCode.A) || player.AClick)
-            {
-                GameObject.Find("item1").GetComponent<Image>().sprite = Resources.Load("Sprites/balde", typeof(Sprite)) as Sprite;
-
-                Destroy(iso_collision.gameObject);
-
-            }
-              
-
+          
 
 		}
 		
