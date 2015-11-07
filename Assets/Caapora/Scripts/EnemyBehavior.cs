@@ -11,6 +11,7 @@ public class EnemyBehavior : CharacterBase {
 	protected void Start () {
 		animator = GetComponent<Animator>();
 
+
 		base.Start();
 		currentLevel = StatsController.GetCurrentLevel();
 

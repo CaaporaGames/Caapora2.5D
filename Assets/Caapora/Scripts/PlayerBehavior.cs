@@ -96,8 +96,11 @@ public class PlayerBehavior : CharacterBase {
 
 
 
-        // Rômulo Lima
-        // Controle de Movimentação por clique na posição desejada 
+        /// *************************************************************************
+        /// Author: Rômulo Lima
+        /// <summary> 
+        /// Controle de movimentação baseada no clique do destino no mapa 
+        /// </summary>
         void moveToPlace()
         {
 
@@ -123,14 +126,14 @@ public class PlayerBehavior : CharacterBase {
                 if (prevPosition.x > _currentPosition.positionX)
                 {
                     _moveLeft = true;
-                    Debug.Log("caapora-left");
+         
                 }
 
 
                 else if (prevPosition.x < _currentPosition.positionX)
                 {
                     animator.SetTrigger("Caapora-right");
-                    Debug.Log("caapora-right");
+                
 
                 }
 
@@ -138,16 +141,16 @@ public class PlayerBehavior : CharacterBase {
 
                 else if (prevPosition.y < _currentPosition.positionY)
                 {
-                    animator.SetTrigger("Caapora-Norte");
-                    Debug.Log("caapora-norte");
+                    animator.SetTrigger("Caapora-Sul");
+                
 
                 }
 
 
                 else if (prevPosition.y > _currentPosition.positionY)
                 {
-                    animator.SetTrigger("Caapora-Sul");
-                    Debug.Log("caapora-sul");
+                    animator.SetTrigger("Caapora-Norte");
+        
                 }
 
 
@@ -181,9 +184,11 @@ public class PlayerBehavior : CharacterBase {
         }
 
 
-        // Rômulo Lima
-        // Mateus Souza
-        // Controle de movimentação por teclado 
+        /// *************************************************************************
+        /// Author: Rômulo Lima e Mateus Souza
+        /// <summary> 
+        /// Controle de movimentação pelas setas do teclado
+        /// </summary> 
         void moveUpdate()
         {
             
@@ -251,12 +256,16 @@ public class PlayerBehavior : CharacterBase {
 
                     Jump();
                   
-
+                  
                 }
                 else if (!isPlayingAnimation)
                 { // Caso nao esteja precionando nenhuma tecla
 
-                    animator.SetTrigger("CaaporaIdle");
+                    // Inicialmente apenas verifica se há itens
+                    if (!Inventory.isEmpty())
+                        animator.SetTrigger("CaaporaParaBalde-idle");
+                    else
+                        animator.SetTrigger("CaaporaIdle");
 
                 }
 
@@ -291,7 +300,7 @@ public class PlayerBehavior : CharacterBase {
         {
          
             iso_rigidyBody.velocity = new Vector3(0, -this.speed, 0);
-            animator.SetTrigger("Caapora-Norte");
+            animator.SetTrigger("Caapora-Sul");
 
 
         }
@@ -301,7 +310,7 @@ public class PlayerBehavior : CharacterBase {
         {
             
             iso_rigidyBody.velocity = new Vector3(0, this.speed, 0);
-            animator.SetTrigger("Caapora-Sul");
+            animator.SetTrigger("Caapora-Norte");
 
         }
 
@@ -316,10 +325,14 @@ public class PlayerBehavior : CharacterBase {
 
 
         // End métodos com movimentação
-    
-        // Rômulo Lima        
-        // Ativado com o clique do mouse o touch
-        // Seta a Flag para iniciar o Pathfinding apos um segundo para pegar a posição antes
+
+
+        /// *************************************************************************
+        /// Author: Rômulo Lima
+        /// <summary> 
+        /// Método que ativa a flag para iniciar o pathfinding com a movimentação por clique no destino
+        /// Está com um segundo de atraso para pegar a posição com antecedencia
+        /// </summary>
         public IEnumerator clicked()
         {
             Debug.Log("Clicou e habilitou o _start");
@@ -448,11 +461,14 @@ public class PlayerBehavior : CharacterBase {
 	    }
 
 
-        // Rômulo Lima
-        // Usado para criar animações onde o personagem se move sozinho
-        // @param1 string direction : direção que o personagem irá se mover
-        // @param2 int step : a quantidade de passos que ele dará na direção
-		public static IEnumerator AnimateCaapora(string direction, int steps){
+        /// *************************************************************************
+        /// Author: Rômulo Lima
+        /// <summary> 
+        /// Usado para criar animações onde o personagem se move sozinho
+        /// </summary>
+        /// <param name="direction">Direção que o personagem irá se mover</param>
+        /// <param name="steps">A quantidade de passos que ele dará na direção</param>
+        public static IEnumerator AnimateCaapora(string direction, int steps){
 		
 			instance.caapora = instance.gameObject.GetComponent<IsoObject> ();
 
@@ -494,9 +510,13 @@ public class PlayerBehavior : CharacterBase {
         }
 
 
-        // Romulo Lima
-        // Balança o caipora
-	public static IEnumerator ShakePlayer(){
+
+        /// *************************************************************************
+        /// Author: Rômulo Lima
+        /// <summary> 
+        /// Balança o player para sinalizar algo
+        /// </summary>
+        public static IEnumerator ShakePlayer(){
 
 			instance.caapora = instance.gameObject.GetComponent<IsoObject> ();
 	
@@ -603,9 +623,7 @@ public class PlayerBehavior : CharacterBase {
                 this._life = value;
             }
         }
-
-
-
+        
         // End Flags para ajudar na movimentação
 
 

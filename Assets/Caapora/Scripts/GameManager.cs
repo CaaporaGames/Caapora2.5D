@@ -2,7 +2,6 @@
 using System.Collections;
 using IsoTools;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
 
 
@@ -29,9 +28,13 @@ public class GameManager: MonoBehaviour {
 	// ID da ultimo caminho passado
 	public int PathID;
 	public Sprite baldeCheio;
-    //public Animator enemy;
+    public Sprite enemy;
 
-    // Construtor implementando Singleton
+    /// *************************************************************************
+    /// Author: Rômulo Lima
+    /// <summary> 
+    /// Contrutor que implementa o padrão de projeto Singleton
+    /// </summary>
     public static GameManager instance
     {
         get
@@ -79,7 +82,14 @@ public class GameManager: MonoBehaviour {
     }
 
 
-
+    /// *************************************************************************
+    /// Author: Rômulo Lima
+    /// <summary> 
+    ///   
+    /// <param name="go">objeto alvo</param> 
+    /// <returns></returns>
+    /// 
+    /// </summary>
     void CatchItem(GameObject item)
     {
 
@@ -87,15 +97,34 @@ public class GameManager: MonoBehaviour {
 
     }
 
-
-
+    /// *************************************************************************
+    /// Author: Rômulo Lima
+    /// <summary> 
+    /// 
+    /// Adiciona um item no painel na tela 
+    /// <param name="item">item no painel</param> 
+    /// <returns></returns>
+    /// 
+    /// </summary>
+    /// *************************************************************************
     void AddItemToInventory(GameObject item)
     {
+        Inventory.instance.itemList.Add(item);
 
         item.GetComponent<Image>().sprite = Resources.Load("Sprites/balde", typeof(Sprite)) as Sprite;
 
     }
 
+    /// *************************************************************************
+    /// Author: Rômulo Lima
+    /// <summary> 
+    /// 
+    /// Retorna true se a posição do objeto é vizinha em uma posição do objeto alvo
+    /// <param name="go">objeto alvo</param> 
+    /// <returns></returns>
+    /// 
+    /// </summary>
+    /// *************************************************************************
 
     bool canCatch(GameObject go)
     {
@@ -105,12 +134,11 @@ public class GameManager: MonoBehaviour {
             for (int y = -1; y <= 1; y++) {
 
                   
-                
+               if(go != null) 
                 if (Mathf.RoundToInt(go.GetComponent<IsoObject>().positionX) == Mathf.RoundToInt(player.GetComponent<IsoObject>().positionX + x)  &&
                         Mathf.RoundToInt(go.GetComponent<IsoObject>().positionY) == Mathf.RoundToInt(player.GetComponent<IsoObject>().positionY + y))
                 {
 
-                    Debug.Log("É vizinho!");
                     return true;
                 }
                    
@@ -124,17 +152,18 @@ public class GameManager: MonoBehaviour {
 
     }
 
+
+   
     void Update()
         {
+        
 
-        GameObject baldeTeste = GameObject.Find("baldeVazioPrefab"); ;
+        GameObject baldeTeste = GameObject.Find("baldeVazioPrefab"); 
 
 
         if (canCatch(baldeTeste))
         {
-
-
-
+   
             // Checa por entrada de dados
             if (Input.GetKeyDown(KeyCode.A) || player.AClick)
             {
@@ -142,6 +171,9 @@ public class GameManager: MonoBehaviour {
                 Advice.ShowAdvice(false);
 
                 AddItemToInventory(GameObject.Find("item1"));
+
+                // Migra a animação para a do balde
+                player.animator.SetTrigger("CaaporaParaBalde-idle");
 
                 Destroy(baldeTeste);
 
@@ -155,16 +187,24 @@ public class GameManager: MonoBehaviour {
 
 
         // Atualiza o valor do status na interface
-        GameObject.Find("GUI/Inventory/CharStats/hp").GetComponent<Text>().text = player.life.ToString(); ;
+        GameObject.Find("hp").GetComponent<Text>().text = player.life.ToString(); ;
 
 
             // Condições para o game over
             GameOVer();
 
         }
-         
 
-    // Facilita a transferencia de um mapa para outro
+
+    /// *************************************************************************
+    /// Author: Rômulo Lima
+    /// <summary> 
+    /// Transfere o Player de uma posição a outra baseada no mapeamento na classe Coordenadas
+    /// </summary>
+    /// <see cref="Coodenadas"/>
+    /// <param name="source">Nome do GameObject raiz de exibição do mapa</param>
+    /// <param name="destination">Nome do GameObject raiz do mapa de destino</param>
+    /// <param name="portal">Nome do portal que foi feita a colisão</param>
     void movePlayer(string source, string destination, string portal ){
 
 		float x = 0f, y = 0f;
@@ -197,7 +237,11 @@ public class GameManager: MonoBehaviour {
 
 
 
-    // Rômulo Lima
+    /// *************************************************************************
+    /// Author: Rômulo Lima
+    /// <summary> 
+    /// Possui Todas as condição para dar GameOver 
+    /// </summary>
     void GameOVer()
     {
 
@@ -212,7 +256,12 @@ public class GameManager: MonoBehaviour {
     }
 
 
-
+    /// *************************************************************************
+    /// Author: 
+    /// <summary> 
+    /// Sobrecarregou o método padrão do Unity OnCollisionEnter
+    /// </summary>
+    /// <param name="iso_collision">A referencia do objeto colidido</param>
     void OnIsoCollisionEnter(IsoCollision iso_collision) {
 
         var GateName = iso_collision.gameObject.name;
@@ -228,11 +277,9 @@ public class GameManager: MonoBehaviour {
         // Colisao com o balde vazio
         if (iso_collision.gameObject.name == "baldeVazioPrefab") {
 
-            Debug.Log("Colidindo com o balde");
             // Exibe a dica de tecla
             Advice.ShowAdvice(true);
-
-          
+ 
 
 		}
 		
@@ -277,19 +324,25 @@ public class GameManager: MonoBehaviour {
 		}
 	}
 
-   
 
 
-    // Rômulo Lima
-    // Sair do Jogo
+
+    /// *************************************************************************
+    /// Author: Rômulo Lima
+    /// <summary> 
+    /// Fecha o jogo
+    /// </summary>
     public void Exit()
     {
         Debug.Log("Apertou sair");
         Application.Quit();
     }
 
-    // Romulo Lima
-    // Anima o Sprite na colisao, fica piscando em vermelho
+    /// *************************************************************************
+    /// Author: Rômulo Lima
+    /// <summary> 
+    /// Animação que deixa o sprite vermelho por um periodo de tempo
+    /// </summary>o
     public IEnumerator CaaporaHit()
     {
 
@@ -313,7 +366,11 @@ public class GameManager: MonoBehaviour {
     }
 
 
-    // Executa a Introduçao passo a passo
+    /// *************************************************************************
+    /// Author: Rômulo Lima
+    /// <summary> 
+    /// Executa as rotinas da animação uma a uma
+    /// </summary>
     public IEnumerator Introduction(){
 
 
@@ -333,15 +390,22 @@ public class GameManager: MonoBehaviour {
 
 	}
 
-    // Rômulo Lima
-    // desabilita a tela de conversassão
+    /// *************************************************************************
+    /// Author: Rômulo Lima
+    /// <summary> 
+    /// Desabilita painel de conversa
+    /// </summary>
     public void hideConversationPanel()
     {
 
         GameObject.Find("Tela de Conversa").SetActive(false);
     }
 
-
+    /// *************************************************************************
+    /// Author: Rômulo Lima
+    /// <summary> 
+    /// Exibe área de debug na tela
+    /// </summary>
 	void OnGUI(){
 		
 		

@@ -66,7 +66,6 @@ public class CaaporaConversation : MonoBehaviour {
 	
 		for (int i = 0; i < instance.goatText.Length ; i++) {
 			//StopAllCoroutines();
-			Debug.Log("Passou pelo for de animatefrase ");
 			instance.StartCoroutine(AnimateText(instance.goatText[i]));
 			yield return new WaitForSeconds(3f);
 		}
