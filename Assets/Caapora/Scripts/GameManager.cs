@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using IsoTools;
+using UnityEngine.UI;
 
 
 
@@ -21,6 +22,8 @@ public class GameManager: MonoBehaviour {
 	private static GameManager _instance;
 	//used to store latest used door
 	public Vector3 LastUsedDoorPosition;
+
+    public Completed.PlayerBehavior player;
 
 	// ID da ultimo caminho passado
 	public int PathID;
@@ -48,6 +51,9 @@ public class GameManager: MonoBehaviour {
     {
         // Habilita ou não a animação de introdução
          StartCoroutine (Introduction());
+
+        // Recebe a instancia do player
+        player = Completed.PlayerBehavior.instance;
 
     }
 
@@ -78,6 +84,11 @@ public class GameManager: MonoBehaviour {
 
     void Update()
         {
+
+
+        // Atualiza o valor do status na interface
+        GameObject.Find("CharStats/hp").GetComponent<Text>().text = player.life.ToString(); ;
+
 
             // Condições para o game over
             GameOVer();
@@ -122,7 +133,7 @@ public class GameManager: MonoBehaviour {
     void GameOVer()
     {
 
-        if (gameObject.GetComponent<IsoObject>().positionZ < -15)
+        if (gameObject.GetComponent<IsoObject>().positionZ < -15 || player.life <= 0)
         {
 
             Destroy(gameObject);
@@ -138,18 +149,10 @@ public class GameManager: MonoBehaviour {
 
         var GateName = iso_collision.gameObject.name;
 
-        var source = "";
-        var destination = "";
-
+    
+        if(GateName == "GateEast")
+             movePlayer("Map1", "Map2", GateName);
         
-        for(int i = 0; i < 10; i++)
-        {
-            var mapName = GameObject.Find("Map" + i);
-
-            if ( mapName != null)
-                Debug.Log("Mapa = " + mapName);
-
-        }
 
 
        // movePlayer(source, destination, GateName);
@@ -166,7 +169,13 @@ public class GameManager: MonoBehaviour {
 		}
 		
 		if ( iso_collision.gameObject.name == "chamas"  || iso_collision.gameObject.name == "chamas(Clone)") {
-			
+
+            // Reduz o life do caipora de acordo com o demage do objeto
+            player.life = player.life - iso_collision.gameObject.GetComponent<spreadFrame>().demage;
+
+            StartCoroutine(CaaporaHit());
+
+
 
 			var objeto = iso_collision.gameObject.GetComponent<IsoRigidbody>();
 			if ( objeto ) {
@@ -177,6 +186,8 @@ public class GameManager: MonoBehaviour {
 			}
 		}
 
+
+        
 
 		if ( iso_collision.gameObject.name == "waterPrefab" ) {
 
@@ -199,8 +210,33 @@ public class GameManager: MonoBehaviour {
 	}
 
 
-	// Executa a Introduçao passo a passo
-	public IEnumerator Introduction(){
+    // Romulo Lima
+    // Anima o Sprite na colisao, fica piscando em vermelho
+    public IEnumerator CaaporaHit()
+    {
+
+        float t = 0.0f;
+
+        // Forma gradativa de fazer transição
+        while (t < 1f)
+            {
+                t += Time.deltaTime;
+
+                GetComponent<SpriteRenderer>().color = Color.Lerp(Color.red, Color.white, t);
+                yield return null;
+          
+
+        }
+
+             
+
+
+
+    }
+
+
+    // Executa a Introduçao passo a passo
+    public IEnumerator Introduction(){
 
 
 	

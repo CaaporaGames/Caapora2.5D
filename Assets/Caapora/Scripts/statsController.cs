@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class levelController : MonoBehaviour {
+public class StatsController : MonoBehaviour {
 
-	public static levelController instance;
+	public static StatsController instance;
 
 	public int xpMultiply = 1;
 	public float xpFirstLevel = 100;
@@ -23,7 +23,7 @@ public class levelController : MonoBehaviour {
 	}
 
 	public static void AddXp (float xpAdd) {
-		float newXp = (GetCurrentXp() + xpAdd)* levelController.instance.xpMultiply;
+		float newXp = (GetCurrentXp() + xpAdd)* StatsController.instance.xpMultiply;
 		while(newXp >= GetNextXp ()) {
 			newXp -= GetNextXp();
 			AddLevel();
@@ -47,7 +47,7 @@ public class levelController : MonoBehaviour {
 	}
 
 	public static float GetNextXp() {
-		return levelController.instance.xpFirstLevel * (GetCurrentLevel() + 1) * levelController.instance.difficultFactor;
+		return StatsController.instance.xpFirstLevel * (GetCurrentLevel() + 1) * StatsController.instance.difficultFactor;
 	}
 	
 }
