@@ -29,6 +29,7 @@ public class GameManager: MonoBehaviour {
 	public int PathID;
 	public Sprite baldeCheio;
     public Sprite enemy;
+    public bool canFillBucket;
 
     /// *************************************************************************
     /// Author: Rômulo Lima
@@ -55,7 +56,7 @@ public class GameManager: MonoBehaviour {
     {
       
         // Habilita ou não a animação de introdução
-        StartCoroutine (Introduction());
+        //StartCoroutine (Introduction());
 
         // Recebe a instancia do player
         player = Completed.PlayerBehavior.instance;
@@ -111,7 +112,8 @@ public class GameManager: MonoBehaviour {
     {
         Inventory.instance.itemList.Add(item);
 
-        item.GetComponent<Image>().sprite = Resources.Load("Sprites/balde", typeof(Sprite)) as Sprite;
+        // Temporário
+        GameObject.Find("item1").GetComponent<Image>().sprite = Resources.Load("Sprites/balde", typeof(Sprite)) as Sprite;
 
     }
 
@@ -156,10 +158,25 @@ public class GameManager: MonoBehaviour {
    
     void Update()
         {
-        
 
-        GameObject baldeTeste = GameObject.Find("baldeVazioPrefab"); 
+        GameObject water = GameObject.Find("waterPrefab");
+        GameObject baldeTeste = GameObject.Find("baldeVazioPrefab");
 
+        if (canCatch(water))
+        {
+            Debug.Log("Pode pegar água!");
+
+            // Se tiver algo no inventory 
+            // o canFill serve como flag para garantir que encha de um em um
+            if (!Inventory.isEmpty() && !canFillBucket)
+            {
+                canFillBucket = true;
+                FillBucket();
+                
+            }
+               
+                    
+        }
 
         if (canCatch(baldeTeste))
         {
@@ -170,12 +187,14 @@ public class GameManager: MonoBehaviour {
                 // Exibe a dica de tecla
                 Advice.ShowAdvice(false);
 
-                AddItemToInventory(GameObject.Find("item1"));
+                AddItemToInventory(baldeTeste);
 
                 // Migra a animação para a do balde
                 player.animator.SetTrigger("CaaporaParaBalde-idle");
 
-                Destroy(baldeTeste);
+                baldeTeste.SetActive(false);
+
+                
 
             }
 
@@ -195,6 +214,30 @@ public class GameManager: MonoBehaviour {
 
         }
 
+
+    public void FillBucket()
+    {
+        
+        StartCoroutine(FillBucketSlowly());
+        //Garante a chamada apenas uma vez
+        canFillBucket = false;
+
+    }
+
+    public IEnumerator FillBucketSlowly()
+    {
+        var balde = Inventory.getItem().GetComponent<Balde>();
+
+            // Incrementa a porcentagem de agua em um em um
+            balde.waterPercent++;
+
+            GameObject.Find("Inventory/item1/Text").GetComponent<Text>().text = balde.waterPercent + "/100";
+
+
+            yield return new WaitForSeconds(1);
+     
+
+    }
 
     /// *************************************************************************
     /// Author: Rômulo Lima
@@ -282,8 +325,11 @@ public class GameManager: MonoBehaviour {
  
 
 		}
-		
-		if ( iso_collision.gameObject.name == "chamas"  || iso_collision.gameObject.name == "chamas(Clone)") {
+
+
+     
+
+        if ( iso_collision.gameObject.name == "chamas"  || iso_collision.gameObject.name == "chamas(Clone)") {
 
             // Reduz o life do caipora de acordo com o demage do objeto
             player.life = player.life - iso_collision.gameObject.GetComponent<spreadFrame>().demage;
@@ -365,6 +411,29 @@ public class GameManager: MonoBehaviour {
 
     }
 
+    /// <summary>
+    /// Animação com a movimentação da camera em alguma direção
+    /// </summary>
+    /// <param name="direcao"></param>
+    /// <returns></returns>
+    public IEnumerator moverCamera(string direcao)
+    {
+
+        float t = 0.0f;
+
+        for(int i =0; i< 70; i++)
+        {
+
+            t += Time.deltaTime;
+            if (direcao == "down")
+                Camera.main.transform.position += new Vector3(0, -3f, 0);
+
+              yield return new WaitForSeconds(0.1f);
+
+        }
+         
+    }
+
 
     /// *************************************************************************
     /// Author: Rômulo Lima
@@ -373,9 +442,16 @@ public class GameManager: MonoBehaviour {
     /// </summary>
     public IEnumerator Introduction(){
 
+        // Desabilita a camera principal para fazer a animação
+        var mainCamera = GameObject.Find("Player/Camera").GetComponent<Camera>();
+        mainCamera.enabled = false;
 
-	
-		StartCoroutine (Completed.PlayerBehavior.AnimateCaapora ("right", 30));
+        StartCoroutine(moverCamera("down"));
+        yield return new WaitForSeconds(10f);
+
+        mainCamera.enabled = true;
+
+        StartCoroutine (Completed.PlayerBehavior.AnimateCaapora ("right", 30));
 		yield return new WaitForSeconds(3f);
 
 		StartCoroutine (Completed.PlayerBehavior.ShakePlayer());

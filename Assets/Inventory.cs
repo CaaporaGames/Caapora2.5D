@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using IsoTools;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour {
 
@@ -18,7 +19,8 @@ public class Inventory : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+
+        
 	}
 
     /// Author:     Rômulo Lima
@@ -29,6 +31,13 @@ public class Inventory : MonoBehaviour {
     public static bool isEmpty()
     {
         return instance.itemList.Count == 0;
+    }
+
+
+   
+    public static GameObject getItem()
+    {
+        return instance.itemList[0];
     }
 
     

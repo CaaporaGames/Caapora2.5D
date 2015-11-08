@@ -12,6 +12,7 @@ GameObject:
   - 114: {fileID: 11448892}
   - 114: {fileID: 11424890}
   - 114: {fileID: 11404882}
+  - 114: {fileID: 11434436}
   m_Layer: 0
   m_Name: baldeVazioPrefab
   m_TagString: Untagged
@@ -26,8 +27,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 186834}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 504.917023, y: -91.2328186, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 394.899963, y: 75, z: 9.50005531}
+  m_LocalScale: {x: .667076111, y: .617831767, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -58,8 +59,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _material: {fileID: 0}
   _isTrigger: 0
-  _size: {x: 1, y: 1, z: 1}
-  _offset: {x: .5, y: .5, z: .5}
+  _size: {x: .5, y: .5, z: .600000024}
+  _offset: {x: .5, y: .5, z: 0}
+--- !u!114 &11434436
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 186834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3161306e44d13da4ea41ddb41ff99025, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waterPercent: 0
 --- !u!114 &11448892
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -73,7 +86,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mode: 0
   _size: {x: 1, y: 1, z: 1}
-  _position: {x: 0, y: 0, z: 1}
+  _position: {x: 12, y: 4, z: 1}
   _isAlignment: 1
   _isShowBounds: 0
 --- !u!212 &21200018

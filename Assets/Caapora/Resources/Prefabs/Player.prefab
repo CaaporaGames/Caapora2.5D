@@ -434,6 +434,7 @@ MonoBehaviour:
   PathID: 0
   baldeCheio: {fileID: 0}
   enemy: {fileID: 0}
+  canFillBucket: 0
 --- !u!114 &11456636
 MonoBehaviour:
   m_ObjectHideFlags: 1
