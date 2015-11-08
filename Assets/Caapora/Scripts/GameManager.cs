@@ -29,7 +29,7 @@ public class GameManager: MonoBehaviour {
 	public int PathID;
 	public Sprite baldeCheio;
     public Sprite enemy;
-    public bool canFillBucket;
+    public bool canFillBucket = true;
 
     /// *************************************************************************
     /// Author: Rômulo Lima
@@ -52,11 +52,17 @@ public class GameManager: MonoBehaviour {
         }
     }
 
+    /// *************************************************************************
+    /// Author: Rômulo Lima
+    /// <summary> 
+    /// Apenas pega o Singleton do Player
+    /// </summary>
     void Start()
     {
       
         // Habilita ou não a animação de introdução
-        //StartCoroutine (Introduction());
+        
+        //    StartCoroutine (Introduction());
 
         // Recebe a instancia do player
         player = Completed.PlayerBehavior.instance;
@@ -64,7 +70,11 @@ public class GameManager: MonoBehaviour {
     }
 
 
-
+    /// *************************************************************************
+    /// Author: Rômulo Lima
+    /// <summary> 
+    /// Criar o Singleton do GameManager, garantindo apenas uma instancia
+    /// </summary>
     void Awake()
     {
         if (_instance == null)
@@ -80,6 +90,56 @@ public class GameManager: MonoBehaviour {
             if (this != _instance)
                 Destroy(this.gameObject);
         }
+    }
+
+    /// *************************************************************************
+    /// Author: Rômulo Lima
+    /// <summary> 
+    /// Regras de negócio do Game 
+    /// </summary>
+    void Update()
+    {
+    
+
+        GameObject baldeTeste = GameObject.Find("baldeVazioPrefab");
+
+
+        if (canCatch(baldeTeste))
+        {
+
+            // Checa por entrada de dados
+            if (Input.GetKeyDown(KeyCode.A) || player.AClick)
+            {
+                // Exibe a dica de tela
+                Advice.ShowAdvice(false);
+
+                AddItemToInventory(baldeTeste);
+
+                // Migra a animação para a do balde
+                player.animator.SetTrigger("CaaporaParaBalde-idle");
+
+                baldeTeste.SetActive(false);
+
+
+
+            }
+
+        }
+
+
+
+        // Atualiza o valor do status na interface
+        GameObject.Find("hp").GetComponent<Text>().text = player.life.ToString(); ;
+
+
+
+        if (WinCondition())
+            YouWin();
+
+        
+        // Condições para o game over
+        GameOVer();
+
     }
 
 
@@ -127,16 +187,18 @@ public class GameManager: MonoBehaviour {
     /// 
     /// </summary>
     /// *************************************************************************
-
     bool canCatch(GameObject go)
     {
+
+
         // Percorre todos as posicoes vizinhas
         for (int x = -1; x <= 1; x++)
         {
             for (int y = -1; y <= 1; y++) {
 
-                  
-               if(go != null) 
+           
+
+                if (go != null) 
                 if (Mathf.RoundToInt(go.GetComponent<IsoObject>().positionX) == Mathf.RoundToInt(player.GetComponent<IsoObject>().positionX + x)  &&
                         Mathf.RoundToInt(go.GetComponent<IsoObject>().positionY) == Mathf.RoundToInt(player.GetComponent<IsoObject>().positionY + y))
                 {
@@ -154,79 +216,20 @@ public class GameManager: MonoBehaviour {
 
     }
 
-
-   
-    void Update()
-        {
-
-        GameObject water = GameObject.Find("waterPrefab");
-        GameObject baldeTeste = GameObject.Find("baldeVazioPrefab");
-
-        if (canCatch(water))
-        {
-            Debug.Log("Pode pegar água!");
-
-            // Se tiver algo no inventory 
-            // o canFill serve como flag para garantir que encha de um em um
-            if (!Inventory.isEmpty() && !canFillBucket)
-            {
-                canFillBucket = true;
-                FillBucket();
-                
-            }
-               
-                    
-        }
-
-        if (canCatch(baldeTeste))
-        {
-   
-            // Checa por entrada de dados
-            if (Input.GetKeyDown(KeyCode.A) || player.AClick)
-            {
-                // Exibe a dica de tecla
-                Advice.ShowAdvice(false);
-
-                AddItemToInventory(baldeTeste);
-
-                // Migra a animação para a do balde
-                player.animator.SetTrigger("CaaporaParaBalde-idle");
-
-                baldeTeste.SetActive(false);
-
-                
-
-            }
-
-        }
-        
-            
-       
+    
 
 
-
-        // Atualiza o valor do status na interface
-        GameObject.Find("hp").GetComponent<Text>().text = player.life.ToString(); ;
-
-
-            // Condições para o game over
-            GameOVer();
-
-        }
-
-
-    public void FillBucket()
-    {
-        
-        StartCoroutine(FillBucketSlowly());
-        //Garante a chamada apenas uma vez
-        canFillBucket = false;
-
-    }
-
+    /// *************************************************************************
+    /// Author: Rômulo Lima
+    /// <summary> 
+    /// Enche o balde forma lenta
+    /// </summary>
     public IEnumerator FillBucketSlowly()
     {
-        var balde = Inventory.getItem().GetComponent<Balde>();
+             // Desabilita o preenchimento do balde temporariamente   
+             canFillBucket = false;
+
+             var balde = Inventory.getItem().GetComponent<Balde>();
 
             // Incrementa a porcentagem de agua em um em um
             balde.waterPercent++;
@@ -235,6 +238,10 @@ public class GameManager: MonoBehaviour {
 
 
             yield return new WaitForSeconds(1);
+
+            canFillBucket = true;
+
+            
      
 
     }
@@ -341,7 +348,7 @@ public class GameManager: MonoBehaviour {
 			var objeto = iso_collision.gameObject.GetComponent<IsoRigidbody>();
 			if ( objeto ) {
 				
-				Destroy(objeto.gameObject);
+				// Destroy(objeto.gameObject);
 				
 				//	objeto.transform.parent = transform;
 			}
@@ -349,25 +356,6 @@ public class GameManager: MonoBehaviour {
 
 
        
-
-		if ( iso_collision.gameObject.name == "waterPrefab" ) {
-
-			// load all frames in fruitsSprites array
-			baldeCheio = Resources.Load("Sprites/balde", typeof(Sprite)) as Sprite;
-
-
-
-			//enemy = Resources.Load("Sprites/Enemy", typeof(Sprite)) as Sprite;
-
-			// substitui sprite
-			//transform.FindChild("baldevazio").GetComponent<SpriteRenderer>().sprite = baldeCheio;
-			Debug.Log("Colidiu com a agua");
-
-		//	gameObject.GetComponent<SpriteRenderer>().sprite = enemy;
-
-
-		
-		}
 	}
 
 
@@ -435,6 +423,16 @@ public class GameManager: MonoBehaviour {
     }
 
 
+    public bool WinCondition()
+    {
+
+        return GameObject.Find("teste") == null;
+       
+        //return GameObject.Find("chamas") == null && GameObject.Find("chamas(Clone)");
+
+    }
+
+
     /// *************************************************************************
     /// Author: Rômulo Lima
     /// <summary> 
@@ -465,6 +463,12 @@ public class GameManager: MonoBehaviour {
 
 
 	}
+
+    public void YouWin()
+    {
+        Destroy(player);
+        Application.LoadLevel("Winner");
+    }
 
     /// *************************************************************************
     /// Author: Rômulo Lima

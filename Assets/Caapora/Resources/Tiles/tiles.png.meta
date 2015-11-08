@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 27dc4938258909f4393b58b0fb39663f
-timeCreated: 1444842777
+timeCreated: 1447004438
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -52,7 +52,6 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
@@ -129,12 +128,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 35
-        width: 65
-        height: 39
+        y: 37
+        width: 63
+        height: 36
       alignment: 7
       pivot: {x: .5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 0, z: 2, w: 0}
     - name: tiles_15
       rect:
         serializedVersion: 2

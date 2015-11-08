@@ -16,8 +16,11 @@ public class spreadFrame : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+
 	}
 
+
+    
 
     // Romulo Lima
     // Multiplica um elemento para seus vizinhos

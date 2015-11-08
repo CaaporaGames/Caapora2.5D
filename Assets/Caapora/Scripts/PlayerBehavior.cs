@@ -32,9 +32,8 @@ public class PlayerBehavior : CharacterBase {
     public bool _moveUp = false, _moveDown = false, _moveLeft = false, _moveRight = false, _AKey = false, _BKey = false;
 
     private float _life = 1000;
-
-
-
+    private bool _canLauchWater;
+ 
 
 
 	Text txt;
@@ -76,13 +75,57 @@ public class PlayerBehavior : CharacterBase {
 
     }
 
-	// Rômulo Lima
-	// Update is called once per frame
-	void Update () {
+
+        /// *************************************************************************
+        /// Author: 
+        /// <summary> 
+        /// Sobrecarregou o método padrão do Unity OnCollisionEnter
+        /// </summary>
+        /// <param name="iso_collision">A referencia do objeto colidido</param>
+        void OnIsoCollisionEnter(IsoCollision iso_collision)
+        {
+
+          
+            // Colisao com o balde vazio
+            if (iso_collision.gameObject.name == "waterPrefab")
+            {
+                Debug.Log("Colidiu com a agua");
+
+                if (isPlayerWithBucket())
+                {
+                    Debug.Log("Player com balde proximo de agua");
+
+                    Debug.Log("CanFillBucket = " + GameManager.instance.canFillBucket);
+
+                    if (GameManager.instance.canFillBucket)
+                        StartCoroutine(GameManager.instance.FillBucketSlowly());
+
+                }
+
+
+            }
+
+        }
+
+
+
+        bool isPlayerWithBucket()
+        {
+
+            var player = GameObject.Find("Player").GetComponent<IsoObject>();
+
+            return !Inventory.isEmpty();
+
+        }
+
+
+        // Rômulo Lima
+        // Update is called once per frame
+        void Update () {
 
 
             // Movimentação pelo teclado do player através de flags
-            moveUpdate();
+            MainController();
 
             // Habilitar a movimentação por clique no local
             // moveToPlace();
@@ -101,7 +144,7 @@ public class PlayerBehavior : CharacterBase {
         /// <summary> 
         /// Controle de movimentação baseada no clique do destino no mapa 
         /// </summary>
-        void moveToPlace()
+        void PathFindingController()
         {
 
             // Movimentação por clique na posição desejada
@@ -187,14 +230,11 @@ public class PlayerBehavior : CharacterBase {
         /// *************************************************************************
         /// Author: Rômulo Lima e Mateus Souza
         /// <summary> 
-        /// Controle de movimentação pelas setas do teclado
+        /// Controle de movimentação pelas setas do teclado e pelo Touch
         /// </summary> 
-        void moveUpdate()
+        void MainController()
         {
-            
-
-
-           
+                 
             // Debug.Log("Touches = " + Input.touchCount);
 
 
@@ -228,7 +268,16 @@ public class PlayerBehavior : CharacterBase {
                 if (Input.GetKey(KeyCode.LeftArrow) || _moveLeft)
                 {
 
+                
                     moveLeft();
+
+                    if (Input.GetKeyDown(KeyCode.B) || _BKey)
+                    {
+                        if(canLauchWater())
+                          StartCoroutine(launchOject("west", 5));
+
+                    }
+
 
                 }
                 else if (Input.GetKey(KeyCode.RightArrow) || _moveRight)
@@ -236,26 +285,47 @@ public class PlayerBehavior : CharacterBase {
 
                     moveRight();
 
+
+                    if (Input.GetKeyDown(KeyCode.B) || _BKey)
+                    {
+                        if (canLauchWater())
+                            StartCoroutine(launchOject("east", 5));
+
+                    }
+
                 }
                 else if (Input.GetKey(KeyCode.DownArrow) || _moveDown)
                 {
 
                     moveDown();
+                    if (Input.GetKeyDown(KeyCode.B) || _BKey)
+                    {
+                        if (canLauchWater())
+                            StartCoroutine(launchOject("south", 5));
+
+                    }
 
                 }
                 else if (Input.GetKey(KeyCode.UpArrow) || _moveUp)
                 {
 
                     moveUp();
+                    if (Input.GetKeyDown(KeyCode.B) || _BKey)
+                    {
+                        if (canLauchWater())
+                            StartCoroutine(launchOject("north", 5));
+
+                    }
 
                 }
-                else if (Input.GetKeyDown(KeyCode.Space) || _BKey)
+                else if (Input.GetKeyDown(KeyCode.B) || _BKey)
                 {
 
                     paused = paused ? false : true;
 
-                    Jump();
-                  
+                    // Jump();
+                    if (canLauchWater())
+                        StartCoroutine(launchOject("south", 5));                  
                   
                 }
                 else if (!isPlayingAnimation)
@@ -530,7 +600,69 @@ public class PlayerBehavior : CharacterBase {
 			
 			}
 		
-	}
+	    }
+
+
+    
+
+        /// <summary>
+        /// Anima o lançamento de um objeto
+        /// </summary>
+        /// <param name="distance">a distancia a ser percorrida pelo objeto</param>
+        /// <param name="direction"> a direcao a ser enviado o objeto</param>
+        /// <returns></returns>
+        public IEnumerator launchOject(string direction, float distance)
+        {
+
+
+            // Carrega o prefab da água
+            var objeto = Instantiate(Resources.Load("Prefabs/splashWaterPrefab")) as GameObject;
+
+            // a posicao inicial do objeto
+            var playerCurPosition = GetComponent<IsoObject>().position;
+
+         
+
+
+
+            for (int i =0; i < distance; )
+            {
+
+                if (direction == "east")
+                {
+                    objeto.GetComponent<IsoObject>().position = playerCurPosition + Vector3.right;
+                    Inventory.getItem().GetComponent<Balde>().waterPercent--;
+                }
+                  
+                if (direction == "west")
+                {
+                    objeto.GetComponent<IsoObject>().position = playerCurPosition + Vector3.left;
+                    Inventory.getItem().GetComponent<Balde>().waterPercent--;
+                }
+
+                if (direction == "north")
+                {
+                    objeto.GetComponent<IsoObject>().position = playerCurPosition + Vector3.up;
+                    Inventory.getItem().GetComponent<Balde>().waterPercent--;
+                }
+
+                if (direction == "south")
+                {
+                    objeto.GetComponent<IsoObject>().position = playerCurPosition + Vector3.down;
+                    Inventory.getItem().GetComponent<Balde>().waterPercent--;
+                }
+
+
+                yield return new WaitForSeconds(0.1f);
+            }
+
+
+        }
+
+
+
+
+     
 
         // Métodos de Flags para ativar a movimentação
         public bool moveUpClick
@@ -610,6 +742,16 @@ public class PlayerBehavior : CharacterBase {
             {
                 this._BKey = value;
             }
+        }
+
+        /// <summary>
+        /// Condição para poder jogar água
+        /// </summary>
+        /// <returns></returns>
+        private bool canLauchWater()
+        {
+            // Se houver algum item no invetory e esse item tiver agua
+            return !Inventory.isEmpty() && Inventory.getItem().GetComponent<Balde>().waterPercent > 0;
         }
 
         public float life

@@ -1,0 +1,53 @@
+﻿using UnityEngine;
+using System.Collections;
+using IsoTools;
+public class splashWater : MonoBehaviour {
+
+	// Use this for initialization
+	void Start () {
+	
+	}
+	
+	// Update is called once per frame
+	void Update () {
+
+         Debug.Log("Posicao do splash =" + GetComponent<IsoObject>().position);
+         StartCoroutine(AutoDestroy());
+	}
+
+
+
+    /// *************************************************************************
+    /// Author: 
+    /// <summary> 
+    /// Sobrecarregou o método padrão do Unity OnCollisionEnter
+    /// </summary>
+    /// <param name="iso_collision">A referencia do objeto colidido</param>
+    void OnIsoCollisionEnter(IsoCollision iso_collision)
+    {
+
+        // Caso o fogo colida com o splash de agua deleta os dois
+        if (iso_collision.gameObject.name == "chamas" || iso_collision.gameObject.name == "chamas(Clone)")
+        {
+
+            Debug.Log("Colidiu com a agua");
+
+            Destroy(iso_collision.gameObject);
+            Destroy(gameObject);
+
+        }
+
+
+    }
+
+
+
+    public IEnumerator AutoDestroy()
+    {
+     
+        yield return new WaitForSeconds(1);
+        Destroy(gameObject);
+
+
+    }
+}

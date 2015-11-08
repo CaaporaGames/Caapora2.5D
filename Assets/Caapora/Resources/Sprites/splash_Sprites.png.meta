@@ -1,0 +1,264 @@
+fileFormatVersion: 2
+guid: a93904eb15f1c7043a5416230d1eb24b
+timeCreated: 1446999736
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: splash_Sprites_0
+    21300002: splash_Sprites_1
+    21300004: splash_Sprites_2
+    21300006: splash_Sprites_3
+    21300008: splash_Sprites_4
+    21300010: splash_Sprites_5
+    21300012: splash_Sprites_6
+    21300014: splash_Sprites_7
+    21300016: splash_Sprites_8
+    21300018: splash_Sprites_9
+    21300020: splash_Sprites_10
+    21300022: splash_Sprites_11
+    21300024: splash_Sprites_12
+    21300026: splash_Sprites_13
+    21300028: splash_Sprites_14
+    21300030: splash_Sprites_15
+    21300032: splash_Sprites_16
+    21300034: splash_Sprites_17
+    21300036: splash_Sprites_18
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 3
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: splash_Sprites_0
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 0
+        width: 44
+        height: 33
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: splash_Sprites_1
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 0
+        width: 60
+        height: 41
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: splash_Sprites_2
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 0
+        width: 58
+        height: 43
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: splash_Sprites_3
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 0
+        width: 60
+        height: 38
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: splash_Sprites_4
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 0
+        width: 60
+        height: 37
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: splash_Sprites_5
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 0
+        width: 60
+        height: 38
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: splash_Sprites_6
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 0
+        width: 44
+        height: 35
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: splash_Sprites_7
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 25
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: splash_Sprites_8
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 11
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: splash_Sprites_9
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 0
+        width: 30
+        height: 19
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: splash_Sprites_10
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 5
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: splash_Sprites_11
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 5
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: splash_Sprites_12
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 2
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: splash_Sprites_13
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 11
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: splash_Sprites_14
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 0
+        width: 36
+        height: 18
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: splash_Sprites_15
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 11
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: splash_Sprites_16
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 2
+        width: 19
+        height: 11
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: splash_Sprites_17
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 0
+        width: 23
+        height: 17
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: splash_Sprites_18
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 0
+        width: 30
+        height: 17
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
