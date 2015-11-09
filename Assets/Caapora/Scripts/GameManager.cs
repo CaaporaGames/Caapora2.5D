@@ -397,6 +397,20 @@ public class GameManager: MonoBehaviour {
     }
 
 
+    /// <summary>
+    /// Mostra um objeto após um periodo de tempo
+    /// </summary>
+    /// <param name="go"></param>
+    /// <param name="seconds"></param>
+    /// <returns></returns>
+    public static IEnumerator hideAndShowObject(GameObject go, int seconds)
+    {
+
+
+        go.SetActive(false);
+        yield return new WaitForSeconds(seconds);
+        go.SetActive(true);
+    }
 
 
 
@@ -459,7 +473,7 @@ public class GameManager: MonoBehaviour {
 
             t += Time.deltaTime;
             if (direcao == "down")
-                Camera.main.transform.position += new Vector3(0, -3f, 0);
+                GameObject.Find("CameraAux").GetComponent<Camera>().transform.position += new Vector3(0, -3f, 0);
 
               yield return new WaitForSeconds(0.1f);
 
@@ -473,7 +487,7 @@ public class GameManager: MonoBehaviour {
 
    
        
-        return GameObject.Find("chamas") == null && GameObject.Find("chamas(Clone)");
+        return GameObject.Find("chamas") == null && GameObject.Find("chamas(Clone)") == null;
 
     }
 
@@ -481,13 +495,33 @@ public class GameManager: MonoBehaviour {
     /// *************************************************************************
     /// Author: Rômulo Lima
     /// <summary> 
-    /// Executa as rotinas da animação uma a uma
+    /// Executa as rotinas da animação uma a umam todos os eventos tem que ser bem programados para os recursos poderem ser acessíveis no tempo certo
     /// </summary>
     public IEnumerator Introduction(){
 
         // Desabilita a camera principal para fazer a animação
         var mainCamera = GameObject.Find("Player/Camera").GetComponent<Camera>();
+
         mainCamera.enabled = false;
+
+        Camera.main.enabled = false;
+
+       // GameObject.Find("Main Camera").GetComponent<Camera>().enabled = false;
+
+       // GameObject.Find("CameraAux").GetComponent<Camera>().enabled = true ;
+
+
+        // Exibe após quatro segundos
+        StartCoroutine(hideAndShowObject(GameObject.Find("Informacoes"), 3));
+        yield return new WaitForSeconds(3f);
+        // Exibe informações da fase
+        StartCoroutine(showAndHideObject(GameObject.Find("Informacoes"), 3));
+
+        // Esconde o Inventory por 10 segundos
+        StartCoroutine(hideAndShowObject(GameObject.Find("CanvasGUIContainer"), 7));
+
+        // Esconde os controles por 10 segundos
+        // StartCoroutine(hideAndShowObject(GameObject.Find("GUI"), 10));
 
         StartCoroutine(moverCamera("down"));
         yield return new WaitForSeconds(10f);
@@ -545,7 +579,7 @@ public class GameManager: MonoBehaviour {
 
     public void YouWin()
     {
-        Destroy(player);
+        Destroy(gameObject);
         Application.LoadLevel("Winner");
     }
 

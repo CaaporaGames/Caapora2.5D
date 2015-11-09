@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 490672}
   - 212: {fileID: 21247656}
   - 114: {fileID: 11421090}
-  - 114: {fileID: 11456888}
+  - 114: {fileID: 11414184}
   m_Layer: 0
   m_Name: signLeft
   m_TagString: Untagged
@@ -30,6 +30,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &11414184
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 103806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b256250c588ee4e4590a3e58eaa69b1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _material: {fileID: 0}
+  _isTrigger: 0
+  _size: {x: 1, y: 1, z: 1}
+  _offset: {x: .5, y: .5, z: .5}
 --- !u!114 &11421090
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -45,22 +60,7 @@ MonoBehaviour:
   _size: {x: 1, y: 1, z: 1}
   _position: {x: -33, y: 6, z: 0}
   _isAlignment: 1
-  _isShowBounds: 0
---- !u!114 &11456888
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 103806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b256250c588ee4e4590a3e58eaa69b1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _material: {fileID: 0}
-  _isTrigger: 0
-  _size: {x: 1, y: 1, z: 1}
-  _offset: {x: .5, y: .5, z: .5}
+  _isShowBounds: 1
 --- !u!212 &21247656
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -97,6 +97,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_SortingLayerID
       value: 548467643
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _isShowBounds
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

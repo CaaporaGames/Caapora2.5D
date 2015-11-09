@@ -50,6 +50,7 @@ public class LoadingScreen : MonoBehaviour {
         
         if (loadProgress > 80)
         {
+        
             background.SetActive(false);
             text.SetActive(false);
             progressBar.SetActive(false);

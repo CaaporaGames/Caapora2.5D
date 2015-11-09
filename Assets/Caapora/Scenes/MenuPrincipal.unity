@@ -65,7 +65,6 @@ LightmapSettings:
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
-    m_ReflectionCompression: 2
   m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &4
@@ -85,6 +84,9 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!127 &5
+LevelGameManager:
+  m_ObjectHideFlags: 0
 --- !u!1 &89748694
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,7 +184,7 @@ TextMesh:
   m_Font: {fileID: 12800000, guid: b7ea145bdb8d2024e867079dfb02a68f, type: 3}
   m_Color:
     serializedVersion: 2
-    rgba: 4278784275
+    rgba: 4279771140
 --- !u!23 &276532191
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -352,7 +354,6 @@ AudioSource:
   m_Pitch: 1
   Loop: 1
   Mute: 0
-  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
