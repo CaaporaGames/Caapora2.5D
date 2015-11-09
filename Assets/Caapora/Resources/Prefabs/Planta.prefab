@@ -11,7 +11,7 @@ GameObject:
   - 212: {fileID: 21235032}
   - 114: {fileID: 11408112}
   - 114: {fileID: 11421846}
-  - 114: {fileID: 11432078}
+  - 114: {fileID: 11480832}
   m_Layer: 0
   m_Name: Planta
   m_TagString: Untagged
@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mode: 0
-  _size: {x: 1, y: 1, z: 1}
+  _size: {x: 1, y: 1, z: .200000003}
   _position: {x: -10, y: 6, z: 0}
   _isAlignment: 1
   _isShowBounds: 0
@@ -61,7 +61,7 @@ MonoBehaviour:
   _isKinematic: 1
   _interpolation: 0
   _collisionDetectionMode: 0
---- !u!114 &11432078
+--- !u!114 &11480832
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -74,8 +74,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _material: {fileID: 0}
   _isTrigger: 0
-  _size: {x: 1, y: 1, z: 1}
-  _offset: {x: .5, y: .5, z: .5}
+  _size: {x: 1, y: 1, z: .200000003}
+  _offset: {x: .5, y: .5, z: .100000001}
 --- !u!212 &21235032
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -108,7 +108,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: _size.z
+      value: .200000003
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 106504}

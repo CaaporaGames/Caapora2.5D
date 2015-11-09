@@ -2,9 +2,12 @@
 using System.Collections;
 using IsoTools;
 using UnityEngine.UI;
+using System.Collections.Generic;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 
-
+[System.Serializable]
 static class Coodenadas
 {
 
@@ -16,8 +19,10 @@ static class Coodenadas
 	
 }
 
-
-// ######## Esta Classe implementa o padrão de projeto Singleton e tem como função gerenciar todos os estados do game
+/// <summary>
+///  Esta Classe implementa o padrão de projeto Singleton e tem como função gerenciar todos os estados do game
+/// </summary>
+[System.Serializable]
 public class GameManager: MonoBehaviour {
 	private static GameManager _instance;
 	//used to store latest used door
@@ -30,7 +35,9 @@ public class GameManager: MonoBehaviour {
 	public Sprite baldeCheio;
     public Sprite enemy;
     public bool canFillBucket = true;
+    public bool showIntroduction = false;
 
+    public static List<GameManager> savedGames = new List<GameManager>();
     /// *************************************************************************
     /// Author: Rômulo Lima
     /// <summary> 
@@ -59,10 +66,14 @@ public class GameManager: MonoBehaviour {
     /// </summary>
     void Start()
     {
-      
+
         // Habilita ou não a animação de introdução
-        
-        //    StartCoroutine (Introduction());
+        if (showIntroduction)
+        {
+            StartCoroutine(Introduction());
+        }
+    
+            
 
         // Recebe a instancia do player
         player = Completed.PlayerBehavior.instance;
@@ -107,9 +118,10 @@ public class GameManager: MonoBehaviour {
 
         if (!Inventory.isEmpty())
         {
-            
+
             if (Inventory.getItem().GetComponent<Balde>().waterPercent <= 0.0f)
-                 AdviceSimple.showAdvice("Ande próximo ao lago para encher o balde com água!");
+                Debug.Log("Ande proximo ao lago");
+            //     AdviceSimple.showAdvice("Ande próximo ao lago para encher o balde com água!");
         }
 
 
@@ -119,6 +131,8 @@ public class GameManager: MonoBehaviour {
             // Checa por entrada de dados
             if (Input.GetKeyDown(KeyCode.A) || player.AClick)
             {
+                // Exibe a dica de tela
+                Advice.ShowAdvice(true);
 
                 AddItemToInventory(baldeTeste);
 
@@ -227,7 +241,7 @@ public class GameManager: MonoBehaviour {
             balde.FillBucket();
 
 
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.1f);
 
             canFillBucket = true;
 
@@ -320,8 +334,7 @@ public class GameManager: MonoBehaviour {
         // Colisao com o balde vazio
         if (iso_collision.gameObject.name == "baldeVazioPrefab") {
 
-            // Exibe a dica de tecla
-            Advice.ShowAdvice(true);
+            Debug.Log("Colidiu com o balde");
  
 
 		}
@@ -394,6 +407,8 @@ public class GameManager: MonoBehaviour {
     public void Exit()
     {
         Debug.Log("Apertou sair");
+        Debug.Log("Salvando Jogo");
+        Save();
         Application.Quit();
     }
 
@@ -451,9 +466,9 @@ public class GameManager: MonoBehaviour {
     public bool WinCondition()
     {
 
-        return GameObject.Find("teste") == null;
+   
        
-        //return GameObject.Find("chamas") == null && GameObject.Find("chamas(Clone)");
+        return GameObject.Find("chamas") == null && GameObject.Find("chamas(Clone)");
 
     }
 
@@ -477,7 +492,10 @@ public class GameManager: MonoBehaviour {
         StartCoroutine (Completed.PlayerBehavior.AnimateCaapora ("right", 30));
 		yield return new WaitForSeconds(3f);
 
-		StartCoroutine (Completed.PlayerBehavior.ShakePlayer());
+        // vira o caipora para o sul
+        player.GetComponent<Animator>().SetTrigger("CaaporaIdle");
+
+        StartCoroutine (Completed.PlayerBehavior.ShakePlayer());
 		yield return new WaitForSeconds(1f);
 
 
@@ -488,6 +506,37 @@ public class GameManager: MonoBehaviour {
 
 
 	}
+
+
+    /// Author :    Eric Daily
+    /// <summary>
+    /// Salva o estado do game
+    /// </summary>
+    //it's static so we can call it from anywhere
+    public static void Save()
+    {
+        savedGames.Add(instance);
+        BinaryFormatter bf = new BinaryFormatter();
+        //Application.persistentDataPath is a string, so if you wanted you can put that into debug.log if you want to know where save games are located
+        FileStream file = File.Create(Application.persistentDataPath + "/savedGames.gd"); //you can call it anything you want
+        bf.Serialize(file, savedGames);
+        file.Close();
+    }
+
+    /// Author :    Eric Daily
+    /// <summary>
+    /// Carrega o estado do game
+    /// </summary>
+    public static void Load()
+    {
+        if (File.Exists(Application.persistentDataPath + "/savedGames.gd"))
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(Application.persistentDataPath + "/savedGames.gd", FileMode.Open);
+            savedGames = (List<GameManager>)bf.Deserialize(file);
+            file.Close();
+        }
+    }
 
     public void YouWin()
     {

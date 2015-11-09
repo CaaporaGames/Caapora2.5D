@@ -20,11 +20,11 @@ public class Balde : MonoBehaviour {
     public void UseWalter()
     {
 
-        if (waterPercent < 0)
+        waterPercent--;
+
+        if (waterPercent < 1)
             waterPercent = 0;
 
-
-            waterPercent--;
             updateInventoryStatus();
 
     }
@@ -33,16 +33,22 @@ public class Balde : MonoBehaviour {
     public void FillBucket()
     {
 
-        if (waterPercent > 100)
+        waterPercent++;
+
+        if (waterPercent > 99)
             waterPercent = 100;
 
-             waterPercent++;
+            
              updateInventoryStatus();
 
     }
 
     public void updateInventoryStatus()
     {
+        if (waterPercent < 1)
+            GameObject.Find("Inventory/item1").GetComponent<Image>().color = Color.red;
+        else
+            GameObject.Find("Inventory/item1").GetComponent<Image>().color = Color.cyan;
 
         GameObject.Find("Inventory/item1/Text").GetComponent<Text>().text = waterPercent + "/100";
 

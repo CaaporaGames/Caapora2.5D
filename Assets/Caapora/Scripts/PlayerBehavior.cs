@@ -4,8 +4,9 @@ using System.Collections;
 using IsoTools;
 using UnityEngine.UI;
 
-namespace Completed { 
-public class PlayerBehavior : CharacterBase {
+namespace Completed {
+    [System.Serializable]
+    public class PlayerBehavior : CharacterBase {
 
     // Flag para o pause nao funcionando ainda
     protected bool paused = true;
@@ -635,8 +636,8 @@ public class PlayerBehavior : CharacterBase {
 
 
 
-            for (int i =0; i < distance; )
-            {
+          //  for (int i =0; i < distance; )
+          //  {
 
                 if (direction == "east")
                 {
@@ -664,7 +665,7 @@ public class PlayerBehavior : CharacterBase {
 
 
                 yield return new WaitForSeconds(0.1f);
-            }
+        //    }
 
 
         }
@@ -701,7 +702,17 @@ public class PlayerBehavior : CharacterBase {
             }
         }
 
-
+        public string _LookingAtDirection
+        {
+            get
+            {
+                return this.LookingAtDirection;
+            }
+            set
+            {
+                this.LookingAtDirection = value;
+            }
+        }
 
         public bool moveLeftClick
         {

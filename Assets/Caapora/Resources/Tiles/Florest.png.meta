@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 9ba8fa4c24aecfd49a103ed0ad1bbab3
-timeCreated: 1446728308
+timeCreated: 1447072457
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -399,8 +399,8 @@ TextureImporter:
         y: 240
         width: 30
         height: 30
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Florest_113
       rect:
@@ -409,8 +409,8 @@ TextureImporter:
         y: 240
         width: 30
         height: 30
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Florest_114
       rect:
@@ -419,8 +419,8 @@ TextureImporter:
         y: 240
         width: 30
         height: 30
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Florest_118
       rect:

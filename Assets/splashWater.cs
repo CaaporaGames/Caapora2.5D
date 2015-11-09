@@ -11,7 +11,7 @@ public class splashWater : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-         Debug.Log("Posicao do splash =" + GetComponent<IsoObject>().position);
+         
          StartCoroutine(AutoDestroy());
 	}
 
