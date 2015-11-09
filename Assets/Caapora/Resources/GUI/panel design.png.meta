@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: be38e1625be5ec74c938a34dfc3769da
-timeCreated: 1446896988
+timeCreated: 1447094836
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -15,6 +15,7 @@ TextureImporter:
     21300016: panel design_8
     21300018: panel design_9
     21300020: panel design_10
+    21300022: panel design_11
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -68,7 +69,7 @@ TextureImporter:
         width: 196
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: panel design_1
       rect:
@@ -76,9 +77,9 @@ TextureImporter:
         x: 256
         y: 321
         width: 338
-        height: 320
+        height: 252
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: panel design_2
       rect:
@@ -98,7 +99,7 @@ TextureImporter:
         width: 128
         height: 308
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: panel design_4
       rect:
@@ -108,7 +109,7 @@ TextureImporter:
         width: 156
         height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: panel design_5
       rect:
@@ -118,7 +119,7 @@ TextureImporter:
         width: 96
         height: 96
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: panel design_6
       rect:
@@ -128,7 +129,7 @@ TextureImporter:
         width: 92
         height: 92
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: panel design_7
       rect:
@@ -138,7 +139,7 @@ TextureImporter:
         width: 192
         height: 74
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: panel design_8
       rect:
@@ -158,7 +159,7 @@ TextureImporter:
         width: 192
         height: 105
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: panel design_10
       rect:
@@ -168,7 +169,17 @@ TextureImporter:
         width: 192
         height: 115
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: panel design_11
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 575
+        width: 341
+        height: 71
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

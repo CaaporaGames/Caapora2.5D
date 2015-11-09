@@ -1,5 +1,9 @@
 using UnityEngine;
 
+
+/// <summary>
+/// Código encontrado em tutorial no Youtube postado por Sebastian Lague
+/// </summary>
 namespace PathFinding { 
 public class Node {
 	

@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using IsoTools;
 
 
-
+/// <summary>
+/// Código encontrado em tutorial no Youtube postado por Sebastian Lague
+/// </summary>
 namespace PathFinding {
     public class Pathfinding : MonoBehaviour {
 

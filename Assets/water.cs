@@ -12,10 +12,10 @@ public class water : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+/*
         if(canGetThisWater)
             Debug.Log("Posicao da agua pegavel = " + GetComponent<IsoObject>().position);
-           
+  */         
 	
 	}
 

@@ -36,6 +36,8 @@ public class GameManager: MonoBehaviour {
     public Sprite enemy;
     public bool canFillBucket = true;
     public bool showIntroduction = false;
+    public static string current_scene;
+    public static string next_scene;
 
     public static List<GameManager> savedGames = new List<GameManager>();
     /// *************************************************************************
@@ -149,7 +151,7 @@ public class GameManager: MonoBehaviour {
 
 
         // Atualiza o valor do status na interface
-        GameObject.Find("hp").GetComponent<Text>().text = player.life.ToString(); ;
+        GameObject.Find("hp").GetComponent<Text>().text = player.life.ToString(); 
 
 
 
@@ -408,8 +410,11 @@ public class GameManager: MonoBehaviour {
     {
         Debug.Log("Apertou sair");
         Debug.Log("Salvando Jogo");
-        Save();
-        Application.Quit();
+
+        // Save();
+        //Application.Quit();
+        next_scene = "Map2";
+        Application.LoadLevel("Loader");
     }
 
     /// *************************************************************************
