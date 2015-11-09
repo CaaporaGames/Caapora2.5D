@@ -28,6 +28,10 @@ public class Advice : MonoBehaviour {
     public static void ShowAdvice(bool value)
     {
 
-        instance.gameObject.SetActive(value);
+        if(value)
+             GameManager.ShowObjectAPeriodOfTime(instance.gameObject, 2);
+        else
+             instance.gameObject.SetActive(false);
+
     }
 }

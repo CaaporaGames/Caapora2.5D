@@ -358,12 +358,6 @@ MonoBehaviour:
   caapora: {fileID: 0}
   savedTimeState: 0
   iso_rigidyBody: {fileID: 0}
-  _moveUp: 0
-  _moveDown: 0
-  _moveLeft: 0
-  _moveRight: 0
-  _AKey: 0
-  _BKey: 0
 --- !u!114 &11424456
 MonoBehaviour:
   m_ObjectHideFlags: 1

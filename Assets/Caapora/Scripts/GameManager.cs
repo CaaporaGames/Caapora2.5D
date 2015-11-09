@@ -104,14 +104,21 @@ public class GameManager: MonoBehaviour {
         GameObject baldeTeste = GameObject.Find("baldeVazioPrefab");
 
 
+
+        if (!Inventory.isEmpty())
+        {
+            
+            if (Inventory.getItem().GetComponent<Balde>().waterPercent <= 0.0f)
+                 AdviceSimple.showAdvice("Ande próximo ao lago para encher o balde com água!");
+        }
+
+
         if (canCatch(baldeTeste))
         {
 
             // Checa por entrada de dados
             if (Input.GetKeyDown(KeyCode.A) || player.AClick)
             {
-                // Exibe a dica de tela
-                Advice.ShowAdvice(false);
 
                 AddItemToInventory(baldeTeste);
 
@@ -125,7 +132,6 @@ public class GameManager: MonoBehaviour {
             }
 
         }
-
 
 
         // Atualiza o valor do status na interface
@@ -143,20 +149,6 @@ public class GameManager: MonoBehaviour {
     }
 
 
-    /// *************************************************************************
-    /// Author: Rômulo Lima
-    /// <summary> 
-    ///   
-    /// <param name="go">objeto alvo</param> 
-    /// <returns></returns>
-    /// 
-    /// </summary>
-    void CatchItem(GameObject item)
-    {
-
-
-
-    }
 
     /// *************************************************************************
     /// Author: Rômulo Lima
@@ -232,9 +224,7 @@ public class GameManager: MonoBehaviour {
              var balde = Inventory.getItem().GetComponent<Balde>();
 
             // Incrementa a porcentagem de agua em um em um
-            balde.waterPercent++;
-
-            GameObject.Find("Inventory/item1/Text").GetComponent<Text>().text = balde.waterPercent + "/100";
+            balde.FillBucket();
 
 
             yield return new WaitForSeconds(1);
@@ -245,6 +235,9 @@ public class GameManager: MonoBehaviour {
      
 
     }
+
+
+   
 
     /// *************************************************************************
     /// Author: Rômulo Lima
@@ -357,6 +350,38 @@ public class GameManager: MonoBehaviour {
 
        
 	}
+
+
+    /// <summary>
+    /// Mostra um GameObject na tela por um periodo de tempo
+    /// </summary>
+    /// <param name="go"></param>
+    /// <param name="seconds"></param>
+    public static void ShowObjectAPeriodOfTime(GameObject go, int seconds)
+    {
+
+        instance.StartCoroutine(showAndHideObject(go, seconds));
+
+    }
+
+
+
+    /// <summary>
+    /// Mostra um objeto após um periodo de tempo
+    /// </summary>
+    /// <param name="go"></param>
+    /// <param name="seconds"></param>
+    /// <returns></returns>
+    public static IEnumerator showAndHideObject(GameObject go, int seconds)
+    {
+
+        
+        go.SetActive(true);
+        yield return new WaitForSeconds(seconds);
+        go.SetActive(false);
+    }
+
+
 
 
 

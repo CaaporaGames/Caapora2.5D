@@ -29,8 +29,8 @@ public class PlayerBehavior : CharacterBase {
     public static bool stopWalking = false;
 	public static bool isPlayingAnimation = false;
 	public static PlayerBehavior instance;
-    public bool _moveUp = false, _moveDown = false, _moveLeft = false, _moveRight = false, _AKey = false, _BKey = false;
-
+    private bool _moveUp = false, _moveDown = false, _moveLeft = false, _moveRight = false, _AKey = false, _BKey = false;
+    private string LookingAtDirection = "north";
     private float _life = 1000;
     private bool _canLauchWater;
  
@@ -95,8 +95,7 @@ public class PlayerBehavior : CharacterBase {
                 {
                     Debug.Log("Player com balde proximo de agua");
 
-                    Debug.Log("CanFillBucket = " + GameManager.instance.canFillBucket);
-
+                 
                     if (GameManager.instance.canFillBucket)
                         StartCoroutine(GameManager.instance.FillBucketSlowly());
 
@@ -268,16 +267,9 @@ public class PlayerBehavior : CharacterBase {
                 if (Input.GetKey(KeyCode.LeftArrow) || _moveLeft)
                 {
 
+                    LookingAtDirection = "west";
                 
                     moveLeft();
-
-                    if (Input.GetKeyDown(KeyCode.B) || _BKey)
-                    {
-                        if(canLauchWater())
-                          StartCoroutine(launchOject("west", 5));
-
-                    }
-
 
                 }
                 else if (Input.GetKey(KeyCode.RightArrow) || _moveRight)
@@ -285,37 +277,24 @@ public class PlayerBehavior : CharacterBase {
 
                     moveRight();
 
+                    LookingAtDirection = "east";
 
-                    if (Input.GetKeyDown(KeyCode.B) || _BKey)
-                    {
-                        if (canLauchWater())
-                            StartCoroutine(launchOject("east", 5));
-
-                    }
 
                 }
                 else if (Input.GetKey(KeyCode.DownArrow) || _moveDown)
                 {
 
                     moveDown();
-                    if (Input.GetKeyDown(KeyCode.B) || _BKey)
-                    {
-                        if (canLauchWater())
-                            StartCoroutine(launchOject("south", 5));
 
-                    }
+                    LookingAtDirection = "south";
 
                 }
                 else if (Input.GetKey(KeyCode.UpArrow) || _moveUp)
                 {
 
                     moveUp();
-                    if (Input.GetKeyDown(KeyCode.B) || _BKey)
-                    {
-                        if (canLauchWater())
-                            StartCoroutine(launchOject("north", 5));
 
-                    }
+                    LookingAtDirection = "north";
 
                 }
                 else if (Input.GetKeyDown(KeyCode.B) || _BKey)
@@ -323,11 +302,10 @@ public class PlayerBehavior : CharacterBase {
 
                     paused = paused ? false : true;
 
-                    // Jump();
-                    if (canLauchWater())
-                        StartCoroutine(launchOject("south", 5));                  
+                    ThrowWater();           
                   
                 }
+                /*
                 else if (!isPlayingAnimation)
                 { // Caso nao esteja precionando nenhuma tecla
 
@@ -337,8 +315,41 @@ public class PlayerBehavior : CharacterBase {
                     else
                         animator.SetTrigger("CaaporaIdle");
 
-                }
+                }*/
 
+            }
+
+        }
+
+
+        public void ThrowWater()
+        {
+
+            if (canLauchWater())
+            {
+
+
+                switch (LookingAtDirection)
+                {
+
+                    case "north":
+                        StartCoroutine(launchOject("north",5));
+                        break;
+                    case "south":
+                        StartCoroutine(launchOject("south", 5));
+                        break;
+                    case "east":
+                        StartCoroutine(launchOject("east", 5));
+                        break;
+                    case "west":
+                        StartCoroutine(launchOject("west", 5));
+                        break;
+                    default:
+                        StartCoroutine(launchOject("south", 5));
+                        break;
+
+                }
+ 
             }
 
         }
@@ -348,8 +359,7 @@ public class PlayerBehavior : CharacterBase {
        public void moveLeft()
         {
 
-
-
+            
             iso_rigidyBody.velocity = new Vector3(-this.speed, 0, 0);
 
             animator.SetTrigger("Caapora-left");
@@ -621,7 +631,7 @@ public class PlayerBehavior : CharacterBase {
             // a posicao inicial do objeto
             var playerCurPosition = GetComponent<IsoObject>().position;
 
-         
+            var balde = Inventory.getItem().GetComponent<Balde>();
 
 
 
@@ -631,25 +641,25 @@ public class PlayerBehavior : CharacterBase {
                 if (direction == "east")
                 {
                     objeto.GetComponent<IsoObject>().position = playerCurPosition + Vector3.right;
-                    Inventory.getItem().GetComponent<Balde>().waterPercent--;
+                    balde.UseWalter();
                 }
                   
                 if (direction == "west")
                 {
                     objeto.GetComponent<IsoObject>().position = playerCurPosition + Vector3.left;
-                    Inventory.getItem().GetComponent<Balde>().waterPercent--;
+                    balde.UseWalter();
                 }
 
                 if (direction == "north")
                 {
                     objeto.GetComponent<IsoObject>().position = playerCurPosition + Vector3.up;
-                    Inventory.getItem().GetComponent<Balde>().waterPercent--;
+                     balde.UseWalter();
                 }
 
                 if (direction == "south")
                 {
                     objeto.GetComponent<IsoObject>().position = playerCurPosition + Vector3.down;
-                    Inventory.getItem().GetComponent<Balde>().waterPercent--;
+                    balde.UseWalter();
                 }
 
 
