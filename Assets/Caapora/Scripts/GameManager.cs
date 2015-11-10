@@ -38,6 +38,9 @@ public class GameManager: MonoBehaviour {
     public bool showIntroduction = false;
     public static string current_scene;
     public static string next_scene;
+    public string debug_message;
+    public static bool npc_start = true;
+
 
     public static List<GameManager> savedGames = new List<GameManager>();
     /// *************************************************************************
@@ -73,6 +76,12 @@ public class GameManager: MonoBehaviour {
         if (showIntroduction)
         {
             StartCoroutine(Introduction());
+        }
+        else
+        {
+
+            GameObject.Find("CameraAux").GetComponent<Camera>().enabled = false ;
+
         }
     
             
@@ -112,7 +121,9 @@ public class GameManager: MonoBehaviour {
     /// </summary>
     void Update()
     {
-    
+
+        if(npc_start == true)
+          StartCoroutine(enableNPCTimer());
 
         GameObject baldeTeste = GameObject.Find("baldeVazioPrefab");
 
@@ -151,7 +162,7 @@ public class GameManager: MonoBehaviour {
 
 
         // Atualiza o valor do status na interface
-        GameObject.Find("hp").GetComponent<Text>().text = player.life.ToString(); 
+        GameObject.Find("Status/hp").GetComponent<Text>().text = player.life.ToString(); 
 
 
 
@@ -161,6 +172,16 @@ public class GameManager: MonoBehaviour {
         
         // Condições para o game over
         GameOVer();
+
+    }
+
+
+
+    IEnumerator enableNPCTimer()
+    {
+        npc_start = false;
+        yield return new WaitForSeconds(6);
+        npc_start = true;
 
     }
 
@@ -452,9 +473,6 @@ public class GameManager: MonoBehaviour {
 
         }
 
-             
-
-
 
     }
 
@@ -606,11 +624,13 @@ public class GameManager: MonoBehaviour {
 		GUI.Label(new Rect(0,50,300,50), "Player Position Y :" + gameObject.GetComponent<IsoObject>().positionY);
 		GUI.Label(new Rect(0,100,300,50), "Player Position Z :" + gameObject.GetComponent<IsoObject>().positionZ);
 
-		GUI.Label(new Rect(0,150,300,50), "Mapa Atual :" + PlayerPrefs.GetString("CurrentMap"));
+		GUI.Label(new Rect(0,150,300,50), "Debug collision: " + debug_message);
 
-		
-		
-	}
+
+     
+
+
+    }
 
 
 }
