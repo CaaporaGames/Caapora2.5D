@@ -351,11 +351,10 @@ MonoBehaviour:
     agillity: 0
     baseDefence: 0
     baseAttack: 0
-  animator: {fileID: 0}
   speed: 3
+  animator: {fileID: 0}
   go: {fileID: 0}
   caapora: {fileID: 0}
-  savedTimeState: 0
   iso_rigidyBody: {fileID: 0}
 --- !u!114 &11424456
 MonoBehaviour:
@@ -429,7 +428,6 @@ MonoBehaviour:
   enemy: {fileID: 0}
   canFillBucket: 1
   showIntroduction: 0
-  debug_message: 
 --- !u!114 &11456636
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -483,10 +481,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b9e4c41c23103c48a6ba83ab294c9ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetPos: {fileID: 0}
   cachedSeekerPos: {x: 0, y: 0, z: 0}
   cachedTargetPos: {x: 0, y: 0, z: 0}
   grid: {fileID: 0}
+  _targetPos: {fileID: 0}
 --- !u!124 &12498396
 Behaviour:
   m_ObjectHideFlags: 1

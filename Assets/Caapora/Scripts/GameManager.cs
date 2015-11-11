@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using Caapora;
 
 
 [System.Serializable]
@@ -28,7 +29,7 @@ public class GameManager: MonoBehaviour {
 	//used to store latest used door
 	public Vector3 LastUsedDoorPosition;
 
-    public Completed.PlayerBehavior player;
+    public PlayerBehavior player;
 
 	// ID da ultimo caminho passado
 	public int PathID;
@@ -38,8 +39,9 @@ public class GameManager: MonoBehaviour {
     public bool showIntroduction = false;
     public static string current_scene;
     public static string next_scene;
-    public string debug_message;
     public static bool npc_start = true;
+    private bool _paused = false;
+    public static bool isAnimating = true;
 
 
     public static List<GameManager> savedGames = new List<GameManager>();
@@ -87,7 +89,7 @@ public class GameManager: MonoBehaviour {
             
 
         // Recebe a instancia do player
-        player = Completed.PlayerBehavior.instance;
+        player = PlayerBehavior.instance;
 
     }
 
@@ -122,13 +124,15 @@ public class GameManager: MonoBehaviour {
     void Update()
     {
 
-        if(npc_start == true)
+        Pause();
+
+        if (npc_start == true)
           StartCoroutine(enableNPCTimer());
 
         GameObject baldeTeste = GameObject.Find("baldeVazioPrefab");
 
 
-
+        
         if (!Inventory.isEmpty())
         {
 
@@ -142,7 +146,7 @@ public class GameManager: MonoBehaviour {
         {
 
             // Checa por entrada de dados
-            if (Input.GetKeyDown(KeyCode.A) || player.AClick)
+            if (Input.GetKeyDown(KeyCode.A) || KeyboardController.instance.AClick)
             {
                 // Exibe a dica de tela
                 Advice.ShowAdvice(true);
@@ -161,9 +165,7 @@ public class GameManager: MonoBehaviour {
         }
 
 
-        // Atualiza o valor do status na interface
-        GameObject.Find("Status/hp").GetComponent<Text>().text = player.life.ToString(); 
-
+       
 
 
         if (WinCondition())
@@ -268,7 +270,6 @@ public class GameManager: MonoBehaviour {
 
             canFillBucket = true;
 
-            
      
 
     }
@@ -522,15 +523,13 @@ public class GameManager: MonoBehaviour {
 
         mainCamera.enabled = false;
 
-        Camera.main.enabled = false;
-
-       // GameObject.Find("Main Camera").GetComponent<Camera>().enabled = false;
-
-       // GameObject.Find("CameraAux").GetComponent<Camera>().enabled = true ;
+        if(!showIntroduction)
+            Camera.main.enabled = false;
 
 
         // Exibe após quatro segundos
         StartCoroutine(hideAndShowObject(GameObject.Find("Informacoes"), 3));
+
         yield return new WaitForSeconds(3f);
         // Exibe informações da fase
         StartCoroutine(showAndHideObject(GameObject.Find("Informacoes"), 3));
@@ -538,31 +537,50 @@ public class GameManager: MonoBehaviour {
         // Esconde o Inventory por 10 segundos
         StartCoroutine(hideAndShowObject(GameObject.Find("CanvasGUIContainer"), 7));
 
-        // Esconde os controles por 10 segundos
-        // StartCoroutine(hideAndShowObject(GameObject.Find("GUI"), 10));
+
 
         StartCoroutine(moverCamera("down"));
         yield return new WaitForSeconds(10f);
 
         mainCamera.enabled = true;
 
-        StartCoroutine (Completed.PlayerBehavior.AnimateCaapora ("right", 30));
+        StartCoroutine (PlayerBehavior.AnimateCaapora ("right", 30));
 		yield return new WaitForSeconds(3f);
 
         // vira o caipora para o sul
         player.GetComponent<Animator>().SetTrigger("CaaporaIdle");
 
-        StartCoroutine (Completed.PlayerBehavior.ShakePlayer());
-		yield return new WaitForSeconds(1f);
-
 
 		ConversationPanel.ActivePanel (true);
 		StartCoroutine (CaaporaConversation.AnimateFrase());
-	
+
+
+        isAnimating = false;
 
 
 
-	}
+
+    }
+
+    public void Pause()
+    {
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+
+            if (_paused)
+            {
+                Time.timeScale = 0;
+                _paused = false;
+            }
+            else
+            {
+                Time.timeScale = 1;
+                _paused = true;
+            }
+        }
+
+    }
 
 
     /// Author :    Eric Daily
@@ -612,25 +630,7 @@ public class GameManager: MonoBehaviour {
         GameObject.Find("Tela de Conversa").SetActive(false);
     }
 
-    /// *************************************************************************
-    /// Author: Rômulo Lima
-    /// <summary> 
-    /// Exibe área de debug na tela
-    /// </summary>
-	void OnGUI(){
-		
-		
-		GUI.Label(new Rect(0,0,300,50), "Player Position X :" + gameObject.GetComponent<IsoObject>().positionX);
-		GUI.Label(new Rect(0,50,300,50), "Player Position Y :" + gameObject.GetComponent<IsoObject>().positionY);
-		GUI.Label(new Rect(0,100,300,50), "Player Position Z :" + gameObject.GetComponent<IsoObject>().positionZ);
 
-		GUI.Label(new Rect(0,150,300,50), "Debug collision: " + debug_message);
-
-
-     
-
-
-    }
 
 
 }
