@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: d2e151c073188c54daa8ab685f45b57d
-timeCreated: 1447128993
+timeCreated: 1447214641
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -12,6 +12,10 @@ TextureImporter:
     21300010: CaiporaInAction2_5
     21300012: CaiporaInAction2_6
     21300014: CaiporaInAction2_7
+    21300016: CaiporaInAction2_8
+    21300018: CaiporaInAction2_9
+    21300020: CaiporaInAction2_10
+    21300022: CaiporaInAction2_11
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -62,8 +66,8 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 256
-        width: 48
+        y: 255
+        width: 52
         height: 85
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -71,9 +75,9 @@ TextureImporter:
     - name: CaiporaInAction2_1
       rect:
         serializedVersion: 2
-        x: 48
-        y: 256
-        width: 48
+        x: 52
+        y: 255
+        width: 52
         height: 85
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -81,9 +85,9 @@ TextureImporter:
     - name: CaiporaInAction2_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 171
-        width: 48
+        x: 104
+        y: 255
+        width: 52
         height: 85
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -91,9 +95,9 @@ TextureImporter:
     - name: CaiporaInAction2_3
       rect:
         serializedVersion: 2
-        x: 48
-        y: 171
-        width: 48
+        x: 0
+        y: 170
+        width: 52
         height: 85
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -101,9 +105,9 @@ TextureImporter:
     - name: CaiporaInAction2_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 86
-        width: 48
+        x: 52
+        y: 170
+        width: 52
         height: 85
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -111,9 +115,9 @@ TextureImporter:
     - name: CaiporaInAction2_5
       rect:
         serializedVersion: 2
-        x: 48
-        y: 86
-        width: 48
+        x: 104
+        y: 170
+        width: 52
         height: 85
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -122,8 +126,8 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1
-        width: 48
+        y: 85
+        width: 52
         height: 85
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -131,12 +135,52 @@ TextureImporter:
     - name: CaiporaInAction2_7
       rect:
         serializedVersion: 2
-        x: 48
-        y: 1
-        width: 48
+        x: 52
+        y: 85
+        width: 52
         height: 85
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CaiporaInAction2_8
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 86
+        width: 57
+        height: 84
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CaiporaInAction2_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 52
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CaiporaInAction2_10
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 0
+        width: 52
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CaiporaInAction2_11
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 1
+        width: 63
+        height: 84
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
