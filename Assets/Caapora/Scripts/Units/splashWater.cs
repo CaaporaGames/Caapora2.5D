@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using IsoTools;
-public class splashWater : MonoBehaviour {
+public class SplashWater : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

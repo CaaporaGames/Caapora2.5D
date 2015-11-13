@@ -13,6 +13,9 @@ GameObject:
   - 114: {fileID: 11482108}
   - 114: {fileID: 11402758}
   - 114: {fileID: 11491120}
+  - 114: {fileID: 11426028}
+  - 114: {fileID: 11454300}
+  - 114: {fileID: 11493434}
   m_Layer: 0
   m_Name: Monkey
   m_TagString: Untagged
@@ -27,7 +30,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 190914}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 16, z: 2.20000005}
+  m_LocalPosition: {x: -5.7220459e-06, y: 47.9999962, z: 39.2231178}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -63,6 +66,45 @@ MonoBehaviour:
   _isKinematic: 0
   _interpolation: 0
   _collisionDetectionMode: 0
+--- !u!114 &11426028
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b9e4c41c23103c48a6ba83ab294c9ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cachedSeekerPos: {x: 0, y: 0, z: 0}
+  cachedTargetPos: {x: 0, y: 0, z: 0}
+  grid: {fileID: 0}
+  _targetPos: {fileID: 0}
+  stepTicks: .5
+  stepRndTicks: .5
+  npc_start: 1
+--- !u!114 &11454300
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a0af120f34ebcf42a45777c278c0baf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLevel: 0
+  basicStats:
+    startLife: 0
+    startMana: 0
+    strenght: 0
+    magic: 0
+    agillity: 0
+    baseDefence: 0
+    baseAttack: 0
+  _life: 1000
 --- !u!114 &11482108
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -76,9 +118,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mode: 0
   _size: {x: 1, y: 1, z: 1}
-  _position: {x: 0, y: 0, z: 1}
+  _position: {x: 3, y: 3, z: 0}
   _isAlignment: 1
-  _isShowBounds: 0
+  _isShowBounds: 1
 --- !u!114 &11491120
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -94,6 +136,29 @@ MonoBehaviour:
   _isTrigger: 0
   _size: {x: 1, y: 1, z: 1}
   _offset: {x: .5, y: .5, z: .5}
+--- !u!114 &11493434
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6541d3ac94132e4d946d09c71f001a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLevel: 0
+  basicStats:
+    startLife: 0
+    startMana: 0
+    strenght: 0
+    magic: 0
+    agillity: 0
+    baseDefence: 0
+    baseAttack: 0
+  speed: 5
+  animator: {fileID: 0}
+  iso_rigidyBody: {fileID: 0}
 --- !u!212 &21268518
 SpriteRenderer:
   m_ObjectHideFlags: 1

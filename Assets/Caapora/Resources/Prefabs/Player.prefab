@@ -369,6 +369,8 @@ MonoBehaviour:
   go: {fileID: 0}
   caapora: {fileID: 0}
   iso_rigidyBody: {fileID: 0}
+  baldeCheio: {fileID: 0}
+  canFillBucket: 1
 --- !u!114 &11424456
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -437,9 +439,7 @@ MonoBehaviour:
   LastUsedDoorPosition: {x: 0, y: 0, z: 0}
   player: {fileID: 0}
   PathID: 0
-  baldeCheio: {fileID: 0}
   enemy: {fileID: 0}
-  canFillBucket: 1
   showIntroduction: 0
 --- !u!114 &11456636
 MonoBehaviour:
@@ -498,6 +498,9 @@ MonoBehaviour:
   cachedTargetPos: {x: 0, y: 0, z: 0}
   grid: {fileID: 0}
   _targetPos: {fileID: 0}
+  stepTicks: .5
+  stepRndTicks: .5
+  npc_start: 1
 --- !u!124 &12498396
 Behaviour:
   m_ObjectHideFlags: 1

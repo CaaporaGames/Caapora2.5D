@@ -2,7 +2,7 @@
 using System.Collections;
 using IsoTools;
 
-public class water : MonoBehaviour {
+public class Water : MonoBehaviour {
 
     public bool canGetThisWater = false;
 	// Use this for initialization

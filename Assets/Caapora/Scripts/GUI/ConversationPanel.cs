@@ -17,7 +17,7 @@ public class ConversationPanel : MonoBehaviour {
 	void Start () {
 		
         // Ao iniciar desabilita o painel
-		ActivePanel (false);
+		ActivePanel (true);
 
 	
 		//InvokeRepeating( this.AtiveBallon(), .01, 1.0);

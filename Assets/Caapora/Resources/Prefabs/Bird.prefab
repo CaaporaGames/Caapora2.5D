@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4febe544112bb4678bdd59fa963c802d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isKinematic: 0
+  _isKinematic: 1
   _interpolation: 0
   _collisionDetectionMode: 0
 --- !u!114 &11485292
@@ -91,9 +91,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mode: 0
   _size: {x: 1, y: 1, z: 1}
-  _position: {x: 8, y: -8, z: 2}
+  _position: {x: 8, y: -8, z: 7}
   _isAlignment: 1
-  _isShowBounds: 0
+  _isShowBounds: 1
 --- !u!212 &21282156
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -129,11 +129,19 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: _position.z
-      value: 2
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_SortingLayerID
       value: 548467643
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _isShowBounds
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _isKinematic
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

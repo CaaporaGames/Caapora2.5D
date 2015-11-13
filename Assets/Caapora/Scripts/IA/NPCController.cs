@@ -1,10 +1,8 @@
 ﻿using UnityEngine;
 using IsoTools;
-using System.Collections;
-using UnityEngine.UI;
 
-namespace Caapora
-{
+
+namespace Caapora{
 
 
 public class NPCController : CharacterController {
@@ -73,50 +71,57 @@ public class NPCController : CharacterController {
         var _currentPosition = GetComponent<IsoObject>();
 
 
-        
-        // Animação por identificação de movimentação
-        // prevPosition é enviado da classe de IA nesse caso da NPC
-        if (prevPosition != Vector3.zero && !stopWalking)
-        {
+
+            // Animação por identificação de movimentação
+            // prevPosition é enviado da classe de IA nesse caso da NPC
+            if (prevPosition == Vector3.zero || stopWalking)
+
+
+                animator.SetTrigger("Down");
+
+          
+            else { 
          
-            if (prevPosition.x > _currentPosition.positionX)
-            {
+                    if (prevPosition.x > _currentPosition.positionX)
+                    {
 
 
-                    animator.SetTrigger("Right");
+                            animator.SetTrigger("Right");
+
+                    }
+
+
+                    else if (prevPosition.x < _currentPosition.positionX)
+                    {
+
+                            animator.SetTrigger("Left");
+
+
+                        }
+
+
+
+                    else if (prevPosition.y < _currentPosition.positionY)
+                    {
+
+                            animator.SetTrigger("Up");
+
+
+                        }
+
+
+                    else if (prevPosition.y > _currentPosition.positionY)
+                    {
+
+                            animator.SetTrigger("Down");
+
+                      }
 
             }
 
 
-            else if (prevPosition.x < _currentPosition.positionX)
-            {
 
-                    animator.SetTrigger("Left");
-
-
-                }
-
-
-
-            else if (prevPosition.y < _currentPosition.positionY)
-            {
-
-                    animator.SetTrigger("Up");
-
-
-                }
-
-
-            else if (prevPosition.y > _currentPosition.positionY)
-            {
-
-                    animator.SetTrigger("Down");
-
-                }
-
-
-
-        }
+     
 
 
         // seta a posição alvo do player para a posição do clique no mapa

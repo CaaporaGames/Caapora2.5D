@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
 public class Advice : MonoBehaviour {
 
     // necessario para acessar metodos desta classe fora dela

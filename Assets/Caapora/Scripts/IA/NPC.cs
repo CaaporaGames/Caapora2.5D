@@ -10,11 +10,14 @@ using IsoTools;
 namespace Caapora.Pathfinding {
 
     public class NPC : Pathfinding {
-    private bool move = true, canStart = true;
-    public IEnumerator updatePosition;
-    public IEnumerator animatePath;
-    private IsoObject seekerIso;
-    public GameObject _targetPos;
+        private bool move = true, canStart = true;
+        public IEnumerator updatePosition;
+        public IEnumerator animatePath;
+        private IsoObject seekerIso;
+        public GameObject _targetPos;
+        public float stepTicks = 0.5f;
+        public float stepRndTicks = 0.5f;
+        public  bool npc_start = true;
 
 
         public Vector3 targetPos
@@ -67,23 +70,72 @@ namespace Caapora.Pathfinding {
        void Update()
        {
 
-            if (GameManager.npc_start) { 
 
-                        // Enquanto não move calcula o caminho
-                        if (!move)
+    
+
+            if (this.npc_start) {
+
+                
+
+                // Enquanto não move calcula o caminho
+                if (!move)
                         {
                             find();
-           
-                        }
+                         
 
-                            AnimatePath();
+                       }
 
 
-                        }
+                AnimatePath();
 
-             }
 
-      
+           }
+
+
+
+            if (npc_start == true)
+            {
+
+                StartCoroutine(enableNPCTimer());
+
+            }
+
+        }
+
+
+        IEnumerator enableNPCTimer()
+        {
+            npc_start = false;
+            yield return new WaitForSeconds(6);
+            npc_start = true;
+
+        }
+
+
+        WaitForSeconds RndWait()
+        {
+            return new WaitForSeconds(stepTicks + Random.Range(0.0f, stepRndTicks));
+        }
+
+        IEnumerator Move()
+        {
+            var iso_object = GetComponent<IsoObject>();
+            if (iso_object)
+            {
+                for (;;)
+                {
+                    yield return RndWait();
+                    iso_object.position += new Vector3(1, 0, 0);
+                    yield return RndWait();
+                    iso_object.position += new Vector3(0, 1, 0);
+                    yield return RndWait();
+                    iso_object.position += new Vector3(-1, 0, 0);
+                    yield return RndWait();
+                    iso_object.position += new Vector3(0, -1, 0);
+                }
+            }
+        }
+
 
 
 
@@ -126,13 +178,13 @@ namespace Caapora.Pathfinding {
 
      
             currentPos = correctedPathPos;
+        
 
-      
             // Para cada ponto do caminho executa novamente este método
             index++;
             if (index < grid.path.Count)
             {
-
+               
                   updatePosition = UpdatePosition(currentPos, grid.path[index], index);
 
                   StartCoroutine(updatePosition);
@@ -145,7 +197,7 @@ namespace Caapora.Pathfinding {
             {
 
                 move = false;
-                GameManager.npc_start = false;
+                npc_start = false;
                 Debug.Log("UpdatePositio finalizado");
                 StopCoroutine(updatePosition);
                                
