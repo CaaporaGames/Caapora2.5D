@@ -21,11 +21,13 @@ namespace Caapora {
 	public static PlayerBehavior instance;
     private bool _moveUp = false, _moveDown = false, _moveLeft = false, _moveRight = false, _AKey = false, _BKey = false;
     private string _moveDirection = "";
+        public Sprite baldeCheio;
+        public bool canFillBucket = true;
 
 
 
-    // Rômulo Lima
-	void Awake(){
+        // Rômulo Lima
+        void Awake(){
 		    
             // Acessar recursos de metodos estaticos
 			instance = this;
@@ -34,10 +36,137 @@ namespace Caapora {
 
 
         void Update() {
-            base.Update();
+
+          //  base.Update();
 
             if (!GameManager.isAnimating)
                 GameObject.Find("Status/hp").GetComponent<Text>().text = _life.ToString();
+
+
+
+            GameObject balde = GameObject.Find("baldeVazioPrefab");
+
+
+
+                if (!Inventory.isEmpty())
+                {
+
+                    if (Inventory.getItem().GetComponent<Balde>().waterPercent <= 0.0f)
+                        Debug.Log("Ande proximo ao lago");
+                    //     AdviceSimple.showAdvice("Ande próximo ao lago para encher o balde com água!");
+                }
+
+
+            if (canCatch(balde))
+            {
+
+                // Checa por entrada de dados
+                if (Input.GetKeyDown(KeyCode.A) || KeyboardController.instance.AClick)
+                {
+                    // Exibe a dica de tela
+                    Advice.ShowAdvice(true);
+
+                    AddItemToInventory(balde);
+
+                    // Migra a animação para a do balde
+                    animator.SetTrigger("CaaporaParaBalde-idle");
+
+                    balde.SetActive(false);
+
+
+
+                }
+
+            }
+
+
+
+
+        }
+
+
+
+        /// *************************************************************************
+        /// Author: Rômulo Lima
+        /// <summary> 
+        /// 
+        /// Adiciona um item no painel na tela 
+        /// <param name="item">item no painel</param> 
+        /// <returns></returns>
+        /// 
+        /// </summary>
+        /// *************************************************************************
+        void AddItemToInventory(GameObject item)
+        {
+            Inventory.instance.itemList.Add(item);
+
+            // Temporário
+            GameObject.Find("item1").GetComponent<Image>().sprite = Resources.Load("Sprites/balde", typeof(Sprite)) as Sprite;
+
+        }
+
+        /// *************************************************************************
+        /// Author: Rômulo Lima
+        /// <summary> 
+        /// 
+        /// Retorna true se a posição do objeto é vizinha em uma posição do objeto alvo
+        /// <param name="go">objeto alvo</param> 
+        /// <returns></returns>
+        /// 
+        /// </summary>
+        /// *************************************************************************
+        bool canCatch(GameObject go)
+        {
+
+
+            // Percorre todos as posicoes vizinhas
+            for (int x = -1; x <= 1; x++)
+            {
+                for (int y = -1; y <= 1; y++)
+                {
+
+
+
+                    if (go != null)
+                        if (Mathf.RoundToInt(go.GetComponent<IsoObject>().positionX) == Mathf.RoundToInt(GetComponent<IsoObject>().positionX + x) &&
+                                Mathf.RoundToInt(go.GetComponent<IsoObject>().positionY) == Mathf.RoundToInt(GetComponent<IsoObject>().positionY + y))
+                        {
+
+                            return true;
+                        }
+
+
+                }
+            }
+
+
+            return false;
+
+
+        }
+
+
+
+
+        /// *************************************************************************
+        /// Author: Rômulo Lima
+        /// <summary> 
+        /// Enche o balde forma lenta
+        /// </summary>
+        public IEnumerator FillBucketSlowly()
+        {
+            // Desabilita o preenchimento do balde temporariamente   
+            canFillBucket = false;
+
+            var balde = Inventory.getItem().GetComponent<Balde>();
+
+            // Incrementa a porcentagem de agua em um em um
+            balde.FillBucket();
+
+
+            yield return new WaitForSeconds(0.1f);
+
+            canFillBucket = true;
 
 
 
@@ -73,7 +202,7 @@ namespace Caapora {
         {
             // código comentado abaixo é ótimo para debug
             // Debug.Log("Colidingo com " + iso_collision.gameObject.name);
-            DebugGame.instance.debug_message = "Colidiu com a " + iso_collision.gameObject.name;
+           // DebugGame.instance.debug_message = "Colidiu com a " + iso_collision.gameObject.name;
 
             // Colisao com o balde vazio
             if (iso_collision.gameObject.name == "waterPrefab")
@@ -86,8 +215,8 @@ namespace Caapora {
                     Debug.Log("Player com balde proximo de agua");
 
                  
-                    if (GameManager.instance.canFillBucket)
-                        StartCoroutine(GameManager.instance.FillBucketSlowly());
+                    if (canFillBucket)
+                        StartCoroutine(FillBucketSlowly());
 
                 }
 

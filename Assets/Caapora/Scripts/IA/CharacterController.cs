@@ -49,7 +49,7 @@ namespace Caapora
             {
 
                 // Reduz o life do caipora de acordo com o demage do objeto
-                _life = _life - iso_collision.gameObject.GetComponent<spreadFrame>().demage;
+                _life = _life - iso_collision.gameObject.GetComponent<SpreadFrame>().demage;
 
                 StartCoroutine(CharacterHit());
 

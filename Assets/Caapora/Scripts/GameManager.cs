@@ -33,15 +33,12 @@ public class GameManager: MonoBehaviour {
 
 	// ID da ultimo caminho passado
 	public int PathID;
-	public Sprite baldeCheio;
     public Sprite enemy;
-    public bool canFillBucket = true;
     public bool showIntroduction = false;
     public static string current_scene;
     public static string next_scene;
-    public static bool npc_start = true;
     private bool _paused = false;
-    public static bool isAnimating = true;
+    public static bool isAnimating = false;
 
 
     public static List<GameManager> savedGames = new List<GameManager>();
@@ -73,6 +70,7 @@ public class GameManager: MonoBehaviour {
     /// </summary>
     void Start()
     {
+
 
         // Habilita ou não a animação de introdução
         if (showIntroduction)
@@ -124,49 +122,10 @@ public class GameManager: MonoBehaviour {
     void Update()
     {
 
+
         Pause();
 
-        if (npc_start == true)
-          StartCoroutine(enableNPCTimer());
-
-        GameObject baldeTeste = GameObject.Find("baldeVazioPrefab");
-
-
-        
-        if (!Inventory.isEmpty())
-        {
-
-            if (Inventory.getItem().GetComponent<Balde>().waterPercent <= 0.0f)
-                Debug.Log("Ande proximo ao lago");
-            //     AdviceSimple.showAdvice("Ande próximo ao lago para encher o balde com água!");
-        }
-
-
-        if (canCatch(baldeTeste))
-        {
-
-            // Checa por entrada de dados
-            if (Input.GetKeyDown(KeyCode.A) || KeyboardController.instance.AClick)
-            {
-                // Exibe a dica de tela
-                Advice.ShowAdvice(true);
-
-                AddItemToInventory(baldeTeste);
-
-                // Migra a animação para a do balde
-                player.animator.SetTrigger("CaaporaParaBalde-idle");
-
-                baldeTeste.SetActive(false);
-
-
-
-            }
-
-        }
-
-
-       
-
+    
 
         if (WinCondition())
             YouWin();
@@ -179,100 +138,10 @@ public class GameManager: MonoBehaviour {
 
 
 
-    IEnumerator enableNPCTimer()
-    {
-        npc_start = false;
-        yield return new WaitForSeconds(6);
-        npc_start = true;
-
-    }
 
 
 
-    /// *************************************************************************
-    /// Author: Rômulo Lima
-    /// <summary> 
-    /// 
-    /// Adiciona um item no painel na tela 
-    /// <param name="item">item no painel</param> 
-    /// <returns></returns>
-    /// 
-    /// </summary>
-    /// *************************************************************************
-    void AddItemToInventory(GameObject item)
-    {
-        Inventory.instance.itemList.Add(item);
 
-        // Temporário
-        GameObject.Find("item1").GetComponent<Image>().sprite = Resources.Load("Sprites/balde", typeof(Sprite)) as Sprite;
-
-    }
-
-    /// *************************************************************************
-    /// Author: Rômulo Lima
-    /// <summary> 
-    /// 
-    /// Retorna true se a posição do objeto é vizinha em uma posição do objeto alvo
-    /// <param name="go">objeto alvo</param> 
-    /// <returns></returns>
-    /// 
-    /// </summary>
-    /// *************************************************************************
-    bool canCatch(GameObject go)
-    {
-
-
-        // Percorre todos as posicoes vizinhas
-        for (int x = -1; x <= 1; x++)
-        {
-            for (int y = -1; y <= 1; y++) {
-
-           
-
-                if (go != null) 
-                if (Mathf.RoundToInt(go.GetComponent<IsoObject>().positionX) == Mathf.RoundToInt(player.GetComponent<IsoObject>().positionX + x)  &&
-                        Mathf.RoundToInt(go.GetComponent<IsoObject>().positionY) == Mathf.RoundToInt(player.GetComponent<IsoObject>().positionY + y))
-                {
-
-                    return true;
-                }
-                   
-
-             }
-        }
-
-
-        return false;
-
-
-    }
-
-    
-
-
-    /// *************************************************************************
-    /// Author: Rômulo Lima
-    /// <summary> 
-    /// Enche o balde forma lenta
-    /// </summary>
-    public IEnumerator FillBucketSlowly()
-    {
-             // Desabilita o preenchimento do balde temporariamente   
-             canFillBucket = false;
-
-             var balde = Inventory.getItem().GetComponent<Balde>();
-
-            // Incrementa a porcentagem de agua em um em um
-            balde.FillBucket();
-
-
-            yield return new WaitForSeconds(0.1f);
-
-            canFillBucket = true;
-
-     
-
-    }
 
 
    
@@ -369,7 +238,7 @@ public class GameManager: MonoBehaviour {
         if ( iso_collision.gameObject.name == "chamas"  || iso_collision.gameObject.name == "chamas(Clone)") {
 
             // Reduz o life do caipora de acordo com o demage do objeto
-            player.life = player.life - iso_collision.gameObject.GetComponent<spreadFrame>().demage;
+            player.life = player.life - iso_collision.gameObject.GetComponent<SpreadFrame>().demage;
 
             StartCoroutine(CaaporaHit());
 
@@ -555,7 +424,6 @@ public class GameManager: MonoBehaviour {
 		StartCoroutine (CaaporaConversation.AnimateFrase());
 
 
-        isAnimating = false;
 
 
 

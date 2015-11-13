@@ -25,6 +25,7 @@ namespace Caapora
         private float _life = 1000;
         private static bool _canLauchWater;
 
+
         // Use this for initialization
         void Start () {
 
@@ -37,7 +38,8 @@ namespace Caapora
 	    // Update is called once per frame
 	    void Update () {
 
-            Debug.Log(_moveDirection);
+
+       
             // Movimentação pelo teclado do player através de flags
             MainController();
 

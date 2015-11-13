@@ -2,7 +2,7 @@
 using System.Collections;
 using IsoTools;
 
-public class spreadFrame : MonoBehaviour {
+public class SpreadFrame : MonoBehaviour {
 
 
     public float demage = 50;
