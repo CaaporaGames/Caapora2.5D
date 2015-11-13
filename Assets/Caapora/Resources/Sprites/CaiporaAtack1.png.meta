@@ -1,13 +1,17 @@
 fileFormatVersion: 2
-guid: d2e151c073188c54daa8ab685f45b57d
-timeCreated: 1447364717
+guid: cb8a991f424a290448c46d0483ab643f
+timeCreated: 1447364286
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: CaiporaInAction2_0
-    21300002: CaiporaInAction2_1
-    21300004: CaiporaInAction2_2
-    21300006: CaiporaInAction2_3
+    21300000: CaiporaAtack1_0
+    21300002: CaiporaAtack1_1
+    21300004: CaiporaAtack1_2
+    21300006: CaiporaAtack1_3
+    21300008: CaiporaAtack1_4
+    21300010: CaiporaAtack1_5
+    21300012: CaiporaAtack1_6
+    21300014: CaiporaAtack1_7
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -54,45 +58,85 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: CaiporaInAction2_0
+    - name: CaiporaAtack1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 256
-        width: 48
-        height: 84
+        width: 56
+        height: 85
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: CaiporaInAction2_1
+    - name: CaiporaAtack1_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 172
-        width: 48
-        height: 84
+        x: 56
+        y: 256
+        width: 56
+        height: 85
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: CaiporaInAction2_2
+    - name: CaiporaAtack1_2
       rect:
         serializedVersion: 2
         x: 0
-        y: 88
-        width: 48
-        height: 84
+        y: 171
+        width: 56
+        height: 85
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: CaiporaInAction2_3
+    - name: CaiporaAtack1_3
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 171
+        width: 56
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CaiporaAtack1_4
       rect:
         serializedVersion: 2
         x: 0
-        y: 4
-        width: 48
-        height: 84
+        y: 86
+        width: 56
+        height: 85
       alignment: 0
       pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CaiporaAtack1_5
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 86
+        width: 56
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CaiporaAtack1_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1
+        width: 56
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CaiporaAtack1_7
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 2
+        width: 57
+        height: 84
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

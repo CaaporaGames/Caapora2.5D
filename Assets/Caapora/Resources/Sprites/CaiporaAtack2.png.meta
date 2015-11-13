@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: d2e151c073188c54daa8ab685f45b57d
-timeCreated: 1447364717
+guid: 23ee1e0879c528f44b7e553f0b638a4e
+timeCreated: 1447364401
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: CaiporaInAction2_0
-    21300002: CaiporaInAction2_1
-    21300004: CaiporaInAction2_2
-    21300006: CaiporaInAction2_3
+    21300000: CaiporaAtack2_0
+    21300002: CaiporaAtack2_1
+    21300004: CaiporaAtack2_2
+    21300006: CaiporaAtack2_3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -54,41 +54,41 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: CaiporaInAction2_0
+    - name: CaiporaAtack2_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 256
+        y: 255
         width: 48
         height: 84
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: CaiporaInAction2_1
+    - name: CaiporaAtack2_1
       rect:
         serializedVersion: 2
         x: 0
-        y: 172
+        y: 171
         width: 48
         height: 84
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: CaiporaInAction2_2
+    - name: CaiporaAtack2_2
       rect:
         serializedVersion: 2
         x: 0
-        y: 88
+        y: 87
         width: 48
         height: 84
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: CaiporaInAction2_3
+    - name: CaiporaAtack2_3
       rect:
         serializedVersion: 2
         x: 0
-        y: 4
+        y: 3
         width: 48
         height: 84
       alignment: 0
