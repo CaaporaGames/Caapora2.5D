@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: CaaporaBalde-Idle
+  m_Name: CaaporaCatch-Up
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -18,7 +18,9 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 8f97543442d836143b369669a6a4d9ee, type: 3}
+      value: {fileID: 21300000, guid: d2e151c073188c54daa8ab685f45b57d, type: 3}
+    - time: .142857149
+      value: {fileID: 21300000, guid: d2e151c073188c54daa8ab685f45b57d, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -37,11 +39,12 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 8f97543442d836143b369669a6a4d9ee, type: 3}
+    - {fileID: 21300000, guid: d2e151c073188c54daa8ab685f45b57d, type: 3}
+    - {fileID: 21300000, guid: d2e151c073188c54daa8ab685f45b57d, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_StartTime: 0
-    m_StopTime: .0714285746
+    m_StopTime: .214285731
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
