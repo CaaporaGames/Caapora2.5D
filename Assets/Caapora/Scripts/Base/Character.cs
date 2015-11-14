@@ -11,11 +11,14 @@ namespace Caapora
         public float speed = 5f;
         public static Character instance;
         protected static bool _canLauchWater;
+        protected Animator animator;
 
 
 
         protected void Start()
         {
+
+            animator = GetComponent<Animator>();
 
         }
 
@@ -94,6 +97,8 @@ namespace Caapora
             Debug.Log("Jogou agua e valor de _canLauchWater = " + _canLauchWater);
             if (canLauchWater())
             {
+                animator.SetTrigger("Atack2");
+
                 Debug.Log("movedirection throw water =" + KeyboardController.instance.moveDirection);
 
                 switch (KeyboardController.instance.lookingAt)

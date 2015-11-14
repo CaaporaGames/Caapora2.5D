@@ -39,6 +39,7 @@ public class GameManager: MonoBehaviour {
     public static string next_scene;
     private bool _paused = false;
     public static bool isAnimating = false;
+    public static int zoom = 1;
 
 
     public static List<GameManager> savedGames = new List<GameManager>();
@@ -427,6 +428,15 @@ public class GameManager: MonoBehaviour {
 
 
 
+
+    }
+
+
+    public static void Zoom(int value)
+    {
+
+        zoom = value == 1 ? 2 : 1;
+             
 
     }
 

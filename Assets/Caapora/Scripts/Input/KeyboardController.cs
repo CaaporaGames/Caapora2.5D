@@ -19,7 +19,7 @@ namespace Caapora
         // Sinalizador para a movimentação automática com Pathfinding
         public static bool stopWalking = false;
         public static bool isPlayingAnimation = false;
-        private bool  _AKey = false, _BKey = false;
+        private bool  _AKey = false, _BKey = false, _ZKey = false;
         public string _moveDirection = "";
         public string _lookingAt = "down";
         private float _life = 1000;
@@ -38,10 +38,13 @@ namespace Caapora
 	    // Update is called once per frame
 	    void Update () {
 
-
+            
        
             // Movimentação pelo teclado do player através de flags
             MainController();
+
+
+  
 
             // Habilitar a movimentação por clique no local
             // moveToPlace();
@@ -131,24 +134,42 @@ namespace Caapora
                     PlayerBehavior.instance.ThrowWater();
 
                 }
+                else if (Input.GetKey(KeyCode.Z) || _ZKey)
+                {
+                    Debug.Log("Apertou Z");
+                    showAllMap();
+
+                }
                 else if (Input.GetKeyDown(KeyCode.D))
                 {
                     Jump();
                 }
 
-                /* aguardar adicionar animação do balde no Animation Controller
+                /* aguardar adicionar animação do balde no Animation Controller */
                 else if (!isPlayingAnimation)
                 { // Caso nao esteja precionando nenhuma tecla
 
-                    // Inicialmente apenas verifica se há itens
-                    if (!Inventory.isEmpty())
-                        animator.SetTrigger("CaaporaParaBalde-idle");
-                    else
-                        animator.SetTrigger("CaaporaIdle");
+                    var mainCamera = GameObject.Find("Player/Camera").GetComponent<Camera>().orthographicSize = 70;
 
-                }*/
+
+                    animator.SetTrigger("CaaporaIdle");
+                    /* Inicialmente apenas verifica se há itens*/
+                    if (!Inventory.isEmpty()) 
+                        animator.SetTrigger("bucket");
+            
+
+                }
 
             }
+
+        }
+
+
+        public void showAllMap()
+        {
+
+         
+            var mainCamera = GameObject.Find("Player/Camera").GetComponent<Camera>().orthographicSize = 250;
 
         }
 
@@ -249,6 +270,18 @@ namespace Caapora
             set
             {
                 this._AKey = value;
+            }
+        }
+
+        public bool ZClick
+        {
+            get
+            {
+                return this._ZKey;
+            }
+            set
+            {
+                this._ZKey = value;
             }
         }
 

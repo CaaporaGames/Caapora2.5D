@@ -22,6 +22,7 @@ public class Configuration : MonoBehaviour {
     public GameObject buttonB;
     public GameObject buttonPause;
     public GameObject buttonSkip;
+    public GameObject buttonZ;
 
 
 
@@ -35,11 +36,13 @@ public class Configuration : MonoBehaviour {
             AssignArrowButtonEvent(buttonDown, "down");
             AssignArrowButtonEvent(buttonLeft, "left");
     
-            AssignActionButtonEvent(buttonA, "Atack");
-            AssignActionButtonEvent(buttonB, "Jump");
+            AssignActionButtonEvent(buttonA, "Catch");
+            AssignActionButtonEvent(buttonB, "Launch");
 
             AssignOtherButtonEvent(buttonPause, "Exit");
             AssignOtherButtonEvent(buttonSkip, "Skip");
+
+            AssignActionButtonEvent(buttonZ, "Zoom");
 
 
         }
@@ -93,6 +96,7 @@ public class Configuration : MonoBehaviour {
                     case "Skip":
                         GameManager.instance.hideConversationPanel();
                         break;
+                   
 
                 }
 
@@ -119,25 +123,28 @@ public class Configuration : MonoBehaviour {
             EventTrigger.Entry entry = new EventTrigger.Entry();
 
 
-            entry.eventID = EventTriggerType.PointerClick;
+            entry.eventID = EventTriggerType.PointerDown;
             entry.callback.AddListener((eventData) => {
 
                 
 
                 switch (action)
                 {
-                    case "Atack":
+                    case "Catch":
                         KeyboardController.instance.AClick = true;
-                        Debug.Log("Ativou a A action = " + action);
                         break;
-                    case "Jump":
+                    case "Launch":
                         KeyboardController.instance.BClick = true;
+                        break;
+                    case "Zoom":
+                        Debug.Log("zoooom");
+                        KeyboardController.instance.ZClick = true;
                         break;
 
                 }
-              
 
 
+                ResetOnPointerUp(button);
 
 
             });
@@ -156,7 +163,16 @@ public class Configuration : MonoBehaviour {
             EventTrigger trigger = button.GetComponent<EventTrigger>();
             EventTrigger.Entry entry = new EventTrigger.Entry();
             entry.eventID = EventTriggerType.PointerUp;
-            entry.callback.AddListener((eventData) => { KeyboardController.instance.moveDirection = ""; });
+            entry.callback.AddListener((eventData) =>
+            {
+
+                KeyboardController.instance.moveDirection = "";
+                KeyboardController.instance.BClick = false;
+                KeyboardController.instance.AClick = false;
+                KeyboardController.instance.ZClick = false;
+            }
+
+                );
             trigger.triggers.Add(entry);
 
 

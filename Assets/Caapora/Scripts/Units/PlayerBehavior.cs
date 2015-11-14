@@ -10,7 +10,6 @@ namespace Caapora {
 
 	
     // Armazena o componente da animação
-	public Animator animator;
 	public GameObject go;
 	public IsoObject caapora;
 	public IsoRigidbody iso_rigidyBody;
@@ -24,6 +23,26 @@ namespace Caapora {
     public Sprite baldeCheio;
     public bool canFillBucket = true;
 
+
+
+
+
+        // Rômulo Lima  
+        // Use this for initialization
+        protected void Start()
+        {
+
+            // Herda da classe base
+            base.Start();
+
+
+            instance = this;
+
+            currentLevel = StatsController.GetCurrentLevel();
+
+          
+
+        }
 
 
         // Rômulo Lima
@@ -69,7 +88,7 @@ namespace Caapora {
                     AddItemToInventory(balde);
 
                     // Migra a animação para a do balde
-                    animator.SetTrigger("CaaporaParaBalde-idle");
+                    animator.SetTrigger("Catch");
 
                     balde.SetActive(false);
 
@@ -160,6 +179,9 @@ namespace Caapora {
 
             var balde = Inventory.getItem().GetComponent<Balde>();
 
+            Debug.Log("enchendo de agua");
+            animator.SetTrigger("Catch");
+
             // Incrementa a porcentagem de agua em um em um
             balde.FillBucket();
 
@@ -173,23 +195,7 @@ namespace Caapora {
         }
 
 
-        // Rômulo Lima  
-        // Use this for initialization
-        protected void Start () {
-		
-         // Herda da classe base
-		    base.Start();
-
-
-        instance = this;
-
-		currentLevel = StatsController.GetCurrentLevel();
-
-		animator = GetComponent<Animator>();
-	
-
-
-    }
+        
 
 
         /// *************************************************************************
