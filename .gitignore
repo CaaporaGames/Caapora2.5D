@@ -12,6 +12,7 @@
 ._*
 .Spotlight-V100
 .Trashes
+!README.md
 ehthumbs.db
 Thumbs.db
 $RECYCLE.BIN/

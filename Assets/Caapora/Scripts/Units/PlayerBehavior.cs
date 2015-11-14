@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace Caapora {
     [System.Serializable]
-    public class PlayerBehavior : CharacterController {
+    public class PlayerBehavior : Character {
 
 	
     // Armazena o componente da animação
@@ -19,10 +19,10 @@ namespace Caapora {
     public static bool stopWalking = false;
 	public static bool isPlayingAnimation = false;
 	public static PlayerBehavior instance;
-    private bool _moveUp = false, _moveDown = false, _moveLeft = false, _moveRight = false, _AKey = false, _BKey = false;
+    private bool  _AKey = false, _BKey = false;
     private string _moveDirection = "";
-        public Sprite baldeCheio;
-        public bool canFillBucket = true;
+    public Sprite baldeCheio;
+    public bool canFillBucket = true;
 
 
 
@@ -44,7 +44,7 @@ namespace Caapora {
 
 
 
-            GameObject balde = GameObject.Find("baldeVazioPrefab");
+                 GameObject balde = GameObject.Find("baldeVazioPrefab");
 
 
 
@@ -290,12 +290,6 @@ namespace Caapora {
 				yield return new WaitForSeconds(.08f);
 			}
 
-            // Ao encerrar a animação zera as Flags
-            instance._moveLeft = false;
-            instance._moveRight = false;
-            instance._moveUp = false;
-            instance._moveDown = false;
-            instance._AKey = false;
         }
 
 

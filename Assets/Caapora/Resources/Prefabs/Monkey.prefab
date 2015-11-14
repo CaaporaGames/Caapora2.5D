@@ -104,7 +104,7 @@ MonoBehaviour:
     agillity: 0
     baseDefence: 0
     baseAttack: 0
-  _life: 1000
+  speed: 5
 --- !u!114 &11482108
 MonoBehaviour:
   m_ObjectHideFlags: 1

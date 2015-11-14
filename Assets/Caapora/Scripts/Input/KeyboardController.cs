@@ -136,7 +136,7 @@ namespace Caapora
                     Jump();
                 }
 
-                /*
+                /* aguardar adicionar animação do balde no Animation Controller
                 else if (!isPlayingAnimation)
                 { // Caso nao esteja precionando nenhuma tecla
 

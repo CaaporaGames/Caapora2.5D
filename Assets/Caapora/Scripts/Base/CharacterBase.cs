@@ -11,6 +11,7 @@ public class BasicStates{
 	public int agillity;
 	public int baseDefence;
 	public int baseAttack;
+
 }
 
 public abstract class CharacterBase : MonoBehaviour {
@@ -27,4 +28,8 @@ public abstract class CharacterBase : MonoBehaviour {
 	protected void Update () {
 	
 	}
+
+
+
+
 }

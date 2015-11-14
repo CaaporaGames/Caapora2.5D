@@ -5,7 +5,7 @@ using IsoTools;
 namespace Caapora{
 
 
-public class NPCController : CharacterController {
+public class NPCController : Character {
 
     // Armazena o componente da animação
     public Animator animator;
