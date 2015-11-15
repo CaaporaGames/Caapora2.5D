@@ -13,10 +13,14 @@ namespace Caapora
 	    void Start () {
 	
 	    }
-	
-	    // Update is called once per frame
-	    void Update () {
+
+    
+
+        // Update is called once per frame
+        void Update () {
             base.Update();
+
+           
 
             if(!GameManager.isAnimating)
               GameObject.Find("Monkey/hp").GetComponent<Text>().text = _life.ToString();

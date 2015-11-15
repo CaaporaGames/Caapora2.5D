@@ -1,6 +1,7 @@
 ﻿using IsoTools;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 namespace Caapora
 {
@@ -14,6 +15,12 @@ namespace Caapora
         protected Animator animator;
 
 
+        void UpdateBar()
+        {
+
+            GetComponentInChildren<Scrollbar>().size = _life / 1000;
+
+        }
 
         protected void Start()
         {
@@ -25,8 +32,11 @@ namespace Caapora
 
         protected void Update()
         {
-         
-           
+            if (_life > 1000)
+                    _life = 1000;
+
+
+            UpdateBar();
             GameOVer();
 
         }
@@ -39,10 +49,17 @@ namespace Caapora
         /// Sobrecarregou o método padrão do Unity OnCollisionEnter
         /// </summary>
         /// <param name="iso_collision">A referencia do objeto colidido</param>
-        void OnIsoCollisionEnter(IsoCollision iso_collision)
+        protected void OnIsoCollisionEnter(IsoCollision iso_collision)
         {
 
+            if (iso_collision.gameObject.name == "Altar")
+            {
+                Debug.Log("Recuperando life");
 
+                _life = _life + 10;
+
+
+            }
 
 
             if (iso_collision.gameObject.name == "chamas" || iso_collision.gameObject.name == "chamas(Clone)")

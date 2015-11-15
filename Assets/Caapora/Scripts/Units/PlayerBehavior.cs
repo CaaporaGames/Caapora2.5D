@@ -22,7 +22,7 @@ namespace Caapora {
     private string _moveDirection = "";
     public Sprite baldeCheio;
     public bool canFillBucket = true;
-
+        private Vector3 direction;
 
 
 
@@ -40,7 +40,9 @@ namespace Caapora {
 
             currentLevel = StatsController.GetCurrentLevel();
 
-          
+
+
+
 
         }
 
@@ -54,9 +56,39 @@ namespace Caapora {
 	}
 
 
+  
+
+
         void Update() {
 
-          //  base.Update();
+
+            base.Update();
+
+
+            // create a ray going into the scene from the screen location the user clicked at
+            // Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+
+            // TESTES COM RAYCAST
+ 
+            Vector3 direction = (GameObject.Find("chamas").transform.position - transform.position).normalized;
+
+            Ray ray = new Ray(transform.position, direction);
+
+            // the raycast hit info will be filled by the Physics.Raycast() call further
+            RaycastHit hit;
+
+            // perform a raycast using our new ray. 
+            // If the ray collides with something solid in the scene, the "hit" structure will
+            // be filled with collision information
+            if (Physics.Raycast(ray, out hit))
+            {
+                Debug.DrawLine(hit.point , ray.origin);
+            }
+
+
+
+
 
             if (!GameManager.isAnimating)
                 GameObject.Find("Status/hp").GetComponent<Text>().text = _life.ToString();
@@ -206,9 +238,14 @@ namespace Caapora {
         /// <param name="iso_collision">A referencia do objeto colidido</param>
         void OnIsoCollisionEnter(IsoCollision iso_collision)
         {
+
+            base.OnIsoCollisionEnter(iso_collision);
+
+            Debug.Log("Sobrecarregou mas aqui ainda funciona ");
+
             // código comentado abaixo é ótimo para debug
             // Debug.Log("Colidingo com " + iso_collision.gameObject.name);
-           // DebugGame.instance.debug_message = "Colidiu com a " + iso_collision.gameObject.name;
+            // DebugGame.instance.debug_message = "Colidiu com a " + iso_collision.gameObject.name;
 
             // Colisao com o balde vazio
             if (iso_collision.gameObject.name == "waterPrefab")
