@@ -33,7 +33,7 @@ public class Balde : MonoBehaviour {
     public void FillBucket()
     {
 
-        waterPercent++;
+        waterPercent += 10;
 
         if (waterPercent > 99)
             waterPercent = 100;
@@ -51,6 +51,8 @@ public class Balde : MonoBehaviour {
             GameObject.Find("Inventory/item1").GetComponent<Image>().color = Color.cyan;
 
         GameObject.Find("Inventory/item1/Text").GetComponent<Text>().text = waterPercent + "/100";
+
+        GameObject.Find("WaterBar").GetComponent<Scrollbar>().size = waterPercent / 100;
 
     }
 }

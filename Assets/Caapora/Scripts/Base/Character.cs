@@ -56,7 +56,7 @@ namespace Caapora
             {
                 Debug.Log("Recuperando life");
 
-                _life = _life + 10;
+                _life = _life + 100;
 
 
             }
