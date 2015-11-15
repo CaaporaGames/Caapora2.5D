@@ -7,9 +7,12 @@ public class SpreadFrame : MonoBehaviour {
 
     public float demage = 50;
     public float spreadTime = 3f;
+    private IsoRigidbody rb;
+
 	// Use this for initialization
 	void Start () {
 
+        GetComponent<IsoRigidbody>().mass = 0.01f;
         StartCoroutine(multiplyFrame());
     }
 	

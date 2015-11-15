@@ -5,8 +5,9 @@ public class SplashWater : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
-	}
+
+        GetComponent<IsoRigidbody>().mass = 0.01f;
+    }
 	
 	// Update is called once per frame
 	void Update () {
