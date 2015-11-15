@@ -71,13 +71,14 @@ namespace Caapora {
             base.Update();
 
 
-            // create a ray going into the scene from the screen location the user clicked at
+            /* create a ray going into the scene from the screen location the user clicked at
+           
             // Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
 
             // TESTES COM RAYCAST
- 
-            Vector3 direction = (GameObject.Find("chamas").transform.position - transform.position).normalized;
+
+            Vector3 direction = (GameObject.Find("centerRef").transform.position - transform.position).normalized;
 
             Ray ray = new Ray(transform.position, direction);
 
@@ -92,15 +93,12 @@ namespace Caapora {
                 Debug.DrawLine(hit.point , ray.origin);
             }
 
-
+             */
 
 
 
             if (!GameManager.isAnimating)
                 GameObject.Find("Status/hp").GetComponent<Text>().text = _life.ToString();
-
-
-           
 
 
 
@@ -249,13 +247,14 @@ namespace Caapora {
             // DebugGame.instance.debug_message = "Colidiu com a " + iso_collision.gameObject.name;
 
             // Colisao com o balde vazio
-            if (iso_collision.gameObject.name == "waterPrefab")
+            if (iso_collision.gameObject.name == "waterPrefabTeste")
             {
                 Debug.Log("Colidiu com a agua");
-
+                                
 
                 if (isPlayerWithBucket())
                 {
+                    GetComponent<IsoRigidbody>().velocity = Vector3.one;
                     Debug.Log("Player com balde proximo de agua");
 
 
@@ -275,8 +274,6 @@ namespace Caapora {
 
         bool isPlayerWithBucket()
         {
-
-            var player = GameObject.Find("Player").GetComponent<IsoObject>();
 
             return !Inventory.isEmpty();
 

@@ -39,7 +39,7 @@ public class Balde : MonoBehaviour {
             waterPercent = 100;
 
             
-             updateInventoryStatus();
+            updateInventoryStatus();
 
     }
 

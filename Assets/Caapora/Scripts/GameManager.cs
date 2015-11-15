@@ -78,12 +78,6 @@ public class GameManager: MonoBehaviour {
         {
             StartCoroutine(Introduction());
         }
-        else
-        {
-
-            GameObject.Find("CameraAux").GetComponent<Camera>().enabled = false ;
-
-        }
     
             
 

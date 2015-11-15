@@ -50,7 +50,7 @@ namespace Caapora
         /// <param name="iso_collision">A referencia do objeto colidido</param>
         protected void OnIsoCollisionStay(IsoCollision iso_collision)
         {
-
+            
             if (iso_collision.gameObject.name == "Altar")
             {
                 Debug.Log("Recuperando life");
@@ -69,16 +69,6 @@ namespace Caapora
 
                 StartCoroutine(CharacterHit());
 
-
-
-                var objeto = iso_collision.gameObject.GetComponent<IsoRigidbody>();
-                if (objeto)
-                {
-
-                    // Destroy(objeto.gameObject);
-
-                    //	objeto.transform.parent = transform;
-                }
             }
 
 

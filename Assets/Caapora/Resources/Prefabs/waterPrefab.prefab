@@ -10,9 +10,10 @@ GameObject:
   - 4: {fileID: 487532}
   - 212: {fileID: 21294614}
   - 114: {fileID: 11437174}
-  - 114: {fileID: 11435858}
   - 114: {fileID: 11488368}
-  - 114: {fileID: 11429584}
+  - 114: {fileID: 11483418}
+  - 114: {fileID: 11465926}
+  - 114: {fileID: 11458876}
   m_Layer: 0
   m_Name: waterPrefab
   m_TagString: Untagged
@@ -27,40 +28,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 120626}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26.8108521, y: -23.0514374, z: 93.4000168}
+  m_LocalPosition: {x: 189.599976, y: -164.300003, z: 129.050034}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11429584
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 120626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b256250c588ee4e4590a3e58eaa69b1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _material: {fileID: 0}
-  _isTrigger: 0
-  _size: {x: 1, y: 1, z: 1}
-  _offset: {x: .5, y: .5, z: .0500000007}
---- !u!114 &11435858
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 120626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4febe544112bb4678bdd59fa963c802d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _isKinematic: 0
-  _interpolation: 0
-  _collisionDetectionMode: 0
 --- !u!114 &11437174
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -73,10 +45,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mode: 0
-  _size: {x: 1, y: 1, z: .5}
-  _position: {x: 13, y: 1, z: 0}
+  _size: {x: 1, y: 1, z: .200000003}
+  _position: {x: 8, y: 0, z: 0}
   _isAlignment: 1
   _isShowBounds: 1
+--- !u!114 &11458876
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4febe544112bb4678bdd59fa963c802d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isKinematic: 1
+  _interpolation: 0
+  _collisionDetectionMode: 0
+--- !u!114 &11465926
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b256250c588ee4e4590a3e58eaa69b1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _material: {fileID: 0}
+  _isTrigger: 0
+  _size: {x: 1, y: 1, z: .200000003}
+  _offset: {x: .5, y: .5, z: .100000001}
+--- !u!114 &11483418
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b256250c588ee4e4590a3e58eaa69b1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _material: {fileID: 0}
+  _isTrigger: 0
+  _size: {x: 1, y: 1, z: .200000003}
+  _offset: {x: .5, y: .5, z: .100000001}
 --- !u!114 &11488368
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -152,7 +168,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: canGetThisWater
@@ -164,6 +180,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: _interpolation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_SortingLayerID
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
