@@ -57,6 +57,12 @@ namespace Caapora {
 
 
   
+        void FixedUpdate()
+        {
+
+
+
+        }
 
 
         void Update() {
@@ -94,8 +100,7 @@ namespace Caapora {
                 GameObject.Find("Status/hp").GetComponent<Text>().text = _life.ToString();
 
 
-
-                 GameObject balde = GameObject.Find("baldeVazioPrefab");
+           
 
 
 
@@ -108,25 +113,30 @@ namespace Caapora {
                 }
 
 
-            if (canCatch(balde))
-            {
+            if (Inventory.isEmpty()) { 
+                GameObject balde = GameObject.Find("baldeVazioPrefab");
 
-                // Checa por entrada de dados
-                if (Input.GetKeyDown(KeyCode.A) || KeyboardController.instance.AClick)
-                {
-                    // Exibe a dica de tela
-                    Advice.ShowAdvice(true);
+                    if (canCatch(balde))
+                    {
 
-                    AddItemToInventory(balde);
+                        // Checa por entrada de dados
+                        if (Input.GetKeyDown(KeyCode.A) || KeyboardController.instance.AClick)
+                        {
+                            // Exibe a dica de tela
+                            Advice.ShowAdvice(true);
 
-                    // Migra a animação para a do balde
-                    animator.SetTrigger("Catch");
+                            AddItemToInventory(balde);
 
-                    balde.SetActive(false);
+                            // Migra a animação para a do balde
+                            animator.SetTrigger("Catch");
+
+                            balde.SetActive(false);
 
 
 
-                }
+                        }
+
+                    }
 
             }
 
@@ -227,21 +237,12 @@ namespace Caapora {
         }
 
 
-        
-
-
-        /// *************************************************************************
-        /// Author: 
-        /// <summary> 
-        /// Sobrecarregou o método padrão do Unity OnCollisionEnter
-        /// </summary>
-        /// <param name="iso_collision">A referencia do objeto colidido</param>
-        void OnIsoCollisionEnter(IsoCollision iso_collision)
+        void OnIsoCollisionStay(IsoCollision iso_collision)
         {
-
-            base.OnIsoCollisionEnter(iso_collision);
+            base.OnIsoCollisionStay(iso_collision);
 
             Debug.Log("Sobrecarregou mas aqui ainda funciona ");
+
 
             // código comentado abaixo é ótimo para debug
             // Debug.Log("Colidingo com " + iso_collision.gameObject.name);
@@ -251,13 +252,13 @@ namespace Caapora {
             if (iso_collision.gameObject.name == "waterPrefab")
             {
                 Debug.Log("Colidiu com a agua");
-                
+
 
                 if (isPlayerWithBucket())
                 {
                     Debug.Log("Player com balde proximo de agua");
 
-                 
+
                     if (canFillBucket)
                         StartCoroutine(FillBucketSlowly());
 
@@ -267,6 +268,8 @@ namespace Caapora {
             }
 
         }
+
+
 
 
 

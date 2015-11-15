@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 204d6bee029a93141ae174a6fca4f740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  demage: 50
+  demage: 1
   spreadTime: 7
 --- !u!114 &11482906
 MonoBehaviour:
@@ -163,6 +163,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: spreadTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: demage
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

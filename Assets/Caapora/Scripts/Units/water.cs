@@ -7,8 +7,8 @@ public class Water : MonoBehaviour {
     public bool canGetThisWater = false;
 	// Use this for initialization
 	void Start () {
-	
-	}
+
+    }
 	
 	// Update is called once per frame
 	void Update () {

@@ -195,8 +195,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isKinematic: 1
-  _interpolation: 2
-  _collisionDetectionMode: 1
+  _interpolation: 0
+  _collisionDetectionMode: 0
 --- !u!114 &11478210
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -468,6 +468,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _interpolation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _collisionDetectionMode
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

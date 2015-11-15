@@ -195,8 +195,8 @@ public class GameManager: MonoBehaviour {
     /// </summary>
     void GameOVer()
     {
-
-        if (gameObject.GetComponent<IsoObject>().positionZ < -15 || player.life <= 0)
+        // || GameObject.Find("Monkey").GetComponent<Monkey>().life <= 0
+        if (gameObject.GetComponent<IsoObject>().positionZ < -15 || player.life <= 0  )
         {
 
             Destroy(gameObject);

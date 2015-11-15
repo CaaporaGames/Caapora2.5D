@@ -37,26 +37,25 @@ namespace Caapora
 
 
             UpdateBar();
-            GameOVer();
+            Destroy();
 
         }
 
-
- 
+     
         /// *************************************************************************
         /// Author: 
         /// <summary> 
         /// Sobrecarregou o método padrão do Unity OnCollisionEnter
         /// </summary>
         /// <param name="iso_collision">A referencia do objeto colidido</param>
-        protected void OnIsoCollisionEnter(IsoCollision iso_collision)
+        protected void OnIsoCollisionStay(IsoCollision iso_collision)
         {
 
             if (iso_collision.gameObject.name == "Altar")
             {
                 Debug.Log("Recuperando life");
 
-                _life = _life + 100;
+                _life = _life + 5;
 
 
             }
@@ -92,14 +91,14 @@ namespace Caapora
         /// <summary> 
         /// Possui Todas as condição para dar GameOver 
         /// </summary>
-        void GameOVer()
+        void Destroy()
         {
 
             if (gameObject.GetComponent<IsoObject>().positionZ < -15 || _life <= 0)
             {
 
                 Destroy(gameObject);
-                Application.LoadLevel("GameOver");
+               
 
             }
 
