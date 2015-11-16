@@ -4,10 +4,13 @@ using UnityEngine.UI;
 public class Balde : MonoBehaviour {
 
     public float waterPercent = 0.0f;
+    public static Balde instance;
+
 
 	// Use this for initialization
 	void Start () {
-	
+
+        instance = this;
 	}
 	
 	// Não funcionando pois o objeto é desativado quando é pego

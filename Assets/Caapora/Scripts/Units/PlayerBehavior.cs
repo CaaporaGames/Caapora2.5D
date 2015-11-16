@@ -22,8 +22,9 @@ namespace Caapora {
     private string _moveDirection = "";
     public Sprite baldeCheio;
     public bool canFillBucket = true;
-        private Vector3 direction;
-
+    private Vector3 direction;
+    private int currentLevel;
+    private float currentXp;
 
 
 
@@ -38,11 +39,6 @@ namespace Caapora {
 
             instance = this;
 
-            currentLevel = StatsController.GetCurrentLevel();
-
-
-
-
 
         }
 
@@ -56,19 +52,15 @@ namespace Caapora {
 	}
 
 
-  
-        void FixedUpdate()
-        {
-
-
-
-        }
-
 
         void Update() {
 
 
             base.Update();
+
+            currentLevel = StatsController.GetCurrentLevel();
+            currentXp = StatsController.GetCurrentXp();
+
 
 
             /* create a ray going into the scene from the screen location the user clicked at

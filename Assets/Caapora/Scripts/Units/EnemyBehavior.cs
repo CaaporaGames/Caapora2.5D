@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using IsoTools;
 
-
+namespace Caapora { 
 public class EnemyBehavior : CharacterBase {
 
 	public float speed = 0.2f;
@@ -56,4 +56,6 @@ public class EnemyBehavior : CharacterBase {
 
 	
 	}
+}
+
 }

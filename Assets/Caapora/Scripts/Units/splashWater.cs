@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 using IsoTools;
+
+namespace Caapora
+{
+
 public class SplashWater : MonoBehaviour {
 
 	// Use this for initialization
@@ -33,8 +37,12 @@ public class SplashWater : MonoBehaviour {
 
             Debug.Log("Colidiu com a agua");
 
+             StatsController.AddXp(30);
+
             Destroy(iso_collision.gameObject);
             Destroy(gameObject);
+
+           
 
         }
 
@@ -51,4 +59,6 @@ public class SplashWater : MonoBehaviour {
 
 
     }
+}
+
 }

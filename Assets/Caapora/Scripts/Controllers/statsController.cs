@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+
+namespace Caapora{
 
 public class StatsController : MonoBehaviour {
 
@@ -13,14 +16,23 @@ public class StatsController : MonoBehaviour {
 	void Start () {
 		instance = this;
 		DontDestroyOnLoad (gameObject);
-		Application.LoadLevel("Caapora");
+		//Application.LoadLevel("Caapora");
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
-	}
+
+
+
+            GameObject.Find("Player/Bar/mana").GetComponent<Scrollbar>().size = Balde.instance.waterPercent / 100;
+
+            GameObject.Find("Player/Bar/level").GetComponent<Text>().text = "Lv. " + GetCurrentLevel().ToString();
+
+            GameObject.Find("Player/Bar/xp").GetComponent<Text>().text = "xp. " + GetCurrentXp().ToString();
+
+
+        }
 
 	public static void AddXp (float xpAdd) {
 		float newXp = (GetCurrentXp() + xpAdd)* StatsController.instance.xpMultiply;
@@ -50,4 +62,5 @@ public class StatsController : MonoBehaviour {
 		return StatsController.instance.xpFirstLevel * (GetCurrentLevel() + 1) * StatsController.instance.difficultFactor;
 	}
 	
+}
 }

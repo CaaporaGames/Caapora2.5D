@@ -19,7 +19,7 @@ namespace Caapora
         {
 
             GetComponentInChildren<Scrollbar>().size = _life / 1000;
-
+            
         }
 
         protected void Start()
