@@ -45,7 +45,7 @@ public class Tree : Character {
             if (iso_collision.gameObject.name == "splashWaterPrefab")
             {
 
-                Debug.Log("Recovering");
+             
 
                 RecoverLife();
 

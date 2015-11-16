@@ -35,7 +35,7 @@ public class SplashWater : MonoBehaviour {
         if (iso_collision.gameObject.name == "chamas" || iso_collision.gameObject.name == "chamas(Clone)")
         {
 
-            Debug.Log("Colidiu com a agua");
+          
 
              StatsController.AddXp(30);
 

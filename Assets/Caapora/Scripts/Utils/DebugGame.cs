@@ -18,8 +18,8 @@ public class DebugGame : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-        totalNumberOfObject = GameObject.FindObjectsOfType(typeof(MonoBehaviour)).Length; //returns Object[];
+        // Problema de desempenho
+        //totalNumberOfObject = GameObject.FindObjectsOfType(typeof(MonoBehaviour)).Length; //returns Object[];
     }
 
 

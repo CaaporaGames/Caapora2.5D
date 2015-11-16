@@ -14,10 +14,12 @@ public class LoadingScreen : MonoBehaviour {
     public static string levelToLoad = "Map1";
     public static LoadingScreen instance;
 
-	/// <summary>
+    AsyncOperation async;
+
+    /// <summary>
     /// Controla a transição entre cenas com carregamento
     /// </summary>
-	void Start () {
+    void Start () {
 
         instance = this;
 
@@ -61,6 +63,7 @@ public class LoadingScreen : MonoBehaviour {
     public static void LoadLevel(string levelToLoad)
     {
             instance.StartCoroutine(instance.DisplayLoadingScreen(levelToLoad));
+
      
        
     }
@@ -74,19 +77,18 @@ public class LoadingScreen : MonoBehaviour {
         text.GetComponent<Text>().text = "Loading Progress " + loadProgress + "%";
 
 
-        AsyncOperation async = Application.LoadLevelAdditiveAsync(level);
+        async = Application.LoadLevelAsync(level);
 
-        async.allowSceneActivation = true;
+        
 
 
         while (!async.isDone)
         {
-            Debug.Log("LodingProgress = " + async.progress);
+
             loadProgress = (int)(async.progress * 100);
             text.GetComponent<Text>().text = "Loading Progress " + loadProgress + "%";
           
             progressBar.GetComponent<Scrollbar>().size = async.progress;
-
 
             yield return null; 
         }

@@ -64,7 +64,7 @@ namespace Caapora.Pathfinding {
             // Se clicar inicia
             if (_start)
             {
-                Debug.Log("Habilitou o move pelo _start");
+               
                 move = true;
                 canStart = true;
             }
@@ -72,7 +72,7 @@ namespace Caapora.Pathfinding {
             if (!move && canStart)
             {
 
-                Debug.Log("Movimentacao desabilitada ");
+               
 
                 if (cachedSeekerPos != seekerIso.position)
                 {
@@ -102,7 +102,7 @@ namespace Caapora.Pathfinding {
 
             Vector3 currentPos = seekerIso.position;
 
-            Debug.Log("ANIMATING PATH");
+          
 
             if (canStart)
             {
@@ -161,7 +161,7 @@ namespace Caapora.Pathfinding {
 
                 StartCoroutine(updatePosition);
                 // grid.path.Remove(grid.path[index]);
-                Debug.Log("Caminho " + index + " Alcançado");
+             
 
             }
 
@@ -169,7 +169,7 @@ namespace Caapora.Pathfinding {
             {
 
                 PlayerBehavior.stopWalking = true;
-                Debug.Log("UpdatePositio finalizado");
+              
                 canStart = false;
                 StopCoroutine(updatePosition);
 

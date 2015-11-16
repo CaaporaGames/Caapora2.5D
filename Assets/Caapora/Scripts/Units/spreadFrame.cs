@@ -42,7 +42,14 @@ public class SpreadFrame : MonoBehaviour {
 
      
                   var frame = Instantiate(Resources.Load("Prefabs/chamas")) as GameObject;
-                   frame.GetComponent<IsoObject>().position = new Vector3(current_frame.positionX + x, current_frame.positionY + y, 0);
+                  
+                    // Adiciona em tempo de execucao para ganhar performance
+                    frame.AddComponent<IsoObject>();
+                    frame.AddComponent<IsoBoxCollider>();
+
+                    frame.GetComponent<IsoObject>().position = new Vector3(current_frame.positionX + x, current_frame.positionY + y, 0);
+
+
 
                
                  yield return new WaitForSeconds(this.spreadTime);

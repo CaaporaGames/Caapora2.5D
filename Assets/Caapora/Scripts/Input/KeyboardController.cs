@@ -66,7 +66,7 @@ namespace Caapora
         /// </summary>
         public IEnumerator clicked()
         {
-            Debug.Log("Clicou e habilitou o _start");
+          
             // aguarda um segundo
             yield return new WaitForSeconds(1);
             // Inicia percurso 
@@ -130,13 +130,13 @@ namespace Caapora
                 }
                 else if (Input.GetKeyDown(KeyCode.B) || _BKey)
                 {
-                    Debug.Log("Apertou B");
+                   
                     PlayerBehavior.instance.ThrowWater();
 
                 }
                 else if (Input.GetKey(KeyCode.Z) || _ZKey)
                 {
-                    Debug.Log("Apertou Z");
+                  
                     showAllMap();
 
                 }

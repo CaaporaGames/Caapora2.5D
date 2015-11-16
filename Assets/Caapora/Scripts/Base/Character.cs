@@ -53,7 +53,7 @@ namespace Caapora
             
             if (iso_collision.gameObject.name == "Altar")
             {
-                Debug.Log("Recuperando life");
+               
 
                 _life = _life + 5;
 
@@ -100,12 +100,12 @@ namespace Caapora
         public void ThrowWater()
         {
 
-            Debug.Log("Jogou agua e valor de _canLauchWater = " + _canLauchWater);
+           
             if (canLauchWater())
             {
                 animator.SetTrigger("Atack2");
 
-                Debug.Log("movedirection throw water =" + KeyboardController.instance.moveDirection);
+                
 
                 switch (KeyboardController.instance.lookingAt)
                 {

@@ -34,7 +34,7 @@ public class AdviceSimple : MonoBehaviour {
 
             // perecisa do caminho completo nao sei porque
             GameObject.Find("CanvasGUIContainer/PanelConversa/col12/AdviceSimple/Text").GetComponent<Text>().text = message;
-            GameManager.ShowObjectAPeriodOfTime(instance.gameObject, 10);
+            GameManager.ShowObjectAPeriodOfTime(instance.gameObject, 5);
 
 
     }

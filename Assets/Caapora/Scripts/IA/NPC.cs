@@ -198,7 +198,6 @@ namespace Caapora.Pathfinding {
 
                 move = false;
                 npc_start = false;
-                Debug.Log("UpdatePositio finalizado");
                 StopCoroutine(updatePosition);
                                
 

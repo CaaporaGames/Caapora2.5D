@@ -97,9 +97,8 @@ namespace Caapora {
                 if (!Inventory.isEmpty())
                 {
 
-                    if (Inventory.getItem().GetComponent<Balde>().waterPercent <= 0.0f)
-                        Debug.Log("Ande proximo ao lago");
-                    //     AdviceSimple.showAdvice("Ande próximo ao lago para encher o balde com água!");
+                    if (Balde.instance.waterPercent <= 0.0f)
+                         AdviceSimple.showAdvice("Ande próximo ao lago para encher o balde com água!");
                 }
 
 
@@ -211,7 +210,7 @@ namespace Caapora {
 
             var balde = Inventory.getItem().GetComponent<Balde>();
 
-            Debug.Log("enchendo de agua");
+         
             animator.SetTrigger("Catch");
 
             // Incrementa a porcentagem de agua em um em um
@@ -231,7 +230,6 @@ namespace Caapora {
         {
             base.OnIsoCollisionStay(iso_collision);
 
-            Debug.Log("Sobrecarregou mas aqui ainda funciona ");
 
 
             // código comentado abaixo é ótimo para debug
@@ -241,14 +239,13 @@ namespace Caapora {
             // Colisao com o balde vazio
             if (iso_collision.gameObject.name == "waterPrefabTeste")
             {
-                Debug.Log("Colidiu com a agua");
+     
                                 
 
                 if (isPlayerWithBucket())
                 {
                     GetComponent<IsoRigidbody>().velocity = Vector3.one;
-                    Debug.Log("Player com balde proximo de agua");
-
+                   
 
                     if (canFillBucket)
                         StartCoroutine(FillBucketSlowly());

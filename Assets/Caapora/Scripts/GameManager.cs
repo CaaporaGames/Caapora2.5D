@@ -219,13 +219,13 @@ public class GameManager: MonoBehaviour {
 
        // movePlayer(source, destination, GateName);
 
-        // Colisao com o balde vazio
+        /* Colisao com o balde vazio
         if (iso_collision.gameObject.name == "baldeVazioPrefab") {
 
             Debug.Log("Colidiu com o balde");
  
 
-		}
+		}*/
 
 
      
@@ -308,8 +308,7 @@ public class GameManager: MonoBehaviour {
     /// </summary>
     public void Exit()
     {
-        Debug.Log("Apertou sair");
-        Debug.Log("Salvando Jogo");
+       
 
         // Save();
         //Application.Quit();
