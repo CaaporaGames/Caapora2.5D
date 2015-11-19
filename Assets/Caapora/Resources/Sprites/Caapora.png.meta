@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 72a48faeb559e3d43bde4bc1c20377a7
-timeCreated: 1445212675
+timeCreated: 1447890107
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -53,14 +53,13 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 150
+  spritePixelsToUnits: 50
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
@@ -69,160 +68,160 @@ TextureImporter:
     - name: Caapora_0
       rect:
         serializedVersion: 2
-        x: 25
-        y: 1130
-        width: 155
-        height: 323
+        x: 8
+        y: 368
+        width: 50
+        height: 105
       alignment: 7
       pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Caapora_1
       rect:
         serializedVersion: 2
-        x: 249
-        y: 1130
-        width: 130
-        height: 321
+        x: 81
+        y: 368
+        width: 42
+        height: 104
       alignment: 7
       pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Caapora_2
       rect:
         serializedVersion: 2
-        x: 471
-        y: 1130
-        width: 130
-        height: 321
+        x: 153
+        y: 367
+        width: 42
+        height: 104
       alignment: 7
       pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Caapora_3
       rect:
         serializedVersion: 2
-        x: 679
-        y: 1133
-        width: 147
-        height: 320
+        x: 220
+        y: 370
+        width: 48
+        height: 103
       alignment: 7
       pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Caapora_4
       rect:
         serializedVersion: 2
-        x: 50
-        y: 758
-        width: 104
-        height: 329
+        x: 16
+        y: 246
+        width: 34
+        height: 106
       alignment: 7
       pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Caapora_5
       rect:
         serializedVersion: 2
-        x: 209
-        y: 769
-        width: 199
-        height: 312
+        x: 68
+        y: 250
+        width: 65
+        height: 101
       alignment: 7
       pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Caapora_6
       rect:
         serializedVersion: 2
-        x: 440
-        y: 769
-        width: 196
-        height: 312
+        x: 143
+        y: 250
+        width: 63
+        height: 101
       alignment: 7
       pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Caapora_7
       rect:
         serializedVersion: 2
-        x: 690
-        y: 758
-        width: 113
-        height: 329
+        x: 225
+        y: 246
+        width: 36
+        height: 106
       alignment: 7
       pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Caapora_8
       rect:
         serializedVersion: 2
-        x: 53
-        y: 388
-        width: 104
-        height: 329
+        x: 18
+        y: 126
+        width: 33
+        height: 107
       alignment: 7
       pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Caapora_9
       rect:
         serializedVersion: 2
-        x: 223
-        y: 400
-        width: 199
-        height: 312
+        x: 73
+        y: 131
+        width: 64
+        height: 100
       alignment: 7
       pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Caapora_10
       rect:
         serializedVersion: 2
-        x: 440
-        y: 400
-        width: 196
-        height: 312
+        x: 143
+        y: 131
+        width: 63
+        height: 100
       alignment: 7
       pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Caapora_11
       rect:
         serializedVersion: 2
-        x: 705
-        y: 388
-        width: 112
-        height: 329
+        x: 229
+        y: 126
+        width: 36
+        height: 107
       alignment: 7
       pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Caapora_12
       rect:
         serializedVersion: 2
-        x: 25
-        y: 25
-        width: 155
-        height: 323
+        x: 8
+        y: 8
+        width: 50
+        height: 105
       alignment: 7
       pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Caapora_13
       rect:
         serializedVersion: 2
-        x: 241
-        y: 19
-        width: 141
-        height: 326
+        x: 78
+        y: 7
+        width: 46
+        height: 105
       alignment: 7
       pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Caapora_14
       rect:
         serializedVersion: 2
-        x: 466
-        y: 19
-        width: 144
-        height: 326
+        x: 152
+        y: 7
+        width: 46
+        height: 105
       alignment: 7
       pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Caapora_15
       rect:
         serializedVersion: 2
-        x: 673
-        y: 30
-        width: 156
-        height: 318
+        x: 219
+        y: 10
+        width: 50
+        height: 103
       alignment: 7
       pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

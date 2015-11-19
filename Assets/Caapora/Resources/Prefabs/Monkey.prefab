@@ -157,7 +157,6 @@ MonoBehaviour:
     baseDefence: 0
     baseAttack: 0
   speed: 5
-  animator: {fileID: 0}
   iso_rigidyBody: {fileID: 0}
 --- !u!212 &21268518
 SpriteRenderer:

@@ -149,7 +149,7 @@ namespace Caapora
                 else if (!isPlayingAnimation)
                 { // Caso nao esteja precionando nenhuma tecla
 
-                    var mainCamera = GameObject.Find("Player/Camera").GetComponent<Camera>().orthographicSize = 70;
+                    var mainCamera = GameObject.Find("Player/Camera").GetComponent<Camera>().orthographicSize = 130;
 
 
                     animator.SetTrigger("CaaporaIdle");

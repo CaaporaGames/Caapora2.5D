@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: bf7c9e6e21e3d994da041ebb6040efaa
-timeCreated: 1447685269
+timeCreated: 1447891477
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -44,7 +44,7 @@ TextureImporter:
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -1
-  maxTextureSize: 2048
+  maxTextureSize: 512
   textureSettings:
     filterMode: -1
     aniso: 16
@@ -60,7 +60,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 200
+  spritePixelsToUnits: 50
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
@@ -69,172 +69,172 @@ TextureImporter:
     - name: Water-plane-tiles_0
       rect:
         serializedVersion: 2
-        x: 204
-        y: 288
-        width: 259
-        height: 131
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 24
+        y: 34
+        width: 30
+        height: 16
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Water-plane-tiles_1
       rect:
         serializedVersion: 2
-        x: 511
-        y: 288
-        width: 259
-        height: 131
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 60
+        y: 34
+        width: 31
+        height: 16
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Water-plane-tiles_2
       rect:
         serializedVersion: 2
-        x: 860
-        y: 288
-        width: 257
-        height: 131
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 101
+        y: 34
+        width: 30
+        height: 16
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Water-plane-tiles_3
       rect:
         serializedVersion: 2
-        x: 1204
-        y: 288
-        width: 259
-        height: 131
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 142
+        y: 34
+        width: 30
+        height: 16
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Water-plane-tiles_4
       rect:
         serializedVersion: 2
-        x: 1559
-        y: 288
-        width: 257
-        height: 131
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 183
+        y: 34
+        width: 31
+        height: 16
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Water-plane-tiles_5
       rect:
         serializedVersion: 2
-        x: 1915
-        y: 288
-        width: 257
-        height: 131
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 225
+        y: 34
+        width: 31
+        height: 16
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Water-plane-tiles_6
       rect:
         serializedVersion: 2
-        x: 2270
-        y: 288
-        width: 257
-        height: 131
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 267
+        y: 34
+        width: 30
+        height: 16
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Water-plane-tiles_7
       rect:
         serializedVersion: 2
-        x: 2623
-        y: 288
-        width: 259
-        height: 131
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 309
+        y: 34
+        width: 30
+        height: 16
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Water-plane-tiles_8
       rect:
         serializedVersion: 2
-        x: 2953
-        y: 288
-        width: 259
-        height: 131
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 347
+        y: 34
+        width: 31
+        height: 16
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Water-plane-tiles_9
       rect:
         serializedVersion: 2
-        x: 3296
-        y: 288
-        width: 257
-        height: 131
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 388
+        y: 34
+        width: 30
+        height: 16
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Water-plane-tiles_10
       rect:
         serializedVersion: 2
-        x: 3595
-        y: 288
-        width: 259
-        height: 131
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 423
+        y: 34
+        width: 30
+        height: 16
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Water-plane-tiles_11
       rect:
         serializedVersion: 2
-        x: 204
-        y: 91
-        width: 259
-        height: 131
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 24
+        y: 11
+        width: 30
+        height: 15
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Water-plane-tiles_12
       rect:
         serializedVersion: 2
-        x: 511
-        y: 91
-        width: 259
-        height: 131
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 60
+        y: 11
+        width: 31
+        height: 15
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Water-plane-tiles_13
       rect:
         serializedVersion: 2
-        x: 860
-        y: 91
-        width: 257
-        height: 131
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 101
+        y: 11
+        width: 30
+        height: 15
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Water-plane-tiles_14
       rect:
         serializedVersion: 2
-        x: 1204
-        y: 91
-        width: 259
-        height: 131
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 142
+        y: 11
+        width: 30
+        height: 15
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Water-plane-tiles_15
       rect:
         serializedVersion: 2
-        x: 1525
-        y: 91
-        width: 259
-        height: 131
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 179
+        y: 11
+        width: 31
+        height: 15
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: Water-plane-tiles_16
       rect:
         serializedVersion: 2
-        x: 1915
-        y: 91
-        width: 257
-        height: 131
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 225
+        y: 11
+        width: 31
+        height: 15
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

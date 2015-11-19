@@ -23,8 +23,9 @@ namespace Caapora {
     public Sprite baldeCheio;
     public bool canFillBucket = true;
     private Vector3 direction;
-    private int currentLevel;
     private float currentXp;
+    private    Text StatusHP;
+    private    GameObject balde;
 
 
 
@@ -36,6 +37,8 @@ namespace Caapora {
             // Herda da classe base
             base.Start();
 
+            StatusHP = GameObject.Find("Status/hp").GetComponent<Text>();
+            balde = GameObject.Find("baldeVazioPrefab"); 
 
             instance = this;
 
@@ -90,7 +93,7 @@ namespace Caapora {
 
 
             if (!GameManager.isAnimating)
-                GameObject.Find("Status/hp").GetComponent<Text>().text = _life.ToString();
+               StatusHP.text = _life.ToString();
 
 
 
@@ -103,16 +106,18 @@ namespace Caapora {
 
 
             if (Inventory.isEmpty()) { 
-                GameObject balde = GameObject.Find("baldeVazioPrefab");
+                
 
                     if (canCatch(balde))
                     {
 
-                        // Checa por entrada de dados
-                        if (Input.GetKeyDown(KeyCode.A) || KeyboardController.instance.AClick)
+                    // Exibe a dica de tela
+                    Advice.ShowAdvice(true);
+
+                    // Checa por entrada de dados
+                    if (Input.GetKeyDown(KeyCode.A) || KeyboardController.instance.AClick)
                         {
-                            // Exibe a dica de tela
-                            Advice.ShowAdvice(true);
+                            
 
                             AddItemToInventory(balde);
 
@@ -226,9 +231,9 @@ namespace Caapora {
         }
 
 
-        void OnIsoCollisionStay(IsoCollision iso_collision)
+        void OnIsoCollisionEnter(IsoCollision iso_collision)
         {
-            base.OnIsoCollisionStay(iso_collision);
+            //base.OnIsoCollisionEnter(iso_collision);
 
 
 

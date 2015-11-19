@@ -8,7 +8,6 @@ namespace Caapora{
 public class NPCController : Character {
 
     // Armazena o componente da animação
-    public Animator animator;
     public IsoRigidbody iso_rigidyBody;
     public static Vector3 prevPosition;
     // Sinalizador para a movimentação automática com Pathfinding

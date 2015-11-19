@@ -46,14 +46,6 @@ namespace IsoTools {
 		}
 
 
-        void OnCollisionStay(Collision collision)
-        {
-            isoObject.gameObject.SendMessage(
-                "OnIsoCollisionStay",
-                new IsoCollision(collision),
-                SendMessageOptions.DontRequireReceiver);
-        }
-
         void OnCollisionExit(Collision collision) {
 			isoObject.gameObject.SendMessage(
 				"OnIsoCollisionExit",

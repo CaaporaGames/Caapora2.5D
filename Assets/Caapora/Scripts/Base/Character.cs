@@ -13,6 +13,7 @@ namespace Caapora
         public static Character instance;
         protected static bool _canLauchWater;
         protected Animator animator;
+        private float collisionTime = 0;
 
 
         void UpdateBar()
@@ -32,6 +33,9 @@ namespace Caapora
 
         protected void Update()
         {
+
+            collisionTime += Time.deltaTime;
+
             if (_life > 1000)
                     _life = 1000;
 
@@ -48,28 +52,34 @@ namespace Caapora
         /// Sobrecarregou o método padrão do Unity OnCollisionEnter
         /// </summary>
         /// <param name="iso_collision">A referencia do objeto colidido</param>
-        protected void OnIsoCollisionStay(IsoCollision iso_collision)
+        protected void OnIsoCollisionEnter(IsoCollision iso_collision)
         {
             
-            if (iso_collision.gameObject.name == "Altar")
-            {
+           
+     
+               
+                collisionTime = 0;
+
+                if (iso_collision.gameObject.name == "Altar")
+                {
                
 
-                _life = _life + 5;
+                    _life = _life + 5;
 
 
-            }
+                }
 
 
-            if (iso_collision.gameObject.name == "chamas" || iso_collision.gameObject.name == "chamas(Clone)")
-            {
+                if (iso_collision.gameObject.name == "chamas" || iso_collision.gameObject.name == "chamas(Clone)")
+                {
 
-                // Reduz o life do caipora de acordo com o demage do objeto
-                _life = _life - iso_collision.gameObject.GetComponent<SpreadFrame>().demage;
+                    // Reduz o life do caipora de acordo com o demage do objeto
+                    _life = _life - iso_collision.gameObject.GetComponent<SpreadFrame>().GetDamage();
 
-                StartCoroutine(CharacterHit());
+                    StartCoroutine(CharacterHit());
 
-            }
+                }
+            
 
 
 

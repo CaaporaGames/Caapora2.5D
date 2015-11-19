@@ -9,10 +9,14 @@ namespace Caapora
 
     public class Monkey : Character {
 
+        Text MonkeyHp;
+
 	    // Use this for initialization
 	    void Start () {
-	
-	    }
+
+            MonkeyHp = GameObject.Find("Monkey/hp").GetComponent<Text>();
+        }
+
 
     
 
@@ -23,7 +27,7 @@ namespace Caapora
            
 
             if(!GameManager.isAnimating)
-              GameObject.Find("Monkey/hp").GetComponent<Text>().text = _life.ToString();
+              MonkeyHp.text = _life.ToString();
 
 
         }

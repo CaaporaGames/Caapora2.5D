@@ -30,7 +30,7 @@ public class Advice : MonoBehaviour {
     {
 
         if(value)
-             GameManager.ShowObjectAPeriodOfTime(instance.gameObject, 2);
+             GameManager.ShowObjectAPeriodOfTime(instance.gameObject, 5);
         else
              instance.gameObject.SetActive(false);
 

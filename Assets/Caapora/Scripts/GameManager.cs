@@ -233,7 +233,7 @@ public class GameManager: MonoBehaviour {
         if ( iso_collision.gameObject.name == "chamas"  || iso_collision.gameObject.name == "chamas(Clone)") {
 
             // Reduz o life do caipora de acordo com o demage do objeto
-            player.life = player.life - iso_collision.gameObject.GetComponent<SpreadFrame>().demage;
+            player.life = player.life - iso_collision.gameObject.GetComponent<SpreadFrame>().GetDamage();
 
             StartCoroutine(CaaporaHit());
 

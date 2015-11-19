@@ -9,11 +9,11 @@ GameObject:
   m_Component:
   - 4: {fileID: 493700}
   - 212: {fileID: 21259726}
-  - 114: {fileID: 11410654}
   - 95: {fileID: 9508432}
-  - 114: {fileID: 11482906}
-  - 114: {fileID: 11454646}
   - 114: {fileID: 11463360}
+  - 114: {fileID: 11441906}
+  - 114: {fileID: 11465892}
+  - 114: {fileID: 11456126}
   m_Layer: 0
   m_Name: chamas
   m_TagString: Untagged
@@ -50,37 +50,36 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11410654
+--- !u!114 &11441906
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 167464}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a9c584f9a39449438abc7ba59a68778, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _mode: 0
   _size: {x: 1, y: 1, z: 1}
-  _position: {x: 17.2306805, y: 7.90932703, z: 1}
-  _isAlignment: 0
-  _isShowBounds: 0
---- !u!114 &11454646
+  _position: {x: 0, y: 0, z: 0}
+  _isAlignment: 1
+  _isShowBounds: 1
+--- !u!114 &11456126
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 167464}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b256250c588ee4e4590a3e58eaa69b1d, type: 3}
+  m_Script: {fileID: 11500000, guid: 4febe544112bb4678bdd59fa963c802d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _material: {fileID: 0}
-  _isTrigger: 0
-  _size: {x: 1, y: 1, z: 1}
-  _offset: {x: .5, y: .5, z: .5}
+  _isKinematic: 0
+  _interpolation: 0
+  _collisionDetectionMode: 0
 --- !u!114 &11463360
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -92,22 +91,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 204d6bee029a93141ae174a6fca4f740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  demage: 1
-  spreadTime: 7
---- !u!114 &11482906
+--- !u!114 &11465892
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 167464}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4febe544112bb4678bdd59fa963c802d, type: 3}
+  m_Script: {fileID: 11500000, guid: b256250c588ee4e4590a3e58eaa69b1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isKinematic: 0
-  _interpolation: 1
-  _collisionDetectionMode: 1
+  _material: {fileID: 0}
+  _isTrigger: 0
+  _size: {x: 1, y: 1, z: 1}
+  _offset: {x: .5, y: .5, z: .5}
 --- !u!212 &21259726
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -155,7 +153,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: _isShowBounds
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Enabled
@@ -167,6 +165,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: demage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _isAlignment
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
