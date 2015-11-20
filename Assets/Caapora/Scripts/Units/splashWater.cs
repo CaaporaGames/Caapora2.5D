@@ -32,7 +32,7 @@ public class SplashWater : MonoBehaviour {
     {
 
         // Caso o fogo colida com o splash de agua deleta os dois
-        if (iso_collision.gameObject.name == "chamas" || iso_collision.gameObject.name == "chamas(Clone)")
+        if (iso_collision.gameObject.name == "chamas" || iso_collision.gameObject.name == "chamasSemSpread")
         {
 
           

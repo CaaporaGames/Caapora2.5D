@@ -50,7 +50,7 @@ public class LoadingScreen : MonoBehaviour {
 	void Update () {
 
         
-        if (loadProgress > 80)
+        if (loadProgress > 90)
         {
             
             background.SetActive(false);
@@ -79,8 +79,6 @@ public class LoadingScreen : MonoBehaviour {
 
         async = Application.LoadLevelAsync(level);
 
-        
-
 
         while (!async.isDone)
         {
@@ -89,6 +87,7 @@ public class LoadingScreen : MonoBehaviour {
             text.GetComponent<Text>().text = "Loading Progress " + loadProgress + "%";
           
             progressBar.GetComponent<Scrollbar>().size = async.progress;
+
 
             yield return null; 
         }

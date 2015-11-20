@@ -11,25 +11,31 @@ public class StatsController : MonoBehaviour {
 	public int xpMultiply = 1;
 	public float xpFirstLevel = 100;
 	public float difficultFactor = 1.5f;
+        private Scrollbar manaBar;
+        private Text levelText;
+        private Text xpText;
 
 	// Use this for initialization
 	void Start () {
 		instance = this;
 		DontDestroyOnLoad (gameObject);
-		//Application.LoadLevel("Caapora");
 
-	}
+            manaBar = GameObject.Find("Player/Bar/mana").GetComponent<Scrollbar>();
+            levelText = GameObject.Find("Player/Bar/level").GetComponent<Text>();
+            xpText = GameObject.Find("Player/Bar/xp").GetComponent<Text>();
+
+        }
 	
 	// Update is called once per frame
 	void Update () {
 
 
 
-            GameObject.Find("Player/Bar/mana").GetComponent<Scrollbar>().size = Balde.instance.waterPercent / 100;
+           manaBar.size = Balde.instance.waterPercent / 100;
 
-            GameObject.Find("Player/Bar/level").GetComponent<Text>().text = "Lv. " + GetCurrentLevel().ToString();
+            levelText.text = "Lv. " + GetCurrentLevel().ToString();
 
-            GameObject.Find("Player/Bar/xp").GetComponent<Text>().text = "xp. " + GetCurrentXp().ToString();
+            xpText.text = "xp. " + GetCurrentXp().ToString();
 
 
         }

@@ -70,11 +70,11 @@ namespace Caapora
                 }
 
 
-                if (iso_collision.gameObject.name == "chamas" || iso_collision.gameObject.name == "chamas(Clone)")
+                if (iso_collision.gameObject.name == "chamas" || iso_collision.gameObject.name == "chamasSemSpread")
                 {
 
                     // Reduz o life do caipora de acordo com o demage do objeto
-                    _life = _life - iso_collision.gameObject.GetComponent<SpreadFrame>().GetDamage();
+                    _life = _life - iso_collision.gameObject.GetComponent<Fire>().GetDamage();
 
                     StartCoroutine(CharacterHit());
 

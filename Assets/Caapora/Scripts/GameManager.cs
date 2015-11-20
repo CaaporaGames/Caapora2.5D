@@ -217,37 +217,6 @@ public class GameManager: MonoBehaviour {
         
 
 
-       // movePlayer(source, destination, GateName);
-
-        /* Colisao com o balde vazio
-        if (iso_collision.gameObject.name == "baldeVazioPrefab") {
-
-            Debug.Log("Colidiu com o balde");
- 
-
-		}*/
-
-
-     
-
-        if ( iso_collision.gameObject.name == "chamas"  || iso_collision.gameObject.name == "chamas(Clone)") {
-
-            // Reduz o life do caipora de acordo com o demage do objeto
-            player.life = player.life - iso_collision.gameObject.GetComponent<SpreadFrame>().GetDamage();
-
-            StartCoroutine(CaaporaHit());
-
-
-
-			var objeto = iso_collision.gameObject.GetComponent<IsoRigidbody>();
-			if ( objeto ) {
-				
-				// Destroy(objeto.gameObject);
-				
-				//	objeto.transform.parent = transform;
-			}
-		}
-
 
        
 	}
@@ -369,7 +338,7 @@ public class GameManager: MonoBehaviour {
 
    
        
-        return GameObject.Find("chamas") == null && GameObject.Find("chamas(Clone)") == null;
+        return GameObject.Find("chamas") == null && GameObject.Find("chamasSemSpread") == null;
 
     }
 

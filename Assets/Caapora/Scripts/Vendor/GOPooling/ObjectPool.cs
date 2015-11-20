@@ -106,7 +106,60 @@ public class ObjectPool : MonoBehaviour
     /// <param name='onlyPooled'>
     /// If true, it will only return an object if there is one currently pooled.
     /// </param>
-    public GameObject GetObjectForType(string objectType, bool onlyPooled)
+    public GameObject GetAllObjectsForType(string objectType, bool onlyPooled)
+    {
+
+        for (int i = 0; i < Entries.Length; i++)
+        {
+
+         
+            var prefab = Entries[i].Prefab;
+
+            if (prefab.name != objectType)
+                continue;
+
+            if (Pool[i].Count > 0)
+            {
+
+               
+                GameObject pooledObject = Pool[i][0];
+
+                Pool[i].RemoveAt(0);
+
+                pooledObject.transform.parent = null;
+
+                pooledObject.SetActive(true);
+
+                return pooledObject;
+            }
+
+            if (!onlyPooled)
+            {
+                GameObject newObj = Instantiate(Entries[i].Prefab) as GameObject;
+                newObj.name = Entries[i].Prefab.name;
+                return newObj;
+            }
+        }
+
+        //If we have gotten here either there was no object of the specified type or non were left in the pool with onlyPooled set to true
+        return null;
+    }
+
+
+    /// <summary>
+    /// Gets a new object for the name type provided.  If no object type exists or if onlypooled is true and there is no objects of that type in the pool
+    /// then null will be returned.
+    /// </summary>
+    /// <returns>
+    /// The object for type.
+    /// </returns>
+    /// <param name='objectType'>
+    /// Object type.
+    /// </param>
+    /// <param name='onlyPooled'>
+    /// If true, it will only return an object if there is one currently pooled.
+    /// </param>
+    public GameObject GetOneObjectForType(string objectType, bool onlyPooled)
     {
 
         for (int i = 0; i < Entries.Length; i++)
@@ -119,7 +172,6 @@ public class ObjectPool : MonoBehaviour
             if (Pool[i].Count > 0)
             {
 
-                Debug.Log("encontrou as chamas");
 
                 GameObject pooledObject = Pool[i][0];
 
@@ -127,9 +179,10 @@ public class ObjectPool : MonoBehaviour
 
                 pooledObject.transform.parent = null;
 
-                pooledObject.SetActiveRecursively(true);
+                pooledObject.SetActive(true);
 
                 return pooledObject;
+                
             }
 
             if (!onlyPooled)
@@ -158,7 +211,7 @@ public class ObjectPool : MonoBehaviour
             if (Entries[i].Prefab.name != obj.name)
                 continue;
 
-            obj.SetActiveRecursively(false);
+            obj.SetActive(false);
 
             obj.transform.parent = ContainerObject.transform;
 

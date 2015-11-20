@@ -9,17 +9,20 @@ public class LevelController : MonoBehaviour {
     public int LevelMultiply = 1;
     public int FirstLevel = 1;
     public float DifficultFactor = 1.5f;
+    private Text levelText;
 
     // Use this for initialization
     void Start () {
 
+
         instance = this;
-	}
+        levelText = GameObject.Find("Level").GetComponent<Text>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
 
-        GameObject.Find("Level").GetComponent<Text>().text = "Level: " + GetCurrentLevel().ToString();
+        levelText.text = "Level: " + GetCurrentLevel().ToString();
 
     }
 

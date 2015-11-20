@@ -10,10 +10,11 @@ GameObject:
   - 4: {fileID: 493700}
   - 212: {fileID: 21259726}
   - 95: {fileID: 9508432}
-  - 114: {fileID: 11463360}
   - 114: {fileID: 11441906}
   - 114: {fileID: 11465892}
   - 114: {fileID: 11456126}
+  - 114: {fileID: 11483002}
+  - 114: {fileID: 11432198}
   m_Layer: 0
   m_Name: chamas
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 167464}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 416.041626, y: 148.120056, z: -.89998436}
+  m_LocalPosition: {x: 890.899902, y: 83.0000153, z: 15.9000797}
   m_LocalScale: {x: .719436646, y: .726756871, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -50,6 +51,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11432198
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 167464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 204d6bee029a93141ae174a6fca4f740, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11441906
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -63,7 +75,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mode: 0
   _size: {x: 1, y: 1, z: 1}
-  _position: {x: 0, y: 0, z: 0}
+  _position: {x: 29, y: -10, z: 0}
   _isAlignment: 1
   _isShowBounds: 1
 --- !u!114 &11456126
@@ -80,17 +92,6 @@ MonoBehaviour:
   _isKinematic: 0
   _interpolation: 0
   _collisionDetectionMode: 0
---- !u!114 &11463360
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 167464}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 204d6bee029a93141ae174a6fca4f740, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11465892
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -106,6 +107,17 @@ MonoBehaviour:
   _isTrigger: 0
   _size: {x: 1, y: 1, z: 1}
   _offset: {x: .5, y: .5, z: .5}
+--- !u!114 &11483002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 167464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f21c27087f066a4593336244dd60aa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21259726
 SpriteRenderer:
   m_ObjectHideFlags: 1

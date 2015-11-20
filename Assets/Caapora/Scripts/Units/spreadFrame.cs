@@ -4,10 +4,7 @@ using IsoTools;
 
 public class SpreadFrame : MonoBehaviour {
 
-
-    protected float demage;
     private float spreadTime;
-    private IsoRigidbody rb;
     private GameObject player;
 
 	// Use this for initialization
@@ -16,10 +13,7 @@ public class SpreadFrame : MonoBehaviour {
         player = GameObject.Find("Player");
 
 
-        spreadTime = 3f / (LevelController.GetCurrentLevel() + 1);
-        demage = 100f;
-
-       
+        spreadTime = 10f;  
         StartCoroutine(multiplyFrame());
     }
 	
@@ -36,6 +30,7 @@ public class SpreadFrame : MonoBehaviour {
     // Multiplica um elemento para seus vizinhos
     public IEnumerator multiplyFrame()
     {
+
         
         //pega a posicao do fogo
         IsoObject current_frame = GetComponent<IsoObject>();
@@ -47,12 +42,12 @@ public class SpreadFrame : MonoBehaviour {
                 // exclui a própria posição    
                 if (x == 0 && y == 0)
                     continue;
+                
 
-
-                StartCoroutine(createNewFlame(current_frame, 0, y));
+                StartCoroutine(createNewFlame(current_frame, y, x));
 
                
-                 yield return new WaitForSeconds(this.spreadTime);
+                 yield return new WaitForSeconds(spreadTime);
 
 
             }
@@ -82,7 +77,7 @@ public class SpreadFrame : MonoBehaviour {
                 StartCoroutine(createNewFlame(current_frame, x, 1));
 
 
-                yield return new WaitForSeconds(this.spreadTime);
+                yield return new WaitForSeconds(spreadTime);
 
 
             }
@@ -99,25 +94,22 @@ public class SpreadFrame : MonoBehaviour {
 
        // var frame = Instantiate(Resources.Load("Prefabs/chamas")) as GameObject;
        
-        var frame = ObjectPool.instance.GetObjectForType("chamas", true);
+        var frame = ObjectPool.instance.GetAllObjectsForType("chamasSemSpread", true);
 
         // Adiciona em tempo de execucao para ganhar performance
+        frame.GetComponent<IsoBoxCollider>().enabled = true;
+        frame.GetComponent<IsoRigidbody>().enabled = true;
 
         frame.GetComponent<IsoRigidbody>().mass = 0.01f;
 
         frame.GetComponent<IsoObject>().position =
-            new Vector3(current_frame.positionX + x, current_frame.positionY + y, 0);
+            new Vector3((current_frame.positionX + x), (current_frame.positionY + y), 0);
 
         yield return null;
 
 
     }
 
-    public float GetDamage()
-    {
-
-        return demage;
-
-    }
+ 
 
 }

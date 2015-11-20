@@ -233,7 +233,7 @@ namespace Caapora {
 
         void OnIsoCollisionEnter(IsoCollision iso_collision)
         {
-            //base.OnIsoCollisionEnter(iso_collision);
+            base.OnIsoCollisionEnter(iso_collision);
 
 
 
