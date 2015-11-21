@@ -23,6 +23,7 @@ public class Configuration : MonoBehaviour {
     public GameObject buttonPause;
     public GameObject buttonSkip;
     public GameObject buttonZ;
+    public GameObject buttonJ;
 
 
 
@@ -38,6 +39,7 @@ public class Configuration : MonoBehaviour {
     
             AssignActionButtonEvent(buttonA, "Catch");
             AssignActionButtonEvent(buttonB, "Launch");
+            AssignActionButtonEvent(buttonJ, "Run");
 
             AssignOtherButtonEvent(buttonPause, "Exit");
             AssignOtherButtonEvent(buttonSkip, "Skip");
@@ -139,6 +141,9 @@ public class Configuration : MonoBehaviour {
                         break;
                     case "Zoom":
                         KeyboardController.instance.ZClick = true;
+                        break;
+                    case "Run":
+                        KeyboardController.instance.JClick = true;
                         break;
 
                 }

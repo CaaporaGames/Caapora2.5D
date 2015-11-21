@@ -307,9 +307,17 @@ public class GameManager: MonoBehaviour {
        
 
         // Save();
-        //Application.Quit();
-        next_scene = "Map2";
+        Application.Quit();
+        
+    }
+
+
+    public void LoadNextLevel(string level)
+    {
+
+        GameManager.next_scene = level;
         Application.LoadLevel("Loader");
+
     }
 
     /// *************************************************************************

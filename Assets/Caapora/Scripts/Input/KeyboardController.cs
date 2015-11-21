@@ -19,13 +19,14 @@ namespace Caapora
         // Sinalizador para a movimentação automática com Pathfinding
         public static bool stopWalking = false;
         public static bool isPlayingAnimation = false;
-        private bool  _AKey = false, _BKey = false, _ZKey = false;
+        private bool  _AKey = false, _BKey = false, _ZKey = false, _JKey = false;
         public string _moveDirection = "";
         public string _lookingAt = "down";
         private float _life = 1000;
         private static bool _canLauchWater;
         private int _zoomState = 1;
-        private Camera mainCamera; 
+        private Camera mainCamera;
+       
 
 
         // Use this for initialization
@@ -134,19 +135,27 @@ namespace Caapora
 
 
                 }
-                else if (Input.GetKey(KeyCode.B) || _BKey)
+                else if (Input.GetKeyDown(KeyCode.B) || _BKey)
                 {
-                   
                     PlayerBehavior.instance.ThrowWater();
 
                 }
 
-                if (Input.GetKey(KeyCode.Z) || _ZKey)
+                if (Input.GetKeyDown(KeyCode.Z) || _ZKey)
                 {
                    
                     showAllMap();
 
                 }
+
+                if (Input.GetKeyDown(KeyCode.J) || _JKey)
+                {
+
+                     JClick = false;
+                     StartRun();
+
+                }
+
                 if (Input.GetKeyDown(KeyCode.D))
                 {
                     Jump();
@@ -168,6 +177,15 @@ namespace Caapora
 
             }
 
+        }
+
+
+        public void StartRun()
+        {
+            if (PlayerBehavior.running)
+                PlayerBehavior.running = false;
+            else
+                PlayerBehavior.running = true;
         }
 
 
@@ -306,6 +324,19 @@ namespace Caapora
             set
             {
                 this._BKey = value;
+            }
+        }
+
+
+        public bool JClick
+        {
+            get
+            {
+                return this._JKey;
+            }
+            set
+            {
+                this._JKey = value;
             }
         }
 

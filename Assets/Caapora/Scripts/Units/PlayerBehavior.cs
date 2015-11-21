@@ -26,6 +26,7 @@ namespace Caapora {
     private float currentXp;
     private    Text StatusHP;
     private    GameObject balde;
+    private bool _running = false;
 
 
 
@@ -55,11 +56,44 @@ namespace Caapora {
 	}
 
 
+        public void run()
+        {
+      
+            speed = 6f;
+
+        }
+
+
+
+        public void walk()
+        {
+
+            speed = 4f;
+        }
+
+        public static bool running
+        {
+            get
+            {
+                return instance._running;
+            }
+            set
+            {
+                instance._running = value;
+            }
+        }
+
 
         void Update() {
 
 
             base.Update();
+
+
+            if (_running)
+                run();
+            else
+                walk();
 
             currentLevel = StatsController.GetCurrentLevel();
             currentXp = StatsController.GetCurrentXp();

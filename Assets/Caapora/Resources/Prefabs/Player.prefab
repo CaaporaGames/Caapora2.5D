@@ -262,7 +262,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 152348}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 63.9999847, y: 111.999992, z: 44.5998917}
+  m_LocalPosition: {x: 63.9999847, y: 111.999992, z: 5.39999723}
   m_LocalScale: {x: 10.2629347, y: 11.3857155, z: 50}
   m_Children:
   - {fileID: 429178}
@@ -633,6 +633,7 @@ MonoBehaviour:
   buttonPause: {fileID: 0}
   buttonSkip: {fileID: 0}
   buttonZ: {fileID: 0}
+  buttonJ: {fileID: 0}
 --- !u!114 &11436686
 MonoBehaviour:
   m_ObjectHideFlags: 1

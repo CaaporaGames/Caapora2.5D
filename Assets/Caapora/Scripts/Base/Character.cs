@@ -14,6 +14,7 @@ namespace Caapora
         protected static bool _canLauchWater;
         protected Animator animator;
         private float collisionTime = 0;
+        
 
 
         void UpdateBar()
@@ -34,6 +35,9 @@ namespace Caapora
         protected void Update()
         {
 
+          
+
+
             collisionTime += Time.deltaTime;
 
             if (_life > 1000)
@@ -45,7 +49,8 @@ namespace Caapora
 
         }
 
-     
+
+   
         /// *************************************************************************
         /// Author: 
         /// <summary> 
@@ -222,6 +227,8 @@ namespace Caapora
 
         }
 
+
+ 
 
         /// <summary>
         /// Condição para poder jogar água
