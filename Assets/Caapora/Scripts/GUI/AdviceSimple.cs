@@ -6,6 +6,8 @@ public class AdviceSimple : MonoBehaviour {
 
     // necessario para acessar metodos desta classe fora dela
     public static AdviceSimple instance;
+    private static bool showing = false;
+    private Text adviceText;
 
     // Use this for initialization
     void Start () {
@@ -13,6 +15,7 @@ public class AdviceSimple : MonoBehaviour {
         // Acessar atributos da classe pelos metodos estaticos
         instance = this;
 
+        adviceText = GameObject.Find("CanvasGUIContainer/PanelConversa/col12/AdviceSimple/Text").GetComponent<Text>();
         // Ao iniciar desabilita o painel
         gameObject.SetActive(false);
 
@@ -29,13 +32,14 @@ public class AdviceSimple : MonoBehaviour {
     /// <param name="text"></param>
     public static void showAdvice(string message = "")
     {
-     
+
             instance.gameObject.SetActive(true);
 
             // perecisa do caminho completo nao sei porque
-            GameObject.Find("CanvasGUIContainer/PanelConversa/col12/AdviceSimple/Text").GetComponent<Text>().text = message;
+            instance.adviceText.text = message;
             GameManager.ShowObjectAPeriodOfTime(instance.gameObject, 5);
 
+        
 
     }
 }

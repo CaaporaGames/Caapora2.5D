@@ -105,6 +105,7 @@ GameObject:
   - 114: {fileID: 11436686}
   - 114: {fileID: 11496588}
   - 114: {fileID: 11450788}
+  - 114: {fileID: 11439678}
   m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
@@ -261,7 +262,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 152348}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 47.9999847, y: 103.999992, z: 6.19999647}
+  m_LocalPosition: {x: 63.9999847, y: 111.999992, z: 44.5998917}
   m_LocalScale: {x: 10.2629347, y: 11.3857155, z: 50}
   m_Children:
   - {fileID: 429178}
@@ -301,7 +302,7 @@ Camera:
   far clip plane: 1000
   field of view: 173.551987
   orthographic: 1
-  orthographic size: 90
+  orthographic size: 70
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -514,7 +515,7 @@ MonoBehaviour:
     agillity: 0
     baseDefence: 0
     baseAttack: 0
-  speed: 4
+  speed: 3
   go: {fileID: 0}
   caapora: {fileID: 0}
   iso_rigidyBody: {fileID: 0}
@@ -645,6 +646,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalNumberOfObject: 0
   debug_message: 
+--- !u!114 &11439678
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 152348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3590204c99b384c49bf3babbfe73eb5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Entries:
+  - Prefab: {fileID: 0}
+    Count: 40
 --- !u!114 &11444426
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -733,7 +748,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mode: 0
   _size: {x: .699999988, y: .699999988, z: 1.20000005}
-  _position: {x: 8, y: 5, z: 0}
+  _position: {x: 9, y: 5, z: 0}
   _isAlignment: 1
   _isShowBounds: 1
 --- !u!114 &11452404

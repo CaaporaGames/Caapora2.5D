@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-
+using IsoTools;
 
 /// <summary>
 /// Repository of commonly used prefabs.
@@ -24,6 +24,7 @@ public class ObjectPool : MonoBehaviour
         /// </summary>
         [SerializeField]
         public GameObject Prefab;
+        
 
         /// <summary>
         /// quantity of object to pre-instantiate
@@ -51,16 +52,11 @@ public class ObjectPool : MonoBehaviour
     /// <summary>
     /// The container object that we will keep unused pooled objects so we dont clog up the editor with objects.
     /// </summary>
-    protected GameObject ContainerObject;
+    private GameObject ContainerObject;
 
     void OnEnable()
     {
         instance = this;
-    }
-
-    // Use this for initialization
-    void Start()
-    {
         ContainerObject = new GameObject("ObjectPool");
 
 
@@ -69,7 +65,6 @@ public class ObjectPool : MonoBehaviour
         //so we can assume the lists of pooled objects are in the same order as object prefabs in the array
         Pool = new List<GameObject>[Entries.Length];
 
-      
 
         for (int i = 0; i < Entries.Length; i++)
         {
@@ -79,16 +74,23 @@ public class ObjectPool : MonoBehaviour
             Pool[i] = new List<GameObject>();
 
             //fill it
-            for (int n = 0; n < objectPrefab.Count; n++)
+            /*for (int n = 0; n < objectPrefab.Count; n++)
             {
-
+               
                 var newObj = Instantiate(objectPrefab.Prefab) as GameObject;
 
                 newObj.name = objectPrefab.Prefab.name;
 
                 PoolObject(newObj);
-            }
+            } */
         }
+    }
+
+
+    // Use this for initialization
+    void Start()
+    {
+        
     }
 
 
@@ -106,7 +108,7 @@ public class ObjectPool : MonoBehaviour
     /// <param name='onlyPooled'>
     /// If true, it will only return an object if there is one currently pooled.
     /// </param>
-    public GameObject GetAllObjectsForType(string objectType, bool onlyPooled)
+    public GameObject GetObjectForType(string objectType, bool onlyPooled)
     {
 
         for (int i = 0; i < Entries.Length; i++)
@@ -121,20 +123,22 @@ public class ObjectPool : MonoBehaviour
             if (Pool[i].Count > 0)
             {
 
-               
+               // Pega o ultimo elemento da estrutura
                 GameObject pooledObject = Pool[i][0];
-
+                // Remove o último elemento da estrutura
                 Pool[i].RemoveAt(0);
 
                 pooledObject.transform.parent = null;
 
-                pooledObject.SetActive(true);
+                SetActiveRecursively(pooledObject, true);
+                //pooledObject(true);
 
                 return pooledObject;
             }
 
             if (!onlyPooled)
             {
+               
                 GameObject newObj = Instantiate(Entries[i].Prefab) as GameObject;
                 newObj.name = Entries[i].Prefab.name;
                 return newObj;
@@ -144,58 +148,26 @@ public class ObjectPool : MonoBehaviour
         //If we have gotten here either there was no object of the specified type or non were left in the pool with onlyPooled set to true
         return null;
     }
+
 
 
     /// <summary>
-    /// Gets a new object for the name type provided.  If no object type exists or if onlypooled is true and there is no objects of that type in the pool
-    /// then null will be returned.
+    /// Our own version of GameObject.SetActiveRecursively, 
+    /// for those cases where we have known 
+    /// inactive objects somewhere beneath the root 
+    /// and do want to activate or deactivate all of them. 
     /// </summary>
-    /// <returns>
-    /// The object for type.
-    /// </returns>
-    /// <param name='objectType'>
-    /// Object type.
-    /// </param>
-    /// <param name='onlyPooled'>
-    /// If true, it will only return an object if there is one currently pooled.
-    /// </param>
-    public GameObject GetOneObjectForType(string objectType, bool onlyPooled)
+    public static void SetActiveRecursively(GameObject rootObject, bool active)
     {
+        rootObject.SetActive(active);
 
-        for (int i = 0; i < Entries.Length; i++)
+        foreach (Transform childTransform in rootObject.transform)
         {
-            var prefab = Entries[i].Prefab;
-
-            if (prefab.name != objectType)
-                continue;
-
-            if (Pool[i].Count > 0)
-            {
-
-
-                GameObject pooledObject = Pool[i][0];
-
-                Pool[i].RemoveAt(0);
-
-                pooledObject.transform.parent = null;
-
-                pooledObject.SetActive(true);
-
-                return pooledObject;
-                
-            }
-
-            if (!onlyPooled)
-            {
-                GameObject newObj = Instantiate(Entries[i].Prefab) as GameObject;
-                newObj.name = Entries[i].Prefab.name;
-                return newObj;
-            }
+            SetActiveRecursively(childTransform.gameObject, active);
         }
-
-        //If we have gotten here either there was no object of the specified type or non were left in the pool with onlyPooled set to true
-        return null;
     }
+
+
 
     /// <summary>
     /// Pools the object specified.  Will not be pooled if there is no prefab of that type.
@@ -208,11 +180,15 @@ public class ObjectPool : MonoBehaviour
 
         for (int i = 0; i < Entries.Length; i++)
         {
+
             if (Entries[i].Prefab.name != obj.name)
                 continue;
 
-            obj.SetActive(false);
+  
+            SetActiveRecursively(obj, false);
 
+      
+            
             obj.transform.parent = ContainerObject.transform;
 
             Pool[i].Add(obj);

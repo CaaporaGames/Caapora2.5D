@@ -122,11 +122,12 @@ public class Configuration : MonoBehaviour {
             EventTrigger trigger = button.GetComponent<EventTrigger>();
             EventTrigger.Entry entry = new EventTrigger.Entry();
 
+        
 
             entry.eventID = EventTriggerType.PointerDown;
             entry.callback.AddListener((eventData) => {
 
-                
+             
 
                 switch (action)
                 {
@@ -137,19 +138,19 @@ public class Configuration : MonoBehaviour {
                         KeyboardController.instance.BClick = true;
                         break;
                     case "Zoom":
-                        Debug.Log("zoooom");
                         KeyboardController.instance.ZClick = true;
                         break;
 
                 }
 
-
-                ResetOnPointerUp(button);
-
+ 
 
             });
+
             trigger.triggers.Add(entry);
 
+
+            ResetOnPointerUp(button);
 
         }
 

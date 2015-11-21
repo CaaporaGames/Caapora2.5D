@@ -40,6 +40,9 @@ public class GameManager: MonoBehaviour {
     private bool _paused = false;
     public static bool isAnimating = false;
     public static int zoom = 1;
+    private GameObject winnerModal;
+    private GameObject loserModal;
+    private bool gameover = false;
 
 
     public static List<GameManager> savedGames = new List<GameManager>();
@@ -71,7 +74,13 @@ public class GameManager: MonoBehaviour {
     /// </summary>
     void Start()
     {
+        PopulatePool();
 
+        winnerModal = GameObject.Find("Winner");
+        winnerModal.SetActive(false);
+
+        loserModal = GameObject.Find("GameOver");
+        loserModal.SetActive(false);
 
         // Habilita ou não a animação de introdução
         if (showIntroduction)
@@ -117,24 +126,39 @@ public class GameManager: MonoBehaviour {
     void Update()
     {
 
-
-        Pause();
-
-    
-
-        if (WinCondition())
-            YouWin();
-
-        
         // Condições para o game over
-        GameOVer();
+        if (!gameover)
+        {
+            if (WinCondition())
+                YouWin();
+
+             GameOVer();
+        }
+           
 
     }
 
 
 
+    void PopulatePool()
+    {
+
+      
+        int total;
+
+        for(total = 0; total < 30; total++)
+        {
+             
+            var frame = Instantiate(Resources.Load("Prefabs/chamasSemSpread")) as GameObject;
+            frame.name = "chamasSemSpread";
+            GetComponent<ObjectPool>().PoolObject(frame);
+
+        }
+           
 
 
+
+    }
 
 
 
@@ -193,8 +217,11 @@ public class GameManager: MonoBehaviour {
         if (gameObject.GetComponent<IsoObject>().positionZ < -15 || player.life <= 0  )
         {
 
-            Destroy(gameObject);
-            Application.LoadLevel("GameOver");
+            // GameObject.Find("CameraAux").GetComponent<Camera>().enabled = true;
+            // Destroy(gameObject);
+            gameover = true;
+            Pause();
+            loserModal.SetActive(true);
 
         }
 
@@ -229,7 +256,7 @@ public class GameManager: MonoBehaviour {
     /// <param name="seconds"></param>
     public static void ShowObjectAPeriodOfTime(GameObject go, int seconds)
     {
-
+        
         instance.StartCoroutine(showAndHideObject(go, seconds));
 
     }
@@ -405,19 +432,15 @@ public class GameManager: MonoBehaviour {
     public void Pause()
     {
 
-        if (Input.GetKeyDown(KeyCode.P))
+        if (_paused)
         {
-
-            if (_paused)
-            {
-                Time.timeScale = 0;
-                _paused = false;
-            }
-            else
-            {
-                Time.timeScale = 1;
-                _paused = true;
-            }
+            Time.timeScale = 1;
+            _paused = false;
+        }
+        else
+        {
+            Time.timeScale = 0;
+            _paused = true;
         }
 
     }
@@ -455,8 +478,12 @@ public class GameManager: MonoBehaviour {
 
     public void YouWin()
     {
-        Destroy(gameObject);
-        Application.LoadLevel("Winner");
+
+        gameover = true;
+        Pause();
+        winnerModal.SetActive(true);
+
+        
     }
 
     /// *************************************************************************

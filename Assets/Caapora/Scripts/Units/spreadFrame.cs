@@ -94,12 +94,7 @@ public class SpreadFrame : MonoBehaviour {
 
        // var frame = Instantiate(Resources.Load("Prefabs/chamas")) as GameObject;
        
-        var frame = ObjectPool.instance.GetAllObjectsForType("chamasSemSpread", true);
-
-        // Adiciona em tempo de execucao para ganhar performance
-        frame.GetComponent<IsoBoxCollider>().enabled = true;
-        frame.GetComponent<IsoRigidbody>().enabled = true;
-
+        var frame = ObjectPool.instance.GetObjectForType("chamasSemSpread", true);
         frame.GetComponent<IsoRigidbody>().mass = 0.01f;
 
         frame.GetComponent<IsoObject>().position =

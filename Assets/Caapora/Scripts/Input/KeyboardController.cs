@@ -24,6 +24,8 @@ namespace Caapora
         public string _lookingAt = "down";
         private float _life = 1000;
         private static bool _canLauchWater;
+        private int _zoomState = 1;
+        private Camera mainCamera; 
 
 
         // Use this for initialization
@@ -32,6 +34,7 @@ namespace Caapora
             // Acessar recursos de metodos estaticos
             instance = this;
             animator = GetComponent<Animator>();
+            mainCamera = GameObject.Find("Player/Camera").GetComponent<Camera>(); 
 
         }
 	
@@ -43,9 +46,7 @@ namespace Caapora
             // Movimentação pelo teclado do player através de flags
             MainController();
 
-
-  
-
+           
             // Habilitar a movimentação por clique no local
             // moveToPlace();
 
@@ -85,6 +86,11 @@ namespace Caapora
         void MainController()
         {
 
+            // Seleciona a camera de acorod com a tecla
+            if (_zoomState == 1)
+                mainCamera.orthographicSize = 80;
+            else
+                mainCamera.orthographicSize = 250;
 
 
             // habilita a animação
@@ -128,30 +134,30 @@ namespace Caapora
 
 
                 }
-                else if (Input.GetKeyDown(KeyCode.B) || _BKey)
+                else if (Input.GetKey(KeyCode.B) || _BKey)
                 {
                    
                     PlayerBehavior.instance.ThrowWater();
 
                 }
-                else if (Input.GetKey(KeyCode.Z) || _ZKey)
+
+                if (Input.GetKey(KeyCode.Z) || _ZKey)
                 {
-                  
+                   
                     showAllMap();
 
                 }
-                else if (Input.GetKeyDown(KeyCode.D))
+                if (Input.GetKeyDown(KeyCode.D))
                 {
                     Jump();
+                    GameManager.instance.Pause();
                 }
 
                 /* aguardar adicionar animação do balde no Animation Controller */
                 else if (!isPlayingAnimation)
                 { // Caso nao esteja precionando nenhuma tecla
 
-                    var mainCamera = GameObject.Find("Player/Camera").GetComponent<Camera>().orthographicSize = 130;
-
-
+                   
                     animator.SetTrigger("CaaporaIdle");
                     /* Inicialmente apenas verifica se há itens*/
                     if (!Inventory.isEmpty()) 
@@ -168,8 +174,11 @@ namespace Caapora
         public void showAllMap()
         {
 
-         
-            var mainCamera = GameObject.Find("Player/Camera").GetComponent<Camera>().orthographicSize = 250;
+            if (_zoomState == 1)
+                _zoomState = 2;
+            else
+                _zoomState = 1;
+           
 
         }
 
@@ -265,11 +274,13 @@ namespace Caapora
         {
             get
             {
-                return this._AKey;
+              
+                return _AKey;
             }
             set
             {
-                this._AKey = value;
+               
+                _AKey = value;
             }
         }
 

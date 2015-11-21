@@ -10,7 +10,7 @@ public class Fire : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-        demage = 100f;
+        demage = 10f;
     }
 	
 	// Update is called once per frame

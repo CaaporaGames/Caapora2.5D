@@ -233,24 +233,30 @@ namespace Caapora {
 
         void OnIsoCollisionEnter(IsoCollision iso_collision)
         {
-            base.OnIsoCollisionEnter(iso_collision);
-
-
+           // base.OnIsoCollisionEnter(iso_collision);
 
             // código comentado abaixo é ótimo para debug
             // Debug.Log("Colidingo com " + iso_collision.gameObject.name);
             // DebugGame.instance.debug_message = "Colidiu com a " + iso_collision.gameObject.name;
 
+        }
+
+
+        void OnIsoCollisionStay(IsoCollision iso_collision)
+        {
+
+            base.OnIsoCollisionStay(iso_collision);
+
             // Colisao com o balde vazio
-            if (iso_collision.gameObject.name == "waterPrefabTeste")
+            if (iso_collision.gameObject.name == "waterPrefab")
             {
-     
-                                
+
+
 
                 if (isPlayerWithBucket())
                 {
                     GetComponent<IsoRigidbody>().velocity = Vector3.one;
-                   
+
 
                     if (canFillBucket)
                         StartCoroutine(FillBucketSlowly());
@@ -260,13 +266,13 @@ namespace Caapora {
 
             }
 
+
         }
 
 
 
 
-
-        bool isPlayerWithBucket()
+            bool isPlayerWithBucket()
         {
 
             return !Inventory.isEmpty();

@@ -40,7 +40,7 @@ public class Tree : Character {
         /// <param name="iso_collision">A referencia do objeto colidido</param>
         void OnIsoCollisionEnter(IsoCollision iso_collision)
         {
-            base.OnIsoCollisionEnter(iso_collision);
+           // base.OnIsoCollisionEnter(iso_collision);
 
             // Caso o fogo colida com o splash de agua deleta os dois
             if (iso_collision.gameObject.name == "splashWaterPrefab")

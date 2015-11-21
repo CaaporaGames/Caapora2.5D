@@ -6,6 +6,7 @@ public class Advice : MonoBehaviour {
 
     // necessario para acessar metodos desta classe fora dela
     public static Advice instance;
+    
 
     // Use this for initialization
     void Start () {
@@ -30,7 +31,11 @@ public class Advice : MonoBehaviour {
     {
 
         if(value)
-             GameManager.ShowObjectAPeriodOfTime(instance.gameObject, 5);
+        {
+            GameManager.ShowObjectAPeriodOfTime(instance.gameObject, 5);
+          
+        }
+             
         else
              instance.gameObject.SetActive(false);
 

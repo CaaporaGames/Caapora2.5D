@@ -31,7 +31,7 @@ public class StatsController : MonoBehaviour {
 
 
 
-           manaBar.size = Balde.instance.waterPercent / 100;
+           manaBar.size = Balde.instance.waterPercent / 10;
 
             levelText.text = "Lv. " + GetCurrentLevel().ToString();
 

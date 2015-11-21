@@ -52,7 +52,7 @@ namespace Caapora
         /// Sobrecarregou o método padrão do Unity OnCollisionEnter
         /// </summary>
         /// <param name="iso_collision">A referencia do objeto colidido</param>
-        protected void OnIsoCollisionEnter(IsoCollision iso_collision)
+        protected void OnIsoCollisionStay(IsoCollision iso_collision)
         {
             
            
@@ -62,9 +62,9 @@ namespace Caapora
 
                 if (iso_collision.gameObject.name == "Altar")
                 {
-               
 
-                    _life = _life + 5;
+
+                _life = _life + 10;
 
 
                 }
@@ -97,7 +97,8 @@ namespace Caapora
             if (gameObject.GetComponent<IsoObject>().positionZ < -15 || _life <= 0)
             {
 
-                Destroy(gameObject);
+              //  Destroy(gameObject);
+             
                
 
             }
