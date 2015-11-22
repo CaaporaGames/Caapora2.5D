@@ -20,7 +20,8 @@ public class TutorialC : MonoBehaviour
     public void LoadNextLevel()
     {
 
-        GameManager.instance.LoadNextLevel("Map1");
+        GameManager.next_scene = "Map1";
+        Application.LoadLevel("Loader");
 
     }
 
