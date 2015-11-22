@@ -12,14 +12,15 @@ namespace Caapora
         public float speed = 5f;
         public static Character instance;
         protected static bool _canLauchWater;
-        protected Animator animator;
+        protected Animator _animator;
         private float collisionTime = 0;
         
 
 
         void UpdateBar()
         {
-
+        
+            
             GetComponentInChildren<Scrollbar>().size = _life / 1000;
             
         }
@@ -27,7 +28,7 @@ namespace Caapora
         protected void Start()
         {
 
-            animator = GetComponent<Animator>();
+            _animator = GetComponent<Animator>();
 
         }
 
@@ -102,9 +103,8 @@ namespace Caapora
             if (gameObject.GetComponent<IsoObject>().positionZ < -15 || _life <= 0)
             {
 
-              //  Destroy(gameObject);
+                Destroy(gameObject);
              
-               
 
             }
 
@@ -119,7 +119,7 @@ namespace Caapora
            
             if (canLauchWater())
             {
-                animator.SetTrigger("Atack2");
+                _animator.SetTrigger("Atack2");
 
                 
 
@@ -225,6 +225,16 @@ namespace Caapora
             }
 
 
+        }
+
+
+        public Animator animator
+        {
+
+            get
+            {
+                return _animator;
+            }
         }
 
 

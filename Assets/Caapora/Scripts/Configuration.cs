@@ -68,11 +68,11 @@ public class Configuration : MonoBehaviour {
 
 
             entry.eventID = EventTriggerType.PointerDown;
-            entry.callback.AddListener((eventData) => { KeyboardController.instance.moveDirection = direction; });
+            entry.callback.AddListener((eventData) => { PlayerBehavior.moveDirection = direction; });
             trigger.triggers.Add(entry);
 
 
-            ResetOnPointerUp(button);
+            ResetArrowOnPointerUp(button);
 
 
         }
@@ -172,10 +172,37 @@ public class Configuration : MonoBehaviour {
             entry.callback.AddListener((eventData) =>
             {
 
-                KeyboardController.instance.moveDirection = "";
+                PlayerBehavior.moveDirection = "";
                 KeyboardController.instance.BClick = false;
                 KeyboardController.instance.AClick = false;
                 KeyboardController.instance.ZClick = false;
+                KeyboardController.instance.JClick = false;
+                PlayerBehavior.running = false;
+                GameManager.instance.zoomState = 1;
+
+            }
+
+                );
+            trigger.triggers.Add(entry);
+
+        }
+
+
+
+        void ResetArrowOnPointerUp(GameObject button)
+        {
+
+
+
+            EventTrigger trigger = button.GetComponent<EventTrigger>();
+            EventTrigger.Entry entry = new EventTrigger.Entry();
+            entry.eventID = EventTriggerType.PointerUp;
+            entry.callback.AddListener((eventData) =>
+            {
+
+               PlayerBehavior.moveDirection = "";
+
+
             }
 
                 );
@@ -188,7 +215,7 @@ public class Configuration : MonoBehaviour {
 
 
 
-}
+    }
 
 
 }

@@ -51,6 +51,7 @@ namespace Caapora.Pathfinding {
                     // Calcula as posições na grade
                     Vector3 worldPoint = worldBottomLeft + Vector3.right * (x * nodeDiameter + nodeRadius) + Vector3.up * (y * nodeDiameter + nodeRadius);
 
+                    
                     // Converte posição para isometrico
                     worldPoint = iso_object.isoWorld.IsoToScreen(worldPoint);
 

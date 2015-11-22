@@ -20,11 +20,10 @@ namespace Caapora
         public static bool stopWalking = false;
         public static bool isPlayingAnimation = false;
         private bool  _AKey = false, _BKey = false, _ZKey = false, _JKey = false;
-        public string _moveDirection = "";
+
         public string _lookingAt = "down";
         private float _life = 1000;
         private static bool _canLauchWater;
-        private int _zoomState = 1;
         private Camera mainCamera;
        
 
@@ -34,7 +33,6 @@ namespace Caapora
 
             // Acessar recursos de metodos estaticos
             instance = this;
-            animator = GetComponent<Animator>();
             mainCamera = GameObject.Find("Player/Camera").GetComponent<Camera>(); 
 
         }
@@ -88,7 +86,7 @@ namespace Caapora
         {
 
             // Seleciona a camera de acorod com a tecla
-            if (_zoomState == 1)
+            if (GameManager.instance.zoomState == 1)
                 mainCamera.orthographicSize = 80;
             else
                 mainCamera.orthographicSize = 250;
@@ -106,32 +104,34 @@ namespace Caapora
             {
 
 
-                if (Input.GetKey(KeyCode.LeftArrow) || _moveDirection == "left")
+                if (Input.GetKey(KeyCode.LeftArrow) || PlayerBehavior.moveDirection == "left")
                 {
 
                     lookingAt = "left";
-                    moveLeft();
+                    PlayerBehavior.instance.moveLeft();
+                    
+          
 
                 }
-                else if (Input.GetKey(KeyCode.RightArrow) || _moveDirection == "right")
+                else if (Input.GetKey(KeyCode.RightArrow) || PlayerBehavior.moveDirection == "right")
                 {
                     lookingAt = "right";
-                    moveRight();
+                    PlayerBehavior.instance.moveRight();
 
 
                 }
-                else if (Input.GetKey(KeyCode.DownArrow) || _moveDirection == "down")
+                else if (Input.GetKey(KeyCode.DownArrow) || PlayerBehavior.moveDirection == "down")
                 {
 
                     lookingAt = "down";
-                    moveDown();
+                    PlayerBehavior.instance.moveDown();
 
 
                 }
-                else if (Input.GetKey(KeyCode.UpArrow) || _moveDirection == "up")
+                else if (Input.GetKey(KeyCode.UpArrow) || PlayerBehavior.moveDirection == "up")
                 {
                     lookingAt = "up";
-                    moveUp();
+                    PlayerBehavior.instance.moveUp();
 
 
                 }
@@ -143,37 +143,26 @@ namespace Caapora
 
                 if (Input.GetKeyDown(KeyCode.Z) || _ZKey)
                 {
-                   
-                    showAllMap();
+
+                    GameManager.instance.showAllMap();
 
                 }
 
                 if (Input.GetKeyDown(KeyCode.J) || _JKey)
                 {
 
-                     JClick = false;
-                     StartRun();
+                    JClick = false;
+                    StartRun();
 
                 }
 
                 if (Input.GetKeyDown(KeyCode.D))
                 {
-                    Jump();
+                    PlayerBehavior.instance.Jump();
                     GameManager.instance.Pause();
                 }
 
-                /* aguardar adicionar animação do balde no Animation Controller */
-                else if (!isPlayingAnimation)
-                { // Caso nao esteja precionando nenhuma tecla
-
-                   
-                    animator.SetTrigger("CaaporaIdle");
-                    /* Inicialmente apenas verifica se há itens*/
-                    if (!Inventory.isEmpty()) 
-                        animator.SetTrigger("bucket");
-            
-
-                }
+             
 
             }
 
@@ -182,94 +171,19 @@ namespace Caapora
 
         public void StartRun()
         {
-            if (PlayerBehavior.running)
-                PlayerBehavior.running = false;
-            else
+          
                 PlayerBehavior.running = true;
         }
 
 
-        public void showAllMap()
-        {
-
-            if (_zoomState == 1)
-                _zoomState = 2;
-            else
-                _zoomState = 1;
-           
-
-        }
-
-
-
-        // Métodos com movimentação
-        public void moveLeft()
-        {
-
-
-            iso_rigidyBody.velocity = new Vector3(-PlayerBehavior.instance.speed, 0, 0);
-
-            animator.SetTrigger("Caapora-left");
-
-        }
-
-        public void moveRight()
-        {
-
-
-            iso_rigidyBody.velocity = new Vector3(PlayerBehavior.instance.speed, 0, 0);
-            animator.SetTrigger("Caapora-right");
-
-        }
-
-
-        public void moveDown()
-        {
-
-            iso_rigidyBody.velocity = new Vector3(0, -PlayerBehavior.instance.speed, 0);
-            animator.SetTrigger("Caapora-Sul");
-
-
-        }
-
-
-        public void moveUp()
-        {
-
-            iso_rigidyBody.velocity = new Vector3(0, PlayerBehavior.instance.speed, 0);
-            animator.SetTrigger("Caapora-Norte");
-
-        }
-
-
-
-        public void Jump()
-        {
-            iso_rigidyBody.velocity = new Vector3(0, 0, PlayerBehavior.instance.speed);
-
-
-        }
-
-
+  
         // End métodos com movimentação
 
 
 
-        // Métodos de Flags para ativar a movimentação
-       
 
-        public string moveDirection
-        {
-            get
-            {
-                return _moveDirection;
-            }
 
-            set
-            {
-                _moveDirection = value;
-            }
-        }
+   
 
 
 
@@ -306,11 +220,11 @@ namespace Caapora
         {
             get
             {
-                return this._ZKey;
+                return _ZKey;
             }
             set
             {
-                this._ZKey = value;
+               _ZKey = value;
             }
         }
 
@@ -319,24 +233,25 @@ namespace Caapora
         {
             get
             {
-                return this._BKey;
+                return _BKey;
             }
             set
             {
-                this._BKey = value;
+                _BKey = value;
             }
         }
+
 
 
         public bool JClick
         {
             get
             {
-                return this._JKey;
+                return _JKey;
             }
             set
             {
-                this._JKey = value;
+                _JKey = value;
             }
         }
 

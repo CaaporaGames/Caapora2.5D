@@ -10,7 +10,7 @@ GameObject:
   - 224: {fileID: 22478878}
   - 222: {fileID: 22218522}
   - 114: {fileID: 11478210}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ GameObject:
   - 222: {fileID: 22266808}
   - 114: {fileID: 11436206}
   - 114: {fileID: 11422872}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: barra
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,7 +48,7 @@ GameObject:
   - 114: {fileID: 11469506}
   - 114: {fileID: 11430540}
   - 114: {fileID: 11494708}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,7 +66,7 @@ GameObject:
   - 223: {fileID: 22305974}
   - 114: {fileID: 11491992}
   - 114: {fileID: 11497234}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: healthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 22434112}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: Sliding Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 138782}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 159.999969, y: 224, z: 13.6000156}
+  m_LocalPosition: {x: -337, y: -85.9999924, z: -4.59999847}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 22402136}
@@ -231,7 +231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mode: 0
   _size: {x: 1.5, y: 1.5, z: 3}
-  _position: {x: 18, y: 8, z: 1}
+  _position: {x: 6, y: -5, z: 0}
   _isAlignment: 1
   _isShowBounds: 0
 --- !u!114 &11491992
@@ -496,6 +496,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_SortingLayerID
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _isKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

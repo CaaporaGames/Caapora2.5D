@@ -20,19 +20,7 @@ namespace Caapora.Pathfinding {
         public  bool npc_start = true;
 
 
-        public Vector3 targetPos
-        {
-
       
-            get { return _targetPos.GetComponent<IsoObject>().position; }
-            set {
-                        _targetPos.GetComponent<IsoObject>().position = value;
-            }
-        }
-
-
-
-
 
         void Start()
         {
@@ -73,7 +61,7 @@ namespace Caapora.Pathfinding {
 
     
 
-            if (this.npc_start) {
+            if (npc_start) {
 
                 
 
@@ -203,6 +191,18 @@ namespace Caapora.Pathfinding {
 
             }
                 
+        }
+
+
+        public Vector3 targetPos
+        {
+
+
+            get { return _targetPos.GetComponent<IsoObject>().position; }
+            set
+            {
+                _targetPos.GetComponent<IsoObject>().position = value;
+            }
         }
 
 

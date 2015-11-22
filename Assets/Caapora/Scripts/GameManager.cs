@@ -39,10 +39,12 @@ public class GameManager: MonoBehaviour {
     public static string next_scene;
     private bool _paused = false;
     public static bool isAnimating = false;
-    public static int zoom = 1;
     private GameObject winnerModal;
     private GameObject loserModal;
     private bool gameover = false;
+    private int _zoomState = 1;
+    private int _totalOfFrame = -1;
+    private Text TotalChamas;
 
 
     public static List<GameManager> savedGames = new List<GameManager>();
@@ -87,8 +89,8 @@ public class GameManager: MonoBehaviour {
         {
             StartCoroutine(Introduction());
         }
-    
-            
+
+        TotalChamas = GameObject.Find("TotalChamas").GetComponent<Text>();
 
         // Recebe a instancia do player
         player = PlayerBehavior.instance;
@@ -126,6 +128,8 @@ public class GameManager: MonoBehaviour {
     void Update()
     {
 
+        TotalChamas.text = "Chamas: " + totalOfFrame;
+
         // Condições para o game over
         if (!gameover)
         {
@@ -134,7 +138,21 @@ public class GameManager: MonoBehaviour {
 
              GameOVer();
         }
-           
+
+
+
+
+        if (!KeyboardController.isPlayingAnimation)
+        { // Caso nao esteja precionando nenhuma tecla
+
+
+            PlayerBehavior.instance.animator.SetTrigger("CaaporaIdle");
+            /* Inicialmente apenas verifica se há itens*/
+            if (!Inventory.isEmpty())
+                PlayerBehavior.instance.animator.SetTrigger("bucket");
+
+
+        }
 
     }
 
@@ -372,11 +390,25 @@ public class GameManager: MonoBehaviour {
     {
 
    
-       
         return GameObject.Find("chamas") == null && GameObject.Find("chamasSemSpread") == null;
 
     }
 
+
+    public static int totalOfFrame
+    {
+
+        set
+        {
+            instance._totalOfFrame = value;
+        }
+
+        get
+        {
+            return instance._totalOfFrame;
+        }
+
+    }
 
     /// *************************************************************************
     /// Author: Rômulo Lima
@@ -429,12 +461,30 @@ public class GameManager: MonoBehaviour {
     }
 
 
-    public static void Zoom(int value)
+    public void showAllMap()
     {
 
-        zoom = value == 1 ? 2 : 1;
-             
 
+        _zoomState = 2;
+
+
+    }
+
+
+
+
+    // Métodos de Flags para ativar a movimentação
+    public int zoomState
+    {
+        get
+        {
+            return _zoomState;
+        }
+
+        set
+        {
+            _zoomState = value;
+        }
     }
 
     public void Pause()

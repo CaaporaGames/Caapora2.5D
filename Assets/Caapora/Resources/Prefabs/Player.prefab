@@ -8,7 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 22483648}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: Sliding Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - 224: {fileID: 22417948}
   - 222: {fileID: 22208652}
   - 114: {fileID: 11485056}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ GameObject:
   - 222: {fileID: 22247360}
   - 114: {fileID: 11470858}
   - 114: {fileID: 11481002}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: life
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   - 224: {fileID: 22480590}
   - 222: {fileID: 22289670}
   - 114: {fileID: 11414976}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   - 224: {fileID: 22404290}
   - 222: {fileID: 22248450}
   - 114: {fileID: 11419552}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: xp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 22435744}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: Sliding Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ GameObject:
   - 223: {fileID: 22328550}
   - 114: {fileID: 11462058}
   - 114: {fileID: 11484826}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -230,7 +230,7 @@ GameObject:
   - 224: {fileID: 22434666}
   - 222: {fileID: 22298666}
   - 114: {fileID: 11428628}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,7 +248,7 @@ GameObject:
   - 222: {fileID: 22216926}
   - 114: {fileID: 11467414}
   - 114: {fileID: 11448342}
-  m_Layer: 5
+  m_Layer: 11
   m_Name: mana
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -519,6 +519,7 @@ MonoBehaviour:
   go: {fileID: 0}
   caapora: {fileID: 0}
   iso_rigidyBody: {fileID: 0}
+  _moveDirection: 
   baldeCheio: {fileID: 0}
   canFillBucket: 1
 --- !u!114 &11419552
@@ -868,7 +869,6 @@ MonoBehaviour:
   caapora: {fileID: 0}
   savedTimeState: 0
   iso_rigidyBody: {fileID: 0}
-  _moveDirection: 
   _lookingAt: down
 --- !u!114 &11470858
 MonoBehaviour:
@@ -1371,6 +1371,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Color.b
       value: .243728384
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

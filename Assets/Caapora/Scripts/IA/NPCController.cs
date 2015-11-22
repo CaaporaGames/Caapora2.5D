@@ -27,9 +27,11 @@ public class NPCController : Character {
 
         instance = this;
 
+        iso_rigidyBody = GetComponent<IsoRigidbody>();
+
         currentLevel = StatsController.GetCurrentLevel();
 
-        animator = GetComponent<Animator>();
+        _animator = GetComponent<Animator>();
 
         // posiçao inicial do 
         gameObject.GetComponent<IsoObject>().position += new Vector3(0, 0, 0);
@@ -39,7 +41,8 @@ public class NPCController : Character {
 
     // Update is called once per frame
     void Update () {
-
+            base.Update();
+            
         // Movimentação pelo teclado do player através de flags
 
 
@@ -76,7 +79,7 @@ public class NPCController : Character {
             if (prevPosition == Vector3.zero || stopWalking)
 
 
-                animator.SetTrigger("Down");
+                _animator.SetTrigger("Down");
 
           
             else { 
@@ -85,7 +88,7 @@ public class NPCController : Character {
                     {
 
 
-                            animator.SetTrigger("Right");
+                    _animator.SetTrigger("Left");
 
                     }
 
@@ -93,7 +96,7 @@ public class NPCController : Character {
                     else if (prevPosition.x < _currentPosition.positionX)
                     {
 
-                            animator.SetTrigger("Left");
+                    _animator.SetTrigger("Right");
 
 
                         }
@@ -103,7 +106,7 @@ public class NPCController : Character {
                     else if (prevPosition.y < _currentPosition.positionY)
                     {
 
-                            animator.SetTrigger("Up");
+                    _animator.SetTrigger("Up");
 
 
                         }
@@ -112,9 +115,10 @@ public class NPCController : Character {
                     else if (prevPosition.y > _currentPosition.positionY)
                     {
 
-                            animator.SetTrigger("Down");
+                            _animator.SetTrigger("Down");
 
-                      }
+
+                }
 
             }
 
@@ -170,7 +174,7 @@ public void moveLeft()
 
     iso_rigidyBody.velocity = new Vector3(-this.speed, 0, 0);
 
-    animator.SetTrigger("Left");
+    _animator.SetTrigger("Left");
 
 }
 
@@ -179,7 +183,7 @@ public void moveRight()
 
 
     iso_rigidyBody.velocity = new Vector3(this.speed, 0, 0);
-    animator.SetTrigger("Right");
+    _animator.SetTrigger("Right");
 
 }
 
@@ -188,7 +192,7 @@ public void moveDown()
 {
 
     iso_rigidyBody.velocity = new Vector3(0, -this.speed, 0);
-    animator.SetTrigger("Up");
+    _animator.SetTrigger("Up");
 
 
 }
@@ -198,7 +202,7 @@ public void moveUp()
 {
 
     iso_rigidyBody.velocity = new Vector3(0, this.speed, 0);
-    animator.SetTrigger("Down");
+    _animator.SetTrigger("Down");
 
 }
 

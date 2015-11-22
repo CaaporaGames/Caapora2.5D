@@ -18,8 +18,7 @@ namespace Caapora {
     public static bool stopWalking = false;
 	public static bool isPlayingAnimation = false;
 	public static PlayerBehavior instance;
-    private bool  _AKey = false, _BKey = false;
-    private string _moveDirection = "";
+    public string _moveDirection = "";
     public Sprite baldeCheio;
     public bool canFillBucket = true;
     private Vector3 direction;
@@ -27,6 +26,7 @@ namespace Caapora {
     private    Text StatusHP;
     private    GameObject balde;
     private bool _running = false;
+
 
 
 
@@ -42,6 +42,9 @@ namespace Caapora {
             balde = GameObject.Find("baldeVazioPrefab"); 
 
             instance = this;
+
+            iso_rigidyBody = gameObject.GetComponent<IsoRigidbody>();
+            _animator = GetComponent<Animator>();
 
 
         }
@@ -156,7 +159,7 @@ namespace Caapora {
                             AddItemToInventory(balde);
 
                             // Migra a animação para a do balde
-                            animator.SetTrigger("Catch");
+                            _animator.SetTrigger("Catch");
 
                             balde.SetActive(false);
 
@@ -236,6 +239,55 @@ namespace Caapora {
 
 
 
+        // Métodos com movimentação
+        public void moveLeft()
+        {
+
+
+            iso_rigidyBody.velocity = new Vector3(-PlayerBehavior.instance.speed, 0, 0);
+            _animator.SetTrigger("Caapora-left");
+
+        }
+
+        public void moveRight()
+        {
+
+
+            iso_rigidyBody.velocity = new Vector3(PlayerBehavior.instance.speed, 0, 0);
+            _animator.SetTrigger("Caapora-right");
+
+        }
+
+
+        public void moveDown()
+        {
+
+            iso_rigidyBody.velocity = new Vector3(0, -PlayerBehavior.instance.speed, 0);
+            _animator.SetTrigger("Caapora-Sul");
+
+
+        }
+
+
+        public void moveUp()
+        {
+
+            iso_rigidyBody.velocity = new Vector3(0, PlayerBehavior.instance.speed, 0);
+            _animator.SetTrigger("Caapora-Norte");
+
+        }
+
+
+
+        public void Jump()
+        {
+            iso_rigidyBody.velocity = new Vector3(0, 0, PlayerBehavior.instance.speed);
+
+
+        }
+
+
+
 
         /// *************************************************************************
         /// Author: Rômulo Lima
@@ -250,7 +302,7 @@ namespace Caapora {
             var balde = Inventory.getItem().GetComponent<Balde>();
 
          
-            animator.SetTrigger("Catch");
+            _animator.SetTrigger("Catch");
 
             // Incrementa a porcentagem de agua em um em um
             balde.FillBucket();
@@ -347,19 +399,19 @@ namespace Caapora {
             {
 
                 if (direction == "left")
-                    instance._moveDirection = "left";
+                    moveDirection = "left";
 
                 if (direction == "right")
-                    instance._moveDirection = "right";
+                    moveDirection = "right";
 
                 if (direction == "up")
-                    instance._moveDirection = "up";
+                    moveDirection = "up";
 
                 if (direction == "down")
-                    instance._moveDirection = "down";
+                    moveDirection = "down";
 
                 if (direction == "jump")
-                    instance._AKey = true;
+                    KeyboardController.instance.AClick = true;
 
                 // caso seja a ultima animaçao
                 isPlayingAnimation = (i == steps - 1) ? false : true;
@@ -367,6 +419,21 @@ namespace Caapora {
 				yield return new WaitForSeconds(.08f);
 			}
 
+        }
+
+
+
+        public static string moveDirection
+        {
+            get
+            {
+                return instance._moveDirection;
+            }
+
+            set
+            {
+                instance._moveDirection = value;
+            }
         }
 
 
@@ -393,8 +460,7 @@ namespace Caapora {
 	    }
 
 
-    
-        
+
 
     }
 

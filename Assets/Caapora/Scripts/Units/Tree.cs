@@ -43,7 +43,7 @@ public class Tree : Character {
            // base.OnIsoCollisionEnter(iso_collision);
 
             // Caso o fogo colida com o splash de agua deleta os dois
-            if (iso_collision.gameObject.name == "splashWaterPrefab")
+            if (iso_collision.gameObject.name == "splashWaterPrefab(Clone)")
             {
 
 

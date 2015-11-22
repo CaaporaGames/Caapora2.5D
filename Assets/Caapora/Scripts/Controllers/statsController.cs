@@ -20,7 +20,7 @@ public class StatsController : MonoBehaviour {
 		instance = this;
 		DontDestroyOnLoad (gameObject);
 
-            manaBar = GameObject.Find("Player/Bar/mana").GetComponent<Scrollbar>();
+          
             levelText = GameObject.Find("Player/Bar/level").GetComponent<Text>();
             xpText = GameObject.Find("Player/Bar/xp").GetComponent<Text>();
 
@@ -29,9 +29,6 @@ public class StatsController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-
-
-           manaBar.size = Balde.instance.waterPercent / 10;
 
             levelText.text = "Lv. " + GetCurrentLevel().ToString();
 

@@ -13,9 +13,13 @@ public class SpreadFrame : MonoBehaviour {
         player = GameObject.Find("Player");
 
 
-        spreadTime = 10f;  
-        StartCoroutine(multiplyFrame());
+        spreadTime = 1f;
+
+        StartCoroutine(multiplyFrameInLine());
+
+
     }
+
 	
 	// Update is called once per frame
 	void Update () {
@@ -65,23 +69,20 @@ public class SpreadFrame : MonoBehaviour {
         //pega a posicao do fogo
         IsoObject current_frame = GetComponent<IsoObject>();
 
-        for (int x = -1; x <= 1; x++)
+        for (int i = 0; i < 7; i ++)
         {
-            for (int y = -1; y <= 1; y++)
-            {
-                // exclui a própria posição    
-                if (x == 0 && y == 0)
-                    continue;
 
+            StartCoroutine(createNewFlame(current_frame, i, 0));
 
-                StartCoroutine(createNewFlame(current_frame, x, 1));
+            yield return new WaitForSeconds(spreadTime);
 
-
-                yield return new WaitForSeconds(spreadTime);
-
-
-            }
         }
+        
+        
+
+
+       
+
 
 
     }
@@ -93,10 +94,8 @@ public class SpreadFrame : MonoBehaviour {
 
 
        // var frame = Instantiate(Resources.Load("Prefabs/chamas")) as GameObject;
-       
         var frame = ObjectPool.instance.GetObjectForType("chamasSemSpread", true);
         frame.GetComponent<IsoRigidbody>().mass = 0.01f;
-
         frame.GetComponent<IsoObject>().position =
             new Vector3((current_frame.positionX + x), (current_frame.positionY + y), 0);
 
