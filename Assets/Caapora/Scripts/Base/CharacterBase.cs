@@ -19,15 +19,6 @@ public abstract class CharacterBase : MonoBehaviour {
 	public int currentLevel;
 	public BasicStates basicStats;
 	
-	// Use this for initialization
-	protected void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	protected void Update () {
-	
-	}
 
 
 

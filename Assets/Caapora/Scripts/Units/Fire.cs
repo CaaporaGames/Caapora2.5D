@@ -35,7 +35,8 @@ public class Fire : MonoBehaviour {
     void OnDestroy()
     {
 
-        GameManager.totalOfFrame--;
+        if (FindObjectOfType<GameManager>() != null)
+                 GameManager.totalOfFrame--;
     }
 
 

@@ -12,7 +12,7 @@ namespace Caapora
         Text MonkeyHp;
 
 	    // Use this for initialization
-	    void Start () {
+	    public override void Start () {
 
             MonkeyHp = GameObject.Find("Monkey/hp").GetComponent<Text>();
         }
@@ -21,7 +21,7 @@ namespace Caapora
     
 
         // Update is called once per frame
-        void Update () {
+        public override void Update () {
             base.Update();
 
            

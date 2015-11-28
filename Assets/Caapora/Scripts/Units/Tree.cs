@@ -9,13 +9,9 @@ namespace Caapora
 
 public class Tree : Character {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
 	
 	// Update is called once per frame
-	void Update () {
+	public override void Update () {
             base.Update();
 	
 	}

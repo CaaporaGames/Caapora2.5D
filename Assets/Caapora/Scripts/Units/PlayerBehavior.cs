@@ -32,7 +32,7 @@ namespace Caapora {
 
         // Rômulo Lima  
         // Use this for initialization
-        protected void Start()
+        public override void Start()
         {
 
             // Herda da classe base
@@ -62,7 +62,7 @@ namespace Caapora {
         public void run()
         {
       
-            speed = 6f;
+            speed = 3f;
 
         }
 
@@ -71,7 +71,7 @@ namespace Caapora {
         public void walk()
         {
 
-            speed = 4f;
+            speed = 2f;
         }
 
         public static bool running
@@ -87,7 +87,7 @@ namespace Caapora {
         }
 
 
-        void Update() {
+        public override void Update() {
 
 
             base.Update();
@@ -240,39 +240,43 @@ namespace Caapora {
 
 
         // Métodos com movimentação
+
+        //  Noroeste
         public void moveLeft()
         {
 
 
-            iso_rigidyBody.velocity = new Vector3(-PlayerBehavior.instance.speed, 0, 0);
+            iso_rigidyBody.velocity = new Vector3(-instance.speed, instance.speed , 0);
             _animator.SetTrigger("Caapora-left");
 
         }
-
+        // Sudeste  
         public void moveRight()
         {
 
 
-            iso_rigidyBody.velocity = new Vector3(PlayerBehavior.instance.speed, 0, 0);
+            iso_rigidyBody.velocity = new Vector3(instance.speed, -instance.speed, 0);
             _animator.SetTrigger("Caapora-right");
 
         }
 
 
+        // Sudoeste
         public void moveDown()
         {
 
-            iso_rigidyBody.velocity = new Vector3(0, -PlayerBehavior.instance.speed, 0);
+            iso_rigidyBody.velocity = new Vector3(-instance.speed, -instance.speed, 0);
             _animator.SetTrigger("Caapora-Sul");
 
 
         }
 
-
+        
+        //  Nordeste
         public void moveUp()
         {
 
-            iso_rigidyBody.velocity = new Vector3(0, PlayerBehavior.instance.speed, 0);
+            iso_rigidyBody.velocity = new Vector3(instance.speed, instance.speed, 0);
             _animator.SetTrigger("Caapora-Norte");
 
         }
@@ -281,7 +285,7 @@ namespace Caapora {
 
         public void Jump()
         {
-            iso_rigidyBody.velocity = new Vector3(0, 0, PlayerBehavior.instance.speed);
+            iso_rigidyBody.velocity = new Vector3(0, 0, instance.speed);
 
 
         }
@@ -328,7 +332,7 @@ namespace Caapora {
         }
 
 
-        void OnIsoCollisionStay(IsoCollision iso_collision)
+        public override void OnIsoCollisionStay(IsoCollision iso_collision)
         {
 
             base.OnIsoCollisionStay(iso_collision);

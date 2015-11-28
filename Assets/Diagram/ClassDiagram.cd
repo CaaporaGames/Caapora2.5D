@@ -36,28 +36,28 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Advice">
-    <Position X="25.5" Y="0.75" Width="1.5" />
+    <Position X="26.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAABAAAAAAAgAAAAAAAA=</HashCode>
       <FileName>Assets\Caapora\Scripts\GUI\Advice.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AdviceSimple">
-    <Position X="25.5" Y="3.5" Width="1.5" />
+    <Position X="26.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAABAAAEAAAAAAAAIAAQ=</HashCode>
       <FileName>Assets\Caapora\Scripts\GUI\AdviceSimple.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CaaporaConversation">
-    <Position X="27.25" Y="7.25" Width="2" />
+    <Position X="28.5" Y="7.25" Width="2" />
     <TypeIdentifier>
       <HashCode>BAQAAAEAACgAAAACAAAAgQAAAABAAAAAAAAAAAAAAEQ=</HashCode>
       <FileName>Assets\Caapora\Scripts\GUI\CaaporaConversation.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ConversationPanel">
-    <Position X="27.25" Y="4.5" Width="1.75" />
+    <Position X="28.25" Y="4.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAABAAAAAAACAAAAAAEA=</HashCode>
       <FileName>Assets\Caapora\Scripts\GUI\ConversationPanel.cs</FileName>
@@ -71,28 +71,28 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Caapora.Pathfinding.GoToPlace">
-    <Position X="16.5" Y="6.25" Width="1.5" />
+    <Position X="12.75" Y="7.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAACQgACAAgCCAAAAAAAAAAAAAACQAAAAWAAAAAAA=</HashCode>
       <FileName>Assets\Caapora\Scripts\IA\GoToPlace.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Caapora.Pathfinding.Grid">
-    <Position X="20.25" Y="8.25" Width="1.5" />
+    <Position X="16.25" Y="12.75" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAEAABAACIAAAAAAAACAgAAAAAAAAACAgAAGAAAIgA=</HashCode>
       <FileName>Assets\Caapora\Scripts\IA\Grid.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Caapora.Pathfinding.Node">
-    <Position X="20.25" Y="13" Width="1.5" />
+    <Position X="14.5" Y="12.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAACEAAAACABAAAAAAAAAAAAAABIAAAAAAAAIAAE=</HashCode>
       <FileName>Assets\Caapora\Scripts\IA\Node.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Caapora.Pathfinding.NPC">
-    <Position X="16.25" Y="12.25" Width="1.5" />
+    <Position X="14.5" Y="17.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAACQgAKAAACCCAAAAAAAAAAIAICQACAAUBAAIAAA=</HashCode>
       <FileName>Assets\Caapora\Scripts\IA\NPC.cs</FileName>
@@ -117,7 +117,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Caapora.Pathfinding.Pathfinding">
-    <Position X="12.75" Y="10.75" Width="1.5" />
+    <Position X="12.75" Y="12.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AIQQAABAACIAAAAAAAAAAAAAAAAAAIAAAAAAAAIAAAA=</HashCode>
       <FileName>Assets\Caapora\Scripts\IA\Pathfinding.cs</FileName>
@@ -131,7 +131,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Balde">
-    <Position X="10.75" Y="6.25" Width="1.5" />
+    <Position X="10.75" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AASAAAAgACAAAAAAAAACAAAAAABAAAIAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Caapora\Scripts\Units\Balde.cs</FileName>
@@ -210,42 +210,42 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Water">
-    <Position X="10.75" Y="9.25" Width="1.5" />
+    <Position X="10.75" Y="9.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Caapora\Scripts\Units\Water.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Caapora.DebugGame">
-    <Position X="22.25" Y="12.25" Width="1.5" />
+    <Position X="16.5" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAACAEAIAAAAAAAAAAAABAAAAAAACAAAAAAAA=</HashCode>
       <FileName>Assets\Caapora\Scripts\Utils\DebugGame.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DragBehavior">
-    <Position X="25.5" Y="6.5" Width="1.5" />
+    <Position X="26.5" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AACAAAAAACAgAAAAACAAAAAAAAAAAAQAIAAAAAAAAAA=</HashCode>
       <FileName>Assets\Caapora\Scripts\Utils\DragBehavior.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="generator">
-    <Position X="25.5" Y="9.5" Width="1.5" />
+    <Position X="26.5" Y="9.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Caapora\Scripts\Utils\GenerateWorldIso.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LoadingScreen">
-    <Position X="27.25" Y="0.75" Width="2" />
+    <Position X="28.25" Y="0.75" Width="2" />
     <TypeIdentifier>
       <HashCode>AAQAAAAwCCAAAAAAAAAAAAAEAABAAAAIAQQAAAAAIAA=</HashCode>
       <FileName>Assets\Caapora\Scripts\Utils\LoadingScreen.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Caapora.Configuration">
-    <Position X="12.5" Y="14.25" Width="1.5" />
+    <Position X="12.5" Y="16" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AASAAABQGDAIgAAAAAEAAAAgAAAAEACAhCAAAACCAAA=</HashCode>
       <FileName>Assets\Caapora\Scripts\Configuration.cs</FileName>
@@ -288,21 +288,21 @@
     </TypeIdentifier>
   </Class>
   <Class Name="IsoTools.IsoBoxCollider">
-    <Position X="22.5" Y="8.5" Width="1.5" />
+    <Position X="24.25" Y="8.5" Width="2" />
     <TypeIdentifier>
       <HashCode>ACCAAAAAAAIABAAAIIEAAAAAAAAAAAAAAAAAAAIgAAA=</HashCode>
       <FileName>Assets\Caapora\Scripts\Vendor\IsoTools\Scripts\IsoBoxCollider.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="IsoTools.IsoCollider">
-    <Position X="21.25" Y="0.75" Width="1.5" />
+    <Position X="21.75" Y="0.75" Width="2" />
     <TypeIdentifier>
       <HashCode>IAABAAAAAAAgBAAAAEEAAABBAAAAAAAICAACAgRgCEg=</HashCode>
       <FileName>Assets\Caapora\Scripts\Vendor\IsoTools\Scripts\IsoCollider.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="IsoTools.IsoCollision">
-    <Position X="12.75" Y="5.5" Width="1.5" />
+    <Position X="12.75" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAIAAQAAAAAAAAAAAAAAAAAAAAAAAAAAgAAMAAAAAA=</HashCode>
       <FileName>Assets\Caapora\Scripts\Vendor\IsoTools\Scripts\IsoCollision.cs</FileName>
@@ -316,7 +316,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="IsoTools.IsoFakeObject">
-    <Position X="23.25" Y="4" Width="1.5" />
+    <Position X="24.25" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAQAAoAAAAAAAAAAAAAAgAAAAIAMQAACAIAAAAA=</HashCode>
       <FileName>Assets\Caapora\Scripts\Vendor\IsoTools\Scripts\IsoFakeObject.cs</FileName>
@@ -330,7 +330,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="IsoTools.IsoObject">
-    <Position X="27.25" Y="12.25" Width="1.5" />
+    <Position X="21.75" Y="6.5" Width="1.75" />
     <NestedTypes>
       <Enum Name="IsoTools.IsoObject.Mode" Collapsed="true">
         <TypeIdentifier>
@@ -363,23 +363,26 @@
     </TypeIdentifier>
   </Class>
   <Class Name="IsoTools.IsoSphereCollider">
-    <Position X="19.25" Y="0.5" Width="1.5" />
+    <Position X="19" Y="0.5" Width="2" />
     <TypeIdentifier>
       <HashCode>CACAAAAACAIABAAAIAEAAAAAAAAAAAAAAAAAAAAkAAA=</HashCode>
       <FileName>Assets\Caapora\Scripts\Vendor\IsoTools\Scripts\IsoSphereCollider.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="IsoTools.IsoUtils">
-    <Position X="25" Y="12.25" Width="1.5" />
+    <Position X="24.25" Y="12.25" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAsECIGEgBaCAmpAQCARAAAAVAAAcg4JAgChBAFBgA8=</HashCode>
       <FileName>Assets\Caapora\Scripts\Vendor\IsoTools\Scripts\IsoUtils.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="IsoTools.IsoWorld">
-    <Position X="18.5" Y="4" Width="1.5" />
+    <Position X="18.5" Y="4.25" Width="2.75" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
     <NestedTypes>
-      <Class Name="IsoTools.IsoWorld.Sector" Collapsed="true">
+      <Class Name="IsoTools.IsoWorld.d">
         <TypeIdentifier>
           <NewMemberFileName>Assets\Caapora\Scripts\Vendor\IsoTools\Scripts\IsoWorld.cs</NewMemberFileName>
         </TypeIdentifier>
@@ -398,7 +401,7 @@
     </TypeIdentifier>
   </Struct>
   <Struct Name="IsoTools.IsoRaycastHit">
-    <Position X="23.5" Y="1" Width="1.5" />
+    <Position X="24.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAIAACAAAAAAAAAAAAAAAgAAEAAAAAAAAAAEAAAAAA=</HashCode>
       <FileName>Assets\Caapora\Scripts\Vendor\IsoTools\Scripts\IsoRaycastHit.cs</FileName>

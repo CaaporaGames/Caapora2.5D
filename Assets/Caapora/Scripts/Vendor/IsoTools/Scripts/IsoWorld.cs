@@ -19,14 +19,14 @@ namespace IsoTools {
 		Matrix4x4          _isoRMatrix   = Matrix4x4.identity;
 		List<Renderer>     _tmpRenderers = new List<Renderer>();
 
-		class Sector {
+		class d {
 			public List<IsoObject> objects = new List<IsoObject>();
 			public void Reset() {
 				objects.Clear();
 			}
 		}
 
-		List<Sector> _sectors            = new List<Sector>();
+		List<d> _sectors            = new List<d>();
 		float        _sectorsSize        = 0.0f;
 		Vector2      _sectorsMinNumPos   = Vector2.zero;
 		Vector2      _sectorsMaxNumPos   = Vector2.zero;
@@ -374,7 +374,7 @@ namespace IsoTools {
 			return Mathf.FloorToInt(num_pos.x + _sectorsNumPosCount.x * num_pos.y);
 		}
 		
-		Sector FindSector(Vector2 num_pos) {
+		d FindSector(Vector2 num_pos) {
 			if ( num_pos.x < 0 || num_pos.y < 0 ) {
 				return null;
 			}
@@ -442,7 +442,7 @@ namespace IsoTools {
 					_sectors.Capacity = count;
 				}
 				while ( _sectors.Count < _sectors.Capacity ) {
-					_sectors.Add(new Sector());
+					_sectors.Add(new d());
 				}
 			}
 

@@ -10,30 +10,36 @@ namespace Caapora
 
         protected float _life = 1000;
         public float speed = 5f;
-        public static Character instance;
         protected static bool _canLauchWater;
         protected Animator _animator;
         private float collisionTime = 0;
-        
+        private Scrollbar lifeBar;
 
 
-        void UpdateBar()
-        {
-        
-            
-            GetComponentInChildren<Scrollbar>().size = _life / 1000;
-            
-        }
 
-        protected void Start()
+
+
+        public virtual void Start()
         {
 
             _animator = GetComponent<Animator>();
-
+        
         }
 
+        void UpdateBar()
+        {
 
-        protected void Update()
+
+            GetComponentInChildren<Scrollbar>().size = _life / 1000;
+
+        
+            
+        }
+
+    
+
+
+        public virtual void Update()
         {
 
           
@@ -58,7 +64,7 @@ namespace Caapora
         /// Sobrecarregou o método padrão do Unity OnCollisionEnter
         /// </summary>
         /// <param name="iso_collision">A referencia do objeto colidido</param>
-        protected void OnIsoCollisionStay(IsoCollision iso_collision)
+        public virtual void OnIsoCollisionStay(IsoCollision iso_collision)
         {
             
            
@@ -174,25 +180,25 @@ namespace Caapora
 
             if (direction == "east")
             {
-                objeto.GetComponent<IsoObject>().position = playerCurPosition + Vector3.right;
+                objeto.GetComponent<IsoObject>().position = playerCurPosition + Vector3.right + Vector3.down;
                 balde.UseWalter();
             }
 
             if (direction == "west")
             {
-                objeto.GetComponent<IsoObject>().position = playerCurPosition + Vector3.left;
+                objeto.GetComponent<IsoObject>().position = playerCurPosition + Vector3.left + Vector3.up;
                 balde.UseWalter();
             }
 
             if (direction == "north")
             {
-                objeto.GetComponent<IsoObject>().position = playerCurPosition + Vector3.up;
+                objeto.GetComponent<IsoObject>().position = playerCurPosition + Vector3.up + Vector3.right;
                 balde.UseWalter();
             }
 
             if (direction == "south")
             {
-                objeto.GetComponent<IsoObject>().position = playerCurPosition + Vector3.down;
+                objeto.GetComponent<IsoObject>().position = playerCurPosition + Vector3.down + Vector3.left;
                 balde.UseWalter();
             }
 

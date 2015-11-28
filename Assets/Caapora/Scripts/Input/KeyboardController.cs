@@ -140,6 +140,11 @@ namespace Caapora
                     PlayerBehavior.instance.ThrowWater();
 
                 }
+                else
+                {
+
+                    PlayerBehavior.instance.animator.SetTrigger("CaaporaIdle");
+                }
 
                 if (Input.GetKeyDown(KeyCode.Z) || _ZKey)
                 {

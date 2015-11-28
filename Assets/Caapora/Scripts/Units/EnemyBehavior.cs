@@ -8,15 +8,15 @@ public class EnemyBehavior : NPCController {
 
 
 	// Use this for initialization
-	protected void Start () {
+	public override void Start () {
 		base.Start();
 
-            currentLevel = StatsController.GetCurrentLevel();
+        currentLevel = StatsController.GetCurrentLevel();
 
 	}
 
 
-        void OnIsoCollisionStay(IsoCollision iso_collision)
+        public override void OnIsoCollisionStay(IsoCollision iso_collision)
         {
 
             base.OnIsoCollisionStay(iso_collision);

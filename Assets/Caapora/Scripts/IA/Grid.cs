@@ -8,7 +8,6 @@ using IsoTools;
 /// </summary>
 namespace Caapora.Pathfinding {
 
-    [ExecuteInEditMode]
     public class Grid : MonoBehaviour {
 
 
@@ -24,8 +23,20 @@ namespace Caapora.Pathfinding {
 	void Start() {
 
      
-            //gridWorldSize = gameObject.GetComponent<IsoObject>().size;
-            iso_object = gameObject.GetComponent<IsoObject>();    
+        //gridWorldSize = gameObject.GetComponent<IsoObject>().size;
+        iso_object = gameObject.GetComponent<IsoObject>();
+
+            var testPos = GameObject.Find("centerRef");
+
+            Debug.Log("Posicao Iso de centerRef = " + testPos.GetComponent<IsoObject>().position);
+
+
+            Debug.Log("Posicao world de centerRef = " + testPos.transform.position);
+
+
+            Debug.Log("Posicao convertida com isoToScreen = " + iso_object.isoWorld.IsoToScreen(testPos.GetComponent<IsoObject>().position));
+
+
 
 		nodeDiameter = nodeRadius*2;
 		gridSizeX = Mathf.RoundToInt(gridWorldSize.x/nodeDiameter);
@@ -39,7 +50,7 @@ namespace Caapora.Pathfinding {
          grid = new Node[gridSizeX,gridSizeY];
 
             // Pega a posição Base
-            Vector3 worldBottomLeft = iso_object.GetComponent<IsoObject>().position; //- Vector3.right * gridWorldSize.x/2 - Vector3.forward * gridWorldSize.y/2;
+            Vector3 worldBottomLeft = iso_object.GetComponent<IsoObject>().position;
 
      //   worldBottomLeft = Quaternion.Euler(-90, 0, 0) * worldBottomLeft;
 
@@ -47,27 +58,35 @@ namespace Caapora.Pathfinding {
 		for (int x = 0; x < gridSizeX; x ++) {
 			for (int y = 0; y < gridSizeY; y ++) {
 
+                    // Gera a grade baseado nas posições isometricas de 0,0 à n,n
+                    Vector3 worldPoint = worldBottomLeft + new Vector3(x, y, 0);
 
-                    // Calcula as posições na grade
-                    Vector3 worldPoint = worldBottomLeft + Vector3.right * (x * nodeDiameter + nodeRadius) + Vector3.up * (y * nodeDiameter + nodeRadius);
 
-                    
                     // Converte posição para isometrico
-                    worldPoint = iso_object.isoWorld.IsoToScreen(worldPoint);
+                    var newWorldPoint = iso_object.isoWorld.IsoToScreen(worldPoint);
 
-                    
+
                     // Caso haja um colisão com algum elemento do tipo unwalkableMask passado como parametro seta a variavel walkable para true
-                    bool walkable = !(Physics.CheckSphere(worldPoint,nodeRadius ,unwalkableMask));
+                    bool walkable = (Physics2D.OverlapCircle(newWorldPoint, 20, unwalkableMask, 100, 100) == null); // if no collider2D is returned by overlap circle, then this node is walkable
 
-                   // if (walkable)
-                   // {
-                   //     var floor = Instantiate(Resources.Load("Prefabs/chamas")) as GameObject;
-                   //     floor.transform.position = worldPoint;
-                   // }
-
+               
+                            var debugObject = new GameObject("Grid " + newWorldPoint.x + "x" + newWorldPoint.y);
+                              debugObject.transform.position = new Vector3(newWorldPoint.x, newWorldPoint.y, 0f);
                     
-                    // popula a grade com o nó
-                    grid[x,y] = new Node(walkable, worldPoint , x,y);
+
+
+                    if (!walkable)
+                        Debug.Log("encontrou um obstaculo");
+
+                            // if (walkable)
+                            // {
+                            //     var floor = Instantiate(Resources.Load("Prefabs/chamas")) as GameObject;
+                            //     floor.transform.position = worldPoint;
+                            // }
+
+
+                            // popula a grade com o nó
+                            grid[x,y] = new Node(walkable, newWorldPoint, x,y);
 			}
 		}
 	}
@@ -101,9 +120,7 @@ namespace Caapora.Pathfinding {
     // Retorna: posição do objeto na grade
 	public Node NodeFromWorldPoint(Vector3 worldPosition) {
 
-        // solução temporária pois o valor do tamanho da grade está como um número pequeno pois está no formato isometrico
-       // gridWorldSize = new Vector3(300, 300, 1);
-    
+           
         // Distancia entr
         float percentX = (worldPosition.x + gridWorldSize.x/2) / gridWorldSize.x;
 		float percentY = (worldPosition.y + gridWorldSize.y/2) / gridWorldSize.y;
@@ -128,28 +145,6 @@ namespace Caapora.Pathfinding {
 	void OnDrawGizmos() {
 
 
-            //Vector3 teste = new Vector3(gridWorldSize.x * 10, gridWorldSize.y * 10, 5);
-
-            Vector3 teste = new Vector3(gridWorldSize.x, gridWorldSize.y, 5);
-
-            //Debug.Log("iso_object " + iso_object);
-
-            //Vector3 teste2 = new Vector3(iso_object.positionX, iso_object.positionY, 5);
-
-            // right = x axis ( left -x)
-            // up = y axis ( down -y )
-            // foward = z exis ( backward -z )
-
-            // teste = Quaternion.Euler(-90,  0, 0) *  teste;
-
-            // Exibe o Contorno na tela
-            //Gizmos.DrawWireCube(gameObject.GetComponent<IsoObject>().transform.position, teste);
-
-     
-            // exibe o contorno
-            // IsoUtils.DrawCube( iso_object.isoWorld, iso_object.position + iso_object.size * 0.5f, iso_object.size, Color.green);
-
-
             Gizmos.color = Color.cyan;
 
             if (grid != null) {
@@ -163,10 +158,16 @@ namespace Caapora.Pathfinding {
 
                         }
 
-                            // Exemplo de codigo para instanciar isoObject
-                            // var floor = new GameObject();
-                            // floor.AddComponent<IsoObject>();
-                            // floor.transform.position = n.worldPosition;
+                    // Exemplo de codigo para instanciar isoObject
+                    // var floor = new GameObject();
+                    // floor.AddComponent<IsoObject>();
+                    // floor.transform.position = n.worldPosition;
+
+
+                   // Handles.color = Color.red;
+                   // Handles.DrawWireDisc(n.worldPosition // position
+                   //                               , Vector3.forward  // normal
+                   //                               , nodeDiameter * 2);
 
                     Gizmos.DrawCube(n.worldPosition, Vector3.one * (nodeDiameter - .1f));
                        // IsoUtils.DrawCube(iso_object.isoWorld, n.worldPosition, Vector3.one * (nodeDiameter-.1f), Gizmos.color);

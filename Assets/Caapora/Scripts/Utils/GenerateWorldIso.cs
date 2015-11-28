@@ -6,8 +6,6 @@ public class generator : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 	
-		float cellY;
-		float cellX;
 		int mapize = 20;
 		int tile_width = 34;
 		int tile_height = 16;

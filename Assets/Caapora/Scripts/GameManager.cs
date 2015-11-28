@@ -25,6 +25,9 @@ static class Coodenadas
 /// </summary>
 [System.Serializable]
 public class GameManager: MonoBehaviour {
+
+
+
 	private static GameManager _instance;
 	//used to store latest used door
 	public Vector3 LastUsedDoorPosition;
@@ -59,7 +62,7 @@ public class GameManager: MonoBehaviour {
         {
             if (_instance == null)
             {
-                _instance = GameObject.FindObjectOfType<GameManager>();
+                _instance = FindObjectOfType<GameManager>();
 
                 //Tell unity not to destroy this object when loading a new scene!
                 DontDestroyOnLoad(_instance.gameObject);
@@ -146,7 +149,6 @@ public class GameManager: MonoBehaviour {
         { // Caso nao esteja precionando nenhuma tecla
 
 
-            PlayerBehavior.instance.animator.SetTrigger("CaaporaIdle");
             /* Inicialmente apenas verifica se há itens*/
             if (!Inventory.isEmpty())
                 PlayerBehavior.instance.animator.SetTrigger("bucket");
@@ -446,7 +448,7 @@ public class GameManager: MonoBehaviour {
         StartCoroutine (PlayerBehavior.AnimateCaapora ("right", 30));
 		yield return new WaitForSeconds(3f);
 
-        // vira o caipora para o sul
+       
         player.GetComponent<Animator>().SetTrigger("CaaporaIdle");
 
 

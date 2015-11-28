@@ -10,17 +10,18 @@ public class NPCController : Character {
     // Armazena o componente da animação
     public IsoRigidbody iso_rigidyBody;
     public static Vector3 prevPosition;
+    public static NPCController instance;
+
     // Sinalizador para a movimentação automática com Pathfinding
     public static bool stopWalking = false;
         private string _movingTo = "down";
 
 
-    
 
 
-    // Use this for initialization
-    void Start () {
 
+        // Use this for initialization
+       public override void Start () {
         // Herda da classe base
         base.Start();
 
@@ -40,7 +41,7 @@ public class NPCController : Character {
     }
 
     // Update is called once per frame
-    void Update () {
+    public override void Update () {
             base.Update();
             
         // Movimentação pelo teclado do player através de flags
@@ -74,49 +75,71 @@ public class NPCController : Character {
 
 
 
+           
+
+            // Auxilia a decidir qual direcao tomar caso tenha que escolher entre cima ou lado
+            var PositionDiff = prevPosition - _currentPosition.position;
+
+
+            prevPosition.x = Mathf.Floor(prevPosition.x);
+            prevPosition.y = Mathf.Floor(prevPosition.y);
+            _currentPosition.positionX = Mathf.Floor(_currentPosition.positionX);
+            _currentPosition.positionY = Mathf.Floor(_currentPosition.positionY);
+
+
+
+            //Debug.Log("prevPosition = " + prevPosition);
+            //Debug.Log("_currentPosition = " + _currentPosition.position);
+
             // Animação por identificação de movimentação
             // prevPosition é enviado da classe de IA nesse caso da NPC
             if (prevPosition == Vector3.zero || stopWalking)
-
-
+            {
                 _animator.SetTrigger("Down");
 
-          
+                //Debug.LogError("parad");
+            }
+
+
+           
+
             else { 
          
-                    if (prevPosition.x > _currentPosition.positionX)
+                    if (prevPosition.x == _currentPosition.positionX + 1)
                     {
 
 
-                    _animator.SetTrigger("Left");
+                    moveLeft();
+                   // Debug.LogError("indo pra esq");
 
                     }
 
 
-                    else if (prevPosition.x < _currentPosition.positionX)
+                    else if (prevPosition.x == _currentPosition.positionX - 1)
                     {
 
-                    _animator.SetTrigger("Right");
+                    moveRight();
+                   // Debug.LogError("indo pra dir");
+
+                    }
 
 
-                        }
 
-
-
-                    else if (prevPosition.y < _currentPosition.positionY)
+                    else if (prevPosition.y == _currentPosition.positionY + 1)
                     {
 
-                    _animator.SetTrigger("Up");
+                    moveUp();
+                    // Debug.LogError("indo pra cim");
 
 
-                        }
+                }
 
 
-                    else if (prevPosition.y > _currentPosition.positionY)
+                    else if (prevPosition.y ==_currentPosition.positionY - 1 )
                     {
 
-                            _animator.SetTrigger("Down");
-
+                    moveDown();
+                    //Debug.LogError("indo pra bai");
 
                 }
 
