@@ -1,0 +1,232 @@
+fileFormatVersion: 2
+guid: 4e7b1ae83dad8354d857ce7d621e7794
+timeCreated: 1448685007
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: CaiporaRunning_0
+    21300002: CaiporaRunning_1
+    21300004: CaiporaRunning_2
+    21300006: CaiporaRunning_3
+    21300008: CaiporaRunning_4
+    21300010: CaiporaRunning_5
+    21300012: CaiporaRunning_6
+    21300014: CaiporaRunning_7
+    21300016: CaiporaRunning_8
+    21300018: CaiporaRunning_9
+    21300020: CaiporaRunning_10
+    21300022: CaiporaRunning_11
+    21300024: CaiporaRunning_12
+    21300026: CaiporaRunning_13
+    21300028: CaiporaRunning_14
+    21300030: CaiporaRunning_15
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: CaiporaRunning_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 254
+        width: 60
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CaiporaRunning_1
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 254
+        width: 60
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CaiporaRunning_2
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 254
+        width: 60
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CaiporaRunning_3
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 254
+        width: 60
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CaiporaRunning_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 171
+        width: 51
+        height: 83
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CaiporaRunning_5
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 172
+        width: 70
+        height: 82
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CaiporaRunning_6
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 171
+        width: 46
+        height: 83
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CaiporaRunning_7
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 170
+        width: 68
+        height: 84
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CaiporaRunning_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 86
+        width: 45
+        height: 84
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CaiporaRunning_9
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 86
+        width: 73
+        height: 83
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CaiporaRunning_10
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 86
+        width: 60
+        height: 84
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CaiporaRunning_11
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 86
+        width: 66
+        height: 83
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CaiporaRunning_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 60
+        height: 86
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CaiporaRunning_13
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 2
+        width: 60
+        height: 84
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CaiporaRunning_14
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 59
+        height: 86
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: CaiporaRunning_15
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 2
+        width: 60
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
