@@ -88,7 +88,7 @@ namespace Caapora {
 
             base.Update();
 
-            ManaBar.fillAmount = _life / 1000;
+            //ManaBar.fillAmount = _life / 1000;
 
             if (_running)
                 run();

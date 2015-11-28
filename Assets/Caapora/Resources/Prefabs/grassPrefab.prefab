@@ -41,7 +41,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mode: 0
-  _size: {x: 1, y: 1, z: 0.2}
+  _size: {x: 1, y: 1, z: 0.1}
   _position: {x: 2, y: 2, z: 0}
   _isAlignment: 1
   _isShowBounds: 0
@@ -84,7 +84,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: _isShowBounds
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: _isKinematic
@@ -96,7 +96,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: _size.z
-      value: .200000003
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: _offset.z
@@ -126,6 +126,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_SortingOrder
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
