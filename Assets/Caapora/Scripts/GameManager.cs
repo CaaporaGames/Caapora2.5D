@@ -150,8 +150,8 @@ public class GameManager: MonoBehaviour {
 
 
             /* Inicialmente apenas verifica se há itens*/
-            if (!Inventory.isEmpty())
-                PlayerBehavior.instance.animator.SetTrigger("bucket");
+           // if (!Inventory.isEmpty())
+           //     PlayerBehavior.instance.animator.SetTrigger("bucket");
 
 
         }

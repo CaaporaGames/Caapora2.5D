@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 4e7b1ae83dad8354d857ce7d621e7794
-timeCreated: 1448685007
+timeCreated: 1448744826
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -43,7 +43,7 @@ TextureImporter:
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -1
-  maxTextureSize: 2048
+  maxTextureSize: 512
   textureSettings:
     filterMode: -1
     aniso: 16
@@ -60,7 +60,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 38
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
@@ -73,8 +73,8 @@ TextureImporter:
         y: 254
         width: 60
         height: 84
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: CaiporaRunning_1
       rect:
@@ -83,8 +83,8 @@ TextureImporter:
         y: 254
         width: 60
         height: 84
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: CaiporaRunning_2
       rect:
@@ -93,8 +93,8 @@ TextureImporter:
         y: 254
         width: 60
         height: 84
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: CaiporaRunning_3
       rect:
@@ -103,8 +103,8 @@ TextureImporter:
         y: 254
         width: 60
         height: 84
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: CaiporaRunning_4
       rect:
@@ -113,8 +113,8 @@ TextureImporter:
         y: 171
         width: 51
         height: 83
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: CaiporaRunning_5
       rect:
@@ -123,8 +123,8 @@ TextureImporter:
         y: 172
         width: 70
         height: 82
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: CaiporaRunning_6
       rect:
@@ -133,8 +133,8 @@ TextureImporter:
         y: 171
         width: 46
         height: 83
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: CaiporaRunning_7
       rect:
@@ -143,8 +143,8 @@ TextureImporter:
         y: 170
         width: 68
         height: 84
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: CaiporaRunning_8
       rect:
@@ -153,8 +153,8 @@ TextureImporter:
         y: 86
         width: 45
         height: 84
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: CaiporaRunning_9
       rect:
@@ -163,8 +163,8 @@ TextureImporter:
         y: 86
         width: 73
         height: 83
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: CaiporaRunning_10
       rect:
@@ -173,28 +173,28 @@ TextureImporter:
         y: 86
         width: 60
         height: 84
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: CaiporaRunning_11
       rect:
         serializedVersion: 2
-        x: 179
+        x: 178
         y: 86
         width: 66
         height: 83
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: CaiporaRunning_12
       rect:
         serializedVersion: 2
-        x: 0
+        x: 6
         y: 0
         width: 60
         height: 86
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: CaiporaRunning_13
       rect:
@@ -203,8 +203,8 @@ TextureImporter:
         y: 2
         width: 60
         height: 84
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: CaiporaRunning_14
       rect:
@@ -213,8 +213,8 @@ TextureImporter:
         y: 0
         width: 59
         height: 86
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: CaiporaRunning_15
       rect:
@@ -223,8 +223,8 @@ TextureImporter:
         y: 2
         width: 60
         height: 84
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: .5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

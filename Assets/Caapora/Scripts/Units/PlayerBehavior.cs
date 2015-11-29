@@ -26,6 +26,7 @@ namespace Caapora {
     private    Text StatusHP;
     private    GameObject balde;
     private bool _running = false;
+        public string animationState = "Idle";
 
 
 
@@ -63,6 +64,7 @@ namespace Caapora {
         {
       
             speed = 3f;
+            _animator.SetTrigger("Running");
 
         }
 
@@ -72,6 +74,7 @@ namespace Caapora {
         {
 
             speed = 2f;
+            _animator.SetTrigger("Walking");
         }
 
         public static bool running
@@ -96,7 +99,14 @@ namespace Caapora {
             if (_running)
                 run();
             else
-                walk();
+            {
+                if(animationState == "Idle")
+                    PlayerBehavior.instance.animator.SetTrigger("CaaporaIdle");
+                else
+                    walk();
+
+
+            }
 
             currentLevel = StatsController.GetCurrentLevel();
             currentXp = StatsController.GetCurrentXp();
@@ -161,7 +171,10 @@ namespace Caapora {
                             // Migra a animação para a do balde
                             _animator.SetTrigger("Catch");
 
-                            balde.SetActive(false);
+
+                         _animator.SetBool("WithBucket", true);
+
+                        balde.SetActive(false);
 
 
 
@@ -307,6 +320,7 @@ namespace Caapora {
 
          
             _animator.SetTrigger("Catch");
+
 
             // Incrementa a porcentagem de agua em um em um
             balde.FillBucket();

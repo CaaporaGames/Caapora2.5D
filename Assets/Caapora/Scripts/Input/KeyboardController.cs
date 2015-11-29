@@ -108,6 +108,7 @@ namespace Caapora
                 {
 
                     lookingAt = "left";
+                    PlayerBehavior.instance.animationState = "Walking";
                     PlayerBehavior.instance.moveLeft();
                     
           
@@ -116,6 +117,7 @@ namespace Caapora
                 else if (Input.GetKey(KeyCode.RightArrow) || PlayerBehavior.moveDirection == "right")
                 {
                     lookingAt = "right";
+                    PlayerBehavior.instance.animationState = "Walking";
                     PlayerBehavior.instance.moveRight();
 
 
@@ -124,6 +126,7 @@ namespace Caapora
                 {
 
                     lookingAt = "down";
+                    PlayerBehavior.instance.animationState = "Walking";
                     PlayerBehavior.instance.moveDown();
 
 
@@ -131,6 +134,7 @@ namespace Caapora
                 else if (Input.GetKey(KeyCode.UpArrow) || PlayerBehavior.moveDirection == "up")
                 {
                     lookingAt = "up";
+                    PlayerBehavior.instance.animationState = "Walking";
                     PlayerBehavior.instance.moveUp();
 
 
@@ -143,7 +147,8 @@ namespace Caapora
                 else
                 {
 
-                    PlayerBehavior.instance.animator.SetTrigger("CaaporaIdle");
+                    PlayerBehavior.instance.animationState = "Idle";
+                    
                 }
 
                 if (Input.GetKeyDown(KeyCode.Z) || _ZKey)

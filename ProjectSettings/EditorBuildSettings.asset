@@ -19,15 +19,15 @@ EditorBuildSettings:
     path: Assets/Caapora/Scenes/CenariosProjeto.unity
   - enabled: 0
     path: Assets/Caapora/Scenes/Map3.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Caapora/Scenes/MiniMap1.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Caapora/Scenes/Map10.unity
   - enabled: 0
     path: Assets/Caapora/Scenes/Map11.unity
   - enabled: 0
     path: Assets/Caapora/Scenes/Map12.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Caapora/Scenes/Map2.unity
   - enabled: 0
     path: Assets/Caapora/Scenes/Map3.unity
