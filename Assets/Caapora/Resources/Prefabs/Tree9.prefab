@@ -26,7 +26,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 105956}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -639.999878, y: -592, z: 4.599998}
+  m_LocalPosition: {x: 158.999939, y: -157.999969, z: -2.09998894}
   m_LocalScale: {x: 1.38550878, y: 1.4154135, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -73,9 +73,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mode: 0
   _size: {x: 1, y: 1, z: 1}
-  _position: {x: -57, y: -17, z: 0}
+  _position: {x: 17, y: -25, z: 0}
   _isAlignment: 1
-  _isShowBounds: 1
+  _isShowBounds: 0
 --- !u!212 &21282136
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -74,7 +74,13 @@ public class Pathfinding : MonoBehaviour {
             }
         }
     }
+    
 
+    /// <summary>
+    /// Gera a lista com os nós do caminho a ser percorrido
+    /// </summary>
+    /// <param name="startNode"></param>
+    /// <param name="endNode"></param>
     protected void RetracePath(Node startNode, Node endNode)
     {
         List<Node> path = new List<Node>();

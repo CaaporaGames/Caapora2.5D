@@ -278,6 +278,7 @@ MonoBehaviour:
   stepTicks: .5
   stepRndTicks: .5
   npc_start: 1
+  time: 7
 --- !u!114 &11474740
 MonoBehaviour:
   m_ObjectHideFlags: 1

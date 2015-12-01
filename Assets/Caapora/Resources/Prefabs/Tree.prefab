@@ -48,6 +48,7 @@ GameObject:
   - 114: {fileID: 11469506}
   - 114: {fileID: 11430540}
   - 114: {fileID: 11494708}
+  - 58: {fileID: 5809472}
   m_Layer: 12
   m_Name: Tree
   m_TagString: Untagged
@@ -95,12 +96,25 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 138782}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -337, y: -85.9999924, z: -4.59999847}
+  m_LocalPosition: {x: -417.000061, y: 241.999969, z: -8.30000305}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 22402136}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!58 &5809472
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 138782}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 36.5}
+  serializedVersion: 2
+  m_Radius: 36.5
 --- !u!114 &11422872
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -243,7 +257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mode: 0
   _size: {x: 1.5, y: 1.5, z: 3}
-  _position: {x: 6, y: -5, z: 0}
+  _position: {x: 24, y: 18, z: 0}
   _isAlignment: 1
   _isShowBounds: 0
 --- !u!114 &11491992

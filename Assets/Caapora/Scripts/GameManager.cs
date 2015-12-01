@@ -296,6 +296,7 @@ public class GameManager: MonoBehaviour {
         go.SetActive(true);
         yield return new WaitForSeconds(seconds);
         go.SetActive(false);
+        yield return new WaitForSeconds(seconds);
     }
 
 

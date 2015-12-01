@@ -6,7 +6,7 @@ public class AdviceSimple : MonoBehaviour {
 
     // necessario para acessar metodos desta classe fora dela
     public static AdviceSimple instance;
-    private static bool showing = false;
+    public static bool enable = false;
     private Text adviceText;
 
     // Use this for initialization
@@ -31,13 +31,13 @@ public class AdviceSimple : MonoBehaviour {
     /// </summary>
     /// <param name="text"></param>
     public static void showAdvice(string message = "")
-    {
+    { 
 
-            instance.gameObject.SetActive(true);
-
-            // perecisa do caminho completo nao sei porque
+ 
             instance.adviceText.text = message;
+            enable = true;
             GameManager.ShowObjectAPeriodOfTime(instance.gameObject, 5);
+            
 
         
 

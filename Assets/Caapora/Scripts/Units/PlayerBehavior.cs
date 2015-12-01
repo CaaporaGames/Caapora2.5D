@@ -26,7 +26,7 @@ namespace Caapora {
     private    Text StatusHP;
     private    GameObject balde;
     private bool _running = false;
-        public string animationState = "Idle";
+    public string animationState = "Idle";
 
 
 
@@ -147,7 +147,7 @@ namespace Caapora {
                 if (!Inventory.isEmpty())
                 {
 
-                    if (Balde.instance.waterPercent <= 0.0f)
+                    if (Balde.instance.waterPercent <= 0.0f && !AdviceSimple.enable)
                          AdviceSimple.showAdvice("Ande próximo ao lago para encher o balde com água!");
                 }
 
@@ -262,6 +262,7 @@ namespace Caapora {
             iso_rigidyBody.velocity = new Vector3(-instance.speed, instance.speed , 0);
             _animator.SetTrigger("Caapora-left");
 
+
         }
         // Sudeste  
         public void moveRight()
@@ -270,6 +271,7 @@ namespace Caapora {
 
             iso_rigidyBody.velocity = new Vector3(instance.speed, -instance.speed, 0);
             _animator.SetTrigger("Caapora-right");
+
 
         }
 
@@ -280,7 +282,7 @@ namespace Caapora {
 
             iso_rigidyBody.velocity = new Vector3(-instance.speed, -instance.speed, 0);
             _animator.SetTrigger("Caapora-Sul");
-
+           
 
         }
 
@@ -291,6 +293,7 @@ namespace Caapora {
 
             iso_rigidyBody.velocity = new Vector3(instance.speed, instance.speed, 0);
             _animator.SetTrigger("Caapora-Norte");
+  
 
         }
 
@@ -315,6 +318,7 @@ namespace Caapora {
         {
             // Desabilita o preenchimento do balde temporariamente   
             canFillBucket = false;
+            AdviceSimple.enable = false;
 
             var balde = Inventory.getItem().GetComponent<Balde>();
 

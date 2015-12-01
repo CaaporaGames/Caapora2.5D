@@ -11,33 +11,22 @@ namespace Caapora.Pathfinding {
     public class Grid : MonoBehaviour {
 
 
-    public IsoObject iso_object; 
+    public IsoWorld world; 
 	public LayerMask unwalkableMask;
 	public Vector3 gridWorldSize;
 	public float nodeRadius;
 	Node[,] grid;
-	
-	float nodeDiameter;
+    public List<Node> path;
+
+    float nodeDiameter;
 	int gridSizeX, gridSizeY;
 	
 	void Start() {
 
-     
-        //gridWorldSize = gameObject.GetComponent<IsoObject>().size;
-        iso_object = gameObject.GetComponent<IsoObject>();
 
-            var testPos = GameObject.Find("centerRef");
+        world = GameObject.Find("Camera").GetComponent<IsoWorld>();
 
-            Debug.Log("Posicao Iso de centerRef = " + testPos.GetComponent<IsoObject>().position);
-
-
-            Debug.Log("Posicao world de centerRef = " + testPos.transform.position);
-
-
-            Debug.Log("Posicao convertida com isoToScreen = " + iso_object.isoWorld.IsoToScreen(testPos.GetComponent<IsoObject>().position));
-
-
-
+            
 		nodeDiameter = nodeRadius*2;
 		gridSizeX = Mathf.RoundToInt(gridWorldSize.x/nodeDiameter);
 		gridSizeY = Mathf.RoundToInt(gridWorldSize.y/nodeDiameter);
@@ -46,13 +35,12 @@ namespace Caapora.Pathfinding {
 
 	
 	void CreateGrid() {
-        // Cria um grade vazia com o tamanho passador por parametros 
+         // Cria um grade vazia com o tamanho passador por parametros 
          grid = new Node[gridSizeX,gridSizeY];
 
-            // Pega a posição Base
-            Vector3 worldBottomLeft = iso_object.GetComponent<IsoObject>().position;
+         // Pega a posição Base
+         Vector3 worldBottomLeft = GetComponent<IsoObject>().position;
 
-     //   worldBottomLeft = Quaternion.Euler(-90, 0, 0) * worldBottomLeft;
 
         // Popula a grade com as posições de acordo com o código
 		for (int x = 0; x < gridSizeX; x ++) {
@@ -61,32 +49,16 @@ namespace Caapora.Pathfinding {
                     // Gera a grade baseado nas posições isometricas de 0,0 à n,n
                     Vector3 worldPoint = worldBottomLeft + new Vector3(x, y, 0);
 
-
                     // Converte posição para isometrico
-                    var newWorldPoint = iso_object.isoWorld.IsoToScreen(worldPoint);
+                    var newWorldPoint = world.IsoToScreen(worldPoint);
 
 
                     // Caso haja um colisão com algum elemento do tipo unwalkableMask passado como parametro seta a variavel walkable para true
-                    bool walkable = (Physics2D.OverlapCircle(newWorldPoint, 20, unwalkableMask, 100, 100) == null); // if no collider2D is returned by overlap circle, then this node is walkable
+                    bool walkable = (Physics2D.OverlapCircle(newWorldPoint, 0.2f, unwalkableMask) == false);
 
-               
-                            var debugObject = new GameObject("Grid " + newWorldPoint.x + "x" + newWorldPoint.y);
-                              debugObject.transform.position = new Vector3(newWorldPoint.x, newWorldPoint.y, 0f);
-                    
-
-
-                    if (!walkable)
-                        Debug.Log("encontrou um obstaculo");
-
-                            // if (walkable)
-                            // {
-                            //     var floor = Instantiate(Resources.Load("Prefabs/chamas")) as GameObject;
-                            //     floor.transform.position = worldPoint;
-                            // }
-
-
-                            // popula a grade com o nó
-                            grid[x,y] = new Node(walkable, newWorldPoint, x,y);
+     
+                    // popula a grade com o nó
+                    grid[x,y] = new Node(walkable, newWorldPoint, x,y);
 			}
 		}
 	}
@@ -138,7 +110,7 @@ namespace Caapora.Pathfinding {
             return grid[x,y]; 
 	}
 	
-	public List<Node> path;
+	
 
     // Debug
     // Apenas exibe as grades
@@ -153,30 +125,19 @@ namespace Caapora.Pathfinding {
 				if (path != null)
 					if (path.Contains(n))
                         {
+                            Debug.Log("path = " + path );
                             Gizmos.color = Color.black;
-                           // Debug.Log("Dot Position = " + n.worldPosition);
-
+                          
                         }
 
-                    // Exemplo de codigo para instanciar isoObject
-                    // var floor = new GameObject();
-                    // floor.AddComponent<IsoObject>();
-                    // floor.transform.position = n.worldPosition;
-
-
-                   // Handles.color = Color.red;
-                   // Handles.DrawWireDisc(n.worldPosition // position
-                   //                               , Vector3.forward  // normal
-                   //                               , nodeDiameter * 2);
-
+             
                     Gizmos.DrawCube(n.worldPosition, Vector3.one * (nodeDiameter - .1f));
-                       // IsoUtils.DrawCube(iso_object.isoWorld, n.worldPosition, Vector3.one * (nodeDiameter-.1f), Gizmos.color);
+                       
                 }
 		}
 	}
 
-
-        
+   
 
     } // end Grid 
 }  // namesapace

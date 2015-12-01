@@ -146,7 +146,7 @@ namespace Caapora
                 }
                 else
                 {
-
+                    //Debug.Log("Executando Idle");
                     PlayerBehavior.instance.animationState = "Idle";
                     
                 }

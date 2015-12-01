@@ -10,7 +10,6 @@ public class Node {
 	
 	public bool walkable;
 	public Vector2 worldPosition;
-    public IsoObject isometric_cord;
 	public int gridX;
 	public int gridY;
 	

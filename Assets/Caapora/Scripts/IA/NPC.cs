@@ -18,6 +18,8 @@ namespace Caapora.Pathfinding {
         public float stepTicks = 0.5f;
         public float stepRndTicks = 0.5f;
         public  bool npc_start = true;
+        private IsoWorld world;
+        public int time = 7;
 
 
       
@@ -30,7 +32,7 @@ namespace Caapora.Pathfinding {
             // posicao no modo isometrico
             cachedSeekerPos = seekerIso.position;
             cachedTargetPos = _targetPos.GetComponent<IsoObject>().position;
-
+            world = GameObject.Find("Camera").GetComponent<IsoWorld>();
 
 
         }
@@ -64,16 +66,11 @@ namespace Caapora.Pathfinding {
             if (npc_start) {
 
                 
-
                 // Enquanto não move calcula o caminho
                 if (!move)
-                        {
-                            find();
+                     find();
                          
-
-                       }
-
-
+                
                 AnimatePath();
 
 
@@ -94,7 +91,7 @@ namespace Caapora.Pathfinding {
         IEnumerator enableNPCTimer()
         {
             npc_start = false;
-            yield return new WaitForSeconds(6);
+            yield return new WaitForSeconds(time);
             npc_start = true;
 
         }
@@ -124,6 +121,26 @@ namespace Caapora.Pathfinding {
             }
         }
 
+        /// <summary>
+        /// Inicia a busca pela posição alvo em formato isometrico de 0 a n
+        /// </summary>
+        void AnimatePath()
+        {
+            // Enquanto estiver animando para de checar a posição
+            move = false;
+                
+            // Posicao em formato isometrico
+            Vector3 SeekerCurrentPos = seekerIso.position;
+
+
+            if (canStart)
+            {
+                updatePosition = UpdatePosition(SeekerCurrentPos, grid.path[0], 0);
+                StartCoroutine(updatePosition);
+            }
+
+        }
+
 
 
 
@@ -132,16 +149,18 @@ namespace Caapora.Pathfinding {
    
             float t = 0.0f;
             // Vector3 correctedPathPos = new Vector3(n.GetWorldPos().x, 1, n.GetWorldPos().z);
-
             // não sei porque, mas foi necessário fazer a coversão
             // foi necessário criar uma variável apenas para essa finalizade para não sobrescrever a posição original
-            Vector3 tmpWorldPosition  = seekerIso.isoWorld.ScreenToIso(n.worldPosition);
+
+            Vector3 tmpWorldPosition  = world.ScreenToIso(n.worldPosition);
 
 
+            // recebe a posicao no formato isometrico
+            //Vector3 tmpWorldPosition = n.worldPosition;
 
             Vector3 correctedPathPos = tmpWorldPosition;
 
-            while (t < 0.5f)
+            while (t < 1f)
             {
                 t += Time.deltaTime;
 
@@ -151,12 +170,9 @@ namespace Caapora.Pathfinding {
 
                 NPCController.stopWalking = false;
 
-                // Apenas para o caipora, seta a posição anterior para movimentação automática
+                // Apenas para o caipora. seta a posição anterior para movimentação automática
                 NPCController.prevPosition = currentPos;
 
-
-
-                // Vector3.MoveTowards(currentPos, correctedPathPos, t);
 
                 yield return null;
             }
@@ -172,11 +188,19 @@ namespace Caapora.Pathfinding {
             index++;
             if (index < grid.path.Count)
             {
+              //  Debug.Log("Total de pontos = " + grid.path.Count);
+
+               // Debug.Log("Buscando ponto = " + grid.path[index].worldPosition);
                
                   updatePosition = UpdatePosition(currentPos, grid.path[index], index);
 
                   StartCoroutine(updatePosition);
-                  // grid.path.Remove(grid.path[index]);
+
+
+                //  Debug.Log("Ponto id = " + index + " removido.");
+                //   Debug.Log("Posicao do no removido =" + grid.path[index].worldPosition);
+
+                  grid.path.Remove(grid.path[index]);
 
        
             }
@@ -206,21 +230,7 @@ namespace Caapora.Pathfinding {
         }
 
 
-        void AnimatePath()
-        {
-            // Enquanto estiver animando para de checar a posição
-            move = false;
 
-            Vector3 currentPos = seekerIso.position;
-
-
-            if (canStart)
-            {
-                updatePosition = UpdatePosition(currentPos, grid.path[0], 0);
-                StartCoroutine(updatePosition);
-            }
-
-        }
 
     } // end Pathfinding 
 } // end namespace Pathfinding
