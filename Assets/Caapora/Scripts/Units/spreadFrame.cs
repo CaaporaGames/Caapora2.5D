@@ -13,7 +13,7 @@ public class SpreadFrame : MonoBehaviour {
         player = GameObject.Find("Player");
 
 
-        spreadTime = 1f;
+        spreadTime = 5f;
 
         StartCoroutine(multiplyFrameInLine());
 

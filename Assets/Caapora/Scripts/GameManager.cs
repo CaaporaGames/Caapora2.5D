@@ -150,8 +150,8 @@ public class GameManager: MonoBehaviour {
 
 
             /* Inicialmente apenas verifica se há itens*/
-           // if (!Inventory.isEmpty())
-           //     PlayerBehavior.instance.animator.SetTrigger("bucket");
+            if (!Inventory.isEmpty())
+                PlayerBehavior.instance.animator.SetTrigger("bucket");
 
 
         }
@@ -446,8 +446,8 @@ public class GameManager: MonoBehaviour {
 
         mainCamera.enabled = true;
 
-        StartCoroutine (PlayerBehavior.AnimateCaapora ("right", 30));
-		yield return new WaitForSeconds(3f);
+       // StartCoroutine (PlayerBehavior.AnimateCaapora ("right", 5));
+	   //	yield return new WaitForSeconds(3f);
 
        
         player.GetComponent<Animator>().SetTrigger("CaaporaIdle");

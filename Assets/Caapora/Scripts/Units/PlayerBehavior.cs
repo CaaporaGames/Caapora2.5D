@@ -26,7 +26,6 @@ namespace Caapora {
     private    Text StatusHP;
     private    GameObject balde;
     private bool _running = false;
-    public string animationState = "Idle";
 
 
 
@@ -64,7 +63,6 @@ namespace Caapora {
         {
       
             speed = 3f;
-            _animator.SetTrigger("Running");
 
         }
 
@@ -74,7 +72,6 @@ namespace Caapora {
         {
 
             speed = 2f;
-            _animator.SetTrigger("Walking");
         }
 
         public static bool running
@@ -99,14 +96,7 @@ namespace Caapora {
             if (_running)
                 run();
             else
-            {
-                if(animationState == "Idle")
-                    PlayerBehavior.instance.animator.SetTrigger("CaaporaIdle");
-                else
-                    walk();
-
-
-            }
+                walk();
 
             currentLevel = StatsController.GetCurrentLevel();
             currentXp = StatsController.GetCurrentXp();
@@ -147,7 +137,7 @@ namespace Caapora {
                 if (!Inventory.isEmpty())
                 {
 
-                    if (Balde.instance.waterPercent <= 0.0f && !AdviceSimple.enable)
+                    if (Balde.instance.waterPercent <= 0.0f)
                          AdviceSimple.showAdvice("Ande próximo ao lago para encher o balde com água!");
                 }
 
@@ -171,10 +161,7 @@ namespace Caapora {
                             // Migra a animação para a do balde
                             _animator.SetTrigger("Catch");
 
-
-                         _animator.SetBool("WithBucket", true);
-
-                        balde.SetActive(false);
+                            balde.SetActive(false);
 
 
 
@@ -262,7 +249,6 @@ namespace Caapora {
             iso_rigidyBody.velocity = new Vector3(-instance.speed, instance.speed , 0);
             _animator.SetTrigger("Caapora-left");
 
-
         }
         // Sudeste  
         public void moveRight()
@@ -271,7 +257,6 @@ namespace Caapora {
 
             iso_rigidyBody.velocity = new Vector3(instance.speed, -instance.speed, 0);
             _animator.SetTrigger("Caapora-right");
-
 
         }
 
@@ -282,7 +267,7 @@ namespace Caapora {
 
             iso_rigidyBody.velocity = new Vector3(-instance.speed, -instance.speed, 0);
             _animator.SetTrigger("Caapora-Sul");
-           
+
 
         }
 
@@ -293,7 +278,6 @@ namespace Caapora {
 
             iso_rigidyBody.velocity = new Vector3(instance.speed, instance.speed, 0);
             _animator.SetTrigger("Caapora-Norte");
-  
 
         }
 
@@ -318,13 +302,11 @@ namespace Caapora {
         {
             // Desabilita o preenchimento do balde temporariamente   
             canFillBucket = false;
-            AdviceSimple.enable = false;
 
             var balde = Inventory.getItem().GetComponent<Balde>();
 
          
             _animator.SetTrigger("Catch");
-
 
             // Incrementa a porcentagem de agua em um em um
             balde.FillBucket();

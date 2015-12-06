@@ -144,7 +144,7 @@ Transform:
   m_LocalScale: {x: -1.55690956, y: -1.55690932, z: -1.5569092}
   m_Children: []
   m_Father: {fileID: 903498555}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!1 &204444324
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,7 +320,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Start
+  m_Text: Novo
 --- !u!222 &268809346
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -511,9 +511,9 @@ RectTransform:
   m_Father: {fileID: 2124544732}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -21, y: 45}
-  m_SizeDelta: {x: 182, y: 390}
+  m_AnchorMax: {x: .950819612, y: .942197621}
+  m_AnchoredPosition: {x: 13.5000305, y: 9.50848484}
+  m_SizeDelta: {x: 27, y: 19.0170002}
   m_Pivot: {x: .5, y: .5}
 --- !u!1 &903498554
 GameObject:
@@ -541,10 +541,9 @@ Transform:
   m_LocalPosition: {x: -.980000019, y: 1.78999996, z: -15.1199999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1157497171}
   - {fileID: 89748696}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!114 &903498556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -621,7 +620,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Quit
+  m_Text: Sair
 --- !u!222 &979688012
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -639,8 +638,8 @@ GameObject:
   - 20: {fileID: 1157497170}
   - 92: {fileID: 1157497169}
   - 124: {fileID: 1157497168}
-  - 81: {fileID: 1157497167}
   - 82: {fileID: 1157497172}
+  - 81: {fileID: 1157497167}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -710,10 +709,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1157497166}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -1.62920685e-07}
-  m_LocalPosition: {x: 1.09000003, y: 1.27999997, z: 20.6399994}
+  m_LocalPosition: {x: .110000014, y: 3.06999993, z: 5.5199995}
   m_LocalScale: {x: .974279165, y: 1.73205125, z: .887677431}
   m_Children: []
-  m_Father: {fileID: 903498555}
+  m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!82 &1157497172
 AudioSource:
@@ -728,11 +727,11 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
-  Priority: 105
-  DopplerLevel: 0
+  Priority: 128
+  DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
@@ -968,7 +967,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1 &1398582514
 GameObject:
   m_ObjectHideFlags: 0
@@ -1134,14 +1133,14 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: b7ea145bdb8d2024e867079dfb02a68f, type: 3}
-    m_FontSize: 45
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
     m_Alignment: 1
     m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 2
   m_Text: Caapora Game
@@ -1206,7 +1205,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 16
+    m_FontSize: 15
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 10
@@ -1216,7 +1215,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Select Player
+  m_Text: Carregar
 --- !u!222 &1937176010
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1258,7 +1257,7 @@ RectTransform:
   - {fileID: 1211340332}
   - {fileID: 204444325}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -1383,7 +1382,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Options
+  m_Text: "Op\xE7\xF5es"
 --- !u!222 &2126420198
 CanvasRenderer:
   m_ObjectHideFlags: 0
