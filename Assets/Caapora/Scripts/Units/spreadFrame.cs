@@ -7,85 +7,54 @@ public class SpreadFrame : MonoBehaviour {
     private float spreadTime;
     private GameObject player;
 
-	// Use this for initialization
+
 	void Start () {
 
         player = GameObject.Find("Player");
 
+        spreadTime = 3f;
 
-        spreadTime = 5f;
-
-        StartCoroutine(multiplyFrameInLine());
-
+        StartCoroutine(MultiplyFrameInLine());
 
     }
 
-	
-	// Update is called once per frame
-	void Update () {
-	
+    public IEnumerator MultiplyFrameInLine()
+    {
+        IsoObject current_frame = GetComponent<IsoObject>();
 
-	}
+        for (int i = 0; i < 7; i++)
+        {
+            StartCoroutine(createNewFlame(current_frame, i, 0));
 
+            yield return new WaitForSeconds(spreadTime);
+        }
 
-    
+    }
 
-    // Romulo Lima
-    // Multiplica um elemento para seus vizinhos
-    public IEnumerator multiplyFrame()
+    public IEnumerator MultiplyFrame()
     {
 
-        
-        //pega a posicao do fogo
         IsoObject current_frame = GetComponent<IsoObject>();
 
         for (int x = -1; x <= 1; x++)
         {
             for (int y = -1; y <= 1; y++)
             {
-                // exclui a própria posição    
                 if (x == 0 && y == 0)
                     continue;
                 
-
-                StartCoroutine(createNewFlame(current_frame, y, x));
-
-               
+                 StartCoroutine(createNewFlame(current_frame, y, x));
+        
                  yield return new WaitForSeconds(spreadTime);
-
 
             }
         }
-
                
     }
 
 
-    // Romulo Lima
-    // Multiplica um elemento para seus vizinhos
-    public IEnumerator multiplyFrameInLine()
-    {
+  
 
-        //pega a posicao do fogo
-        IsoObject current_frame = GetComponent<IsoObject>();
-
-        for (int i = 0; i < 7; i ++)
-        {
-
-            StartCoroutine(createNewFlame(current_frame, i, 0));
-
-            yield return new WaitForSeconds(spreadTime);
-
-        }
-        
-        
-
-
-       
-
-
-
-    }
 
 
 

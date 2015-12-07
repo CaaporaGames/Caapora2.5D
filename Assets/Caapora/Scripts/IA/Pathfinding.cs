@@ -10,17 +10,6 @@ public class Pathfinding : MonoBehaviour {
      public Grid grid;
 
 
-        // Use this for initialization
-        void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
-
 
     protected void FindPath(Vector3 startPos, Vector3 targetPos)
     {

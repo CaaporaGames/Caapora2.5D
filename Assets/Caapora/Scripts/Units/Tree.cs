@@ -7,7 +7,7 @@ namespace Caapora
 {
 
 
-public class Tree : Character {
+public class Tree : CreatureBase {
 
 	
 	// Update is called once per frame

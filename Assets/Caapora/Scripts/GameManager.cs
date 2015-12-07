@@ -32,7 +32,7 @@ public class GameManager: MonoBehaviour {
 	//used to store latest used door
 	public Vector3 LastUsedDoorPosition;
 
-    public PlayerBehavior player;
+    public Caapora.Caapora player;
 
 	// ID da ultimo caminho passado
 	public int PathID;
@@ -96,7 +96,7 @@ public class GameManager: MonoBehaviour {
         TotalChamas = GameObject.Find("TotalChamas").GetComponent<Text>();
 
         // Recebe a instancia do player
-        player = PlayerBehavior.instance;
+        player = Caapora.Caapora.instance;
 
     }
 
@@ -145,13 +145,13 @@ public class GameManager: MonoBehaviour {
 
 
 
-        if (!KeyboardController.isPlayingAnimation)
+        if (!InputController.isPlayingAnimation)
         { // Caso nao esteja precionando nenhuma tecla
 
 
             /* Inicialmente apenas verifica se há itens*/
             if (!Inventory.isEmpty())
-                PlayerBehavior.instance.animator.SetTrigger("bucket");
+                Caapora.Caapora.instance.animator.SetTrigger("bucket");
 
 
         }

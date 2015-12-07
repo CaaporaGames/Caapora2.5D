@@ -14,11 +14,10 @@ public class NPCController : Character {
 
     // Sinalizador para a movimentação automática com Pathfinding
     public static bool stopWalking = false;
-        private string _movingTo = "down";
+    private string _movingTo = "down";
 
 
-
-
+       
 
         // Use this for initialization
        public override void Start () {
@@ -59,26 +58,13 @@ public class NPCController : Character {
 
     }
 
-
-
-    /// *************************************************************************
-    /// Author: Rômulo Lima
-    /// <summary> 
-    /// Controle de movimentação baseada no clique do destino no mapa, detecta a direção de destino e ativa a animação correspondente
-    /// </summary>
     void PathFindingController()
     {
 
-        // Movimentação por clique na posição desejada
+
         var velocidade = gameObject.GetComponent<IsoRigidbody>().velocity;
         var _currentPosition = GetComponent<IsoObject>();
-
-
-
-           
-
-            // Auxilia a decidir qual direcao tomar caso tenha que escolher entre cima ou lado
-            var PositionDiff = prevPosition - _currentPosition.position;
+        var PositionDiff = prevPosition - _currentPosition.position;
 
 
             prevPosition.x = Mathf.Floor(prevPosition.x);
@@ -87,22 +73,10 @@ public class NPCController : Character {
             _currentPosition.positionY = Mathf.Floor(_currentPosition.positionY);
 
 
-
-            //Debug.Log("prevPosition = " + prevPosition);
-            //Debug.Log("_currentPosition = " + _currentPosition.position);
-
-            // Animação por identificação de movimentação
-            // prevPosition é enviado da classe de IA nesse caso da NPC
             if (prevPosition == Vector3.zero || stopWalking)
             {
                 _animator.SetTrigger("Down");
-
-                //Debug.LogError("parad");
             }
-
-
-           
-
             else { 
          
                     if (prevPosition.x == _currentPosition.positionX + 1)
@@ -110,7 +84,6 @@ public class NPCController : Character {
 
 
                     moveLeft();
-                   // Debug.LogError("indo pra esq");
 
                     }
 
@@ -119,7 +92,7 @@ public class NPCController : Character {
                     {
 
                     moveRight();
-                   // Debug.LogError("indo pra dir");
+        
 
                     }
 
@@ -129,7 +102,7 @@ public class NPCController : Character {
                     {
 
                     moveUp();
-                    // Debug.LogError("indo pra cim");
+           
 
 
                 }
@@ -139,7 +112,7 @@ public class NPCController : Character {
                     {
 
                     moveDown();
-                    //Debug.LogError("indo pra bai");
+             
 
                 }
 
@@ -188,9 +161,7 @@ public class NPCController : Character {
             }
         }
 
-   
 
-// Métodos com movimentação
 public void moveLeft()
 {
 

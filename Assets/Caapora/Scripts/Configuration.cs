@@ -49,13 +49,7 @@ public class Configuration : MonoBehaviour {
 
         }
 	
-	// Update is called once per frame
-	void Update () {
 	
-	}
-
-
-
 
 
 
@@ -68,13 +62,12 @@ public class Configuration : MonoBehaviour {
 
 
             entry.eventID = EventTriggerType.PointerDown;
-            entry.callback.AddListener((eventData) => { PlayerBehavior.moveDirection = direction; });
+            entry.callback.AddListener((eventData) => { Caapora.moveDirection = direction; });
             trigger.triggers.Add(entry);
 
 
             ResetArrowOnPointerUp(button);
-
-
+            
         }
 
 
@@ -99,20 +92,11 @@ public class Configuration : MonoBehaviour {
                         GameManager.instance.hideConversationPanel();
                         break;
                    
-
                 }
-
-               
-
-
-
 
             });
 
-
-
             trigger.triggers.Add(entry);
-
 
         }
 
@@ -134,16 +118,16 @@ public class Configuration : MonoBehaviour {
                 switch (action)
                 {
                     case "Catch":
-                        KeyboardController.instance.AClick = true;
+                        InputController.instance.AClick = true;
                         break;
                     case "Launch":
-                        KeyboardController.instance.BClick = true;
+                        InputController.instance.BClick = true;
                         break;
                     case "Zoom":
-                        KeyboardController.instance.ZClick = true;
+                        InputController.instance.ZClick = true;
                         break;
                     case "Run":
-                        KeyboardController.instance.JClick = true;
+                        InputController.instance.JClick = true;
                         break;
 
                 }
@@ -172,12 +156,12 @@ public class Configuration : MonoBehaviour {
             entry.callback.AddListener((eventData) =>
             {
 
-                PlayerBehavior.moveDirection = "";
-                KeyboardController.instance.BClick = false;
-                KeyboardController.instance.AClick = false;
-                KeyboardController.instance.ZClick = false;
-                KeyboardController.instance.JClick = false;
-                PlayerBehavior.running = false;
+                Caapora.moveDirection = "";
+                InputController.instance.BClick = false;
+                InputController.instance.AClick = false;
+                InputController.instance.ZClick = false;
+                InputController.instance.JClick = false;
+                Caapora.running = false;
                 GameManager.instance.zoomState = 1;
 
             }
@@ -200,21 +184,17 @@ public class Configuration : MonoBehaviour {
             entry.callback.AddListener((eventData) =>
             {
 
-               PlayerBehavior.moveDirection = "";
+               Caapora.moveDirection = "";
 
 
             }
 
                 );
             trigger.triggers.Add(entry);
-
-
-
+            
         }
 
-
-
-
+        
     }
 
 

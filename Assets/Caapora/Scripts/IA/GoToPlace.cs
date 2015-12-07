@@ -137,9 +137,9 @@ namespace Caapora.Pathfinding {
                 seekerIso.position = Vector3.Lerp(currentPos, correctedPathPos, t);
 
 
-                PlayerBehavior.stopWalking = false;
+                Caapora.stopWalking = false;
                 // Apenas para o caipora, seta a posiçăo anterior para movimentaçăo automática
-                PlayerBehavior.prevPosition = currentPos;
+                Caapora.prevPosition = currentPos;
                 // Vector3.MoveTowards(currentPos, correctedPathPos, t);
 
                 yield return null;
@@ -168,7 +168,7 @@ namespace Caapora.Pathfinding {
             else
             {
 
-                PlayerBehavior.stopWalking = true;
+                Caapora.stopWalking = true;
               
                 canStart = false;
                 StopCoroutine(updatePosition);

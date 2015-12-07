@@ -5,14 +5,11 @@ using UnityEngine.UI;
 
 namespace Caapora
 {
-   public class Character : CharacterBase
+   public class Character : CreatureBase
     {
 
-        protected float _life = 1000;
-        public float speed = 5f;
+        
         protected static bool _canLauchWater;
-        protected Animator _animator;
-        private float collisionTime = 0;
         private Scrollbar lifeBar;
 
 
@@ -42,82 +39,17 @@ namespace Caapora
         public virtual void Update()
         {
 
-          
 
-
-            collisionTime += Time.deltaTime;
-
-            if (_life > 1000)
-                    _life = 1000;
-
+            base.Update();
 
             UpdateBar();
-            Destroy();
+            
 
         }
 
 
    
-        /// *************************************************************************
-        /// Author: 
-        /// <summary> 
-        /// Sobrecarregou o método padrão do Unity OnCollisionEnter
-        /// </summary>
-        /// <param name="iso_collision">A referencia do objeto colidido</param>
-        public virtual void OnIsoCollisionStay(IsoCollision iso_collision)
-        {
-            
-           
-     
-               
-                collisionTime = 0;
-
-                if (iso_collision.gameObject.name == "Altar")
-                {
-
-
-                _life = _life + 10;
-
-
-                }
-
-
-                if (iso_collision.gameObject.name == "chamas" || iso_collision.gameObject.name == "chamasSemSpread")
-                {
-
-                    // Reduz o life do caipora de acordo com o demage do objeto
-                    _life = _life - iso_collision.gameObject.GetComponent<Fire>().GetDamage();
-
-                    StartCoroutine(CharacterHit());
-
-                }
-            
-
-
-
-        }
-
-
-        /// *************************************************************************
-        /// Author: Rômulo Lima
-        /// <summary> 
-        /// Possui Todas as condição para dar GameOver 
-        /// </summary>
-        void Destroy()
-        {
-
-            if (gameObject.GetComponent<IsoObject>().positionZ < -15 || _life <= 0)
-            {
-
-                Destroy(gameObject);
-             
-
-            }
-
-        }
-
-
-
+        
 
         public void ThrowWater()
         {
@@ -129,7 +61,7 @@ namespace Caapora
 
                 
 
-                switch (KeyboardController.instance.lookingAt)
+                switch (InputController.instance.lookingAt)
                 {
 
                         
@@ -209,39 +141,7 @@ namespace Caapora
 
         }
 
-        /// *************************************************************************
-        /// Author: Rômulo Lima
-        /// <summary> 
-        /// Animação que deixa o sprite vermelho por um periodo de tempo
-        /// </summary>o
-        public IEnumerator CharacterHit()
-        {
-
-            float t = 0.0f;
-
-            // Forma gradativa de fazer transição
-            while (t < 1f)
-            {
-                t += Time.deltaTime;
-
-                GetComponent<SpriteRenderer>().color = Color.Lerp(Color.red, Color.white, t);
-                yield return null;
-
-
-            }
-
-
-        }
-
-
-        public Animator animator
-        {
-
-            get
-            {
-                return _animator;
-            }
-        }
+        
 
 
  
