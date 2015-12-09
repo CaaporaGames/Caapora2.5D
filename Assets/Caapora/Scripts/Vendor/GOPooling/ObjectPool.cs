@@ -74,7 +74,7 @@ public class ObjectPool : MonoBehaviour
             Pool[i] = new List<GameObject>();
 
             //fill it
-            /*for (int n = 0; n < objectPrefab.Count; n++)
+            for (int n = 0; n < objectPrefab.Count; n++)
             {
                
                 var newObj = Instantiate(objectPrefab.Prefab) as GameObject;
@@ -82,7 +82,7 @@ public class ObjectPool : MonoBehaviour
                 newObj.name = objectPrefab.Prefab.name;
 
                 PoolObject(newObj);
-            } */
+            } 
         }
     }
 

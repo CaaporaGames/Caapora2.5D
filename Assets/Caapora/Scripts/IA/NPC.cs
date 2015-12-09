@@ -29,7 +29,6 @@ namespace Caapora.Pathfinding {
 
 
             seekerIso = GetComponent<IsoObject>();
-            // posicao no modo isometrico
             cachedSeekerPos = seekerIso.position;
             cachedTargetPos = _targetPos.GetComponent<IsoObject>().position;
             world = GameObject.Find("Camera").GetComponent<IsoWorld>();
@@ -59,30 +58,18 @@ namespace Caapora.Pathfinding {
 
        void Update()
        {
-
-
-    
-
             if (npc_start) {
 
-                
-                // Enquanto não move calcula o caminho
                 if (!move)
                      find();
-                         
-                
+               
                 AnimatePath();
-
 
            }
 
-
-
             if (npc_start == true)
             {
-
                 StartCoroutine(enableNPCTimer());
-
             }
 
         }

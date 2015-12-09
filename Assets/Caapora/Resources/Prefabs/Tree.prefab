@@ -96,7 +96,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 138782}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -417.000061, y: 241.999969, z: -8.30000305}
+  m_LocalPosition: {x: -417.00006, y: 241.99997, z: -8.300003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 22402136}
@@ -109,6 +109,7 @@ CircleCollider2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 138782}
   m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
@@ -135,11 +136,11 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: .960784316, g: .960784316, b: .960784316, a: 1}
-    m_PressedColor: {r: .784313738, g: .784313738, b: .784313738, a: 1}
-    m_DisabledColor: {r: .784313738, g: .784313738, b: .784313738, a: .501960814}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
-    m_FadeDuration: .100000001
+    m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -175,7 +176,7 @@ MonoBehaviour:
   _material: {fileID: 0}
   _isTrigger: 0
   _size: {x: 1.5, y: 1.5, z: 3}
-  _offset: {x: .75, y: .75, z: 1.5}
+  _offset: {x: 0.75, y: 0.75, z: 1.5}
 --- !u!114 &11436206
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -229,7 +230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .0529844351, g: .720588207, b: .195713475, a: 1}
+  m_Color: {r: 0.052984435, g: 0.7205882, b: 0.19571348, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -339,13 +340,15 @@ SpriteRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300030, guid: 9ba8fa4c24aecfd49a103ed0ad1bbab3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
 --- !u!222 &22218522
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -375,6 +378,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingLayerID: 548467643
   m_SortingOrder: 2
+  m_TargetDisplay: 0
 --- !u!224 &22402136
 RectTransform:
   m_ObjectHideFlags: 1
@@ -382,17 +386,17 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 142250}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 30.3000126}
-  m_LocalScale: {x: .32407406, y: .32407406, z: .32407406}
+  m_LocalPosition: {x: 0, y: 0, z: 30.300013}
+  m_LocalScale: {x: 0.32407406, y: 0.32407406, z: 0.32407406}
   m_Children:
   - {fileID: 22427892}
   m_Father: {fileID: 440862}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 53.4000015, y: 99.0999985}
+  m_AnchoredPosition: {x: 53.4, y: 99.1}
   m_SizeDelta: {x: 1104, y: 432}
-  m_Pivot: {x: .5, y: .5}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22427892
 RectTransform:
   m_ObjectHideFlags: 1
@@ -400,17 +404,17 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 135998}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -103.799873}
-  m_LocalScale: {x: .413869649, y: .41386956, z: .41386956}
+  m_LocalPosition: {x: 0, y: 0, z: -103.79987}
+  m_LocalScale: {x: 0.41386965, y: 0.41386956, z: 0.41386956}
   m_Children:
   - {fileID: 22434112}
   m_Father: {fileID: 22402136}
   m_RootOrder: 0
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -145.100006, y: -143.199997}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -145.1, y: -143.2}
   m_SizeDelta: {x: 160, y: 20}
-  m_Pivot: {x: .5, y: .5}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22434112
 RectTransform:
   m_ObjectHideFlags: 1
@@ -428,7 +432,7 @@ RectTransform:
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: -20}
-  m_Pivot: {x: .5, y: .5}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22478878
 RectTransform:
   m_ObjectHideFlags: 1
@@ -445,7 +449,7 @@ RectTransform:
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
-  m_Pivot: {x: .5, y: .5}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -13,9 +13,6 @@ namespace Caapora
         private Scrollbar lifeBar;
 
 
-
-
-
         public virtual void Start()
         {
 
@@ -23,32 +20,17 @@ namespace Caapora
         
         }
 
-        void UpdateBar()
-        {
 
-
-            GetComponentInChildren<Scrollbar>().size = _life / 1000;
-
-        
-            
-        }
 
     
-
-
-        public virtual void Update()
+        public override void Update()
         {
-
 
             base.Update();
 
-            UpdateBar();
-            
-
+         
         }
 
-
-   
         
 
         public void ThrowWater()
@@ -87,28 +69,17 @@ namespace Caapora
 
         }
 
-        /// <summary>
-        /// Anima o lançamento de um objeto
-        /// </summary>
-        /// <param name="distance">a distancia a ser percorrida pelo objeto</param>
-        /// <param name="direction"> a direcao a ser enviado o objeto</param>
-        /// <returns></returns>
+
         public IEnumerator launchOject(string direction, float distance)
         {
 
-
-            // Carrega o prefab da água
             var objeto = Instantiate(Resources.Load("Prefabs/splashWaterPrefab")) as GameObject;
 
-            // a posicao inicial do objeto
+
             var playerCurPosition = GetComponent<IsoObject>().position;
 
             var balde = Inventory.getItem().GetComponent<Balde>();
 
-
-
-            //  for (int i =0; i < distance; )
-            //  {
 
             if (direction == "east")
             {
@@ -136,23 +107,14 @@ namespace Caapora
 
 
             yield return new WaitForSeconds(0.1f);
-            //    }
 
 
         }
 
         
-
-
- 
-
-        /// <summary>
-        /// Condição para poder jogar água
-        /// </summary>
-        /// <returns></returns>
         private bool canLauchWater()
         {
-            // Se houver algum item no invetory e esse item tiver agua
+
             return !Inventory.isEmpty() && Inventory.getItem().GetComponent<Balde>().waterPercent > 0;
         }
 

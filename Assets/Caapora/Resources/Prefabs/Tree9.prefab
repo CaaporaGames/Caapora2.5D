@@ -26,8 +26,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 105956}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 190.999939, y: -77.9999847, z: 6.50004387}
-  m_LocalScale: {x: 1.38550878, y: 1.4154135, z: 1}
+  m_LocalPosition: {x: 190.99994, y: -77.999985, z: 6.500044}
+  m_LocalScale: {x: 1.3855088, y: 1.4154135, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -59,7 +59,7 @@ MonoBehaviour:
   _material: {fileID: 0}
   _isTrigger: 0
   _size: {x: 1, y: 1, z: 1}
-  _offset: {x: .5, y: .5, z: .5}
+  _offset: {x: 0.5, y: 0.5, z: 0.5}
 --- !u!114 &11445440
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -97,13 +97,15 @@ SpriteRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300116, guid: 9ba8fa4c24aecfd49a103ed0ad1bbab3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

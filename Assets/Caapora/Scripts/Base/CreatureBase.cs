@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using IsoTools;
 using System.Collections;
-
+using UnityEngine.UI;
 
 [System.Serializable]
 public class BasicStates{
@@ -36,12 +36,11 @@ namespace Caapora
         /// </summary>
         public void Die()
         {
-
+  
             if (gameObject.GetComponent<IsoObject>().positionZ < -15 || _life <= 0)
             {
 
                 Destroy(gameObject);
-
 
             }
 
@@ -51,12 +50,20 @@ namespace Caapora
         {
             collisionTime += Time.deltaTime;
 
+            UpdateBar();
+
             if (_life > 1000)
                 _life = 1000;
 
             Die();
         }
 
+        void UpdateBar()
+        {
+
+            GetComponentInChildren<Scrollbar>().size = _life / 1000;
+
+        }
 
         public virtual void OnIsoCollisionStay(IsoCollision iso_collision)
         {
@@ -66,26 +73,22 @@ namespace Caapora
 
             if (iso_collision.gameObject.name == "Altar")
             {
-
-
+                
                 _life = _life + 10;
-
-
+                
             }
 
 
             if (iso_collision.gameObject.name == "chamas" || iso_collision.gameObject.name == "chamasSemSpread")
             {
 
-               
                 _life = _life - iso_collision.gameObject.GetComponent<Fire>().GetDamage();
 
                 StartCoroutine(CharacterHit());
 
             }
 
-
-
+            
 
         }
 
@@ -102,7 +105,6 @@ namespace Caapora
 
                 GetComponent<SpriteRenderer>().color = Color.Lerp(Color.red, Color.white, t);
                 yield return null;
-
 
             }
 
