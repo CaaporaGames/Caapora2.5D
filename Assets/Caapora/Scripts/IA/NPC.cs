@@ -15,6 +15,7 @@ namespace Caapora.Pathfinding {
         public IEnumerator animatePath;
         private IsoObject seekerIso;
         public GameObject _targetPos;
+        private NPCBase NPCCharacter;
         public float stepTicks = 0.5f;
         public float stepRndTicks = 0.5f;
         public  bool npc_start = true;
@@ -27,7 +28,7 @@ namespace Caapora.Pathfinding {
         void Start()
         {
 
-
+            NPCCharacter = GetComponent<NPCBase>();
             seekerIso = GetComponent<IsoObject>();
             cachedSeekerPos = seekerIso.position;
             cachedTargetPos = _targetPos.GetComponent<IsoObject>().position;
@@ -108,9 +109,6 @@ namespace Caapora.Pathfinding {
             }
         }
 
-        /// <summary>
-        /// Inicia a busca pela posição alvo em formato isometrico de 0 a n
-        /// </summary>
         void AnimatePath()
         {
             // Enquanto estiver animando para de checar a posição
@@ -141,25 +139,17 @@ namespace Caapora.Pathfinding {
 
             Vector3 tmpWorldPosition  = world.ScreenToIso(n.worldPosition);
 
-
-            // recebe a posicao no formato isometrico
-            //Vector3 tmpWorldPosition = n.worldPosition;
-
             Vector3 correctedPathPos = tmpWorldPosition;
 
             while (t < 1f)
             {
                 t += Time.deltaTime;
-
-            
+          
                 seekerIso.position =   Vector3.Lerp(currentPos, correctedPathPos, t);
 
+                NPCCharacter.stopWalking = false;
 
-                NPCController.stopWalking = false;
-
-                // Apenas para o caipora. seta a posição anterior para movimentação automática
-                NPCController.prevPosition = currentPos;
-
+                NPCCharacter.prevPosition = currentPos;
 
                 yield return null;
             }
@@ -171,21 +161,13 @@ namespace Caapora.Pathfinding {
             currentPos = correctedPathPos;
         
 
-            // Para cada ponto do caminho executa novamente este método
             index++;
             if (index < grid.path.Count)
             {
-              //  Debug.Log("Total de pontos = " + grid.path.Count);
-
-               // Debug.Log("Buscando ponto = " + grid.path[index].worldPosition);
                
                   updatePosition = UpdatePosition(currentPos, grid.path[index], index);
 
                   StartCoroutine(updatePosition);
-
-
-                //  Debug.Log("Ponto id = " + index + " removido.");
-                //   Debug.Log("Posicao do no removido =" + grid.path[index].worldPosition);
 
                   grid.path.Remove(grid.path[index]);
 

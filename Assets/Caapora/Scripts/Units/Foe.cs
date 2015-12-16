@@ -1,9 +1,9 @@
 using UnityEngine;
 using System.Collections;
 using IsoTools;
+using Caapora;
 
-
-public class Foe : MonoBehaviour {
+public class Foe : NPCBase {
 	
 	public float speed = 0.2f;
 	public Animator animator;

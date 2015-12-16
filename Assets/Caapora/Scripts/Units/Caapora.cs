@@ -6,16 +6,11 @@ using UnityEngine.UI;
 
 namespace Caapora {
     [System.Serializable]
-    public class Caapora : Character {
+    public class Caapora : CharacterBase {
 
 	
-    // Armazena o componente da animação
 	public GameObject go;
 	public IsoObject caapora;
-	public IsoRigidbody iso_rigidyBody;
-    public static Vector3 prevPosition;
-    // Sinalizador para a movimentação automática com Pathfinding
-    public static bool stopWalking = false;
 	public static bool isPlayingAnimation = false;
 	public static Caapora instance;
     public string _moveDirection = "";
@@ -29,34 +24,36 @@ namespace Caapora {
 
 
 
-
         // Rômulo Lima  
         // Use this for initialization
         public override void Start()
         {
-
             // Herda da classe base
             base.Start();
 
             StatusHP = GameObject.Find("Status/hp").GetComponent<Text>();
-            balde = GameObject.Find("baldeVazioPrefab"); 
+            balde = GameObject.Find("baldeVazioPrefab");
+            
+            ManaBar = GameObject.Find("Player/healthBar/ManaBar").GetComponent<Image>();
+
 
             instance = this;
 
-            iso_rigidyBody = gameObject.GetComponent<IsoRigidbody>();
+            iso_rigidyBody = GetComponent<IsoRigidbody>();
+
+            iso_object = GetComponent<IsoObject>();
+
             _animator = GetComponent<Animator>();
 
 
         }
 
 
-        // Rômulo Lima
+
         void Awake(){
 		    
-            // Acessar recursos de metodos estaticos
 			instance = this;
-		
-	}
+		}
 
 
         public void run()
@@ -89,9 +86,9 @@ namespace Caapora {
 
         public override void Update() {
 
-
             base.Update();
 
+            ManaBar.fillAmount = _life / 1000;
 
             if (_running)
                 run();
@@ -101,6 +98,7 @@ namespace Caapora {
             currentLevel = StatsController.GetCurrentLevel();
             currentXp = StatsController.GetCurrentXp();
 
+            AutomaticMovement(this);
 
 
             /* create a ray going into the scene from the screen location the user clicked at
@@ -178,16 +176,7 @@ namespace Caapora {
 
 
 
-        /// *************************************************************************
-        /// Author: Rômulo Lima
-        /// <summary> 
-        /// 
-        /// Adiciona um item no painel na tela 
-        /// <param name="item">item no painel</param> 
-        /// <returns></returns>
-        /// 
-        /// </summary>
-        /// *************************************************************************
+      
         void AddItemToInventory(GameObject item)
         {
             Inventory.instance.itemList.Add(item);
@@ -197,16 +186,7 @@ namespace Caapora {
 
         }
 
-        /// *************************************************************************
-        /// Author: Rômulo Lima
-        /// <summary> 
-        /// 
-        /// Retorna true se a posição do objeto é vizinha em uma posição do objeto alvo
-        /// <param name="go">objeto alvo</param> 
-        /// <returns></returns>
-        /// 
-        /// </summary>
-        /// *************************************************************************
+        
         bool canCatch(GameObject go)
         {
 
@@ -239,10 +219,7 @@ namespace Caapora {
 
 
 
-        // Métodos com movimentação
-
-        //  Noroeste
-        public void moveLeft()
+        public override void moveLeft()
         {
 
 
@@ -250,8 +227,8 @@ namespace Caapora {
             _animator.SetTrigger("Caapora-left");
 
         }
-        // Sudeste  
-        public void moveRight()
+    
+        public override void moveRight()
         {
 
 
@@ -260,20 +237,16 @@ namespace Caapora {
 
         }
 
-
-        // Sudoeste
-        public void moveDown()
+        public override void moveDown()
         {
 
             iso_rigidyBody.velocity = new Vector3(-instance.speed, -instance.speed, 0);
             _animator.SetTrigger("Caapora-Sul");
 
-
         }
 
-        
-        //  Nordeste
-        public void moveUp()
+
+        public override void moveUp()
         {
 
             iso_rigidyBody.velocity = new Vector3(instance.speed, instance.speed, 0);

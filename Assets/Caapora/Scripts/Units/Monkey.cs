@@ -1,32 +1,39 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using IsoTools;
 
 
 namespace Caapora
 {
 
 
-    public class Monkey : Character {
+    public class Monkey : NPCBase {
 
         Text MonkeyHp;
 
-	    // Use this for initialization
+
 	    public override void Start () {
+            base.Start();
 
             MonkeyHp = GameObject.Find("Monkey/hp").GetComponent<Text>();
+
+            iso_rigidyBody = GetComponent<IsoRigidbody>();
+
+            iso_object = GetComponent<IsoObject>();
+
+            _animator = GetComponent<Animator>();
+
         }
 
 
     
 
-        // Update is called once per frame
+
         public override void Update () {
             base.Update();
 
-           
-
-            if(!GameManager.isAnimating)
+            if (!GameManager.isAnimating)
               MonkeyHp.text = _life.ToString();
 
 

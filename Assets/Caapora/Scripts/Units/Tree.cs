@@ -9,17 +9,18 @@ namespace Caapora
 
 public class Tree : CreatureBase {
 
-	
-	// Update is called once per frame
-	public override void Update () {
+        protected override IsoRigidbody iso_rigidyBody { get; set; }
+        protected override IsoObject iso_object { get; set; }
+
+        public override void Update () {
             base.Update();
 	
-	}
+	    }
 
+        public void Start(){
+            base.Start();
+        }
 
-    
-
-    
         void RecoverLife()
         {
 
@@ -28,25 +29,14 @@ public class Tree : CreatureBase {
         }
 
 
-        /// *************************************************************************
-        /// Author: 
-        /// <summary> 
-        /// Sobrecarregou o método padrão do Unity OnCollisionEnter
-        /// </summary>
-        /// <param name="iso_collision">A referencia do objeto colidido</param>
         void OnIsoCollisionEnter(IsoCollision iso_collision)
         {
-           // base.OnIsoCollisionEnter(iso_collision);
-
-            // Caso o fogo colida com o splash de agua deleta os dois
+          
             if (iso_collision.gameObject.name == "splashWaterPrefab(Clone)")
             {
 
-
                 RecoverLife();
-
             }
-
 
         }
     }

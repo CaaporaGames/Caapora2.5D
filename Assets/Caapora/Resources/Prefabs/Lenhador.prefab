@@ -235,6 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b364a3c223dc87429eaf1739f32d489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _life: 1000
   currentLevel: 0
   basicStats:
     startLife: 0
@@ -245,7 +246,11 @@ MonoBehaviour:
     baseDefence: 0
     baseAttack: 0
   speed: 5
+  _animator: {fileID: 0}
+  collisionTime: 0
+  lifeBar: {fileID: 0}
   iso_rigidyBody: {fileID: 0}
+  _movingTo: 646f776e
 --- !u!114 &11471300
 MonoBehaviour:
   m_ObjectHideFlags: 1

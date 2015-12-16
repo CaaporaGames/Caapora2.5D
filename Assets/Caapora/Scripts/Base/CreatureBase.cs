@@ -26,23 +26,20 @@ namespace Caapora
         public BasicStates basicStats;
         public float speed = 5f;
         protected Animator _animator;
+        private Image LifeBar; 
+
+        protected abstract IsoRigidbody iso_rigidyBody { get; set; }
+        protected abstract IsoObject iso_object { get; set; }
+
         private float collisionTime = 0;
 
 
-        /// *************************************************************************
-        /// Author: Rômulo Lima
-        /// <summary> 
-        /// Possui Todas as condição para dar GameOver 
-        /// </summary>
-        public void Die()
-        {
+    
   
-            if (gameObject.GetComponent<IsoObject>().positionZ < -15 || _life <= 0)
-            {
-
-                Destroy(gameObject);
-
-            }
+        protected void Start()
+        {
+            LifeBar = transform.Find("healthBar/LifeBar").GetComponent<Image>();
+        
 
         }
 
@@ -61,7 +58,19 @@ namespace Caapora
         void UpdateBar()
         {
 
-            GetComponentInChildren<Scrollbar>().size = _life / 1000;
+           LifeBar.fillAmount = _life / 1000;
+
+        }
+
+        public void Die()
+        {
+
+            if (gameObject.GetComponent<IsoObject>().positionZ < -15 || _life <= 0)
+            {
+
+                Destroy(gameObject);
+
+            }
 
         }
 
@@ -111,6 +120,7 @@ namespace Caapora
 
         }
 
+     
 
         public Animator animator
         {

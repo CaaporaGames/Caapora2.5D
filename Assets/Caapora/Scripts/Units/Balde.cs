@@ -55,7 +55,9 @@ public class Balde : MonoBehaviour {
 
         GameObject.Find("Inventory/item1/Text").GetComponent<Text>().text = waterPercent + "/100";
 
-        GameObject.Find("WaterBar").GetComponent<Scrollbar>().size = waterPercent / 100;
+        GameObject.Find("WaterNivel").GetComponent<Image>().fillAmount = waterPercent / 100;
+
+
 
     }
 }

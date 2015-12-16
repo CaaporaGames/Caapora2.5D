@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 using IsoTools;
-
+using Caapora.Pathfinding;
 
 namespace Caapora
 {
 
     public class InputController : MonoBehaviour {
 
-
+        public bool MoveToPlace = false;
         public static InputController instance;
         public Animator animator;
         public GameObject go;
@@ -43,13 +43,43 @@ namespace Caapora
             // Movimentação pelo teclado do player através de flags
             MainController();
 
-           
-            // Habilitar a movimentação por clique no local
-            // moveToPlace();
+
+            if (MoveToPlace)
+            {
+                if (Touched() || Clicked())
+                {
+
+
+
+                    var clickIsoPosition = Touched() ?
+                     mainCamera.GetComponent<IsoWorld>().TouchIsoTilePosition(0) :
+                     mainCamera.GetComponent<IsoWorld>().MouseIsoTilePosition();
+
+
+                    GetComponent<GoToPlace>().targetPos = clickIsoPosition;
+
+                    StartCoroutine(clicked());
+
+
+                }
+
+            }
 
         }
 
 
+        private bool Touched()
+        {
+            return Input.touchCount > 0;
+        }
+
+
+
+        private bool Clicked()
+        {
+
+            return Input.GetButtonDown("Fire1");
+        }
 
         
 
@@ -68,7 +98,7 @@ namespace Caapora
             // aguarda um segundo
             yield return new WaitForSeconds(1);
             // Inicia percurso 
-            // GetComponent<PathFinding.Pathfinding>().click = true;
+            GetComponent<GoToPlace>().click = true;
 
         }
 
