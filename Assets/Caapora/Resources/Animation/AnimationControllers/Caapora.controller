@@ -625,9 +625,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: .252400696
-  m_TransitionOffset: 0
-  m_ExitTime: .993790507
+  m_TransitionDuration: 0
+  m_TransitionOffset: .25256452
+  m_ExitTime: .95324111
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -2350,9 +2350,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: .100000001
-  m_TransitionOffset: 0
-  m_ExitTime: .899999976
+  m_TransitionDuration: 0
+  m_TransitionOffset: .0700285658
+  m_ExitTime: .97002846
   m_HasExitTime: 0
   m_HasFixedDuration: 0
   m_InterruptionSource: 0
@@ -2732,7 +2732,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Caapora-right
-  m_Speed: 1
+  m_Speed: .5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 110102684}
@@ -2868,7 +2868,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Caapora-Norte
-  m_Speed: 1
+  m_Speed: .5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 110187862}
@@ -3158,10 +3158,10 @@ AnimatorStateMachine:
     m_Position: {x: 0, y: -108, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110261678}
-    m_Position: {x: 564, y: -108, z: 0}
+    m_Position: {x: 636, y: -48, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110271268}
-    m_Position: {x: 300, y: 24, z: 0}
+    m_Position: {x: 420, y: 72, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110271126}
     m_Position: {x: 288, y: -144, z: 0}
@@ -3197,7 +3197,7 @@ AnimatorStateMachine:
     m_Position: {x: 0, y: 24, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110284852}
-    m_Position: {x: 564, y: -24, z: 0}
+    m_Position: {x: 576, y: -168, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110235356}
     m_Position: {x: 288, y: -336, z: 0}
@@ -3221,7 +3221,7 @@ AnimatorStateMachine:
     m_Position: {x: 996, y: 168, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110262578}
-    m_Position: {x: 696, y: 48, z: 0}
+    m_Position: {x: 816, y: 72, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110208918}
     m_Position: {x: 1632, y: -156, z: 0}
