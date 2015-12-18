@@ -29,7 +29,7 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: .25
+    heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
@@ -49,11 +49,12 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
+  allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: .5, y: .5}
+  spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 200
   alphaIsTransparency: 1
@@ -69,8 +70,16 @@ TextureImporter:
         width: 196
         height: 64
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -96, y: 32}
+        - {x: -98, y: 29}
+        - {x: -98, y: -25}
+        - {x: -96, y: -32}
+        - {x: 98, y: -32}
+        - {x: 98, y: 28}
+        - {x: 95, y: 32}
     - name: panel design_1
       rect:
         serializedVersion: 2
@@ -79,8 +88,41 @@ TextureImporter:
         width: 338
         height: 252
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 147, y: -120}
+        - {x: 150, y: -119}
+        - {x: 157, y: -112}
+        - {x: 158, y: -109}
+        - {x: 158, y: -103}
+        - {x: 157, y: -100}
+        - {x: 151, y: -94}
+        - {x: 151, y: 45}
+        - {x: 152, y: 46}
+        - {x: 152, y: 59}
+        - {x: 151, y: 60}
+        - {x: 151, y: 94}
+        - {x: 157, y: 100}
+        - {x: 157, y: 102}
+        - {x: 158, y: 103}
+        - {x: 158, y: 109}
+        - {x: 157, y: 110}
+        - {x: 157, y: 112}
+        - {x: 150, y: 119}
+        - {x: 148, y: 119}
+        - {x: 147, y: 120}
+        - {x: 139, y: 120}
+        - {x: 138, y: 123}
+        - {x: 135, y: 126}
+        - {x: -167, y: 126}
+        - {x: -169, y: 124}
+        - {x: -169, y: -124}
+        - {x: -167, y: -126}
+        - {x: 135, y: -126}
+        - {x: 138, y: -123}
+        - {x: 139, y: -119}
+        - {x: 141, y: -120}
     - name: panel design_2
       rect:
         serializedVersion: 2
@@ -89,8 +131,63 @@ TextureImporter:
         width: 339
         height: 417
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 167.5, y: -208.5}
+        - {x: 169.5, y: -206.5}
+        - {x: 169.5, y: 137.5}
+        - {x: 167.5, y: 140.5}
+        - {x: 164.5, y: 141.5}
+        - {x: 139.5, y: 141.5}
+        - {x: 147.5, y: 142.5}
+        - {x: 154.5, y: 146.5}
+        - {x: 158.5, y: 146.5}
+        - {x: 161.5, y: 147.5}
+        - {x: 164.5, y: 150.5}
+        - {x: 165.5, y: 153.5}
+        - {x: 165.5, y: 156.5}
+        - {x: 169.5, y: 163.5}
+        - {x: 169.5, y: 187.5}
+        - {x: 167.5, y: 192.5}
+        - {x: 165.5, y: 193.5}
+        - {x: 165.5, y: 198.5}
+        - {x: 164.5, y: 201.5}
+        - {x: 161.5, y: 204.5}
+        - {x: 158.5, y: 205.5}
+        - {x: 152.5, y: 205.5}
+        - {x: 147.5, y: 208.5}
+        - {x: -147.5, y: 208.5}
+        - {x: -152.5, y: 205.5}
+        - {x: -159.5, y: 205.5}
+        - {x: -162.5, y: 204.5}
+        - {x: -165.5, y: 201.5}
+        - {x: -166.5, y: 198.5}
+        - {x: -166.5, y: 192.5}
+        - {x: -169.5, y: 187.5}
+        - {x: -169.5, y: 163.5}
+        - {x: -166.5, y: 158.5}
+        - {x: -166.5, y: 153.5}
+        - {x: -165.5, y: 150.5}
+        - {x: -162.5, y: 147.5}
+        - {x: -159.5, y: 146.5}
+        - {x: -154.5, y: 146.5}
+        - {x: -147.5, y: 142.5}
+        - {x: -139.5, y: 141.5}
+        - {x: -164.5, y: 141.5}
+        - {x: -167.5, y: 140.5}
+        - {x: -169.5, y: 137.5}
+        - {x: -169.5, y: -97.5}
+        - {x: -167.5, y: -100.5}
+        - {x: -164.5, y: -101.5}
+        - {x: -167.5, y: -102.5}
+        - {x: -169.5, y: -105.5}
+        - {x: -169.5, y: -206.5}
+        - {x: -167.5, y: -208.5}
+        - {x: 20.5, y: -208.5}
+        - {x: 23.5, y: -205.5}
+        - {x: 24.5, y: -206.5}
+        - {x: 27.5, y: -208.5}
     - name: panel design_3
       rect:
         serializedVersion: 2
@@ -99,8 +196,17 @@ TextureImporter:
         width: 128
         height: 308
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -41, y: 154}
+        - {x: -64, y: 142}
+        - {x: -64, y: 37}
+        - {x: -2, y: -27}
+        - {x: 17, y: -154}
+        - {x: 64, y: -154}
+        - {x: 64, y: 143}
+        - {x: 56, y: 154}
     - name: panel design_4
       rect:
         serializedVersion: 2
@@ -109,8 +215,16 @@ TextureImporter:
         width: 156
         height: 40
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 71, y: 20}
+        - {x: -78, y: 20}
+        - {x: -78, y: -20}
+        - {x: 76, y: -20}
+        - {x: 77, y: -18}
+        - {x: 78, y: -13}
+        - {x: 78, y: 14}
     - name: panel design_5
       rect:
         serializedVersion: 2
@@ -119,8 +233,14 @@ TextureImporter:
         width: 96
         height: 96
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -37, y: 48}
+        - {x: -48, y: 46}
+        - {x: -48, y: -48}
+        - {x: 48, y: -48}
+        - {x: 48, y: 48}
     - name: panel design_6
       rect:
         serializedVersion: 2
@@ -129,8 +249,17 @@ TextureImporter:
         width: 92
         height: 92
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -44, y: 46}
+        - {x: -46, y: 44}
+        - {x: -46, y: -44}
+        - {x: -44, y: -46}
+        - {x: 44, y: -46}
+        - {x: 46, y: -44}
+        - {x: 46, y: 44}
+        - {x: 44, y: 46}
     - name: panel design_7
       rect:
         serializedVersion: 2
@@ -139,8 +268,15 @@ TextureImporter:
         width: 192
         height: 74
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -96, y: 37}
+        - {x: -96, y: -35}
+        - {x: -94, y: -37}
+        - {x: 89, y: -37}
+        - {x: 96, y: -32}
+        - {x: 96, y: 37}
     - name: panel design_8
       rect:
         serializedVersion: 2
@@ -149,8 +285,20 @@ TextureImporter:
         width: 123
         height: 258
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 61.5, y: 69}
+        - {x: 61.5, y: 122}
+        - {x: 60.5, y: 126}
+        - {x: 51.5, y: 129}
+        - {x: -61.5, y: 129}
+        - {x: -61.5, y: -128}
+        - {x: -60.5, y: -129}
+        - {x: 59.5, y: -129}
+        - {x: 61.5, y: -127}
+        - {x: 61.5, y: 60}
+        - {x: 59.5, y: 63}
     - name: panel design_9
       rect:
         serializedVersion: 2
@@ -159,8 +307,17 @@ TextureImporter:
         width: 192
         height: 105
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -86, y: 52.5}
+        - {x: -96, y: 42.5}
+        - {x: -96, y: -50.5}
+        - {x: -94, y: -52.5}
+        - {x: 94, y: -52.5}
+        - {x: 96, y: -50.5}
+        - {x: 96, y: 45.5}
+        - {x: 77, y: 52.5}
     - name: panel design_10
       rect:
         serializedVersion: 2
@@ -169,8 +326,15 @@ TextureImporter:
         width: 192
         height: 115
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -93, y: 57.5}
+        - {x: -96, y: 53.5}
+        - {x: -96, y: -57.5}
+        - {x: 96, y: -57.5}
+        - {x: 96, y: 56.5}
+        - {x: 82, y: 57.5}
     - name: panel design_11
       rect:
         serializedVersion: 2
@@ -179,8 +343,18 @@ TextureImporter:
         width: 341
         height: 71
       alignment: 7
-      pivot: {x: .5, y: 0}
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 167.5, y: 59}
+        - {x: 158.5, y: 68}
+        - {x: -170.5, y: 68}
+        - {x: -170.5, y: 11}
+        - {x: -157.5, y: 0}
+        - {x: 160.5, y: 0}
+        - {x: 170.5, y: 18}
+        - {x: 170.5, y: 49}
+    outline: []
   spritePackingTag: 
   userData: 
   assetBundleName: 

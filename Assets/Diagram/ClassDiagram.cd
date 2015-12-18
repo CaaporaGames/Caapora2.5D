@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="BasicStates">
-    <Position X="7" Y="3.75" Width="1.5" />
+    <Position X="12.75" Y="10" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAgAAAgAAAABAABBAAgAAAAAAAAAAAABA=</HashCode>
       <FileName>Assets\Caapora\Scripts\Base\CreatureBase.cs</FileName>
@@ -15,7 +15,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Caapora.StatsController">
-    <Position X="7" Y="0.75" Width="1.5" />
+    <Position X="10.5" Y="0.5" Width="1.5" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
@@ -81,7 +81,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Caapora.Pathfinding.NPC">
-    <Position X="5" Y="10" Width="1.5" />
+    <Position X="3" Y="11.75" Width="1.5" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
@@ -91,7 +91,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Caapora.NPCBase">
-    <Position X="7" Y="7.75" Width="1.5" />
+    <Position X="5.5" Y="5.75" Width="1.5" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
@@ -110,7 +110,7 @@
   <Class Name="Caapora.InputController">
     <Position X="12.75" Y="15.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>BAQCAAQAACQAACABAAEQAAEAAiJCEKAAAEGpIAAEoAA=</HashCode>
+      <HashCode>BAQCAAQAACQAACIBAAEQAAEAAiJCEKAAAEGpIAAEoAA=</HashCode>
       <FileName>Assets\Caapora\Scripts\Input\InputController.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -122,14 +122,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Fire">
-    <Position X="9" Y="3.5" Width="1.5" />
+    <Position X="10.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQBAAAAACgAAAAECAAAAAAAAAAAAAAABAIAAAAAAAA=</HashCode>
       <FileName>Assets\Caapora\Scripts\Units\Fire.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Foe">
-    <Position X="9" Y="7.75" Width="1.5" />
+    <Position X="7.75" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>BAQAACAAACAAAAAAAAAgAAAAAABAAQAAAACQAAAAAAA=</HashCode>
       <FileName>Assets\Caapora\Scripts\Units\Foe.cs</FileName>
@@ -143,14 +143,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Caapora.Monkey">
-    <Position X="5" Y="7.75" Width="1.5" />
+    <Position X="2.5" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAACAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Caapora\Scripts\Units\Monkey.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Caapora.Caapora">
-    <Position X="1" Y="0.75" Width="1.5" />
+    <Position X="0.5" Y="3.5" Width="1.5" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
@@ -167,9 +167,18 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Caapora.Tree">
-    <Position X="5" Y="3" Width="1.5" />
+    <Position X="6" Y="2.75" Width="1.5" />
+    <InheritanceLine Type="Caapora.CreatureBase" FixedToPoint="true">
+      <Path>
+        <Point X="5.75" Y="2.145" />
+        <Point X="5.873" Y="2.145" />
+        <Point X="5.873" Y="2.627" />
+        <Point X="6.75" Y="2.627" />
+        <Point X="6.75" Y="2.75" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAQCAAAAAAIAAAAAAAAAAAAAAACAAIAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQCAAAAACIAAAAAAAAAAAAAAACAAIAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Caapora\Scripts\Units\Tree.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -181,7 +190,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Water">
-    <Position X="1" Y="6.75" Width="1.5" />
+    <Position X="12.75" Y="7.75" Width="1.5" />
     <Compartments>
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
@@ -255,7 +264,10 @@
     </TypeIdentifier>
   </Class>
   <Class Name="GameManager">
-    <Position X="1" Y="8.75" Width="1.5" />
+    <Position X="1" Y="10" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>AAYmwIgAICAEAACAADAAIAQABGBAChAJYIAAYCAGBEs=</HashCode>
       <FileName>Assets\Caapora\Scripts\GameManager.cs</FileName>
@@ -367,29 +379,31 @@
       <FileName>Assets\Caapora\Scripts\Vendor\IsoTools\Scripts\IsoWorld.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Caapora.CreatureBase" Collapsed="true">
-    <Position X="5" Y="2" Width="1.5" />
+  <Class Name="Caapora.CreatureBase">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
-      <HashCode>BAQAAAAAAAIAAAAgAAEAAIAAAAAAAYABJCAAAAAJAAA=</HashCode>
+      <HashCode>BAQAABAAACIAAAAgAAEAAIAAAAAAAYABJCAAAAAJAAA=</HashCode>
       <FileName>Assets\Caapora\Scripts\Base\CreatureBase.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Caapora.CharacterBase">
-    <Position X="3" Y="2" Width="1.5" />
+    <Position X="2.5" Y="2.75" Width="1.5" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
     <InheritanceLine Type="Caapora.CreatureBase" FixedToPoint="true">
       <Path>
-        <Point X="5.75" Y="2" />
-        <Point X="5.75" Y="1.625" />
-        <Point X="3.938" Y="1.625" />
-        <Point X="3.938" Y="2" />
+        <Point X="4.25" Y="1.625" />
+        <Point X="3.438" Y="1.625" />
+        <Point X="3.438" Y="2.75" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>EAWAAAQBACIAAAAAAAAIAAAAAAAAAIAACAAACEAEIAE=</HashCode>
+      <HashCode>AAWAAAQBACIAAAAAAAAIAAAAAAAAAIAAiAAACEAEIAE=</HashCode>
       <FileName>Assets\Caapora\Scripts\Base\CharacterBase.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -408,15 +422,15 @@
       <FileName>Assets\Caapora\Scripts\Vendor\IsoTools\Scripts\IsoRaycastHit.cs</FileName>
     </TypeIdentifier>
   </Struct>
-  <Interface Name="Caapora.ICreature" Collapsed="true">
-    <Position X="5" Y="0.75" Width="1.5" />
+  <Interface Name="Caapora.ICreature">
+    <Position X="7.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Caapora\Scripts\Base\ICreature.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="Caapora.IAutoMovable" Collapsed="true">
-    <Position X="3" Y="0.75" Width="1.5" />
+  <Interface Name="Caapora.IAutoMovable">
+    <Position X="6" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAACEAAAAA=</HashCode>
       <FileName>Assets\Caapora\Scripts\Base\IAutoMovable.cs</FileName>

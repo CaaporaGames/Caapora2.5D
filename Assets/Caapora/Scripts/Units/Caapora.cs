@@ -24,6 +24,12 @@ namespace Caapora {
 
 
 
+        void Awake()
+        {
+
+            instance = this;
+        }
+
         // Rômulo Lima  
         // Use this for initialization
         public override void Start()
@@ -50,11 +56,7 @@ namespace Caapora {
 
 
 
-        void Awake(){
-		    
-			instance = this;
-		}
-
+       
 
         public void run()
         {
@@ -87,8 +89,6 @@ namespace Caapora {
         public override void Update() {
 
             base.Update();
-
-            //ManaBar.fillAmount = _life / 1000;
 
             if (_running)
                 run();
@@ -223,11 +223,11 @@ namespace Caapora {
         {
 
 
-            iso_rigidyBody.velocity = new Vector3(-instance.speed, instance.speed , 0);
+            iso_rigidyBody.velocity = new Vector3(-instance.speed, instance.speed, 0);
             _animator.SetTrigger("Caapora-left");
 
         }
-    
+
         public override void moveRight()
         {
 

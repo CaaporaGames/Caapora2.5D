@@ -20,21 +20,18 @@ static class Coodenadas
 	
 }
 
-/// <summary>
-///  Esta Classe implementa o padrão de projeto Singleton e tem como função gerenciar todos os estados do game
-/// </summary>
+
 [System.Serializable]
 public class GameManager: MonoBehaviour {
 
-
-
 	private static GameManager _instance;
-	//used to store latest used door
+    private float Timeleft = 120;
+
 	public Vector3 LastUsedDoorPosition;
 
-    public Caapora.Caapora player;
+    private Caapora.Caapora player;
 
-	// ID da ultimo caminho passado
+
 	public int PathID;
     public Sprite enemy;
     public bool showIntroduction = false;
@@ -48,14 +45,31 @@ public class GameManager: MonoBehaviour {
     private int _zoomState = 1;
     private int _totalOfFrame = -1;
     private Text TotalChamas;
+    private Text Timer;
+
 
 
     public static List<GameManager> savedGames = new List<GameManager>();
-    /// *************************************************************************
-    /// Author: Rômulo Lima
-    /// <summary> 
-    /// Contrutor que implementa o padrão de projeto Singleton
-    /// </summary>
+
+
+    void Awake()
+    {
+        if (_instance == null)
+        {
+           
+            _instance = this;
+            DontDestroyOnLoad(this);
+        }
+        else
+        {
+
+            if (this != _instance)
+                Destroy(this.gameObject);
+        }
+    }
+
+
+
     public static GameManager instance
     {
         get
@@ -63,8 +77,7 @@ public class GameManager: MonoBehaviour {
             if (_instance == null)
             {
                 _instance = FindObjectOfType<GameManager>();
-
-                //Tell unity not to destroy this object when loading a new scene!
+             
                 DontDestroyOnLoad(_instance.gameObject);
             }
 
@@ -72,11 +85,7 @@ public class GameManager: MonoBehaviour {
         }
     }
 
-    /// *************************************************************************
-    /// Author: Rômulo Lima
-    /// <summary> 
-    /// Apenas pega o Singleton do Player
-    /// </summary>
+
     void Start()
     {
         PopulatePool();
@@ -95,43 +104,25 @@ public class GameManager: MonoBehaviour {
 
         TotalChamas = GameObject.Find("TotalChamas").GetComponent<Text>();
 
+        Timer = GameObject.Find("Tempo").GetComponent<Text>();
+
         // Recebe a instancia do player
         player = Caapora.Caapora.instance;
 
     }
 
 
-    /// *************************************************************************
-    /// Author: Rômulo Lima
-    /// <summary> 
-    /// Criar o Singleton do GameManager, garantindo apenas uma instancia
-    /// </summary>
-    void Awake()
-    {
-        if (_instance == null)
-        {
-            //If I am the first instance, make me the Singleton
-            _instance = this;
-            DontDestroyOnLoad(this);
-        }
-        else
-        {
-            //If a Singleton already exists and you find
-            //another reference in scene, destroy it!
-            if (this != _instance)
-                Destroy(this.gameObject);
-        }
-    }
 
-    /// *************************************************************************
-    /// Author: Rômulo Lima
-    /// <summary> 
-    /// Regras de negócio do Game 
-    /// </summary>
+  
+
     void Update()
     {
 
+        Timeleft -= Time.deltaTime;
+
         TotalChamas.text = "Chamas: " + totalOfFrame;
+
+        Timer.text = "Tempo : " + Mathf.Round(Timeleft);
 
         // Condições para o game over
         if (!gameover)
@@ -184,16 +175,6 @@ public class GameManager: MonoBehaviour {
 
 
    
-
-    /// *************************************************************************
-    /// Author: Rômulo Lima
-    /// <summary> 
-    /// Transfere o Player de uma posição a outra baseada no mapeamento na classe Coordenadas
-    /// </summary>
-    /// <see cref="Coodenadas"/>
-    /// <param name="source">Nome do GameObject raiz de exibição do mapa</param>
-    /// <param name="destination">Nome do GameObject raiz do mapa de destino</param>
-    /// <param name="portal">Nome do portal que foi feita a colisão</param>
     void movePlayer(string source, string destination, string portal ){
 
 		float x = 0f, y = 0f;
@@ -226,19 +207,13 @@ public class GameManager: MonoBehaviour {
 
 
 
-    /// *************************************************************************
-    /// Author: Rômulo Lima
-    /// <summary> 
-    /// Possui Todas as condição para dar GameOver 
-    /// </summary>
     void GameOVer()
     {
-        // || GameObject.Find("Monkey").GetComponent<Monkey>().life <= 0
-        if (gameObject.GetComponent<IsoObject>().positionZ < -15 || player.life <= 0  )
+
+        if (gameObject.GetComponent<IsoObject>().positionZ < -15 || player.life <= 0  || Timeleft <= 0)
         {
 
-            // GameObject.Find("CameraAux").GetComponent<Camera>().enabled = true;
-            // Destroy(gameObject);
+
             gameover = true;
             Pause();
             loserModal.SetActive(true);
@@ -248,12 +223,6 @@ public class GameManager: MonoBehaviour {
     }
 
 
-    /// *************************************************************************
-    /// Author: 
-    /// <summary> 
-    /// Sobrecarregou o método padrão do Unity OnCollisionEnter
-    /// </summary>
-    /// <param name="iso_collision">A referencia do objeto colidido</param>
     void OnIsoCollisionEnter(IsoCollision iso_collision) {
 
         var GateName = iso_collision.gameObject.name;
@@ -269,11 +238,6 @@ public class GameManager: MonoBehaviour {
 	}
 
 
-    /// <summary>
-    /// Mostra um GameObject na tela por um periodo de tempo
-    /// </summary>
-    /// <param name="go"></param>
-    /// <param name="seconds"></param>
     public static void ShowObjectAPeriodOfTime(GameObject go, int seconds)
     {
         
@@ -283,12 +247,6 @@ public class GameManager: MonoBehaviour {
 
 
 
-    /// <summary>
-    /// Mostra um objeto após um periodo de tempo
-    /// </summary>
-    /// <param name="go"></param>
-    /// <param name="seconds"></param>
-    /// <returns></returns>
     public static IEnumerator showAndHideObject(GameObject go, int seconds)
     {
 
@@ -300,12 +258,6 @@ public class GameManager: MonoBehaviour {
     }
 
 
-    /// <summary>
-    /// Mostra um objeto após um periodo de tempo
-    /// </summary>
-    /// <param name="go"></param>
-    /// <param name="seconds"></param>
-    /// <returns></returns>
     public static IEnumerator hideAndShowObject(GameObject go, int seconds)
     {
 
@@ -318,11 +270,6 @@ public class GameManager: MonoBehaviour {
 
 
 
-    /// *************************************************************************
-    /// Author: Rômulo Lima
-    /// <summary> 
-    /// Fecha o jogo
-    /// </summary>
     public void Exit()
     {
        
@@ -341,11 +288,7 @@ public class GameManager: MonoBehaviour {
 
     }
 
-    /// *************************************************************************
-    /// Author: Rômulo Lima
-    /// <summary> 
-    /// Animação que deixa o sprite vermelho por um periodo de tempo
-    /// </summary>o
+
     public IEnumerator CaaporaHit()
     {
 
@@ -365,11 +308,7 @@ public class GameManager: MonoBehaviour {
 
     }
 
-    /// <summary>
-    /// Animação com a movimentação da camera em alguma direção
-    /// </summary>
-    /// <param name="direcao"></param>
-    /// <returns></returns>
+
     public IEnumerator moverCamera(string direcao)
     {
 
@@ -413,11 +352,7 @@ public class GameManager: MonoBehaviour {
 
     }
 
-    /// *************************************************************************
-    /// Author: Rômulo Lima
-    /// <summary> 
-    /// Executa as rotinas da animação uma a umam todos os eventos tem que ser bem programados para os recursos poderem ser acessíveis no tempo certo
-    /// </summary>
+
     public IEnumerator Introduction(){
 
         // Desabilita a camera principal para fazer a animação
@@ -507,11 +442,7 @@ public class GameManager: MonoBehaviour {
     }
 
 
-    /// Author :    Eric Daily
-    /// <summary>
-    /// Salva o estado do game
-    /// </summary>
-    //it's static so we can call it from anywhere
+
     public static void Save()
     {
         savedGames.Add(instance);
@@ -522,10 +453,7 @@ public class GameManager: MonoBehaviour {
         file.Close();
     }
 
-    /// Author :    Eric Daily
-    /// <summary>
-    /// Carrega o estado do game
-    /// </summary>
+
     public static void Load()
     {
         if (File.Exists(Application.persistentDataPath + "/savedGames.gd"))
@@ -547,11 +475,7 @@ public class GameManager: MonoBehaviour {
         
     }
 
-    /// *************************************************************************
-    /// Author: Rômulo Lima
-    /// <summary> 
-    /// Desabilita painel de conversa
-    /// </summary>
+
     public void hideConversationPanel()
     {
 
