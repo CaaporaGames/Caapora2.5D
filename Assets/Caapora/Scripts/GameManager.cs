@@ -26,9 +26,9 @@ public class GameManager: MonoBehaviour {
 
 	private static GameManager _instance;
     private float Timeleft = 120;
-
+    private GameObject CameraAux;
 	public Vector3 LastUsedDoorPosition;
-
+    private GameObject SceneInformation;
     private Caapora.Caapora player;
 
 
@@ -88,8 +88,19 @@ public class GameManager: MonoBehaviour {
 
     void Start()
     {
+
         PopulatePool();
 
+        CameraAux = GameObject.Find("CameraAux");
+        SceneInformation = GameObject.Find("Informacoes");
+
+        if (!showIntroduction)
+        {
+            CameraAux.SetActive(false);
+            SceneInformation.SetActive(false);
+        }
+
+        
         winnerModal = GameObject.Find("Winner");
         winnerModal.SetActive(false);
 
@@ -319,7 +330,7 @@ public class GameManager: MonoBehaviour {
 
             t += Time.deltaTime;
             if (direcao == "down")
-                GameObject.Find("CameraAux").GetComponent<Camera>().transform.position += new Vector3(0, -3f, 0);
+                CameraAux.transform.position += new Vector3(0, -3f, 0);
 
               yield return new WaitForSeconds(0.1f);
 
