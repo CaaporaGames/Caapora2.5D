@@ -36,22 +36,14 @@ public class ObjectPool : MonoBehaviour
     }
     #endregion
 
-    /// <summary>
-    /// The object prefabs which the pool can handle
-    /// by The amount of objects of each type to buffer.
-    /// </summary>
+
     public ObjectPoolEntry[] Entries;
 
-    /// <summary>
-    /// The pooled objects currently available.
-    /// Indexed by the index of the objectPrefabs
-    /// </summary>
+
     [HideInInspector]
     public List<GameObject>[] Pool;
 
-    /// <summary>
-    /// The container object that we will keep unused pooled objects so we dont clog up the editor with objects.
-    /// </summary>
+   
     private GameObject ContainerObject;
 
     void OnEnable()
@@ -59,10 +51,7 @@ public class ObjectPool : MonoBehaviour
         instance = this;
         ContainerObject = new GameObject("ObjectPool");
 
-
-        //Loop through the object prefabs and make a new list for each one.
-        //We do this because the pool can only support prefabs set to it in the editor,
-        //so we can assume the lists of pooled objects are in the same order as object prefabs in the array
+      
         Pool = new List<GameObject>[Entries.Length];
 
 
@@ -70,10 +59,9 @@ public class ObjectPool : MonoBehaviour
         {
             var objectPrefab = Entries[i];
 
-            //create the repository
             Pool[i] = new List<GameObject>();
 
-            //fill it
+
             for (int n = 0; n < objectPrefab.Count; n++)
             {
                
@@ -83,6 +71,27 @@ public class ObjectPool : MonoBehaviour
 
                 PoolObject(newObj);
             } 
+        }
+    }
+
+
+    public void PoolObject(GameObject obj)
+    {
+
+        for (int i = 0; i < Entries.Length; i++)
+        {
+
+            if (Entries[i].Prefab.name != obj.name)
+                continue;
+
+            SetActiveRecursively(obj, false);
+
+
+            obj.transform.parent = ContainerObject.transform;
+
+            Pool[i].Add(obj);
+
+            return;
         }
     }
 
@@ -145,18 +154,12 @@ public class ObjectPool : MonoBehaviour
             }
         }
 
-        //If we have gotten here either there was no object of the specified type or non were left in the pool with onlyPooled set to true
+       
         return null;
     }
 
 
 
-    /// <summary>
-    /// Our own version of GameObject.SetActiveRecursively, 
-    /// for those cases where we have known 
-    /// inactive objects somewhere beneath the root 
-    /// and do want to activate or deactivate all of them. 
-    /// </summary>
     public static void SetActiveRecursively(GameObject rootObject, bool active)
     {
         rootObject.SetActive(active);
@@ -169,31 +172,6 @@ public class ObjectPool : MonoBehaviour
 
 
 
-    /// <summary>
-    /// Pools the object specified.  Will not be pooled if there is no prefab of that type.
-    /// </summary>
-    /// <param name='obj'>
-    /// Object to be pooled.
-    /// </param>
-    public void PoolObject(GameObject obj)
-    {
 
-        for (int i = 0; i < Entries.Length; i++)
-        {
 
-            if (Entries[i].Prefab.name != obj.name)
-                continue;
-
-  
-            SetActiveRecursively(obj, false);
-
-      
-            
-            obj.transform.parent = ContainerObject.transform;
-
-            Pool[i].Add(obj);
-
-            return;
-        }
-    }
 }
