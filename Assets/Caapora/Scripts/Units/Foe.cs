@@ -5,10 +5,9 @@ using Caapora;
 
 public class Foe : NPCBase {
 	
-	public float speed = 0.2f;
+
 	public Animator animator;
 	public IsoObject foe;
-	// Use this for initialization
 	
 	public static bool isPlayingAnimation = false;
 	public static Foe instance;
@@ -16,7 +15,8 @@ public class Foe : NPCBase {
 	void  Start () {
         base.Start();
 
-		instance = this;
+        speed = 0.2f;
+        instance = this;
 		animator = GetComponent<Animator>();
 
 		StartCoroutine (moveInSquarePath());
@@ -69,7 +69,6 @@ public class Foe : NPCBase {
 				instance.foe.position += new Vector3 (0, -instance.speed, 0);
 			}
 
-			// caso seja a ultima animaçao
 			isPlayingAnimation = (i == steps - 1) ? false : true;
 			
 			yield return new WaitForSeconds(.1f);

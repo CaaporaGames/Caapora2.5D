@@ -25,8 +25,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 429674}
   - 114: {fileID: 11494362}
-  - 114: {fileID: 11408510}
-  - 114: {fileID: 11481458}
   m_Layer: 0
   m_Name: isoGround
   m_TagString: Untagged
@@ -59,35 +57,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 429674}
   m_RootOrder: 0
---- !u!114 &11408510
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 130806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4febe544112bb4678bdd59fa963c802d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _isKinematic: 1
-  _interpolation: 0
-  _collisionDetectionMode: 0
---- !u!114 &11481458
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 130806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b256250c588ee4e4590a3e58eaa69b1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _material: {fileID: 0}
-  _isTrigger: 0
-  _size: {x: 1, y: 1, z: 0.5}
-  _offset: {x: 0.5, y: 0.5, z: 0.25}
 --- !u!114 &11494362
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -172,6 +141,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_SortingOrder
       value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

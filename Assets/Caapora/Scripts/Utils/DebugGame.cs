@@ -9,7 +9,7 @@ public class DebugGame : MonoBehaviour {
     public static DebugGame instance;
     public string debug_message;
 
-    // Use this for initialization
+
     void Start () {
 
         instance = this;
@@ -23,11 +23,6 @@ public class DebugGame : MonoBehaviour {
     }
 
 
-    /// *************************************************************************
-    /// Author: Rômulo Lima
-    /// <summary> 
-    /// Exibe área de debug na tela
-    /// </summary>
     void OnGUI()
     {
 

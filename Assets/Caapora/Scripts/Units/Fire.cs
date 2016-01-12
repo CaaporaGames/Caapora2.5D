@@ -14,7 +14,7 @@ public class Fire : MonoBehaviour {
         demage = 10f;
         fire = gameObject.GetComponent<IsoRigidbody>();
 
-        GameManager.totalOfFrame++;
+        GameManager.totalOfFlames++;
     }
 	
 	// Update is called once per frame
@@ -36,7 +36,7 @@ public class Fire : MonoBehaviour {
     {
 
         if (FindObjectOfType<GameManager>() != null)
-                 GameManager.totalOfFrame--;
+                 GameManager.totalOfFlames--;
     }
 
 

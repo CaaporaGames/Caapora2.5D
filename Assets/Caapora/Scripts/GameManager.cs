@@ -43,7 +43,7 @@ public class GameManager: MonoBehaviour {
     private GameObject loserModal;
     private bool gameover = false;
     private int _zoomState = 1;
-    private int _totalOfFrame = -1;
+    private int _totalOfFlames = 0;
     private Text TotalChamas;
     private Text Timer;
 
@@ -132,11 +132,11 @@ public class GameManager: MonoBehaviour {
 
         Timeleft -= Time.deltaTime;
 
-        TotalChamas.text = "Chamas: " + totalOfFrame;
+        TotalChamas.text = "Chamas: " + totalOfFlames;
 
         Timer.text = "Tempo : " + Mathf.Round(Timeleft);
 
-        // Condições para o game over
+        
         if (!gameover)
         {
             if (WinCondition())
@@ -225,7 +225,13 @@ public class GameManager: MonoBehaviour {
 		
 	}
 
+    public bool WinCondition()
+    {
 
+
+        return GameObject.Find("chamas") == null && GameObject.Find("chamasSemSpread") == null;
+
+    }
 
     void GameOVer()
     {
@@ -294,7 +300,6 @@ public class GameManager: MonoBehaviour {
     {
        
 
-        // Save();
         Application.Quit();
         
     }
@@ -314,7 +319,6 @@ public class GameManager: MonoBehaviour {
 
         float t = 0.0f;
 
-        // Forma gradativa de fazer transição
         while (t < 1f)
             {
                 t += Time.deltaTime;
@@ -348,26 +352,17 @@ public class GameManager: MonoBehaviour {
     }
 
 
-    public bool WinCondition()
-    {
-
-   
-        return GameObject.Find("chamas") == null && GameObject.Find("chamasSemSpread") == null;
-
-    }
-
-
-    public static int totalOfFrame
+    public static int totalOfFlames
     {
 
         set
         {
-            instance._totalOfFrame = value;
+            instance._totalOfFlames = value;
         }
 
         get
         {
-            return instance._totalOfFrame;
+            return instance._totalOfFlames;
         }
 
     }
