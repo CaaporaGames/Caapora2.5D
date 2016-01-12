@@ -91,6 +91,7 @@ public class GameManager: MonoBehaviour {
 
         PopulatePool();
 
+     
         CameraAux = GameObject.Find("CameraAux");
         SceneInformation = GameObject.Find("Informacoes");
 
@@ -156,6 +157,14 @@ public class GameManager: MonoBehaviour {
                 Caapora.Caapora.instance.animator.SetTrigger("bucket");
 
 
+        }
+
+        if (!showIntroduction)
+        {
+            if (_zoomState == 1)
+                Camera.main.orthographicSize = 80;
+            else
+                Camera.main.orthographicSize = 250;
         }
 
     }
@@ -294,7 +303,7 @@ public class GameManager: MonoBehaviour {
     public void LoadNextLevel(string level)
     {
 
-        GameManager.next_scene = level;
+        next_scene = level;
         Application.LoadLevel("Loader");
 
     }
@@ -366,12 +375,9 @@ public class GameManager: MonoBehaviour {
 
     public IEnumerator Introduction(){
 
-        // Desabilita a camera principal para fazer a animação
-        var mainCamera = GameObject.Find("Player/Camera").GetComponent<Camera>();
+        var MainCamera = Camera.main;
 
-        mainCamera.enabled = false;
-
-        if(!showIntroduction)
+        if(showIntroduction)
             Camera.main.enabled = false;
 
 
@@ -390,10 +396,7 @@ public class GameManager: MonoBehaviour {
         StartCoroutine(moverCamera("down"));
         yield return new WaitForSeconds(10f);
 
-        mainCamera.enabled = true;
-
-       // StartCoroutine (PlayerBehavior.AnimateCaapora ("right", 5));
-	   //	yield return new WaitForSeconds(3f);
+        MainCamera.enabled = true;
 
        
         player.GetComponent<Animator>().SetTrigger("CaaporaIdle");
@@ -410,31 +413,22 @@ public class GameManager: MonoBehaviour {
     }
 
 
-    public void showAllMap()
+    public void MapZoomOut()
     {
 
 
-        _zoomState = 2;
+       _zoomState = 2;
 
 
     }
 
 
-
-
-    // Métodos de Flags para ativar a movimentação
-    public int zoomState
+    public void MapZoomIn()
     {
-        get
-        {
-            return _zoomState;
-        }
 
-        set
-        {
-            _zoomState = value;
-        }
+        _zoomState = 1;
     }
+ 
 
     public void Pause()
     {

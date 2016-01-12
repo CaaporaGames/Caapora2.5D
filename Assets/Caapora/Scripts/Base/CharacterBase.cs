@@ -126,7 +126,7 @@ namespace Caapora
 
             if (prevPosition == Vector3.zero || stopWalking)
             {
-               _animator.SetTrigger("Down");
+               // _animator.SetTrigger("Down");
             }
             else
             {

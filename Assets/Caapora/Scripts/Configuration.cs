@@ -162,7 +162,7 @@ public class Configuration : MonoBehaviour {
                 InputController.instance.ZClick = false;
                 InputController.instance.JClick = false;
                 Caapora.running = false;
-                GameManager.instance.zoomState = 1;
+                GameManager.instance.MapZoomIn();
 
             }
 

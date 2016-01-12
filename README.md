@@ -1,5 +1,14 @@
 # Caapora RPG
+### Note: Cyanogen users
+O audio pode não funcionar corretamente em Androids com CyanogenMod por conta de um bug em um módulo que habilita automaticamente a funcionalidade Audio Fast Path
 
+para corrigir:
+
+1. (optional) adb shell pm list features shows `feature:android.hardware.audio.low_latency`
+1. Rename/remove `/system/etc/permissions/android.hardware.audio.low_latency.xml`
+1. reboot
+
+mas informações em: http://forum.unity3d.com/threads/android-sound-problem.359341/page-2
 
 ## Funcionalidades 
 

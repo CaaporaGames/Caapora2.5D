@@ -9,7 +9,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 412090}
   - 212: {fileID: 21254968}
-  - 114: {fileID: 11499160}
   m_Layer: 0
   m_Name: grassPrefab
   m_TagString: Untagged
@@ -29,22 +28,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11499160
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 193128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a9c584f9a39449438abc7ba59a68778, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _mode: 0
-  _size: {x: 1, y: 1, z: 0.1}
-  _position: {x: 2, y: 2, z: 0}
-  _isAlignment: 1
-  _isShowBounds: 0
 --- !u!212 &21254968
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -112,7 +95,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_IsActive

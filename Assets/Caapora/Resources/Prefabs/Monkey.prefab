@@ -296,6 +296,7 @@ MonoBehaviour:
     baseDefence: 0
     baseAttack: 0
   speed: 5
+  CBTPrefab: {fileID: 0}
   prevPosition: {x: 0, y: 0, z: 0}
   stopWalking: 0
 --- !u!114 &11455398

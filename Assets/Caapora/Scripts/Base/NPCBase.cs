@@ -27,10 +27,10 @@ public abstract class NPCBase : CharacterBase {
 
     }
 
-        public override void OnIsoCollisionStay(IsoCollision iso_collision)
+        public override void OnIsoCollisionEnter(IsoCollision iso_collision)
         {
 
-            base.OnIsoCollisionStay(iso_collision);
+            base.OnIsoCollisionEnter(iso_collision);
 
             if (iso_collision.gameObject.name == "splashWaterPrefab(Clone)")
             {

@@ -316,6 +316,7 @@ MonoBehaviour:
     baseDefence: 0
     baseAttack: 0
   speed: 5
+  CBTPrefab: {fileID: 0}
 --- !u!114 &11497234
 MonoBehaviour:
   m_ObjectHideFlags: 1

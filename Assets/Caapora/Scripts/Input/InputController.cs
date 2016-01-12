@@ -16,7 +16,6 @@ namespace Caapora
         public float savedTimeState;
         public IsoRigidbody iso_rigidyBody;
         public static Vector3 prevPosition;
-        // Sinalizador para a movimentação automática com Pathfinding
         public static bool stopWalking = false;
         public static bool isPlayingAnimation = false;
         private bool  _AKey = false, _BKey = false, _ZKey = false, _JKey = false;
@@ -28,19 +27,16 @@ namespace Caapora
        
 
 
-        // Use this for initialization
         void Start () {
 
-            // Acessar recursos de metodos estaticos
             instance = this;
             mainCamera = GameObject.Find("Player/Camera").GetComponent<Camera>(); 
 
         }
 	
-	    // Update is called once per frame
+
 	    void Update () {
-            
-            // Movimentação pelo teclado do player através de flags
+
             MainController();
 
 
@@ -83,44 +79,21 @@ namespace Caapora
 
         
 
-        // End métodos com movimentação
-
-
-        /// *************************************************************************
-        /// Author: Rômulo Lima
-        /// <summary> 
-        /// Método que ativa a flag para iniciar o pathfinding com a movimentação por clique no destino
-        /// Está com um segundo de atraso para pegar a posição com antecedencia
-        /// </summary>
         public IEnumerator clicked()
         {
-          
-            // aguarda um segundo
+
             yield return new WaitForSeconds(1);
-            // Inicia percurso 
+
             GetComponent<GoToPlace>().click = true;
 
         }
 
 
 
-
-        /// *************************************************************************
-        /// Author: Rômulo Lima e Mateus Souza
-        /// <summary> 
-        /// Controle de movimentação pelas setas do teclado e pelo Touch
-        /// </summary> 
         void MainController()
         {
 
-            // Seleciona a camera de acorod com a tecla
-            if (GameManager.instance.zoomState == 1)
-                mainCamera.orthographicSize = 80;
-            else
-                mainCamera.orthographicSize = 250;
 
-
-            // habilita a animação
             if (isPlayingAnimation)
                 animator.speed = 1;
 
@@ -177,7 +150,14 @@ namespace Caapora
                 if (Input.GetKeyDown(KeyCode.Z) || _ZKey)
                 {
 
-                    GameManager.instance.showAllMap();
+                    GameManager.instance.MapZoomOut();
+
+                }
+
+                if (Input.GetKeyUp(KeyCode.Z))
+                {
+
+                    GameManager.instance.MapZoomIn();
 
                 }
 
@@ -209,15 +189,7 @@ namespace Caapora
         }
 
 
-  
-        // End métodos com movimentação
-
-
-
-
-
-   
-
+ 
 
 
         public string lookingAt

@@ -13,7 +13,8 @@ public class Foe : NPCBase {
 	public static bool isPlayingAnimation = false;
 	public static Foe instance;
 
-	void Start () {
+	void  Start () {
+        base.Start();
 
 		instance = this;
 		animator = GetComponent<Animator>();
@@ -24,9 +25,9 @@ public class Foe : NPCBase {
 
 	}
 	
-	// Update is called once per frame
+
 	void Update () {
-		
+        base.Update();
 		if (Input.GetKeyDown (KeyCode.A)) {
 		
 			instance.foe.position += new Vector3 (-instance.speed, 0, 0);

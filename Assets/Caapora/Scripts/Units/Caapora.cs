@@ -21,6 +21,7 @@ namespace Caapora {
     private    Text StatusHP;
     private    GameObject balde;
     private bool _running = false;
+    private Image CaaporaLifeBar;
 
 
 
@@ -30,18 +31,17 @@ namespace Caapora {
             instance = this;
         }
 
-        // Rômulo Lima  
-        // Use this for initialization
+  
         public override void Start()
         {
-            // Herda da classe base
+   
             base.Start();
 
-            StatusHP = GameObject.Find("Status/hp").GetComponent<Text>();
+            CaaporaLifeBar = GameObject.Find("CaaporaStatus/life").GetComponent<Image>();
+
+           // StatusHP = GameObject.Find("Status/hp").GetComponent<Text>();
             balde = GameObject.Find("baldeVazioPrefab");
             
-            ManaBar = GameObject.Find("Player/healthBar/ManaBar").GetComponent<Image>();
-
 
             instance = this;
 
@@ -56,7 +56,11 @@ namespace Caapora {
 
 
 
-       
+       private void UpdateCaaporaStatus()
+        {
+            CaaporaLifeBar.fillAmount = _life / 1000;
+
+        }
 
         public void run()
         {
@@ -89,6 +93,9 @@ namespace Caapora {
         public override void Update() {
 
             base.Update();
+
+
+            UpdateCaaporaStatus();
 
             if (_running)
                 run();
@@ -127,18 +134,18 @@ namespace Caapora {
 
 
 
-            if (!GameManager.isAnimating)
-               StatusHP.text = _life.ToString();
+            // if (!GameManager.isAnimating)
+            //   StatusHP.text = _life.ToString();
 
 
-
+            
                 if (!Inventory.isEmpty())
                 {
 
                     if (Balde.instance.waterPercent <= 0.0f)
                          AdviceSimple.showAdvice("Ande próximo ao lago para encher o balde com água!");
                 }
-
+                
 
             if (Inventory.isEmpty()) { 
                 
@@ -294,23 +301,11 @@ namespace Caapora {
         }
 
 
-        void OnIsoCollisionEnter(IsoCollision iso_collision)
-        {
-           // base.OnIsoCollisionEnter(iso_collision);
-
-            // código comentado abaixo é ótimo para debug
-            // Debug.Log("Colidingo com " + iso_collision.gameObject.name);
-            // DebugGame.instance.debug_message = "Colidiu com a " + iso_collision.gameObject.name;
-
-        }
-
-
-        public override void OnIsoCollisionStay(IsoCollision iso_collision)
+        public void OnIsoCollisionEnter(IsoCollision iso_collision)
         {
 
-            base.OnIsoCollisionStay(iso_collision);
+            base.OnIsoCollisionEnter(iso_collision);
 
-            // Colisao com o balde vazio
             if (iso_collision.gameObject.name == "waterPrefab")
             {
 

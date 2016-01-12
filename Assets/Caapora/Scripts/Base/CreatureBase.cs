@@ -26,7 +26,8 @@ namespace Caapora
         public BasicStates basicStats;
         public float speed = 5f;
         protected Animator _animator;
-        private Image LifeBar; 
+        private Image LifeBar;
+        public GameObject CBTPrefab;
 
         protected abstract IsoRigidbody iso_rigidyBody { get; set; }
         protected abstract IsoObject iso_object { get; set; }
@@ -38,16 +39,18 @@ namespace Caapora
   
         protected void Start()
         {
-            LifeBar = transform.Find("healthBar/LifeBar").GetComponent<Image>();
-        
 
+            if(transform.Find("healthBar/LifeBar") != null)
+                 LifeBar = transform.Find("healthBar/LifeBar").GetComponent<Image>();
+        
         }
 
         public virtual void Update()
         {
             collisionTime += Time.deltaTime;
 
-            UpdateBar();
+            if (transform.Find("healthBar/LifeBar") != null)
+                UpdateBar();
 
             if (_life > 1000)
                 _life = 1000;
@@ -74,10 +77,12 @@ namespace Caapora
 
         }
 
-        public virtual void OnIsoCollisionStay(IsoCollision iso_collision)
+        public virtual void OnIsoCollisionEnter(IsoCollision iso_collision)
         {
 
-            
+
+
+
             collisionTime = 0;
 
             if (iso_collision.gameObject.name == "Altar")
@@ -90,8 +95,11 @@ namespace Caapora
 
             if (iso_collision.gameObject.name == "chamas" || iso_collision.gameObject.name == "chamasSemSpread")
             {
+                float demageTemp = iso_collision.gameObject.GetComponent<Fire>().GetDamage();
 
-                _life = _life - iso_collision.gameObject.GetComponent<Fire>().GetDamage();
+                _life = _life - demageTemp ;
+
+                InitCBT(demageTemp.ToString());
 
                 StartCoroutine(CharacterHit());
 
@@ -101,13 +109,32 @@ namespace Caapora
 
         }
 
+        void InitCBT(string text)
+        {
+            GameObject temp = Instantiate(CBTPrefab) as GameObject;
+            RectTransform tempRect = temp.GetComponent<RectTransform>();
+            temp.transform.SetParent(transform.FindChild("healthBar"));
+
+            
+            tempRect.transform.localPosition = CBTPrefab.transform.localPosition;
+            tempRect.transform.localRotation = CBTPrefab.transform.localRotation;
+            tempRect.transform.localScale = CBTPrefab.transform.localScale;
+
+            temp.GetComponent<Text>().text = text;
+            temp.GetComponent<Animator>().SetTrigger("Hit");
+
+
+            Destroy(temp.gameObject,2);
+
+
+        }
 
         public IEnumerator CharacterHit()
         {
 
             float t = 0.0f;
 
-            // Forma gradativa de fazer transição
+    
             while (t < 1f)
             {
                 t += Time.deltaTime;

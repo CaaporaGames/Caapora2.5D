@@ -21,8 +21,8 @@ public class StatsController : MonoBehaviour {
 		DontDestroyOnLoad (gameObject);
 
           
-            levelText = GameObject.Find("Player/healthBar/level").GetComponent<Text>();
-            xpText = GameObject.Find("Player/healthBar/xp").GetComponent<Text>();
+            levelText = GameObject.Find("CaaporaStatus/level").GetComponent<Text>();
+            xpText = GameObject.Find("CaaporaStatus/xp").GetComponent<Text>();
 
         }
 	

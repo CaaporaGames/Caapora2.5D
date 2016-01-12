@@ -24,7 +24,7 @@ namespace Caapora.Pathfinding {
 	void Start() {
 
 
-        world = GameObject.Find("Camera").GetComponent<IsoWorld>();
+        world = GameObject.Find("Player/Camera").GetComponent<IsoWorld>();
 
             
 		nodeDiameter = nodeRadius*2;
@@ -112,8 +112,7 @@ namespace Caapora.Pathfinding {
 	
 	
 
-    // Debug
-    // Apenas exibe as grades
+
 	void OnDrawGizmos() {
 
 
