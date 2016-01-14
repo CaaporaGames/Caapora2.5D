@@ -17,32 +17,26 @@ public class Foe : NPCBase {
 
         speed = 0.2f;
         instance = this;
-		animator = GetComponent<Animator>();
 
-		StartCoroutine (moveInSquarePath());
+        iso_rigidyBody = GetComponent<IsoRigidbody>();
 
+        iso_object = GetComponent<IsoObject>();
+
+        animator = GetComponent<Animator>();
+
+	
 	
 
 	}
 	
-
-	void Update () {
-        base.Update();
-		if (Input.GetKeyDown (KeyCode.A)) {
-		
-			instance.foe.position += new Vector3 (-instance.speed, 0, 0);
-		}
-
-		
-	}
 
 	
 	public static IEnumerator moveInSquarePath(){
 
 
-		instance.StartCoroutine (AnimateFoe("Lion_Down", 10));
+		instance.StartCoroutine (AnimateFoe("Down", 10));
 		yield return new WaitForSeconds(3f); 
-		instance.StartCoroutine (AnimateFoe ("Lion_Left", 10));
+		instance.StartCoroutine (AnimateFoe ("Left", 10));
 		yield return new WaitForSeconds(3f); 
 		
 		
@@ -62,7 +56,7 @@ public class Foe : NPCBase {
 		{
 
 
-			if(direction == "Lion_Left"){
+			if(direction == "Left"){
 			
 				instance.foe.position += new Vector3 (-instance.speed, 0, 0);
 			}else {

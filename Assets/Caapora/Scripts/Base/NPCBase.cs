@@ -69,7 +69,7 @@ public override void moveLeft()
 {
 
 
-    iso_rigidyBody.velocity = new Vector3(-this.speed, 0, 0);
+    iso_rigidyBody.velocity = new Vector3(-this.speed, this.speed, 0);
 
     _animator.SetTrigger("Left");
 
@@ -79,7 +79,7 @@ public override void moveRight()
 {
 
 
-    iso_rigidyBody.velocity = new Vector3(this.speed, 0, 0);
+    iso_rigidyBody.velocity = new Vector3(this.speed, -this.speed, 0);
     _animator.SetTrigger("Right");
 
 }
@@ -88,7 +88,7 @@ public override void moveRight()
 public override void moveDown()
 {
 
-    iso_rigidyBody.velocity = new Vector3(0, -this.speed, 0);
+    iso_rigidyBody.velocity = new Vector3(this.speed, this.speed, 0);
     _animator.SetTrigger("Up");
 
 
@@ -98,7 +98,7 @@ public override void moveDown()
 public override void moveUp()
 {
 
-    iso_rigidyBody.velocity = new Vector3(0, this.speed, 0);
+    iso_rigidyBody.velocity = new Vector3(-this.speed, -this.speed, 0);
     _animator.SetTrigger("Down");
 
 }

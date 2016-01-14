@@ -4,9 +4,7 @@ using System.Collections.Generic;
 using IsoTools;
 
 
-/// <summary>
-/// Código encontrado em tutorial no Youtube postado por Sebastian Lague
-/// </summary>
+
 namespace Caapora.Pathfinding {
 
     public class NPC : Pathfinding {
@@ -111,10 +109,9 @@ namespace Caapora.Pathfinding {
 
         void AnimatePath()
         {
-            // Enquanto estiver animando para de checar a posição
+            
             move = false;
                 
-            // Posicao em formato isometrico
             Vector3 SeekerCurrentPos = seekerIso.position;
 
 

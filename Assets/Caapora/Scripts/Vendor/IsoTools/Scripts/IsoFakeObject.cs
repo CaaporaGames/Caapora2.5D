@@ -31,7 +31,16 @@ namespace IsoTools {
 				SendMessageOptions.DontRequireReceiver);
 		}
 
-		void OnTriggerExit(Collider collider) {
+
+        void OnTriggerStay(Collider collider)
+        {
+            isoObject.gameObject.SendMessage(
+                "OnIsoTriggerStay",
+                IsoUtils.IsoConvertCollider(collider),
+                SendMessageOptions.DontRequireReceiver);
+        }
+
+        void OnTriggerExit(Collider collider) {
 			isoObject.gameObject.SendMessage(
 				"OnIsoTriggerExit",
 				IsoUtils.IsoConvertCollider(collider),

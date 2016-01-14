@@ -28,6 +28,10 @@ namespace Caapora
         protected Animator _animator;
         private Image LifeBar;
         public GameObject CBTPrefab;
+        private bool inFire = false;
+        private float TempDemage = 0;
+        private float AnimationDelay = 0.5f;
+        private bool CanAnimate = true;
 
         protected abstract IsoRigidbody iso_rigidyBody { get; set; }
         protected abstract IsoObject iso_object { get; set; }
@@ -47,7 +51,14 @@ namespace Caapora
 
         public virtual void Update()
         {
-            collisionTime += Time.deltaTime;
+            collisionTime = Time.deltaTime;
+
+            if (inFire && CanAnimate)
+            {
+                
+                StartCoroutine(Hit());
+            }
+
 
             if (transform.Find("healthBar/LifeBar") != null)
                 UpdateBar();
@@ -77,10 +88,9 @@ namespace Caapora
 
         }
 
+
         public virtual void OnIsoCollisionEnter(IsoCollision iso_collision)
         {
-
-
 
 
             collisionTime = 0;
@@ -93,23 +103,74 @@ namespace Caapora
             }
 
 
-            if (iso_collision.gameObject.name == "chamas" || iso_collision.gameObject.name == "chamasSemSpread")
+            if (iso_collision.gameObject.tag == "Flame")
             {
-                float demageTemp = iso_collision.gameObject.GetComponent<Fire>().GetDamage();
+       
+                TempDemage = iso_collision.gameObject.GetComponent<Fire>().GetDamage();
 
-                _life = _life - demageTemp ;
-
-                InitCBT(demageTemp.ToString());
-
-                StartCoroutine(CharacterHit());
-
+                inFire = true;
             }
 
             
 
         }
 
-        void InitCBT(string text)
+
+        public virtual void OnIsoCollisionExit(IsoCollision iso_collision)
+        {
+
+            inFire = false;
+
+        }
+
+        private IEnumerator Hit()
+        {
+            CanAnimate = false;
+  
+            _life = _life - TempDemage;
+
+   
+            InitCBT(TempDemage.ToString());
+
+            StartCoroutine(CharacterHit());
+
+            yield return new WaitForSeconds(AnimationDelay);
+
+            CanAnimate = true;
+        }
+
+
+
+            /*
+            public virtual void OnIsoTriggerStay(IsoCollider iso_collider)
+            {
+
+
+                    if (iso_collider.gameObject.name == "Altar")
+                    {
+
+                        _life = _life + 10;
+
+                    }
+
+
+                    if (iso_collider.gameObject.tag == "Flame")
+                    {
+                        float demageTemp = iso_collider.gameObject.GetComponent<Fire>().GetDamage();
+
+                        _life = _life - demageTemp;
+
+                        InitCBT(demageTemp.ToString());
+
+                        StartCoroutine(CharacterHit());
+
+                    }
+
+
+
+            }*/
+
+            void InitCBT(string text)
         {
             GameObject temp = Instantiate(CBTPrefab) as GameObject;
             RectTransform tempRect = temp.GetComponent<RectTransform>();
@@ -134,7 +195,7 @@ namespace Caapora
 
             float t = 0.0f;
 
-    
+       
             while (t < 1f)
             {
                 t += Time.deltaTime;

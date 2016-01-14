@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using Caapora;
-
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 static class Coodenadas
@@ -149,10 +149,8 @@ public class GameManager: MonoBehaviour {
 
 
         if (!InputController.isPlayingAnimation)
-        { // Caso nao esteja precionando nenhuma tecla
+        { 
 
-
-            /* Inicialmente apenas verifica se há itens*/
             if (!Inventory.isEmpty())
                 Caapora.Caapora.instance.animator.SetTrigger("bucket");
 
@@ -218,8 +216,10 @@ public class GameManager: MonoBehaviour {
 				break;
 		}
 
-		Application.LoadLevelAdditive(destination);
-		gameObject.GetComponent<IsoObject>().position = new Vector3(x , y , 1);
+
+        SceneManager.LoadScene(destination, LoadSceneMode.Additive);
+
+        gameObject.GetComponent<IsoObject>().position = new Vector3(x , y , 1);
 		Destroy(GameObject.Find(source));
 		PlayerPrefs.SetString("CurrentMap",destination);
 		
@@ -229,7 +229,7 @@ public class GameManager: MonoBehaviour {
     {
 
 
-        return GameObject.Find("chamas") == null && GameObject.Find("chamasSemSpread") == null;
+        return GameObject.FindWithTag("Flame") == null;
 
     }
 
@@ -309,7 +309,7 @@ public class GameManager: MonoBehaviour {
     {
 
         next_scene = level;
-        Application.LoadLevel("Loader");
+        SceneManager.LoadScene("Loader");
 
     }
 
@@ -376,14 +376,13 @@ public class GameManager: MonoBehaviour {
             Camera.main.enabled = false;
 
 
-        // Exibe após quatro segundos
         StartCoroutine(hideAndShowObject(GameObject.Find("Informacoes"), 3));
 
         yield return new WaitForSeconds(3f);
-        // Exibe informações da fase
+
         StartCoroutine(showAndHideObject(GameObject.Find("Informacoes"), 3));
 
-        // Esconde o Inventory por 10 segundos
+
         StartCoroutine(hideAndShowObject(GameObject.Find("CanvasGUIContainer"), 7));
 
 

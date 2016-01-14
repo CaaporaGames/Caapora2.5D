@@ -316,7 +316,7 @@ MonoBehaviour:
     baseDefence: 0
     baseAttack: 0
   speed: 5
-  CBTPrefab: {fileID: 0}
+  CBTPrefab: {fileID: 158360, guid: f191b9ce59692a44b851d1ce680bfa95, type: 2}
 --- !u!114 &11497234
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -611,6 +611,10 @@ Prefab:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: CBTPrefab
+      value: 
+      objectReference: {fileID: 158360, guid: f191b9ce59692a44b851d1ce680bfa95, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 138782}

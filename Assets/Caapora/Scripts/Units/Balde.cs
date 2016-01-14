@@ -36,7 +36,7 @@ public class Balde : MonoBehaviour {
     public void FillBucket()
     {
 
-        waterPercent += 10;
+        waterPercent += 1;
 
         if (waterPercent > 99)
             waterPercent = 100;

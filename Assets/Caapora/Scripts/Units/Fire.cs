@@ -8,16 +8,16 @@ public class Fire : MonoBehaviour {
     private IsoRigidbody rb;
     private IsoRigidbody fire;
 
-    // Use this for initialization
+
     void Start () {
 
-        demage = 10f;
+        demage = 1f;
         fire = gameObject.GetComponent<IsoRigidbody>();
 
         GameManager.totalOfFlames++;
     }
 	
-	// Update is called once per frame
+
 	void Update () {
 
         StartCoroutine(Atack());

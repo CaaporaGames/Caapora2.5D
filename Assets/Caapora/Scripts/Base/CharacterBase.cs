@@ -8,8 +8,8 @@ namespace Caapora
    public abstract class CharacterBase : CreatureBase, IAutoMovable
     {
 
-        
-        protected static bool _canLauchWater;
+
+        protected static bool _canLauchWater = true;
         public Vector3 prevPosition;
         public bool stopWalking = false;
         protected Image ManaBar;
@@ -40,9 +40,12 @@ namespace Caapora
 
         public void ThrowWater()
         {
+           
 
             if (canLauchWater())
             {
+                _canLauchWater = false;
+
                 _animator.SetTrigger("Atack2");
 
                
@@ -83,35 +86,44 @@ namespace Caapora
 
             var balde = Inventory.getItem().GetComponent<Balde>();
 
-
+            IsoRigidbody objRb = objeto.GetComponent<IsoRigidbody>();
+            IsoObject obj = objeto.GetComponent<IsoObject>();
+            objRb.mass = 0.1f;
+   
             if (direction == "east")
             {
-                objeto.GetComponent<IsoObject>().position = playerCurPosition + Vector3.right + Vector3.down;
+                obj.position = playerCurPosition + (Vector3.right + Vector3.down) / 3;
+                objRb.velocity = (Vector3.right + Vector3.down) * 3;
                 balde.UseWalter();
             }
 
             if (direction == "west")
             {
-                objeto.GetComponent<IsoObject>().position = playerCurPosition + Vector3.left + Vector3.up;
+                obj.position = playerCurPosition + (Vector3.left + Vector3.up) / 3;
+                objRb.velocity = (Vector3.left + Vector3.up) * 3;
                 balde.UseWalter();
             }
 
             if (direction == "north")
             {
-                objeto.GetComponent<IsoObject>().position = playerCurPosition + Vector3.up + Vector3.right;
+                obj.position = playerCurPosition + (Vector3.up + Vector3.right) / 3;
+                objRb.velocity = (Vector3.up + Vector3.right) * 3;
                 balde.UseWalter();
             }
 
             if (direction == "south")
             {
-                objeto.GetComponent<IsoObject>().position = playerCurPosition + Vector3.down + Vector3.left;
+                obj.position = playerCurPosition + (Vector3.down + Vector3.left) / 3;
+                objRb.velocity = (Vector3.down + Vector3.left) * 3;
                 balde.UseWalter();
             }
 
+           
 
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.5f);
 
-
+            _canLauchWater = true;
+      
         }
 
 
@@ -174,7 +186,7 @@ namespace Caapora
         private bool canLauchWater()
         {
 
-            return !Inventory.isEmpty() && Inventory.getItem().GetComponent<Balde>().waterPercent > 0;
+            return !Inventory.isEmpty() && Inventory.getItem().GetComponent<Balde>().waterPercent > 0  && _canLauchWater;
         }
 
         public abstract void moveRight();

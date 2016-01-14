@@ -31,7 +31,8 @@ public class Tree : CreatureBase {
 
         void OnIsoCollisionEnter(IsoCollision iso_collision)
         {
-          
+            base.OnIsoCollisionEnter(iso_collision);
+
             if (iso_collision.gameObject.name == "splashWaterPrefab(Clone)")
             {
 

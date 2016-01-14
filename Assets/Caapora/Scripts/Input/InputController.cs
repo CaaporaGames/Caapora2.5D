@@ -161,7 +161,7 @@ namespace Caapora
 
                 }
 
-                if (Input.GetKeyDown(KeyCode.J) || _JKey)
+                if (Input.GetKeyDown(KeyCode.X) || _JKey)
                 {
 
                     JClick = false;
