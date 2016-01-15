@@ -2,21 +2,27 @@ using UnityEngine;
 using System.Collections;
 using IsoTools;
 using Caapora;
+using Caapora.Pathfinding;
 
+namespace Caapora { 
 public class Foe : NPCBase {
 	
 
-	public Animator animator;
+	private Animator animator;
 	public IsoObject foe;
-	
+    private NPC FoeNPC;
+
+
 	public static bool isPlayingAnimation = false;
 	public static Foe instance;
 
-	void  Start () {
+	private void  Start () {
         base.Start();
 
         speed = 0.2f;
         instance = this;
+
+        FoeNPC = GetComponent<NPC>();
 
         iso_rigidyBody = GetComponent<IsoRigidbody>();
 
@@ -24,12 +30,22 @@ public class Foe : NPCBase {
 
         animator = GetComponent<Animator>();
 
-	
-	
+
 
 	}
 	
 
+    private void Update()
+    {
+            base.Update();
+
+            if (FoeNPC.IsTargetNear()) {
+
+                Atack(FoeNPC._targetPos.GetComponent<CreatureBase>(), basicStats.baseAttack);
+                FoeNPC.IsNear = false;
+            }
+           
+    }
 	
 	public static IEnumerator moveInSquarePath(){
 
@@ -43,7 +59,14 @@ public class Foe : NPCBase {
 	}
 
 
-	public static IEnumerator AnimateFoe(string direction, int steps){
+    private void Atack(CreatureBase go, float damage)
+    {
+        //Debug.Log("NPC Atacando");
+        go.Hit(damage);
+
+    }
+
+    public static IEnumerator AnimateFoe(string direction, int steps){
 		
 
 		isPlayingAnimation = true;
@@ -68,5 +91,7 @@ public class Foe : NPCBase {
 			yield return new WaitForSeconds(.1f);
 		}
 	}
+}
+
 }
 

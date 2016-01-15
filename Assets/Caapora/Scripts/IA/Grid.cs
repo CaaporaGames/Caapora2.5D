@@ -7,7 +7,7 @@ using IsoTools;
 /// Código encontrado em tutorial no Youtube postado por Sebastian Lague
 /// </summary>
 namespace Caapora.Pathfinding {
-
+    [ExecuteInEditMode]
     public class Grid : MonoBehaviour {
 
 

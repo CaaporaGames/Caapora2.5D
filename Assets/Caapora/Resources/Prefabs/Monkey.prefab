@@ -221,6 +221,7 @@ MonoBehaviour:
   stepRndTicks: 0.5
   npc_start: 1
   time: 7
+  IsNear: 0
 --- !u!114 &11435234
 MonoBehaviour:
   m_ObjectHideFlags: 1

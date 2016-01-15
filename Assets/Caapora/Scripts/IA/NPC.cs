@@ -19,13 +19,15 @@ namespace Caapora.Pathfinding {
         public  bool npc_start = true;
         private IsoWorld world;
         public int time = 7;
+        public bool IsNear;
+        private int MinDistance;
 
 
       
 
         void Start()
         {
-
+            IsNear = false;
             NPCCharacter = GetComponent<NPCBase>();
             seekerIso = GetComponent<IsoObject>();
             cachedSeekerPos = seekerIso.position;
@@ -35,7 +37,42 @@ namespace Caapora.Pathfinding {
 
         }
 
-       void find()
+
+        void Update()
+        {
+            MinDistance = 12;
+
+            
+
+
+            if (npc_start)
+            {
+
+                if (!move)
+                    find();
+
+                AnimatePath();
+
+                StartCoroutine(enableNPCTimer());
+            }
+
+     
+
+           // if (grid.path.Count < MinDistance && grid.path.Count > 1)
+           //     canStart = false;
+
+            if (IsTargetNear())
+                IsNear = true;
+
+        }
+
+
+        public bool IsTargetNear()
+        {
+            return grid.path.Count < 3 && grid.path.Count > 1;
+        }
+
+        void find()
        {
 
                 if (cachedSeekerPos != seekerIso.position)
@@ -55,24 +92,7 @@ namespace Caapora.Pathfinding {
 
 
 
-       void Update()
-       {
-            if (npc_start) {
-
-                if (!move)
-                     find();
-               
-                AnimatePath();
-
-           }
-
-            if (npc_start == true)
-            {
-                StartCoroutine(enableNPCTimer());
-            }
-
-        }
-
+      
 
         IEnumerator enableNPCTimer()
         {
@@ -88,6 +108,7 @@ namespace Caapora.Pathfinding {
             return new WaitForSeconds(stepTicks + Random.Range(0.0f, stepRndTicks));
         }
 
+  
         IEnumerator Move()
         {
             var iso_object = GetComponent<IsoObject>();
@@ -159,6 +180,8 @@ namespace Caapora.Pathfinding {
         
 
             index++;
+
+           
             if (index < grid.path.Count)
             {
                
@@ -167,8 +190,8 @@ namespace Caapora.Pathfinding {
                   StartCoroutine(updatePosition);
 
                   grid.path.Remove(grid.path[index]);
-
-       
+                
+              
             }
                
             else

@@ -56,7 +56,7 @@ namespace Caapora
             if (inFire && CanAnimate)
             {
                 
-                StartCoroutine(Hit());
+                StartCoroutine(ApplyDamage());
             }
 
 
@@ -123,8 +123,21 @@ namespace Caapora
 
         }
 
-        private IEnumerator Hit()
+
+        public void Hit(float damage)
         {
+          
+            TempDemage = damage;
+
+            if(CanAnimate)
+                StartCoroutine(ApplyDamage());
+
+        }
+
+
+        private IEnumerator ApplyDamage()
+        {
+
             CanAnimate = false;
   
             _life = _life - TempDemage;

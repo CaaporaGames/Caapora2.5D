@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Water
   - Flame
+  - Auxiliar
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Floor
   - blockingLayer
   - Unwalkable
-  - Accessories
+  - 
   - Tree
   - EnemyLayer
   - 

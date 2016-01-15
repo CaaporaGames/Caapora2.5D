@@ -29,7 +29,7 @@ GameObject:
   - 222: {fileID: 22295934}
   - 114: {fileID: 11476090}
   - 95: {fileID: 9544094}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CBTPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ GameObject:
   - 223: {fileID: 22328550}
   - 114: {fileID: 11462058}
   - 114: {fileID: 11484826}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: healthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 152348}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -32.000015, y: 127.99999, z: 30.60008}
+  m_LocalPosition: {x: -32.000015, y: 127.99999, z: 21.600046}
   m_LocalScale: {x: 10.262935, y: 11.3857155, z: 50}
   m_Children:
   - {fileID: 429178}

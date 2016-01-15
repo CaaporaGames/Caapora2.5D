@@ -81,7 +81,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 191144}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -64.000015, y: 159.99998, z: 7.899995}
+  m_LocalPosition: {x: -64.000015, y: 159.99998, z: 5.799997}
   m_LocalScale: {x: 49.432022, y: 52.664078, z: 1}
   m_Children:
   - {fileID: 22408824}
@@ -218,12 +218,11 @@ MonoBehaviour:
     magic: 0
     agillity: 0
     baseDefence: 0
-    baseAttack: 0
+    baseAttack: 10
   speed: 5
   CBTPrefab: {fileID: 158360, guid: f191b9ce59692a44b851d1ce680bfa95, type: 2}
   prevPosition: {x: 0, y: 0, z: 0}
   stopWalking: 0
-  animator: {fileID: 0}
   foe: {fileID: 0}
 --- !u!114 &11471300
 MonoBehaviour:
@@ -258,6 +257,7 @@ MonoBehaviour:
   stepRndTicks: 0.5
   npc_start: 1
   time: 7
+  IsNear: 0
 --- !u!114 &11480060
 MonoBehaviour:
   m_ObjectHideFlags: 1

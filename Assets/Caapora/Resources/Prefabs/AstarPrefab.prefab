@@ -25,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 117536}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.0000515, y: -423.999969, z: -313.75}
+  m_LocalPosition: {x: 16.000051, y: -423.99997, z: -313.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -41,12 +41,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f89681230b0275c46a2c48f2ef62e648, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iso_object: {fileID: 11493844}
+  world: {fileID: 0}
   unwalkableMask:
     serializedVersion: 2
     m_Bits: 1024
   gridWorldSize: {x: 60, y: 60, z: 0}
-  nodeRadius: .5
+  nodeRadius: 0.5
 --- !u!114 &11493844
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -77,6 +77,11 @@ MonoBehaviour:
   cachedSeekerPos: {x: 0, y: 0, z: 0}
   cachedTargetPos: {x: 0, y: 0, z: 0}
   grid: {fileID: 11454894}
+  _targetPos: {fileID: 0}
+  stepTicks: 0.5
+  stepRndTicks: 0.5
+  npc_start: 1
+  time: 7
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
