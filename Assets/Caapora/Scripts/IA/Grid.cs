@@ -124,7 +124,7 @@ namespace Caapora.Pathfinding {
 				if (path != null)
 					if (path.Contains(n))
                         {
-
+                           
                             Gizmos.color = Color.black;
                           
                         }

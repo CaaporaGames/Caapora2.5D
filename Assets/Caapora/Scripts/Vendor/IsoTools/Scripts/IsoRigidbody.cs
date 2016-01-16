@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using IsoTools.Internal;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -235,7 +236,7 @@ namespace IsoTools {
 		}
 
 		public bool SweepTest(Vector3 direction, out IsoRaycastHit iso_hit_info, float max_distance) {
-			RaycastHit hit_info;
+			var hit_info = new RaycastHit();
 			var result = realRigidbody
 				? realRigidbody.SweepTest(direction, out hit_info, max_distance)
 				: false;

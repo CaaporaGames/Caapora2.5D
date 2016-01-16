@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace IsoTools {
+namespace IsoTools.Internal {
 	public class IsoFakeObject : MonoBehaviour {
 
 		IsoObject _isoObject    = null;
@@ -31,16 +31,7 @@ namespace IsoTools {
 				SendMessageOptions.DontRequireReceiver);
 		}
 
-
-        void OnTriggerStay(Collider collider)
-        {
-            isoObject.gameObject.SendMessage(
-                "OnIsoTriggerStay",
-                IsoUtils.IsoConvertCollider(collider),
-                SendMessageOptions.DontRequireReceiver);
-        }
-
-        void OnTriggerExit(Collider collider) {
+		void OnTriggerExit(Collider collider) {
 			isoObject.gameObject.SendMessage(
 				"OnIsoTriggerExit",
 				IsoUtils.IsoConvertCollider(collider),
@@ -53,22 +44,12 @@ namespace IsoTools {
 				new IsoCollision(collision),
 				SendMessageOptions.DontRequireReceiver);
 		}
-
-
-        void OnCollisionStay(Collision collision)
-        {
-            isoObject.gameObject.SendMessage(
-                "OnIsoCollisionStay",
-                new IsoCollision(collision),
-                SendMessageOptions.DontRequireReceiver);
-        }
-
-
-        void OnCollisionExit(Collision collision) {
+		
+		void OnCollisionExit(Collision collision) {
 			isoObject.gameObject.SendMessage(
 				"OnIsoCollisionExit",
 				new IsoCollision(collision),
 				SendMessageOptions.DontRequireReceiver);
 		}
 	}
-} // namespace IsoTools
+} // namespace IsoTools.Internal

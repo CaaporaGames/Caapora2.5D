@@ -45,12 +45,11 @@ public class LoadingScreen : MonoBehaviour {
         }
 
     }
-	
-	// Update is called once per frame
+
 	void Update () {
 
         
-        if (loadProgress > 99)
+        if (loadProgress >= 100)
         {
             
             background.SetActive(false);
@@ -79,11 +78,18 @@ public class LoadingScreen : MonoBehaviour {
 
         async = Application.LoadLevelAsync(level);
 
+        async.allowSceneActivation = false;
 
+        
         while (!async.isDone)
         {
+            if(async.progress > 0.89f)
+                async.allowSceneActivation = true;
+
+            Debug.Log("async progress " + async.progress.ToString());
 
             loadProgress = (int)(async.progress * 100);
+
             text.GetComponent<Text>().text = "Loading Progress " + loadProgress + "%";
           
             progressBar.GetComponent<Scrollbar>().size = async.progress;
@@ -92,7 +98,7 @@ public class LoadingScreen : MonoBehaviour {
             yield return null; 
         }
 
-        
+
 
     }
 }

@@ -39,11 +39,11 @@ public class Foe : NPCBase {
     {
             base.Update();
 
-            if (FoeNPC.IsTargetNear()) {
+                if (FoeNPC.IsTargetNear()) {
 
-                Atack(FoeNPC._targetPos.GetComponent<CreatureBase>(), basicStats.baseAttack);
-                FoeNPC.IsNear = false;
-            }
+                    Atack(FoeNPC._targetPos.GetComponent<CreatureBase>(), basicStats.baseAttack);
+                    FoeNPC.IsNear = false;
+                }
            
     }
 	

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace IsoTools { namespace Examples {
+namespace IsoTools.Examples {
 	public class IsoEchoListener : MonoBehaviour {
 		void OnIsoTriggerEnter(IsoCollider iso_collider) {
 			Debug.LogFormat(
@@ -21,11 +21,10 @@ namespace IsoTools { namespace Examples {
 				gameObject.name, iso_collision.gameObject.name);
 		}
 
-
-            void OnIsoCollisionExit(IsoCollision iso_collision) {
+		void OnIsoCollisionExit(IsoCollision iso_collision) {
 			Debug.LogFormat(
 				"OnIsoCollisionExit. self:{0} other:{1}",
 				gameObject.name, iso_collision.gameObject.name);
 		}
 	}
-}} // namespace IsoTools::Examples
+} // namespace IsoTools.Examples

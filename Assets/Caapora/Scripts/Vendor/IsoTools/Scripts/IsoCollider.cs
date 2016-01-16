@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using IsoTools.Internal;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -68,7 +69,7 @@ namespace IsoTools {
 		}
 
 		public bool Raycast(Ray ray, out IsoRaycastHit iso_hit_info, float max_distance) {
-			RaycastHit hit_info;
+			var hit_info = new RaycastHit();
 			var result = realCollider
 				? realCollider.Raycast(ray, out hit_info, max_distance)
 				: false;

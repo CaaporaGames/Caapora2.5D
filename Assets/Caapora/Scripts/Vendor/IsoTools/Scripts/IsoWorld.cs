@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using IsoTools.Internal;
 using System.Collections.Generic;
 
 #if UNITY_EDITOR
@@ -19,19 +20,49 @@ namespace IsoTools {
 		Matrix4x4          _isoRMatrix   = Matrix4x4.identity;
 		List<Renderer>     _tmpRenderers = new List<Renderer>();
 
-		class d {
+		class Sector {
 			public List<IsoObject> objects = new List<IsoObject>();
 			public void Reset() {
 				objects.Clear();
 			}
 		}
 
-		List<d> _sectors            = new List<d>();
+		List<Sector> _sectors            = new List<Sector>();
 		float        _sectorsSize        = 0.0f;
 		Vector2      _sectorsMinNumPos   = Vector2.zero;
 		Vector2      _sectorsMaxNumPos   = Vector2.zero;
 		Vector2      _sectorsNumPosCount = Vector2.zero;
-		
+
+		// ------------------------------------------------------------------------
+		//
+		// Constants
+		//
+		// ------------------------------------------------------------------------
+
+		public static readonly float DefTileSize   = 32.0f;
+		public static readonly float MinTileSize   = Mathf.Epsilon;
+		public static readonly float MaxTileSize   = float.MaxValue;
+
+		public static readonly float DefTileRatio  = 0.5f;
+		public static readonly float MinTileRatio  = 0.25f;
+		public static readonly float MaxTileRatio  = 1.0f;
+
+		public static readonly float DefTileAngle  = 45.0f;
+		public static readonly float MinTileAngle  = 0.0f;
+		public static readonly float MaxTileAngle  = 90.0f;
+
+		public static readonly float DefTileHeight = DefTileSize;
+		public static readonly float MinTileHeight = MinTileSize;
+		public static readonly float MaxTileHeight = MaxTileSize;
+
+		public static readonly float DefStepDepth  = 0.1f;
+		public static readonly float MinStepDepth  = Mathf.Epsilon;
+		public static readonly float MaxStepDepth  = float.MaxValue;
+
+		public static readonly float DefStartDepth = 1.0f;
+		public static readonly float MinStartDepth = float.MinValue;
+		public static readonly float MaxStartDepth = float.MaxValue;
+
 		// ------------------------------------------------------------------------
 		//
 		// Sorting properties
@@ -39,61 +70,61 @@ namespace IsoTools {
 		// ------------------------------------------------------------------------
 
 		[SerializeField]
-		public float _tileSize = 32.0f;
+		public float _tileSize = DefTileSize;
 		public float tileSize {
 			get { return _tileSize; }
 			set {
-				_tileSize = Mathf.Max(value, Mathf.Epsilon);
+				_tileSize = Mathf.Clamp(value, MinTileSize, MaxTileSize);
 				ChangeSortingProperty();
 			}
 		}
 
 		[SerializeField]
-		public float _tileRatio = 0.5f;
+		public float _tileRatio = DefTileRatio;
 		public float tileRatio {
 			get { return _tileRatio; }
 			set {
-				_tileRatio = Mathf.Clamp(value, 0.25f, 1.0f);
+				_tileRatio = Mathf.Clamp(value, MinTileRatio, MaxTileRatio);
 				ChangeSortingProperty();
 			}
 		}
 
 		[SerializeField]
-		public float _tileAngle = 45.0f;
+		public float _tileAngle = DefTileAngle;
 		public float tileAngle {
 			get { return _tileAngle; }
 			set {
-				_tileAngle = Mathf.Clamp(value, 0.0f, 90.0f);
+				_tileAngle = Mathf.Clamp(value, MinTileAngle, MaxTileAngle);
 				ChangeSortingProperty();
 			}
 		}
 
 		[SerializeField]
-		public float _tileHeight = 32.0f;
+		public float _tileHeight = DefTileHeight;
 		public float tileHeight {
 			get { return _tileHeight; }
 			set {
-				_tileHeight = Mathf.Max(value, Mathf.Epsilon);
+				_tileHeight = Mathf.Clamp(value, MinTileHeight, MaxTileHeight);
 				ChangeSortingProperty();
 			}
 		}
 
 		[SerializeField]
-		public float _stepDepth = 0.1f;
+		public float _stepDepth = DefStepDepth;
 		public float stepDepth {
 			get { return _stepDepth; }
 			set {
-				_stepDepth = value;
+				_stepDepth = Mathf.Clamp(value, MinStepDepth, MaxStepDepth);
 				ChangeSortingProperty();
 			}
 		}
 
 		[SerializeField]
-		public float _startDepth = 1.0f;
+		public float _startDepth = DefStartDepth;
 		public float startDepth {
 			get { return _startDepth; }
 			set {
-				_startDepth = value;
+				_startDepth = Mathf.Clamp(value, MinStartDepth, MaxStartDepth);
 				ChangeSortingProperty();
 			}
 		}
@@ -135,34 +166,37 @@ namespace IsoTools {
 		//
 		// ------------------------------------------------------------------------
 
-		public Vector3 TouchIsoPosition(int touch_index) {
-			return TouchIsoPosition(touch_index, 0.0f);
+		public Vector3 TouchIsoPosition(int finger_id) {
+			return TouchIsoPosition(finger_id, 0.0f);
 		}
 
-		public Vector3 TouchIsoPosition(int touch_index, float iso_z) {
+		public Vector3 TouchIsoPosition(int finger_id, float iso_z) {
 			if ( !Camera.main ) {
 				Debug.LogError("Main camera not found!", this);
 				return Vector3.zero;
 			}
-			return TouchIsoPosition(touch_index, Camera.main, iso_z);
+			return TouchIsoPosition(finger_id, Camera.main, iso_z);
 		}
 
-		public Vector3 TouchIsoPosition(int touch_index, Camera camera) {
-			return TouchIsoPosition(touch_index, camera, 0.0f);
+		public Vector3 TouchIsoPosition(int finger_id, Camera camera) {
+			return TouchIsoPosition(finger_id, camera, 0.0f);
 		}
 
-		public Vector3 TouchIsoPosition(int touch_index, Camera camera, float iso_z) {
-			if ( touch_index < 0 || touch_index >= Input.touchCount ) {
-				Debug.LogError("Touch index argument is incorrect!", this);
-				return Vector3.zero;
-			}
+		public Vector3 TouchIsoPosition(int finger_id, Camera camera, float iso_z) {
 			if ( !camera ) {
 				Debug.LogError("Camera argument is incorrect!", this);
 				return Vector3.zero;
 			}
-			return ScreenToIso(
-				camera.ScreenToWorldPoint(Input.GetTouch(touch_index).position),
-				iso_z);
+			for ( var i = 0; i < Input.touchCount; ++i ) {
+				var touch = Input.GetTouch(i);
+				if ( touch.fingerId == finger_id ) {
+					return ScreenToIso(
+						camera.ScreenToWorldPoint(touch.position),
+						iso_z);
+				}
+			}
+			Debug.LogError("Touch finger id argument is incorrect!", this);
+			return Vector3.zero;
 		}
 
 		// ------------------------------------------------------------------------
@@ -171,20 +205,20 @@ namespace IsoTools {
 		//
 		// ------------------------------------------------------------------------
 		
-		public Vector3 TouchIsoTilePosition(int touch_index) {
-			return IsoUtils.Vec3Floor(TouchIsoPosition(touch_index));
+		public Vector3 TouchIsoTilePosition(int finger_id) {
+			return IsoUtils.Vec3Floor(TouchIsoPosition(finger_id));
 		}
 		
-		public Vector3 TouchIsoTilePosition(int touch_index, float iso_z) {
-			return IsoUtils.Vec3Floor(TouchIsoPosition(touch_index, iso_z));
+		public Vector3 TouchIsoTilePosition(int finger_id, float iso_z) {
+			return IsoUtils.Vec3Floor(TouchIsoPosition(finger_id, iso_z));
 		}
 		
-		public Vector3 TouchIsoTilePosition(int touch_index, Camera camera) {
-			return IsoUtils.Vec3Floor(TouchIsoPosition(touch_index, camera));
+		public Vector3 TouchIsoTilePosition(int finger_id, Camera camera) {
+			return IsoUtils.Vec3Floor(TouchIsoPosition(finger_id, camera));
 		}
 		
-		public Vector3 TouchIsoTilePosition(int touch_index, Camera camera, float iso_z) {
-			return IsoUtils.Vec3Floor(TouchIsoPosition(touch_index, camera, iso_z));
+		public Vector3 TouchIsoTilePosition(int finger_id, Camera camera, float iso_z) {
+			return IsoUtils.Vec3Floor(TouchIsoPosition(finger_id, camera, iso_z));
 		}
 
 		// ------------------------------------------------------------------------
@@ -374,7 +408,7 @@ namespace IsoTools {
 			return Mathf.FloorToInt(num_pos.x + _sectorsNumPosCount.x * num_pos.y);
 		}
 		
-		d FindSector(Vector2 num_pos) {
+		Sector FindSector(Vector2 num_pos) {
 			if ( num_pos.x < 0 || num_pos.y < 0 ) {
 				return null;
 			}
@@ -423,8 +457,8 @@ namespace IsoTools {
 		}
 
 		void SetupObjectsSectors() {
-			_sectorsMinNumPos = Vector2.zero;
-			_sectorsMaxNumPos = Vector2.one;
+			_sectorsMinNumPos = IsoUtils.Vec2From(float.MaxValue);
+			_sectorsMaxNumPos = IsoUtils.Vec2From(float.MinValue);
 			var visibles_iter = _visibles.GetEnumerator();
 			while ( visibles_iter.MoveNext() ) {
 				var iso_internal = visibles_iter.Current.Internal;
@@ -442,7 +476,7 @@ namespace IsoTools {
 					_sectors.Capacity = count;
 				}
 				while ( _sectors.Count < _sectors.Capacity ) {
-					_sectors.Add(new d());
+					_sectors.Add(new Sector());
 				}
 			}
 
@@ -631,12 +665,12 @@ namespace IsoTools {
 
 		#if UNITY_EDITOR
 		void Reset() {
-			tileSize   = 32.0f;
-			tileRatio  = 0.5f;
-			tileAngle  = 45.0f;
-			tileHeight = 32.0f;
-			stepDepth  = 0.1f;
-			startDepth = 1.0f;
+			tileSize   = DefTileSize;
+			tileRatio  = DefTileRatio;
+			tileAngle  = DefTileAngle;
+			tileHeight = DefTileHeight;
+			stepDepth  = DefStepDepth;
+			startDepth = DefStartDepth;
 		}
 		
 		void OnValidate() {
