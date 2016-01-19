@@ -21,7 +21,18 @@ namespace IsoTools {
 			}
 		}
 
-		[SerializeField]
+        public Vector3 _rotate = Vector3.zero;
+        public Vector3 rotate {
+
+            get { return _rotate; }
+            set {
+
+                _rotate = value;
+            }
+
+        }
+
+        [SerializeField]
 		public Vector3 _offset = Vector3.zero;
 		public Vector3 offset {
 			get { return _offset; }
@@ -68,7 +79,7 @@ namespace IsoTools {
 					iso_object.isoWorld,
 					iso_object.position + offset,
 					size,
-					Color.green);
+					Color.green, Vector3.zero);
 			}
 		}
 		#endif

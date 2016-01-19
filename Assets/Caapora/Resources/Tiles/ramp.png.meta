@@ -1,0 +1,301 @@
+fileFormatVersion: 2
+guid: dddddf1a8e31b764a8f785436ab7afef
+timeCreated: 1453122740
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: ramp_0
+    21300002: ramp_1
+    21300004: ramp_2
+    21300006: ramp_3
+    21300008: ramp_4
+    21300010: ramp_5
+    21300012: ramp_6
+    21300014: ramp_7
+    21300016: ramp_8
+    21300018: ramp_9
+    21300020: ramp_10
+    21300022: ramp_11
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 2.5
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: ramp_0
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 127
+        width: 61
+        height: 66
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 60, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -30.5, y: 13}
+        - {x: -8.5, y: 0}
+        - {x: 5.5, y: 0}
+        - {x: 30.5, y: 8}
+        - {x: 30.5, y: 40}
+        - {x: 27.5, y: 55}
+        - {x: 5.5, y: 66}
+        - {x: -11.5, y: 66}
+        - {x: -30.5, y: 53}
+    - name: ramp_1
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 126
+        width: 258
+        height: 52
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: 52}
+        - {x: 0, y: 0}
+        - {x: 248, y: 0}
+        - {x: 258, y: 6}
+        - {x: 258, y: 42}
+        - {x: 224, y: 52}
+    - name: ramp_2
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 3
+        width: 56
+        height: 52
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 13, y: 52}
+        - {x: 0, y: 32}
+        - {x: 0, y: 11}
+        - {x: 6, y: 0}
+        - {x: 43, y: 0}
+        - {x: 56, y: 3}
+        - {x: 56, y: 40}
+        - {x: 40, y: 52}
+    - name: ramp_3
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 3
+        width: 56
+        height: 56
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 25, y: 56}
+        - {x: 20, y: 51}
+        - {x: 1, y: 24}
+        - {x: 0, y: 21}
+        - {x: 0, y: 12}
+        - {x: 9, y: 3}
+        - {x: 25, y: 0}
+        - {x: 40, y: 0}
+        - {x: 56, y: 13}
+        - {x: 56, y: 36}
+        - {x: 37, y: 56}
+    - name: ramp_4
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 1
+        width: 58
+        height: 58
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: 58}
+        - {x: 0, y: 6}
+        - {x: 18, y: 0}
+        - {x: 44, y: 0}
+        - {x: 58, y: 12}
+        - {x: 58, y: 31}
+        - {x: 34, y: 58}
+    - name: ramp_5
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 1
+        width: 56
+        height: 48
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 7, y: 48}
+        - {x: 0, y: 25}
+        - {x: 0, y: 9}
+        - {x: 7, y: 0}
+        - {x: 44, y: 0}
+        - {x: 56, y: 12}
+        - {x: 56, y: 48}
+    - name: ramp_6
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 3
+        width: 56
+        height: 48
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 30, y: 48}
+        - {x: 4, y: 48}
+        - {x: 0, y: 46}
+        - {x: 0, y: 10}
+        - {x: 13, y: 0}
+        - {x: 50, y: 0}
+        - {x: 56, y: 5}
+        - {x: 56, y: 22}
+        - {x: 49, y: 39}
+    - name: ramp_7
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 0
+        width: 126
+        height: 53
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 105, y: 49}
+        - {x: 92, y: 53}
+        - {x: 52, y: 53}
+        - {x: 11, y: 42}
+        - {x: 0, y: 32}
+        - {x: 0, y: 0}
+        - {x: 119, y: 0}
+        - {x: 121, y: 2}
+        - {x: 126, y: 14}
+        - {x: 126, y: 30}
+    - name: ramp_8
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 0
+        width: 55
+        height: 41
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 49, y: 33}
+        - {x: 35, y: 41}
+        - {x: 24, y: 41}
+        - {x: 0, y: 23}
+        - {x: 0, y: 7}
+        - {x: 13, y: 0}
+        - {x: 45, y: 0}
+        - {x: 55, y: 8}
+        - {x: 55, y: 27}
+    - name: ramp_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 125
+        width: 65
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 14.5, y: 34}
+        - {x: -5.5, y: 34}
+        - {x: -18.5, y: 29}
+        - {x: -32.5, y: -1}
+        - {x: -32.5, y: -20}
+        - {x: -2.5, y: -33}
+        - {x: 9.5, y: -33}
+        - {x: 32.5, y: -26}
+        - {x: 32.5, y: -3}
+        - {x: 20.5, y: 31}
+    - name: ramp_10
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 127
+        width: 63
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9.5, y: 33}
+        - {x: -31.5, y: 0}
+        - {x: -31.5, y: -23}
+        - {x: -7.5, y: -33}
+        - {x: 11.5, y: -33}
+        - {x: 31.5, y: -22}
+        - {x: 31.5, y: 21}
+        - {x: 11.5, y: 33}
+    - name: ramp_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 61
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 21}
+        - {x: -32, y: -18}
+        - {x: -2, y: -31}
+        - {x: 8, y: -31}
+        - {x: 32, y: -20}
+        - {x: 32, y: 21}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

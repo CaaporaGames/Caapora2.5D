@@ -1792,7 +1792,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 903498556}
+      - m_Target: {fileID: 903498557}
         m_MethodName: ExitGame
         m_Mode: 1
         m_Arguments:
@@ -1968,7 +1968,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 903498556}
+      - m_Target: {fileID: 903498557}
         m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
@@ -2108,6 +2108,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 903498555}
   - 114: {fileID: 903498556}
+  - 114: {fileID: 903498557}
   m_Layer: 0
   m_Name: Menu
   m_TagString: Untagged
@@ -2137,6 +2138,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 245c39dc63d73fc44a4dc6629ace1f29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &903498557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 903498554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f3729bc2f0389a43a1363938d794f5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &979688009
@@ -2494,7 +2506,7 @@ GameObject:
   - 114: {fileID: 1398582517}
   - 114: {fileID: 1398582516}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Carregar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2556,7 +2568,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1398582517}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 903498557}
+        m_MethodName: LoadGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1398582517
@@ -2751,7 +2774,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: b7ea145bdb8d2024e867079dfb02a68f, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 40
     m_Alignment: 1
@@ -2833,7 +2856,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Carregar
+  m_Text: Testes
 --- !u!222 &1937176010
 CanvasRenderer:
   m_ObjectHideFlags: 0

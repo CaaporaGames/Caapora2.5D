@@ -75,7 +75,7 @@ MonoBehaviour:
   _material: {fileID: 0}
   _isTrigger: 0
   _size: {x: 1, y: 1, z: 2}
-  _offset: {x: .5, y: .5, z: 1}
+  _offset: {x: 0.5, y: 0.5, z: 1}
 --- !u!212 &21298360
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -94,14 +94,18 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .111111112
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.11111111
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300066, guid: 5327504318240fa45a1e2b5317ea060c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -463,75 +463,128 @@ namespace IsoTools.Internal {
 			return iso_hits;
 		}
 
-		// ---------------------------------------------------------------------
-		//
-		// Debug draw
-		//
-		// ---------------------------------------------------------------------
+        // ---------------------------------------------------------------------
+        //
+        // Debug draw
+        //
+        // ---------------------------------------------------------------------
 
-		#if UNITY_EDITOR
-		static void DrawTop(IsoWorld iso_world, Vector3 pos, Vector3 size) {
-			if ( iso_world ) {
-				var points = new Vector3[]{
-					iso_world.IsoToScreen(pos),
-					iso_world.IsoToScreen(pos + IsoUtils.Vec3FromX(size.x)),
-					iso_world.IsoToScreen(pos + IsoUtils.Vec3FromXY(size.x, size.y)),
-					iso_world.IsoToScreen(pos + IsoUtils.Vec3FromY(size.y)),
-					iso_world.IsoToScreen(pos)
-				};
-				Handles.DrawLine(points[0], points[1]);
-				Handles.DrawLine(points[1], points[2]);
-				Handles.DrawLine(points[2], points[3]);
-				Handles.DrawLine(points[3], points[0]);
-			}
-		}
+#if UNITY_EDITOR
+        static void DrawTop(IsoWorld iso_world, Vector3 pos, Vector3 size, Vector3 rotate)
+        {
+            if (iso_world)
+            {
+                var points = new Vector3[]{
+                    iso_world.IsoToScreen(pos),
+                    iso_world.IsoToScreen(pos + IsoUtils.Vec3FromX(size.x)),
+                    iso_world.IsoToScreen(pos + IsoUtils.Vec3FromXY(size.x, size.y)),
+                    iso_world.IsoToScreen(pos + IsoUtils.Vec3FromY(size.y)),
+                    iso_world.IsoToScreen(pos)
+                };
 
-		static void DrawVert(IsoWorld iso_world, Vector3 pos, Vector3 size) {
-			if ( iso_world ) {
-				Handles.DrawLine(
-					iso_world.IsoToScreen(pos),
-					iso_world.IsoToScreen(pos + IsoUtils.Vec3FromZ(size.z)));
-			}
-		}
-		
-		public static void DrawCube(IsoWorld iso_world, Vector3 center, Vector3 size, Color color) {
-			if ( iso_world ) {
-				Handles.color = color;
-				var pos = center - size * 0.5f;
-				DrawTop (iso_world, pos, size);
-				DrawTop (iso_world, pos + IsoUtils.Vec3FromZ(size.z), size);
-				DrawVert(iso_world, pos, size);
-				DrawVert(iso_world, pos + IsoUtils.Vec3FromX(size.x), size);
-				DrawVert(iso_world, pos + IsoUtils.Vec3FromY(size.y), size);
-				DrawVert(iso_world, pos + IsoUtils.Vec3FromXY(size.x, size.y), size);
-			}
-		}
 
-		public static void DrawSphere(IsoWorld iso_world, Vector3 pos, float radius, Color color) {
-			if ( iso_world ) {
-				Handles.color = color;
-				Handles.RadiusHandle(
-					Quaternion.Euler(45.0f, 45.0f, 0.0f),
-					iso_world.IsoToScreen(pos),
-					radius * iso_world.tileSize * 2.0f);
-			}
-		}
+                if(rotate.y > 0)
+                {
+                    // direita
+                    Handles.DrawLine(points[0], points[1] - rotate);
+                    // frente
+                    Handles.DrawLine(points[1] - rotate, points[2] - rotate);
+                    // esquerda 
+                    Handles.DrawLine(points[2] - rotate, points[3]);
+                    // traz
+                    Handles.DrawLine(points[3], points[0]);
+                }else if(rotate.x > 0)
+                {
 
-		public static void DrawRect(IsoWorld iso_world, Rect rect, float z, Color color) {
-			if ( iso_world ) {
-				Handles.color = color;
-				var points = new Vector3[]{
-					new Vector3(rect.x,              rect.y,               z),
-					new Vector3(rect.x,              rect.y + rect.height, z),
-					new Vector3(rect.x + rect.width, rect.y + rect.height, z),
-					new Vector3(rect.x + rect.width, rect.y,               z)
-				};
-				Handles.DrawLine(points[0], points[1]);
-				Handles.DrawLine(points[1], points[2]);
-				Handles.DrawLine(points[2], points[3]);
-				Handles.DrawLine(points[3], points[0]);
-			}
-		}
-		#endif
-	}
+                    // direita
+                    Handles.DrawLine(points[0] - new Vector3(0, rotate.x, 0), points[1] - new Vector3(0, rotate.x, 0));
+                    // frente
+                    Handles.DrawLine(points[1] - new Vector3(0, rotate.x, 0) , points[2] );
+                    // esquerda 
+                    Handles.DrawLine(points[2] , points[3]);
+                    // traz
+                    Handles.DrawLine(points[3] , points[0] - new Vector3(0, rotate.x, 0));
+
+                }
+                else
+                {
+
+                    //normal 
+
+                    // direita
+                    Handles.DrawLine(points[0], points[1]);
+                    // frente
+                    Handles.DrawLine(points[1], points[2]);
+                    // esquerda 
+                    Handles.DrawLine(points[2], points[3]);
+                    // traz
+                    Handles.DrawLine(points[3], points[0]);
+
+
+                } 
+
+                
+                
+                
+
+
+            }
+        }
+
+        static void DrawVert(IsoWorld iso_world, Vector3 pos, Vector3 size)
+        {
+            if (iso_world)
+            {
+                Handles.DrawLine(
+                    iso_world.IsoToScreen(pos),
+                    iso_world.IsoToScreen(pos + IsoUtils.Vec3FromZ(size.z)));
+            }
+        }
+
+        public static void DrawCube(IsoWorld iso_world, Vector3 center, Vector3 size, Color color, Vector3 rotate)
+        {
+            if (iso_world)
+            {
+                Handles.color = color;
+                var pos = center - size * 0.5f;
+                DrawTop(iso_world, pos, size, rotate);
+                DrawTop(iso_world, pos + IsoUtils.Vec3FromZ(size.z), size, rotate);
+                DrawVert(iso_world, pos, size);
+                DrawVert(iso_world, pos + IsoUtils.Vec3FromX(size.x), size);
+                DrawVert(iso_world, pos + IsoUtils.Vec3FromY(size.y), size);
+                DrawVert(iso_world, pos + IsoUtils.Vec3FromXY(size.x, size.y), size);
+            }
+        }
+
+        public static void DrawSphere(IsoWorld iso_world, Vector3 pos, float radius, Color color)
+        {
+            if (iso_world)
+            {
+                Handles.color = color;
+                Handles.RadiusHandle(
+                    Quaternion.Euler(45.0f, 45.0f, 0.0f),
+                    iso_world.IsoToScreen(pos),
+                    radius * iso_world.tileSize * 2.0f);
+            }
+        }
+
+        public static void DrawRect(IsoWorld iso_world, Rect rect, float z, Color color, int angle = 0)
+        {
+            if (iso_world)
+            {
+                Handles.color = color;
+                var points = new Vector3[]{
+                    new Vector3(rect.x,              rect.y,               z),
+                    new Vector3(rect.x,              rect.y + rect.height, z),
+                    new Vector3(rect.x + rect.width, rect.y + rect.height, z),
+                    new Vector3(rect.x + rect.width, rect.y,               z)
+                };
+                Handles.DrawLine(points[0], points[1]);
+                Handles.DrawLine(points[1], points[2]);
+                Handles.DrawLine(points[2], points[3]);
+                Handles.DrawLine(points[3], points[0]);
+            }
+        }
+#endif
+    }
 } // namespace IsoTools.Internal

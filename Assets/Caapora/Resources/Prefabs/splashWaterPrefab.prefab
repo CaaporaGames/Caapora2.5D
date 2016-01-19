@@ -92,6 +92,7 @@ MonoBehaviour:
   _material: {fileID: 0}
   _isTrigger: 0
   _size: {x: 1, y: 1, z: 1}
+  _rotate: {x: 0, y: 0, z: 0}
   _offset: {x: 0.5, y: 0.5, z: 0.5}
 --- !u!114 &11463214
 MonoBehaviour:

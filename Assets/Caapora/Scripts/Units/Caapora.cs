@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections;
 using IsoTools;
 using UnityEngine.UI;
+using System;
 
 namespace Caapora {
     [System.Serializable]
@@ -22,6 +23,7 @@ namespace Caapora {
     private    GameObject balde;
     private bool _running = false;
     private Image CaaporaLifeBar;
+        private Text Altura;
 
 
 
@@ -39,6 +41,7 @@ namespace Caapora {
 
             canFillBucket = false;
 
+            Altura = GameObject.Find("Altura").GetComponent<Text>();
 
             CaaporaLifeBar = GameObject.Find("CaaporaStatus/life").GetComponent<Image>();
 
@@ -63,9 +66,15 @@ namespace Caapora {
 
             base.Update();
 
-
+            Altura.text = String.Format("{0:0.00}" , iso_object.positionZ);
             if (canFillBucket)
+            {
                 StartCoroutine(FillBucketSlowly());
+                SoundManager.instance.PlaySingle(SoundManager.instance.river);
+
+            }
+         
+              
 
             UpdateCaaporaStatus();
 
@@ -159,8 +168,7 @@ namespace Caapora {
             if (iso_collision.gameObject.tag == "Water")
             {
                 canFillBucket = false;
-
-
+     
             }
 
         }

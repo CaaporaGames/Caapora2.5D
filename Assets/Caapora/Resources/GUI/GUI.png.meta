@@ -1,0 +1,797 @@
+fileFormatVersion: 2
+guid: a72f9158a9c8d4f4f878b928f6948af7
+timeCreated: 1453070171
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: GUI_0
+    21300002: GUI_1
+    21300004: GUI_2
+    21300006: GUI_3
+    21300008: GUI_4
+    21300010: GUI_5
+    21300012: GUI_6
+    21300014: GUI_7
+    21300016: GUI_8
+    21300018: GUI_9
+    21300020: GUI_10
+    21300022: GUI_11
+    21300024: GUI_12
+    21300026: GUI_13
+    21300028: GUI_14
+    21300030: GUI_15
+    21300032: GUI_16
+    21300034: GUI_17
+    21300036: GUI_18
+    21300038: GUI_19
+    21300040: GUI_20
+    21300042: GUI_21
+    21300044: GUI_22
+    21300046: GUI_23
+    21300048: GUI_24
+    21300050: GUI_25
+    21300052: GUI_26
+    21300054: GUI_27
+    21300056: GUI_28
+    21300058: GUI_29
+    21300060: GUI_30
+    21300062: GUI_31
+    21300064: GUI_32
+    21300066: GUI_33
+    21300068: GUI_34
+    21300070: GUI_35
+    21300072: GUI_36
+    21300074: GUI_37
+    21300076: GUI_38
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 8192
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: GUI_0
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 759
+        width: 338
+        height: 226
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 167, y: -105}
+        - {x: 168, y: -101}
+        - {x: 169, y: -100}
+        - {x: 169, y: 99}
+        - {x: 168, y: 100}
+        - {x: 167, y: 104}
+        - {x: 162, y: 110}
+        - {x: 157, y: 112}
+        - {x: 155, y: 112}
+        - {x: 154, y: 113}
+        - {x: -155, y: 113}
+        - {x: -158, y: 112}
+        - {x: -163, y: 110}
+        - {x: -167, y: 106}
+        - {x: -169, y: 101}
+        - {x: -169, y: -102}
+        - {x: -167, y: -107}
+        - {x: -163, y: -110}
+        - {x: -162, y: -110}
+        - {x: -160, y: -112}
+        - {x: -158, y: -112}
+        - {x: -156, y: -113}
+        - {x: 157, y: -113}
+        - {x: 160, y: -112}
+    - name: GUI_1
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 759
+        width: 336
+        height: 226
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 168, y: -104}
+        - {x: 168, y: 103}
+        - {x: 167, y: 106}
+        - {x: 163, y: 109}
+        - {x: 162, y: 109}
+        - {x: 158, y: 112}
+        - {x: 156, y: 112}
+        - {x: 155, y: 113}
+        - {x: -154, y: 113}
+        - {x: -155, y: 112}
+        - {x: -160, y: 111}
+        - {x: -167, y: 104}
+        - {x: -168, y: 100}
+        - {x: -168, y: -101}
+        - {x: -167, y: -105}
+        - {x: -162, y: -111}
+        - {x: -157, y: -113}
+        - {x: 157, y: -113}
+        - {x: 162, y: -111}
+        - {x: 167, y: -107}
+    - name: GUI_2
+      rect:
+        serializedVersion: 2
+        x: 745
+        y: 667
+        width: 100
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -50, y: 52}
+        - {x: -50, y: -52}
+        - {x: 44, y: -52}
+        - {x: 50, y: -51}
+        - {x: 50, y: 52}
+    - name: GUI_3
+      rect:
+        serializedVersion: 2
+        x: 875
+        y: 667
+        width: 100
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -45, y: 48}
+        - {x: -50, y: 41}
+        - {x: -50, y: -48}
+        - {x: 50, y: -48}
+        - {x: 50, y: 47}
+        - {x: 49, y: 48}
+    - name: GUI_4
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 513
+        width: 338
+        height: 226
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 160, y: -111}
+        - {x: 168, y: -103}
+        - {x: 168, y: -100}
+        - {x: 169, y: -99}
+        - {x: 169, y: 100}
+        - {x: 168, y: 101}
+        - {x: 167, y: 105}
+        - {x: 163, y: 110}
+        - {x: 156, y: 113}
+        - {x: -157, y: 113}
+        - {x: -166, y: 107}
+        - {x: -166, y: 106}
+        - {x: -169, y: 102}
+        - {x: -169, y: -101}
+        - {x: -168, y: -104}
+        - {x: -161, y: -111}
+        - {x: -157, y: -112}
+        - {x: -156, y: -113}
+        - {x: 155, y: -113}
+        - {x: 156, y: -112}
+    - name: GUI_5
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 517
+        width: 310
+        height: 214
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 155, y: -102}
+        - {x: 155, y: -80}
+        - {x: 152, y: -77}
+        - {x: 147, y: -74}
+        - {x: 155, y: -68}
+        - {x: 155, y: 61}
+        - {x: 152, y: 65}
+        - {x: 155, y: 69}
+        - {x: 155, y: 102}
+        - {x: 152, y: 106}
+        - {x: 149, y: 107}
+        - {x: 12, y: 107}
+        - {x: 3, y: 102}
+        - {x: -3, y: 107}
+        - {x: -150, y: 107}
+        - {x: -153, y: 106}
+        - {x: -155, y: 103}
+        - {x: -155, y: -64}
+        - {x: -154, y: -65}
+        - {x: -155, y: -66}
+        - {x: -155, y: -103}
+        - {x: -153, y: -106}
+        - {x: -150, y: -107}
+        - {x: 149, y: -107}
+        - {x: 152, y: -106}
+    - name: GUI_6
+      rect:
+        serializedVersion: 2
+        x: 745
+        y: 547
+        width: 100
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -50, y: 51}
+        - {x: -50, y: -51}
+        - {x: 50, y: -51}
+        - {x: 50, y: 51}
+    - name: GUI_7
+      rect:
+        serializedVersion: 2
+        x: 875
+        y: 547
+        width: 100
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -50, y: 47}
+        - {x: -50, y: -47}
+        - {x: 46, y: -47}
+        - {x: 50, y: -42}
+        - {x: 50, y: 47}
+    - name: GUI_8
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 267
+        width: 312
+        height: 214
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 152, y: -106}
+        - {x: 156, y: -101}
+        - {x: 156, y: -79}
+        - {x: 151, y: -72}
+        - {x: 156, y: -67}
+        - {x: 156, y: 62}
+        - {x: 153, y: 65}
+        - {x: 156, y: 69}
+        - {x: 156, y: 104}
+        - {x: 152, y: 107}
+        - {x: 11, y: 107}
+        - {x: 5, y: 102}
+        - {x: -1, y: 107}
+        - {x: -151, y: 107}
+        - {x: -155, y: 104}
+        - {x: -156, y: 101}
+        - {x: -156, y: -103}
+        - {x: -149, y: -107}
+        - {x: -113, y: -107}
+        - {x: -105, y: -103}
+        - {x: -100, y: -107}
+        - {x: 147, y: -107}
+    - name: GUI_9
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 267
+        width: 310
+        height: 214
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 150, y: -106}
+        - {x: 155, y: -101}
+        - {x: 155, y: -78}
+        - {x: 148, y: -73}
+        - {x: 151, y: -71}
+        - {x: 155, y: -67}
+        - {x: 155, y: 62}
+        - {x: 152, y: 65}
+        - {x: 155, y: 70}
+        - {x: 155, y: 102}
+        - {x: 153, y: 106}
+        - {x: 150, y: 107}
+        - {x: 11, y: 107}
+        - {x: 4, y: 102}
+        - {x: -2, y: 107}
+        - {x: -151, y: 107}
+        - {x: -155, y: 105}
+        - {x: -155, y: -103}
+        - {x: -150, y: -107}
+        - {x: -113, y: -107}
+        - {x: -106, y: -103}
+        - {x: -101, y: -107}
+        - {x: 147, y: -107}
+    - name: GUI_10
+      rect:
+        serializedVersion: 2
+        x: 745
+        y: 427
+        width: 100
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -50, y: 51}
+        - {x: -50, y: -47}
+        - {x: -46, y: -51}
+        - {x: 50, y: -51}
+        - {x: 50, y: 51}
+    - name: GUI_11
+      rect:
+        serializedVersion: 2
+        x: 875
+        y: 427
+        width: 100
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -50, y: 47}
+        - {x: -50, y: -47}
+        - {x: 50, y: -47}
+        - {x: 50, y: 47}
+    - name: GUI_12
+      rect:
+        serializedVersion: 2
+        x: 745
+        y: 305
+        width: 100
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -50, y: 51}
+        - {x: -50, y: -51}
+        - {x: 50, y: -51}
+        - {x: 50, y: 51}
+    - name: GUI_13
+      rect:
+        serializedVersion: 2
+        x: 875
+        y: 305
+        width: 100
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -50, y: 47}
+        - {x: -50, y: -43}
+        - {x: -45, y: -47}
+        - {x: 50, y: -47}
+        - {x: 50, y: 47}
+    - name: GUI_14
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 159
+        width: 52
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14, y: 29}
+        - {x: -26, y: 16}
+        - {x: -26, y: -23}
+        - {x: -15, y: -29}
+        - {x: 21, y: -29}
+        - {x: 26, y: -24}
+        - {x: 26, y: 28}
+        - {x: 21, y: 29}
+    - name: GUI_15
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 159
+        width: 50
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 29}
+        - {x: -25, y: 21}
+        - {x: -25, y: -23}
+        - {x: -14, y: -29}
+        - {x: 18, y: -29}
+        - {x: 25, y: -19}
+        - {x: 25, y: 18}
+        - {x: 21, y: 29}
+    - name: GUI_16
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 159
+        width: 50
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 17, y: 29}
+        - {x: -12, y: 29}
+        - {x: -25, y: 22}
+        - {x: -25, y: -27}
+        - {x: -17, y: -29}
+        - {x: 22, y: -29}
+        - {x: 25, y: -19}
+        - {x: 25, y: 24}
+    - name: GUI_17
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 159
+        width: 52
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 29}
+        - {x: -25, y: 24}
+        - {x: -26, y: 21}
+        - {x: -26, y: -22}
+        - {x: -15, y: -29}
+        - {x: 21, y: -29}
+        - {x: 26, y: -20}
+        - {x: 26, y: 24}
+        - {x: 16, y: 29}
+    - name: GUI_18
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 159
+        width: 32
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 2, y: 17}
+        - {x: -12, y: 17}
+        - {x: -16, y: 15}
+        - {x: -16, y: -17}
+        - {x: 2, y: -17}
+        - {x: 14, y: -10}
+        - {x: 16, y: -6}
+        - {x: 16, y: 7}
+    - name: GUI_19
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 159
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 17}
+        - {x: -17, y: 16}
+        - {x: -17, y: -17}
+        - {x: 2, y: -17}
+        - {x: 17, y: -7}
+        - {x: 17, y: 5}
+        - {x: -3, y: 17}
+    - name: GUI_20
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 159
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -1, y: 17}
+        - {x: -17, y: 17}
+        - {x: -17, y: -17}
+        - {x: 1, y: -17}
+        - {x: 17, y: -6}
+        - {x: 17, y: 4}
+    - name: GUI_21
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 159
+        width: 32
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15, y: 17}
+        - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: -15, y: -17}
+        - {x: 3, y: -17}
+        - {x: 16, y: -7}
+        - {x: 16, y: 7}
+        - {x: -2, y: 17}
+    - name: GUI_22
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 105
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: GUI_23
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 105
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: GUI_24
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 105
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: GUI_25
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 105
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: GUI_26
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 101
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: 16}
+        - {x: -16, y: 6}
+        - {x: -16, y: -10}
+        - {x: 0, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
+    - name: GUI_27
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 101
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 1, y: 16}
+        - {x: -16, y: 11}
+        - {x: -17, y: 6}
+        - {x: -17, y: -5}
+        - {x: 1, y: -16}
+        - {x: 15, y: -16}
+        - {x: 17, y: -14}
+        - {x: 17, y: 16}
+    - name: GUI_28
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 101
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: 16}
+        - {x: -17, y: 6}
+        - {x: -17, y: -6}
+        - {x: -8, y: -14}
+        - {x: -2, y: -16}
+        - {x: 16, y: -16}
+        - {x: 17, y: -15}
+        - {x: 17, y: 15}
+        - {x: 16, y: 16}
+    - name: GUI_29
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 101
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 16}
+        - {x: -15, y: 10}
+        - {x: -16, y: 7}
+        - {x: -16, y: -8}
+        - {x: -3, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
+    - name: GUI_30
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 61
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: GUI_31
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 61
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: GUI_32
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 61
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: GUI_33
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 61
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: GUI_34
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 5
+        width: 262
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: 45}
+        - {x: -131, y: 42}
+        - {x: -131, y: -41}
+        - {x: -125, y: -45}
+        - {x: 126, y: -45}
+        - {x: 131, y: -42}
+        - {x: 131, y: 42}
+        - {x: 128, y: 45}
+    - name: GUI_35
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 17
+        width: 24
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: GUI_36
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 17
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: GUI_37
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 17
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: GUI_38
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 17
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

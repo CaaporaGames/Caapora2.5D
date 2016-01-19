@@ -311,7 +311,7 @@ namespace IsoTools {
 
 		void OnDrawGizmos() {
 			if ( isShowBounds && isoWorld ) {
-				IsoUtils.DrawCube(isoWorld, position + size * 0.5f, size, Color.red);
+				IsoUtils.DrawCube(isoWorld, position + size * 0.5f, size, Color.red, Vector3.zero);
 			}
 		}
 

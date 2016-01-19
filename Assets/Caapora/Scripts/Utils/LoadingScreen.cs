@@ -41,6 +41,9 @@ public class LoadingScreen : MonoBehaviour {
             case "Map2":
                 LoadLevel("Map2");
                 break;
+            case "TestMap":
+                LoadLevel("AmbienteTestes2.5D");
+                break;
 
         }
 
@@ -86,7 +89,7 @@ public class LoadingScreen : MonoBehaviour {
             if(async.progress > 0.89f)
                 async.allowSceneActivation = true;
 
-            Debug.Log("async progress " + async.progress.ToString());
+            // Debug.Log("async progress " + async.progress.ToString());
 
             loadProgress = (int)(async.progress * 100);
 
