@@ -21,7 +21,7 @@ public class Menu : MonoBehaviour {
     public void LoadGame()
     {
 
-        GameManager.next_scene = "TestMap";
+        Caapora.GameManager.next_scene = "TestMap";
         Application.LoadLevel("Loader");
     }
 

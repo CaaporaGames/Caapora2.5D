@@ -6,8 +6,10 @@ using UnityEditor;
 #endif
 
 namespace IsoTools {
-	[RequireComponent(typeof(IsoObject))]
-	public class IsoRampCollider : IsoCollider {
+
+
+    [RequireComponent(typeof(IsoObject))]
+    public class IsoRampCollider : IsoCollider {
 
 		[SerializeField]
 		public Vector3 _size = Vector3.zero;

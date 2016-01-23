@@ -20,7 +20,7 @@ public class DayNight : MonoBehaviour
     private Vector3 sunPosition;
     public Light sun;
     public GameObject earth;
-    private Text timeGUI;
+   
  
 
     // Day and Night Script for 2d,
@@ -32,6 +32,7 @@ public class DayNight : MonoBehaviour
     // set sun to directional light and y angle to 90
 
 
+
     void Start()
     {
         dayLength = 1440;
@@ -41,7 +42,6 @@ public class DayNight : MonoBehaviour
         currentTime = 720;
 
 
-        timeGUI = GameObject.Find("Hora").GetComponent<Text>();
         StartCoroutine(TimeOfDay());
         earth = gameObject.transform.parent.gameObject;
     }
@@ -102,7 +102,7 @@ public class DayNight : MonoBehaviour
 
             int minutes = currentTime % 60;
 
-            timeGUI.text = String.Format("Hora: {0:00}:{1:00}", hours, minutes); 
+            UIInterface.instance.timeGUI.text = String.Format("Hora: {0:00}:{1:00}", hours, minutes);
             yield return new WaitForSeconds(1F / cycleSpeed);
         }
     }

@@ -14,7 +14,8 @@ GameObject:
   - 114: {fileID: 11488368}
   - 114: {fileID: 11489436}
   - 114: {fileID: 11462002}
-  m_Layer: 0
+  - 114: {fileID: 11454822}
+  m_Layer: 4
   m_Name: waterPrefab
   m_TagString: Water
   m_Icon: {fileID: 0}
@@ -28,7 +29,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 120626}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 317.59998, y: -100.3, z: 119.65}
+  m_LocalPosition: {x: 189.59998, y: -164.3, z: 126.55003}
   m_LocalScale: {x: 51.907364, y: 51.907356, z: 51.907356}
   m_Children: []
   m_Father: {fileID: 0}
@@ -63,9 +64,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mode: 0
   _size: {x: 1, y: 1, z: 0.6}
-  _position: {x: 16, y: 0, z: 0}
+  _position: {x: 8, y: 0, z: 0}
   _isAlignment: 1
-  _isShowBounds: 1
+  _isShowBounds: 0
+--- !u!114 &11454822
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b256250c588ee4e4590a3e58eaa69b1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _material: {fileID: 0}
+  _isTrigger: 0
+  _size: {x: 1, y: 1, z: 0.2}
+  _rotate: {x: 0, y: 0, z: 0}
+  _offset: {x: 0.5, y: 0.5, z: 0.1}
 --- !u!114 &11462002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -133,7 +150,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: bf7c9e6e21e3d994da041ebb6040efaa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

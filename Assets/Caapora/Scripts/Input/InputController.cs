@@ -9,7 +9,7 @@ namespace Caapora
     public class InputController : MonoBehaviour {
 
         public bool MoveToPlace = false;
-        public static InputController instance;
+        private static InputController _instance;
         public Animator animator;
         public GameObject go;
         public IsoObject caapora;
@@ -24,12 +24,43 @@ namespace Caapora
         private float _life = 1000;
         private static bool _canLauchWater;
         private Camera mainCamera;
-       
 
+
+        void Awake()
+        {
+            if (_instance == null)
+            {
+
+                _instance = this;
+                DontDestroyOnLoad(this);
+            }
+            else
+            {
+
+                if (this != _instance)
+                    Destroy(this.gameObject);
+            }
+        }
+
+
+
+        public static InputController instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = FindObjectOfType<InputController>();
+
+                    DontDestroyOnLoad(_instance.gameObject);
+                }
+
+                return _instance;
+            }
+        }
 
         void Start () {
 
-            instance = this;
             mainCamera = GameObject.Find("Player/Camera").GetComponent<Camera>(); 
 
         }
@@ -133,6 +164,13 @@ namespace Caapora
                 {
                     lookingAt = "up";
                     Caapora.instance.moveUp();
+
+
+                }
+                else if (Input.GetKeyDown(KeyCode.UpArrow) && Input.GetKeyDown(KeyCode.LeftArrow) || Caapora.moveDirection == "up")
+                {
+                    lookingAt = "up";
+                    Caapora.instance.moveUpLeft();
 
 
                 }

@@ -16,9 +16,7 @@ public class LoadingScreen : MonoBehaviour {
 
     AsyncOperation async;
 
-    /// <summary>
-    /// Controla a transição entre cenas com carregamento
-    /// </summary>
+
     void Start () {
 
         instance = this;
@@ -32,7 +30,7 @@ public class LoadingScreen : MonoBehaviour {
         progressBar.SetActive(false);
 
 
-        switch (GameManager.next_scene)
+        switch (Caapora.GameManager.next_scene)
         {
             case "Map1":
                 LoadLevel("Map1");
@@ -43,6 +41,9 @@ public class LoadingScreen : MonoBehaviour {
                 break;
             case "TestMap":
                 LoadLevel("AmbienteTestes2.5D");
+                break;
+            case "MenuPrincipal":
+                LoadLevel("MenuPrincipal");
                 break;
 
         }
@@ -57,7 +58,8 @@ public class LoadingScreen : MonoBehaviour {
             
             background.SetActive(false);
             text.SetActive(false);
-            progressBar.SetActive(false);
+            progressBar.SetActive(false);      
+
         }
 	}
 
@@ -87,7 +89,11 @@ public class LoadingScreen : MonoBehaviour {
         while (!async.isDone)
         {
             if(async.progress > 0.89f)
+            {
                 async.allowSceneActivation = true;
+                             
+            }
+                
 
             // Debug.Log("async progress " + async.progress.ToString());
 

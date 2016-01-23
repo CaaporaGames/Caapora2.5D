@@ -14,9 +14,15 @@ public class Fire : MonoBehaviour {
         demage = 1f;
         fire = gameObject.GetComponent<IsoRigidbody>();
 
-        GameManager.totalOfFlames++;
+        
     }
 	
+    void Awake()
+    {
+
+        Caapora.GameManager.totalOfFlames++;
+
+    }
 
 	void Update () {
 
@@ -35,16 +41,12 @@ public class Fire : MonoBehaviour {
     void OnDestroy()
     {
 
-        if (FindObjectOfType<GameManager>() != null)
-                 GameManager.totalOfFlames--;
+        if (FindObjectOfType<Caapora.GameManager>() != null)
+                 Caapora.GameManager.totalOfFlames--;
     }
 
 
-    /// *************************************************************************
-    /// Author: Rômulo Lima
-    /// <summary> 
-    /// Balança o player para sinalizar algo
-    /// </summary>
+  
     private IEnumerator Atack()
     {
         

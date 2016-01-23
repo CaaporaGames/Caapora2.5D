@@ -213,7 +213,7 @@ namespace Caapora
             {
                 t += Time.deltaTime;
 
-                GetComponent<SpriteRenderer>().color = Color.Lerp(Color.red, Color.white, t);
+                GetComponentInChildren<SpriteRenderer>().color = Color.Lerp(Color.red, Color.white, t);
                 yield return null;
 
             }

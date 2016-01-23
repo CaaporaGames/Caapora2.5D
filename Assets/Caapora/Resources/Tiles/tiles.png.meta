@@ -32,7 +32,7 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: .25
+    heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
@@ -52,13 +52,14 @@ TextureImporter:
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
+  allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: .5, y: .5}
+  spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 2
+  spritePixelsToUnits: 3
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
@@ -72,8 +73,17 @@ TextureImporter:
         width: 64
         height: 37
       alignment: 7
-      pivot: {x: .5, y: 0}
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 37}
+        - {x: -32, y: 25}
+        - {x: -32, y: 3}
+        - {x: -24, y: 0}
+        - {x: 9, y: 0}
+        - {x: 32, y: 8}
+        - {x: 32, y: 23}
+        - {x: 15, y: 37}
     - name: tiles_4
       rect:
         serializedVersion: 2
@@ -82,8 +92,18 @@ TextureImporter:
         width: 65
         height: 51
       alignment: 7
-      pivot: {x: .5, y: 0}
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 18.5, y: 51}
+        - {x: -15.5, y: 51}
+        - {x: -32.5, y: 26}
+        - {x: -32.5, y: 15}
+        - {x: -6.5, y: 0}
+        - {x: 2.5, y: 0}
+        - {x: 32.5, y: 14}
+        - {x: 32.5, y: 33}
+        - {x: 30.5, y: 47}
     - name: tiles_5
       rect:
         serializedVersion: 2
@@ -92,8 +112,17 @@ TextureImporter:
         width: 64
         height: 37
       alignment: 7
-      pivot: {x: .5, y: 0}
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -19, y: 37}
+        - {x: -32, y: 23}
+        - {x: -32, y: 12}
+        - {x: -15, y: 0}
+        - {x: 9, y: 0}
+        - {x: 32, y: 8}
+        - {x: 32, y: 30}
+        - {x: 11, y: 37}
     - name: tiles_6
       rect:
         serializedVersion: 2
@@ -102,8 +131,19 @@ TextureImporter:
         width: 64
         height: 52
       alignment: 7
-      pivot: {x: .5, y: 0}
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 18, y: 52}
+        - {x: -26, y: 52}
+        - {x: -28, y: 51}
+        - {x: -32, y: 36}
+        - {x: -32, y: 10}
+        - {x: -8, y: 0}
+        - {x: 2, y: 0}
+        - {x: 32, y: 13}
+        - {x: 32, y: 28}
+        - {x: 22, y: 51}
     - name: tiles_10
       rect:
         serializedVersion: 2
@@ -112,8 +152,17 @@ TextureImporter:
         width: 63
         height: 36
       alignment: 7
-      pivot: {x: .5, y: 0}
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17.5, y: 36}
+        - {x: -31.5, y: 24}
+        - {x: -31.5, y: 6}
+        - {x: -11.5, y: 0}
+        - {x: 18.5, y: 0}
+        - {x: 31.5, y: 11}
+        - {x: 31.5, y: 27}
+        - {x: 8.5, y: 36}
     - name: tiles_12
       rect:
         serializedVersion: 2
@@ -122,8 +171,20 @@ TextureImporter:
         width: 63
         height: 82
       alignment: 7
-      pivot: {x: .5, y: 0}
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24.5, y: 57}
+        - {x: -31.5, y: 31}
+        - {x: -31.5, y: 10}
+        - {x: -15.5, y: 0}
+        - {x: 11.5, y: 0}
+        - {x: 31.5, y: 8}
+        - {x: 31.5, y: 40}
+        - {x: 23.5, y: 67}
+        - {x: -2.5, y: 82}
+        - {x: -19.5, y: 82}
+        - {x: -23.5, y: 79}
     - name: tiles_14
       rect:
         serializedVersion: 2
@@ -132,8 +193,17 @@ TextureImporter:
         width: 63
         height: 36
       alignment: 7
-      pivot: {x: .5, y: 0}
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 2, w: 0}
+      outline:
+      - - {x: -6.5, y: 36}
+        - {x: -31.5, y: 26}
+        - {x: -31.5, y: 9}
+        - {x: -6.5, y: 0}
+        - {x: 14.5, y: 0}
+        - {x: 31.5, y: 10}
+        - {x: 31.5, y: 25}
+        - {x: 13.5, y: 36}
     - name: tiles_15
       rect:
         serializedVersion: 2
@@ -142,8 +212,16 @@ TextureImporter:
         width: 64
         height: 37
       alignment: 7
-      pivot: {x: .5, y: 0}
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21, y: 37}
+        - {x: -32, y: 25}
+        - {x: -32, y: 10}
+        - {x: -7, y: 0}
+        - {x: 19, y: 0}
+        - {x: 32, y: 5}
+        - {x: 32, y: 37}
     - name: tiles_16
       rect:
         serializedVersion: 2
@@ -152,8 +230,17 @@ TextureImporter:
         width: 66
         height: 38
       alignment: 7
-      pivot: {x: .5, y: 0}
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: 38}
+        - {x: -33, y: 25}
+        - {x: -33, y: 10}
+        - {x: -8, y: 0}
+        - {x: 12, y: 0}
+        - {x: 33, y: 13}
+        - {x: 33, y: 26}
+        - {x: 5, y: 38}
     - name: tiles_17
       rect:
         serializedVersion: 2
@@ -162,8 +249,17 @@ TextureImporter:
         width: 65
         height: 38
       alignment: 7
-      pivot: {x: .5, y: 0}
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4.5, y: 38}
+        - {x: -32.5, y: 26}
+        - {x: -32.5, y: 10}
+        - {x: -7.5, y: 0}
+        - {x: 11.5, y: 0}
+        - {x: 32.5, y: 14}
+        - {x: 32.5, y: 24}
+        - {x: 7.5, y: 38}
     - name: tiles_18
       rect:
         serializedVersion: 2
@@ -172,8 +268,17 @@ TextureImporter:
         width: 65
         height: 39
       alignment: 7
-      pivot: {x: .5, y: 0}
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8.5, y: 39}
+        - {x: -32.5, y: 26}
+        - {x: -32.5, y: 12}
+        - {x: -10.5, y: 0}
+        - {x: 5.5, y: 0}
+        - {x: 32.5, y: 13}
+        - {x: 32.5, y: 27}
+        - {x: 4.5, y: 39}
     - name: tiles_19
       rect:
         serializedVersion: 2
@@ -182,8 +287,18 @@ TextureImporter:
         width: 64
         height: 82
       alignment: 7
-      pivot: {x: .5, y: 0}
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 82}
+        - {x: -24, y: 81}
+        - {x: -32, y: 45}
+        - {x: -32, y: 10}
+        - {x: -9, y: 0}
+        - {x: 8, y: 0}
+        - {x: 32, y: 14}
+        - {x: 32, y: 58}
+        - {x: 13, y: 82}
     - name: tiles_20
       rect:
         serializedVersion: 2
@@ -192,8 +307,18 @@ TextureImporter:
         width: 66
         height: 36
       alignment: 7
-      pivot: {x: .5, y: 0}
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 36}
+        - {x: -33, y: 21}
+        - {x: -33, y: 10}
+        - {x: -8, y: 0}
+        - {x: 22, y: 0}
+        - {x: 33, y: 9}
+        - {x: 33, y: 24}
+        - {x: 6, y: 36}
+    outline: []
   spritePackingTag: 
   userData: 
   assetBundleName: 

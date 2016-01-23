@@ -310,6 +310,7 @@ MonoBehaviour:
   _material: {fileID: 0}
   _isTrigger: 0
   _size: {x: 1, y: 1.2, z: 1.2}
+  _rotate: {x: 0, y: 0, z: 0}
   _offset: {x: 0.5, y: 0.6, z: 0.6}
 --- !u!114 &11405072
 MonoBehaviour:
@@ -508,6 +509,7 @@ MonoBehaviour:
   stepRndTicks: 0.5
   npc_start: 1
   time: 7
+  IsNear: 0
 --- !u!124 &12498396
 Behaviour:
   m_ObjectHideFlags: 1

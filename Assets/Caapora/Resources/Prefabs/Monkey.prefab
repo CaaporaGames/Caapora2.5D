@@ -28,7 +28,7 @@ GameObject:
   - 223: {fileID: 22318098}
   - 114: {fileID: 11469950}
   - 114: {fileID: 11455398}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: healthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,7 +60,7 @@ GameObject:
   - 224: {fileID: 22431734}
   - 222: {fileID: 22214114}
   - 114: {fileID: 11445960}
-  m_Layer: 11
+  m_Layer: 5
   m_Name: LifeBg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77,7 +77,7 @@ GameObject:
   - 224: {fileID: 22479966}
   - 222: {fileID: 22240104}
   - 114: {fileID: 11489572}
-  m_Layer: 11
+  m_Layer: 5
   m_Name: LifeBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - 224: {fileID: 22489936}
   - 222: {fileID: 22271524}
   - 114: {fileID: 11435234}
-  m_Layer: 11
+  m_Layer: 5
   m_Name: ManaBg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   - 224: {fileID: 22436412}
   - 222: {fileID: 22254020}
   - 114: {fileID: 11471746}
-  m_Layer: 11
+  m_Layer: 5
   m_Name: ManaBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   - 114: {fileID: 11491120}
   - 114: {fileID: 11426028}
   - 114: {fileID: 11454300}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Monkey
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -521,6 +521,7 @@ MonoBehaviour:
   _material: {fileID: 0}
   _isTrigger: 0
   _size: {x: 1, y: 1, z: 1}
+  _rotate: {x: 0, y: 0, z: 0}
   _offset: {x: 0.5, y: 0.5, z: 0.5}
 --- !u!212 &21268518
 SpriteRenderer:

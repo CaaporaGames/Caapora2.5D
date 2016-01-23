@@ -33,7 +33,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &167464
 GameObject:
   m_ObjectHideFlags: 0
@@ -74,7 +74,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 132610}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.00002352259, z: -59.599983}
+  m_LocalPosition: {x: -0.00002207, y: -0.00002352259, z: -59.599983}
   m_LocalScale: {x: 1.4463795, y: 1.5415765, z: 1}
   m_Children: []
   m_Father: {fileID: 493700}
@@ -86,7 +86,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 167464}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -315.77667, y: 117.13298, z: 1}
+  m_LocalPosition: {x: -235.77667, y: 157.13298, z: 110.89888}
   m_LocalScale: {x: 0.69138145, y: 0.6486866, z: 1}
   m_Children:
   - {fileID: 416292}
@@ -156,9 +156,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mode: 0
   _size: {x: 1, y: 1, z: 1}
-  _position: {x: 20, y: 17, z: -5}
+  _position: {x: 25, y: 17, z: -5}
   _isAlignment: 1
-  _isShowBounds: 1
+  _isShowBounds: 0
 --- !u!114 &11441906
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -172,9 +172,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mode: 0
   _size: {x: 1, y: 1, z: 1}
-  _position: {x: 15, y: 12, z: 0}
+  _position: {x: 20, y: 12, z: 0}
   _isAlignment: 1
-  _isShowBounds: 1
+  _isShowBounds: 0
 --- !u!114 &11456126
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4febe544112bb4678bdd59fa963c802d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isKinematic: 1
+  _isKinematic: 0
   _interpolation: 0
   _collisionDetectionMode: 1
 --- !u!114 &11465892

@@ -20,7 +20,7 @@ public class Tutorial : MonoBehaviour
     public void LoadNextLevel()
     {
 
-        GameManager.next_scene = "Map1";
+        Caapora.GameManager.next_scene = "Map1";
         Application.LoadLevel("Loader");
 
     }

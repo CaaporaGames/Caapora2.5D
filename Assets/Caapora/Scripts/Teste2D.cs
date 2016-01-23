@@ -2,7 +2,7 @@
 using System.Collections;
 using IsoTools;
 
-public class Teste2S : MonoBehaviour {
+public class Teste2D : MonoBehaviour {
 
     public GameObject enemy;
     public GameObject hero;

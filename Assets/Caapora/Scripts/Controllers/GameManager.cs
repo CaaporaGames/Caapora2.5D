@@ -7,6 +7,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using Caapora;
 using UnityEngine.SceneManagement;
+using System;
 
 [System.Serializable]
 static class Coodenadas
@@ -20,16 +21,17 @@ static class Coodenadas
 	
 }
 
-
+namespace Caapora { 
 [System.Serializable]
 public class GameManager: MonoBehaviour {
 
 	private static GameManager _instance;
-    private float Timeleft = 120;
+    public static float CurrentTimeLeft { get; private set; }
+    public float TimeLeft = 120;
     private GameObject CameraAux;
 	public Vector3 LastUsedDoorPosition;
     private GameObject SceneInformation;
-    private Caapora.Caapora player;
+    private Caapora player;
 
 
 	public int PathID;
@@ -37,15 +39,11 @@ public class GameManager: MonoBehaviour {
     public bool showIntroduction = false;
     public static string current_scene;
     public static string next_scene;
-    private bool _paused = false;
+    private bool _paused;
     public static bool isAnimating = false;
-    private GameObject winnerModal;
-    private GameObject loserModal;
-    private bool gameover = false;
+    private bool gameover;
     private int _zoomState = 1;
     private int _totalOfFlames = 0;
-    private Text TotalChamas;
-    private Text Timer;
 
 
 
@@ -54,26 +52,55 @@ public class GameManager: MonoBehaviour {
 
     void Awake()
     {
-        if (_instance == null)
-        {
-           
-            _instance = this;
-            DontDestroyOnLoad(this);
+            
+            PopulatePool();
+
+            instance.PrepareGame();
+
+            CameraAux = GameObject.Find("CameraAux");
+            SceneInformation = GameObject.Find("Informacoes");
+
+            if (!showIntroduction)
+            {
+                CameraAux.SetActive(false);
+                SceneInformation.SetActive(false);
+            }
+
+            
+
+            if (showIntroduction)
+            {
+                StartCoroutine(Introduction());
+            }
+
+
+    
+            player = Caapora.instance;
+
+            instance.UnPause();
+
+            SoundManager.instance.musicSource.Play();
+
         }
-        else
+
+        public void PrepareGame()
         {
+            CurrentTimeLeft = TimeLeft;
 
-            if (this != _instance)
-                Destroy(this.gameObject);
+            _instance.gameover = false;
+
+            UIInterface.instance.Show();
+            
+
         }
-    }
 
 
 
-    public static GameManager instance
-    {
+     public static GameManager instance
+     {
         get
         {
+
             if (_instance == null)
             {
                 _instance = FindObjectOfType<GameManager>();
@@ -88,40 +115,22 @@ public class GameManager: MonoBehaviour {
 
     void Start()
     {
-
-        PopulatePool();
-
      
-        CameraAux = GameObject.Find("CameraAux");
-        SceneInformation = GameObject.Find("Informacoes");
 
-        if (!showIntroduction)
-        {
-            CameraAux.SetActive(false);
-            SceneInformation.SetActive(false);
+            if (_instance == null)
+            {
+
+                _instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+
+                if (this != _instance)
+                    Destroy(this.gameObject);
+            }
+
         }
-
-        
-        winnerModal = GameObject.Find("Winner");
-        winnerModal.SetActive(false);
-
-        loserModal = GameObject.Find("GameOver");
-        loserModal.SetActive(false);
-
-        // Habilita ou não a animação de introdução
-        if (showIntroduction)
-        {
-            StartCoroutine(Introduction());
-        }
-
-        TotalChamas = GameObject.Find("TotalChamas").GetComponent<Text>();
-
-        Timer = GameObject.Find("Tempo").GetComponent<Text>();
-
-        // Recebe a instancia do player
-        player = Caapora.Caapora.instance;
-
-    }
 
 
 
@@ -129,30 +138,30 @@ public class GameManager: MonoBehaviour {
 
     void Update()
     {
-
-        Timeleft -= Time.deltaTime;
-
-        TotalChamas.text = "Chamas: " + totalOfFlames;
-
-        Timer.text = "Tempo : " + Mathf.Round(Timeleft);
-
         
-        if (!gameover)
-        {
-            if (WinCondition())
-                YouWin();
-
-             GameOVer();
-        }
+        
+        CurrentTimeLeft -= Time.deltaTime;
 
 
+            Debug.Log("gameonver : pause = " + gameover + " : " + instance._paused);
+             
+ 
+
+            if (!gameover)
+            {
+                if (WinCondition())
+                    YouWin();
+
+                if (LoseCondition())
+                    GameOVer();
+            }
 
 
         if (!InputController.isPlayingAnimation)
         { 
 
             if (!Inventory.isEmpty())
-                Caapora.Caapora.instance.animator.SetTrigger("bucket");
+                Caapora.instance.animator.SetTrigger("bucket");
 
 
         }
@@ -167,6 +176,101 @@ public class GameManager: MonoBehaviour {
 
     }
 
+
+    public bool WinCondition()
+    {
+
+        return GameObject.FindWithTag("Flame") == null && CurrentTimeLeft > 0;
+
+    }
+
+    public void YouWin()
+    {
+
+            Debug.Log("Voce venceu");
+            gameover = true;
+            StopGame();
+            UIInterface.instance.winnerModal.SetActive(true);
+
+    }
+
+
+        private bool LoseCondition()
+    {
+
+        return gameObject.GetComponent<IsoObject>().positionZ < -15 || player.life <= 0 || CurrentTimeLeft <= 0;
+    }
+
+    public void GameOVer()
+    {
+            Debug.Log("Voce perdeu");
+            gameover = true;
+            StopGame();
+            UIInterface.instance.loserModal.SetActive(true);
+
+
+    }
+
+    public void Pause()
+    {
+
+        if (_paused)
+        {
+            Time.timeScale = 1;
+            _paused = false;
+             UIInterface.instance.pauseModal.SetActive(false);
+                SoundManager.instance.musicSource.UnPause();
+
+        }
+        else
+        {
+            Time.timeScale = 0;
+            _paused = true;
+            UIInterface.instance.pauseModal.SetActive(true);
+                SoundManager.instance.musicSource.Pause(); ;
+
+            }
+
+        }
+
+         private void StopGame()
+        {
+            Time.timeScale = 0;
+            _paused = true;
+            SoundManager.instance.musicSource.Stop();
+
+        }
+
+    public void UnPause()
+        {
+            Time.timeScale = 1;
+            _paused = false;
+
+        }
+
+    public void Exit()
+    {
+
+
+        Application.Quit();
+
+    }
+
+
+    public void LoadNextLevel(string scene)
+    {
+     
+       
+       UIInterface.instance.Hide();
+
+       CurrentTimeLeft = TimeLeft;
+
+        LevelController.AddLevel();
+
+        next_scene = scene;
+        SceneManager.LoadScene("Loader");
+
+     }
 
 
     void PopulatePool()
@@ -225,28 +329,8 @@ public class GameManager: MonoBehaviour {
 		
 	}
 
-    public bool WinCondition()
-    {
 
-
-        return GameObject.FindWithTag("Flame") == null;
-
-    }
-
-    void GameOVer()
-    {
-
-        if (gameObject.GetComponent<IsoObject>().positionZ < -15 || player.life <= 0  || Timeleft <= 0)
-        {
-
-
-            gameover = true;
-            Pause();
-            loserModal.SetActive(true);
-
-        }
-
-    }
+    
 
 
     void OnIsoCollisionEnter(IsoCollision iso_collision) {
@@ -293,25 +377,7 @@ public class GameManager: MonoBehaviour {
         go.SetActive(true);
     }
 
-
-
-
-    public void Exit()
-    {
-       
-
-        Application.Quit();
-        
-    }
-
-
-    public void LoadNextLevel(string level)
-    {
-
-        next_scene = level;
-        SceneManager.LoadScene("Loader");
-
-    }
+   
 
 
     public IEnumerator CaaporaHit()
@@ -424,22 +490,6 @@ public class GameManager: MonoBehaviour {
     }
  
 
-    public void Pause()
-    {
-
-        if (_paused)
-        {
-            Time.timeScale = 1;
-            _paused = false;
-        }
-        else
-        {
-            Time.timeScale = 0;
-            _paused = true;
-        }
-
-    }
-
 
 
     public static void Save()
@@ -464,15 +514,7 @@ public class GameManager: MonoBehaviour {
         }
     }
 
-    public void YouWin()
-    {
 
-        gameover = true;
-        Pause();
-        winnerModal.SetActive(true);
-
-        
-    }
 
 
     public void hideConversationPanel()
@@ -483,5 +525,5 @@ public class GameManager: MonoBehaviour {
 
 
 
-
+    }
 }

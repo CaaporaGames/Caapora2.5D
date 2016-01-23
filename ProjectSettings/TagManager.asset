@@ -19,13 +19,13 @@ TagManager:
   - Floor
   - blockingLayer
   - Unwalkable
-  - 
+  - Grass
   - Tree
   - EnemyLayer
   - 
-  - 
-  - 
-  - 
+  - Objects
+  - Characters
+  - Acessorios
   - 
   - 
   - 

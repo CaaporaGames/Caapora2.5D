@@ -13,7 +13,7 @@ namespace Caapora {
 	public GameObject go;
 	public IsoObject caapora;
 	public static bool isPlayingAnimation;
-	public static Caapora instance;
+	public static Caapora _instance;
     public string _moveDirection;
     public Sprite baldeCheio;
     public bool canFillBucket;
@@ -23,21 +23,45 @@ namespace Caapora {
     private    GameObject balde;
     private bool _running = false;
     private Image CaaporaLifeBar;
-        private Text Altura;
+    private Text Altura;
 
 
-
-        void Awake()
+        public static Caapora instance
         {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = FindObjectOfType<Caapora>();
 
-            instance = this;
+                    DontDestroyOnLoad(_instance.gameObject);
+                }
+
+                return _instance;
+            }
         }
 
-  
+
         public override void Start()
         {
    
             base.Start();
+
+
+            if (_instance == null)
+            {
+
+                _instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+
+                if (this != _instance)
+                    Destroy(this.gameObject);
+            }
+
+
 
             canFillBucket = false;
 
@@ -48,15 +72,12 @@ namespace Caapora {
             StatusHP = GameObject.Find("CaaporaStatus/Status/hp").GetComponent<Text>();
             balde = GameObject.Find("baldeVazioPrefab");
             
+         
 
-            instance = this;
+            _animator = GetComponentInChildren<Animator>();
 
-            iso_rigidyBody = GetComponent<IsoRigidbody>();
-
-            iso_object = GetComponent<IsoObject>();
-
-            _animator = GetComponent<Animator>();
-
+            instance.iso_rigidyBody = GetComponent<IsoRigidbody>();
+            instance.iso_object = GetComponent<IsoObject>();
 
         }
 
@@ -66,6 +87,9 @@ namespace Caapora {
 
             base.Update();
 
+
+        
+
             Altura.text = String.Format("{0:0.00}" , iso_object.positionZ);
             if (canFillBucket)
             {
@@ -74,7 +98,7 @@ namespace Caapora {
 
             }
          
-              
+             
 
             UpdateCaaporaStatus();
 
@@ -182,7 +206,7 @@ namespace Caapora {
         public void run()
         {
       
-            speed = 3f;
+            instance.speed = 3f;
 
         }
 
@@ -191,7 +215,7 @@ namespace Caapora {
         public void walk()
         {
 
-            speed = 2f;
+            instance.speed = 2f;
         }
 
         public static bool running
@@ -280,7 +304,12 @@ namespace Caapora {
         {
 
 
-            iso_rigidyBody.velocity = new Vector3(-instance.speed, instance.speed, 0);
+            Debug.Log("Velocidade = " + instance.iso_rigidyBody.velocity);
+
+            Debug.Log("Iso_rigidy = " + instance.iso_rigidyBody.ToString());
+
+            instance.iso_rigidyBody.velocity = new Vector3(-instance.speed, instance.speed, 0);
+
             _animator.SetTrigger("Caapora-left");
 
         }
@@ -288,8 +317,8 @@ namespace Caapora {
         public override void moveRight()
         {
 
-
-            iso_rigidyBody.velocity = new Vector3(instance.speed, -instance.speed, 0);
+      
+            instance.iso_rigidyBody.velocity = new Vector3(instance.speed, -instance.speed, 0);
             _animator.SetTrigger("Caapora-right");
 
         }
@@ -306,12 +335,20 @@ namespace Caapora {
         public override void moveUp()
         {
 
-            iso_rigidyBody.velocity = new Vector3(instance.speed, instance.speed, 0);
+            instance.iso_rigidyBody.velocity = new Vector3(instance.speed, instance.speed, 0);
             _animator.SetTrigger("Caapora-Norte");
 
         }
 
 
+
+        public void moveUpLeft()
+        {
+
+            instance.iso_rigidyBody.velocity = new Vector3(0, instance.speed, 0);
+            _animator.SetTrigger("Caapora-Norte");
+
+        }
 
         public void Jump()
         {

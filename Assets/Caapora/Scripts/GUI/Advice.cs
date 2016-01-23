@@ -32,7 +32,7 @@ public class Advice : MonoBehaviour {
 
         if(value)
         {
-            GameManager.ShowObjectAPeriodOfTime(instance.gameObject, 5);
+            Caapora.GameManager.ShowObjectAPeriodOfTime(instance.gameObject, 5);
           
         }
              

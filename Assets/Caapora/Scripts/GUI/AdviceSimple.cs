@@ -33,7 +33,7 @@ public class AdviceSimple : MonoBehaviour {
  
             instance.adviceText.text = message;
             enable = true;
-            GameManager.ShowObjectAPeriodOfTime(instance.gameObject, 5);
+            Caapora.GameManager.ShowObjectAPeriodOfTime(instance.gameObject, 5);
             
 
         

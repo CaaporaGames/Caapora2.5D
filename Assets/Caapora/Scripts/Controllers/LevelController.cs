@@ -11,7 +11,7 @@ public class LevelController : MonoBehaviour {
     public float DifficultFactor = 1.5f;
     private Text levelText;
 
-    // Use this for initialization
+
     void Start () {
 
 
@@ -19,7 +19,7 @@ public class LevelController : MonoBehaviour {
         levelText = GameObject.Find("Level").GetComponent<Text>();
     }
 	
-	// Update is called once per frame
+
 	void Update () {
 
         levelText.text = "Level: " + GetCurrentLevel().ToString();
