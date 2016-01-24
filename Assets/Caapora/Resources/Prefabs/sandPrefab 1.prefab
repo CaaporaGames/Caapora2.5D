@@ -10,8 +10,6 @@ GameObject:
   - 4: {fileID: 446212}
   - 212: {fileID: 21217342}
   - 114: {fileID: 11412218}
-  - 114: {fileID: 11418598}
-  - 114: {fileID: 11495392}
   m_Layer: 0
   m_Name: sandPrefab 1
   m_TagString: Untagged
@@ -26,7 +24,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 153754}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 103.4, y: -81, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -10.899834}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -43,40 +41,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mode: 0
-  _size: {x: 1, y: 1, z: 1}
-  _position: {x: 0, y: 0, z: 0}
-  _isAlignment: 1
-  _isShowBounds: 0
---- !u!114 &11418598
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 153754}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b256250c588ee4e4590a3e58eaa69b1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _material: {fileID: 0}
-  _isTrigger: 0
   _size: {x: 1, y: 1, z: 0.2}
-  _rotate: {x: 0, y: 0, z: 0}
-  _offset: {x: 0.5, y: 0.5, z: 0}
---- !u!114 &11495392
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 153754}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4febe544112bb4678bdd59fa963c802d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _isKinematic: 1
-  _interpolation: 0
-  _collisionDetectionMode: 0
+  _position: {x: 28, y: -3, z: 1}
+  _isAlignment: 1
+  _isShowBounds: 1
 --- !u!212 &21217342
 SpriteRenderer:
   m_ObjectHideFlags: 1

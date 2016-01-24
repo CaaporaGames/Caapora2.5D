@@ -26,7 +26,7 @@ namespace Caapora {
 public class GameManager: MonoBehaviour {
 
 	private static GameManager _instance;
-    public static float CurrentTimeLeft { get; private set; }
+    public float CurrentTimeLeft { get; private set; }
     public float TimeLeft = 120;
     private GameObject CameraAux;
 	public Vector3 LastUsedDoorPosition;
@@ -46,14 +46,11 @@ public class GameManager: MonoBehaviour {
     private int _totalOfFlames = 0;
 
 
-
     public static List<GameManager> savedGames = new List<GameManager>();
 
 
     void Awake()
     {
-            
-            PopulatePool();
 
             instance.PrepareGame();
 
@@ -73,19 +70,17 @@ public class GameManager: MonoBehaviour {
                 StartCoroutine(Introduction());
             }
 
-
-    
-            player = Caapora.instance;
+            player = GameObject.Find("Player").GetComponent<Caapora>();
 
             instance.UnPause();
 
-            SoundManager.instance.musicSource.Play();
+
 
         }
 
         public void PrepareGame()
         {
-            CurrentTimeLeft = TimeLeft;
+            _instance.CurrentTimeLeft = TimeLeft ;
 
             _instance.gameover = false;
 
@@ -105,7 +100,7 @@ public class GameManager: MonoBehaviour {
             {
                 _instance = FindObjectOfType<GameManager>();
              
-                DontDestroyOnLoad(_instance.gameObject);
+                DontDestroyOnLoad(_instance);
             }
 
             return _instance;
@@ -115,13 +110,13 @@ public class GameManager: MonoBehaviour {
 
     void Start()
     {
-     
+            PopulatePool();
 
             if (_instance == null)
             {
 
                 _instance = this;
-                DontDestroyOnLoad(gameObject);
+                 DontDestroyOnLoad(_instance);
             }
             else
             {
@@ -143,10 +138,7 @@ public class GameManager: MonoBehaviour {
         CurrentTimeLeft -= Time.deltaTime;
 
 
-            Debug.Log("gameonver : pause = " + gameover + " : " + instance._paused);
-             
- 
-
+      
             if (!gameover)
             {
                 if (WinCondition())
@@ -187,7 +179,7 @@ public class GameManager: MonoBehaviour {
     public void YouWin()
     {
 
-            Debug.Log("Voce venceu");
+
             gameover = true;
             StopGame();
             UIInterface.instance.winnerModal.SetActive(true);
@@ -195,15 +187,14 @@ public class GameManager: MonoBehaviour {
     }
 
 
-        private bool LoseCondition()
+    private bool LoseCondition()
     {
 
-        return gameObject.GetComponent<IsoObject>().positionZ < -15 || player.life <= 0 || CurrentTimeLeft <= 0;
+        return player.GetComponent<IsoObject>().positionZ < -15 || player.life <= 0 || CurrentTimeLeft <= 0;
     }
 
     public void GameOVer()
     {
-            Debug.Log("Voce perdeu");
             gameover = true;
             StopGame();
             UIInterface.instance.loserModal.SetActive(true);
@@ -268,6 +259,7 @@ public class GameManager: MonoBehaviour {
         LevelController.AddLevel();
 
         next_scene = scene;
+
         SceneManager.LoadScene("Loader");
 
      }

@@ -18,7 +18,7 @@ public class StatsController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		instance = this;
-		DontDestroyOnLoad (gameObject);
+		//DontDestroyOnLoad (gameObject);
 
           
             levelText = GameObject.Find("CaaporaStatus/level").GetComponent<Text>();

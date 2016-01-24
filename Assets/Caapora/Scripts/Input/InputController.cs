@@ -25,25 +25,6 @@ namespace Caapora
         private static bool _canLauchWater;
         private Camera mainCamera;
 
-
-        void Awake()
-        {
-            if (_instance == null)
-            {
-
-                _instance = this;
-                DontDestroyOnLoad(this);
-            }
-            else
-            {
-
-                if (this != _instance)
-                    Destroy(this.gameObject);
-            }
-        }
-
-
-
         public static InputController instance
         {
             get
@@ -52,7 +33,7 @@ namespace Caapora
                 {
                     _instance = FindObjectOfType<InputController>();
 
-                    DontDestroyOnLoad(_instance.gameObject);
+                   // DontDestroyOnLoad(_instance);
                 }
 
                 return _instance;

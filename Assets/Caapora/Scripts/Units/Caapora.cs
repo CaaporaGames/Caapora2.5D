@@ -9,6 +9,7 @@ namespace Caapora {
     [System.Serializable]
     public class Caapora : CharacterBase {
 
+
 	
 	public GameObject go;
 	public IsoObject caapora;
@@ -24,41 +25,29 @@ namespace Caapora {
     private bool _running = false;
     private Image CaaporaLifeBar;
     private Text Altura;
+    private GameObject FakeRigidbody;
 
 
-        public static Caapora instance
+       
+        public void Awake()
         {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = FindObjectOfType<Caapora>();
-
-                    DontDestroyOnLoad(_instance.gameObject);
-                }
-
-                return _instance;
-            }
-        }
-
-
-        public override void Start()
-        {
-   
-            base.Start();
-
+           
 
             if (_instance == null)
             {
 
+                DontDestroyOnLoad(this);
+
+   
                 _instance = this;
-                DontDestroyOnLoad(gameObject);
+
             }
+
             else
             {
-
+              
                 if (this != _instance)
-                    Destroy(this.gameObject);
+                    Destroy(gameObject);
             }
 
 
@@ -71,13 +60,47 @@ namespace Caapora {
 
             StatusHP = GameObject.Find("CaaporaStatus/Status/hp").GetComponent<Text>();
             balde = GameObject.Find("baldeVazioPrefab");
-            
-         
+
+           
+           
+
+          
+        }
+
+
+        public static Caapora instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+
+
+                    DontDestroyOnLoad(_instance);
+
+                    _instance = FindObjectOfType<Caapora>() as Caapora;
+                }
+
+                return _instance;
+            }
+        }
+
+
+
+        public override void Start()
+        {
+   
+            base.Start();
+
 
             _animator = GetComponentInChildren<Animator>();
 
-            instance.iso_rigidyBody = GetComponent<IsoRigidbody>();
-            instance.iso_object = GetComponent<IsoObject>();
+            iso_object = GetComponent<IsoObject>();
+            iso_rigidyBody = GetComponent<IsoRigidbody>();
+
+            //Hack para o isoTool
+            FakeRigidbody = GameObject.Find("_FakePlayer");
+            DontDestroyOnLoad(FakeRigidbody);
 
         }
 
@@ -88,15 +111,15 @@ namespace Caapora {
             base.Update();
 
 
-        
-
             Altura.text = String.Format("{0:0.00}" , iso_object.positionZ);
+
             if (canFillBucket)
             {
                 StartCoroutine(FillBucketSlowly());
-                SoundManager.instance.PlaySingle(SoundManager.instance.river);
+               // SoundManager.instance.PlaySingle(SoundManager.instance.river);
 
             }
+     
          
              
 
@@ -281,8 +304,8 @@ namespace Caapora {
 
 
                     if (go != null)
-                        if (Mathf.RoundToInt(go.GetComponent<IsoObject>().positionX) == Mathf.RoundToInt(GetComponent<IsoObject>().positionX + x) &&
-                                Mathf.RoundToInt(go.GetComponent<IsoObject>().positionY) == Mathf.RoundToInt(GetComponent<IsoObject>().positionY + y))
+                        if (Mathf.RoundToInt(go.GetComponent<IsoObject>().positionX) == Mathf.RoundToInt(iso_object.positionX + x) &&
+                                Mathf.RoundToInt(go.GetComponent<IsoObject>().positionY) == Mathf.RoundToInt(iso_object.positionY + y))
                         {
 
                             return true;
@@ -304,11 +327,7 @@ namespace Caapora {
         {
 
 
-            Debug.Log("Velocidade = " + instance.iso_rigidyBody.velocity);
-
-            Debug.Log("Iso_rigidy = " + instance.iso_rigidyBody.ToString());
-
-            instance.iso_rigidyBody.velocity = new Vector3(-instance.speed, instance.speed, 0);
+           iso_rigidyBody.velocity = new Vector3(-instance.speed, instance.speed, 0);
 
             _animator.SetTrigger("Caapora-left");
 

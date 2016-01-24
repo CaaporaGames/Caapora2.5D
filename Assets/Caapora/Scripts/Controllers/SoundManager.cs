@@ -39,9 +39,9 @@ namespace Caapora
             efxSource.clip = clip;
 
             if (!efxSource.isPlaying)
-                  efxSource.Play();
+                efxSource.Play();
 
-            
+           
                
         }
 

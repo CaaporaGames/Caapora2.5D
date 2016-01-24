@@ -11,7 +11,7 @@ public class Fire : MonoBehaviour {
 
     void Start () {
 
-        demage = 1f;
+        demage = 10f;
         fire = gameObject.GetComponent<IsoRigidbody>();
 
         

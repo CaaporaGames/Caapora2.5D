@@ -95,7 +95,7 @@ public class LoadingScreen : MonoBehaviour {
             }
                 
 
-            // Debug.Log("async progress " + async.progress.ToString());
+           //  Debug.Log("async progress " + async.progress.ToString());
 
             loadProgress = (int)(async.progress * 100);
 

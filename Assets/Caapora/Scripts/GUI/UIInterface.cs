@@ -72,7 +72,7 @@ public class UIInterface : MonoBehaviour {
             
             TotalChamas.text = "Chamas: " + GameManager.totalOfFlames;
 
-            Timer.text = "Tempo : " + Mathf.Round(GameManager.CurrentTimeLeft);
+            Timer.text = "Tempo : " + Mathf.Round(GameManager.instance.CurrentTimeLeft);
 
 
         }
