@@ -1,0 +1,219 @@
+Version = 1.8.2.25321;
+CParticleEffect	$LOCAL$/Resource
+{
+	OnSpawn = "$LOCAL$/Spawner";
+	CustomAttributes = "$LOCAL$/_GlobalAttributes";
+	Autostart = true;
+}
+CActionFactoryParticleSpawnerBase	$LOCAL$/Spark
+{
+	Descriptor = "$LOCAL$/CParticleDescriptor_AE135B2A";
+	Infinite = true;
+	DurationInSeconds = 2.5000000e-001;
+	FluxFactorExpression = "Density";
+}
+CParticleDescriptor	$LOCAL$/CParticleDescriptor_AE135B2A
+{
+	Renderer = "$LOCAL$/CParticleRenderer_Billboard_9136D2F4";
+	CustomFields = 
+	{
+		"$LOCAL$/CParticleFieldDeclaration_7E217627",
+		"$LOCAL$/CParticleFieldDeclaration_24D6B3B5",
+		"$LOCAL$/CParticleFieldDeclaration_B47D97A4",
+	};
+	CustomEvents = 
+	{
+		"$LOCAL$/CParticleEventDeclaration_EEE8A1D4",
+	};
+	SpawnEvaluator = "$LOCAL$/CCompilerSyntaxNodeExpression_5566F5E7";
+	States = 
+	{
+		"$LOCAL$/CParticleState_3AF8190E",
+	};
+}
+CActionFactoryWithChilds	$LOCAL$/Spawner
+{
+	ChildList = 
+	{
+		"$LOCAL$/Spark",
+		"$LOCAL$/SparkBall",
+	};
+}
+CParticleRenderer_Billboard	$LOCAL$/CParticleRenderer_Billboard_9136D2F4
+{
+	BillboardingMaterial = AlphaBlend_Additive_Soft;
+	Diffuse = "Textures/Fx/Spark_03.png";
+	AtlasDefinition = "Textures/Fx/AtlasR4.pkat";
+	BillboardMode = VelocitySpheroidalAlign;
+	AxisField = "Vaxis";
+	SoftnessDistance = 4.0000000e+000;
+}
+CCompilerSyntaxNodeExpression	$LOCAL$/CCompilerSyntaxNodeExpression_5566F5E7
+{
+	Expression = "function void     Eval()
+{
+	Life = 2;
+	TextureID = rand(0, 4);
+	
+	float3 scatter = vrand() * Scatter;
+	Velocity = Orientation + vrand() * scatter;
+	VrandAxis = rand(0.25, 1);
+	
+	Size = rand(0.005, 0.01);
+	Color=(RGB * select(40, 80, ninja < 0.1) * 5).xyz1 ;
+
+}
+";
+}
+CParticleState	$LOCAL$/CParticleState_3AF8190E
+{
+	StateName = "State_0";
+	Evolvers = 
+	{
+		"$LOCAL$/CParticleEvolver_Physics_36D6D4BD",
+		"$LOCAL$/CParticleEvolver_Script_EB7D093F",
+	};
+}
+CParticleEvolver_Physics	$LOCAL$/CParticleEvolver_Physics_36D6D4BD
+{
+	ConstantAcceleration = float3(0.0000000e+000, -8.0000000e+000, 0.0000000e+000);
+	Drag = 1.0000000e+000;
+	WorldInteractionMode = OneWay;
+	DieOnContact = true;
+	BounceRestitution = 3.4999999e-001;
+	BounceOffset = 0.0000000e+000;
+	BouncesBeforeDeath = 127;
+}
+CParticleAttributeList	$LOCAL$/_GlobalAttributes
+{
+	AttributeList = 
+	{
+		"$LOCAL$/CParticleAttributeDeclaration_32577A13",
+		"$LOCAL$/CParticleAttributeDeclaration_80088C23",
+		"$LOCAL$/CParticleAttributeDeclaration_69AF465A",
+		"$LOCAL$/CParticleAttributeDeclaration_05E167D7",
+	};
+}
+CParticleFieldDeclaration	$LOCAL$/CParticleFieldDeclaration_B47D97A4
+{
+	FieldName = "VrandAxis";
+	FieldType = float3;
+}
+CCompilerSyntaxNodeExpression	$LOCAL$/CCompilerSyntaxNodeExpression_8FE13F06
+{
+	Expression = "function void	Eval()
+
+{
+	Vaxis = Velocity * VrandAxis * pow(LifeRatio, 0.25);
+}
+";
+}
+CParticleFieldDeclaration	$LOCAL$/CParticleFieldDeclaration_7E217627
+{
+	FieldName = "Color";
+	FieldType = float4;
+}
+CActionFactoryParticleSpawnerBase	$LOCAL$/SparkBall
+{
+	Descriptor = "$LOCAL$/CParticleDescriptor_8E897EA2";
+	Infinite = true;
+	DurationInSeconds = 2.5000000e-001;
+	FluxFactorExpression = "Density";
+}
+CParticleEvolver_Script	$LOCAL$/CParticleEvolver_Script_EB7D093F
+{
+	Expression = "$LOCAL$/CCompilerSyntaxNodeExpression_8FE13F06";
+}
+CParticleAttributeDeclaration	$LOCAL$/CParticleAttributeDeclaration_32577A13
+{
+	AttributeName = "RGB";
+	AttributeType = float3;
+	DefaultValueF4 = float4(1.0000000e+000, 3.4999999e-001, 1.0000000e-001, 1.0000000e+000);
+	MaxValueF4 = float4(1.0000000e+000, 1.0000000e+000, 1.0000000e+000, 1.0000000e+000);
+}
+CParticleAttributeDeclaration	$LOCAL$/CParticleAttributeDeclaration_05E167D7
+{
+	AttributeName = "Density";
+	DefaultValueF4 = float4(1.0000000e+002, 0.0000000e+000, 0.0000000e+000, 0.0000000e+000);
+	MaxValueF4 = float4(1.0000000e+003, 0.0000000e+000, 0.0000000e+000, 0.0000000e+000);
+}
+CParticleAttributeDeclaration	$LOCAL$/CParticleAttributeDeclaration_80088C23
+{
+	AttributeName = "Scatter";
+	DefaultValueF4 = float4(1.0000000e+000, 0.0000000e+000, 0.0000000e+000, 0.0000000e+000);
+	MaxValueF4 = float4(1.0000000e+001, 0.0000000e+000, 0.0000000e+000, 0.0000000e+000);
+}
+CParticleAttributeDeclaration	$LOCAL$/CParticleAttributeDeclaration_69AF465A
+{
+	AttributeName = "Orientation";
+	AttributeType = float3;
+	DefaultValueF4 = float4(-1.5000000e+000, 0.0000000e+000, 0.0000000e+000, 0.0000000e+000);
+	MinValueF4 = float4(-1.0000000e+001, -1.0000000e+001, -1.0000000e+001, 0.0000000e+000);
+	MaxValueF4 = float4(1.0000000e+001, 1.0000000e+001, 1.0000000e+001, 0.0000000e+000);
+}
+CParticleFieldDeclaration	$LOCAL$/CParticleFieldDeclaration_24D6B3B5
+{
+	FieldName = "Vaxis";
+	FieldType = float3;
+	TransformFilter = rotate;
+}
+CParticleDescriptor	$LOCAL$/CParticleDescriptor_8E897EA2
+{
+	Renderer = "$LOCAL$/CParticleRenderer_Billboard_72D2D10D";
+	CustomFields = 
+	{
+		"$LOCAL$/CParticleFieldDeclaration_CCC30E54",
+	};
+	SpawnEvaluator = "$LOCAL$/CCompilerSyntaxNodeExpression_8EAD056B";
+	States = 
+	{
+		"$LOCAL$/CParticleState_749B0B0A",
+	};
+}
+CParticleRenderer_Billboard	$LOCAL$/CParticleRenderer_Billboard_72D2D10D
+{
+	BillboardingMaterial = AlphaBlend_Additive_Soft;
+	Diffuse = "Textures/Fx/Glow_01.png";
+	AxisField = "Vaxis";
+	SoftnessDistance = 4.0000000e+000;
+}
+CParticleFieldDeclaration	$LOCAL$/CParticleFieldDeclaration_CCC30E54
+{
+	FieldName = "Color";
+	FieldType = float4;
+}
+CParticleEventDeclaration	$LOCAL$/CParticleEventDeclaration_EEE8A1D4
+{
+	EventName = "OnDeath";
+	EventAction = "Particles/Spark_Triggered.pkfx/Spawner";
+}
+CCompilerSyntaxNodeExpression	$LOCAL$/CCompilerSyntaxNodeExpression_8EAD056B
+{
+	Expression = "function void     Eval()
+{
+	Life = 2;
+	float3 scatter = vrand() * Scatter;
+	Velocity = Orientation + vrand() * scatter;
+	Size = 0.01;
+	Color  = (RGB * select(40, 400, ninja < 0.1)).xyz1;
+}
+";
+}
+CParticleState	$LOCAL$/CParticleState_749B0B0A
+{
+	StateName = "State_0";
+	Evolvers = 
+	{
+		"$LOCAL$/CParticleEvolver_Physics_838BA195",
+	};
+}
+CParticleEvolver_Physics	$LOCAL$/CParticleEvolver_Physics_838BA195
+{
+	ConstantAcceleration = float3(0.0000000e+000, -8.0000000e+000, 0.0000000e+000);
+	Drag = 1.0000000e+000;
+	WorldInteractionMode = OneWay;
+	DieOnContact = true;
+	BounceRestitution = 3.4999999e-001;
+	BounceOffset = 0.0000000e+000;
+	BouncesBeforeDeath = 127;
+}

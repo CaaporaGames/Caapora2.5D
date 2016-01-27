@@ -1,0 +1,277 @@
+Version = 1.8.2.25321;
+CParticleEffect	$LOCAL$/Resource
+{
+	EditorInfosPosition = int2(73, 52);
+	OnSpawn = "$LOCAL$/Spawner";
+	CustomAttributes = "$LOCAL$/_GlobalAttributes";
+	Autostart = true;
+}
+CParticleFieldDeclaration	$LOCAL$/CParticleFieldDeclaration_2FB916E8
+{
+	FieldName = "ID";
+}
+CActionFactoryParticleSpawnerBase	$LOCAL$/Pentacle_AnimTrack
+{
+	EditorInfosIsBlockMinimized = 0;
+	Descriptor = "$LOCAL$/CParticleDescriptor_092F5A6E";
+	SpawnCount = 2.0000000e+000;
+}
+CActionFactoryWithChilds	$LOCAL$/Spawner
+{
+	EditorInfosPosition = int2(-162, -81);
+	ChildList = 
+	{
+		"$LOCAL$/Pentacle_AnimTrack",
+	};
+}
+CParticleDescriptor	$LOCAL$/CParticleDescriptor_092F5A6E
+{
+	CustomFields = 
+	{
+		"$LOCAL$/CParticleFieldDeclaration_2FB916E8",
+		"$LOCAL$/CParticleFieldDeclaration_1EF7E0EA",
+	};
+	Samplers = 
+	{
+		"$LOCAL$/CParticleSamplerAnimTrack_03783698",
+	};
+	SpawnEvaluator = "$LOCAL$/CCompilerSyntaxNodeExpression_B698B2C9";
+	States = 
+	{
+		"$LOCAL$/CParticleState_CA5AD283",
+	};
+}
+CParticleEvolver_Script	$LOCAL$/Script_2
+{
+	Expression = "$LOCAL$/CCompilerSyntaxNodeExpression_56208934";
+}
+CCompilerSyntaxNodeExpression	$LOCAL$/CCompilerSyntaxNodeExpression_B698B2C9
+{
+	Expression = "function void	Eval()
+{
+	Life = 4;
+	Interval = SpawnInterval;
+    // spawner.LifeRatio is the life ratio of the Layer itself 
+	// here, we use it to get a uniq kink-of particle ID between 0 and 1
+	ID = spawner.LifeRatio;
+
+}
+";
+}
+CParticleSamplerProceduralTurbulence	$LOCAL$/CParticleSamplerProceduralTurbulence_2533E251
+{
+	SamplerName = "Turbulence";
+	Scale = 3.4999999e-001;
+	Strength = 7.5000000e-001;
+	TimeScale = 5.0000000e-001;
+}
+CParticleAttributeList	$LOCAL$/_GlobalAttributes
+{
+	EditorInfosPosition = int2(-599, -20);
+	AttributeList = 
+	{
+		"$LOCAL$/CParticleAttributeDeclaration_C4BE09D6",
+		"$LOCAL$/CParticleAttributeDeclaration_C9008BCB",
+		"$LOCAL$/CParticleAttributeDeclaration_97AB6ADB",
+	};
+}
+CCompilerSyntaxNodeExpression	$LOCAL$/CCompilerSyntaxNodeExpression_56208934
+{
+	Expression = "function void	Eval()
+{
+	Color = (pow(sin(LifeRatio * 3), 4) * (RGB * 4).xyz1) * 0.5;
+}
+";
+}
+CParticleFieldDeclaration	$LOCAL$/CParticleFieldDeclaration_00C48607
+{
+	FieldName = "Color";
+	FieldType = float4;
+}
+CParticleState	$LOCAL$/CParticleState_CA5AD283
+{
+	StateName = "State_0";
+	Evolvers = 
+	{
+		"$LOCAL$/LocalSpace_1",
+		"$LOCAL$/MainTrail",
+	};
+}
+CParticleSamplerAnimTrack	$LOCAL$/CParticleSamplerAnimTrack_03783698
+{
+	SamplerName = "Path";
+	AnimResource = "Meshes/AnimPentacle.pkmm";
+	EulerOrientation = float3(0.0000000e+000, 1.8000000e+001, 0.0000000e+000);
+	Scale = float3(2.0000000e-001, 2.0000000e-001, 2.0000000e-001);
+}
+CParticleEvolver_Script	$LOCAL$/Script_1
+{
+	Expression = "$LOCAL$/CCompilerSyntaxNodeExpression_D6094D3B";
+}
+CCompilerSyntaxNodeExpression	$LOCAL$/CCompilerSyntaxNodeExpression_D6094D3B
+{
+	Expression = "function void	Eval()
+{
+	// \"Path\" contains several tracks
+	// here, ID is used to sample one of them
+	Position = Path.samplePosition(ID, LifeRatio) * Scale;
+}
+";
+}
+CParticleEvolver_Spawner	$LOCAL$/MainTrail
+{
+	SpawnMetric = Time;
+	CustomSpawnIntervalScaleField = "Interval";
+	LocalSpaceSpawn = true;
+	Descriptor = "$LOCAL$/CParticleDescriptor_1AB546E5";
+}
+CParticleState	$LOCAL$/CParticleState_0B16071A
+{
+	StateName = "State_0";
+	Evolvers = 
+	{
+		"$LOCAL$/LocalSpace_2",
+		"$LOCAL$/SubTrail",
+	};
+}
+CParticleDescriptor	$LOCAL$/CParticleDescriptor_1AB546E5
+{
+	CustomFields = 
+	{
+		"$LOCAL$/CParticleFieldDeclaration_F87C3CF5",
+	};
+	SpawnEvaluator = "$LOCAL$/CCompilerSyntaxNodeExpression_C4714D0C";
+	States = 
+	{
+		"$LOCAL$/CParticleState_0B16071A",
+	};
+}
+CCompilerSyntaxNodeExpression	$LOCAL$/CCompilerSyntaxNodeExpression_C4714D0C
+{
+	Expression = "function void	Eval()
+{
+	// Sets Life in such a way that all particles will dies at the same time
+	// using spawner.LifeRatio
+	Life = 4.5 - spawner.LifeRatio * 4;
+	Interval = parent.Interval;
+}
+";
+}
+CParticleAttributeDeclaration	$LOCAL$/CParticleAttributeDeclaration_C4BE09D6
+{
+	AttributeName = "RGB";
+	AttributeType = float3;
+	DefaultValueF4 = float4(1.0000000e+000, 3.4999999e-001, 1.0000000e-001, 0.0000000e+000);
+	HasMin = true;
+	HasMax = true;
+	MaxValueF4 = float4(1.0000000e+000, 1.0000000e+000, 1.0000000e+000, 1.0000000e+000);
+	MaxValueI4 = int4(10, 10, 10, 10);
+}
+CParticleEvolver_Spawner	$LOCAL$/SubTrail
+{
+	SpawnMetric = Time;
+	SpawnInterval = 1.5000000e+000;
+	CustomSpawnIntervalScaleField = "Interval";
+	LocalSpaceSpawn = true;
+	Descriptor = "$LOCAL$/CParticleDescriptor_8FDDF740";
+}
+CParticleState	$LOCAL$/CParticleState_A0688B49
+{
+	StateName = "State_0";
+	Evolvers = 
+	{
+		"$LOCAL$/LocalSpace_3",
+	};
+}
+CParticleDescriptor	$LOCAL$/CParticleDescriptor_8FDDF740
+{
+	Renderer = "$LOCAL$/CParticleRenderer_Billboard_13442082";
+	CustomFields = 
+	{
+		"$LOCAL$/CParticleFieldDeclaration_00C48607",
+		"$LOCAL$/CParticleFieldDeclaration_BF4DA53A",
+	};
+	Samplers = 
+	{
+		"$LOCAL$/CParticleSamplerProceduralTurbulence_2533E251",
+	};
+	SpawnEvaluator = "$LOCAL$/CCompilerSyntaxNodeExpression_4C144703";
+	States = 
+	{
+		"$LOCAL$/CParticleState_A0688B49",
+	};
+}
+CCompilerSyntaxNodeExpression	$LOCAL$/CCompilerSyntaxNodeExpression_4C144703
+{
+	Expression = "function void	Eval()
+{
+	Life = rand(0.5, 1);
+	Size = 0.10 * Scale;
+	TextureID = rand(0, 4);
+	Accel = float3(0, 1.5, 0) * Scale;
+}
+";
+}
+CParticleRenderer_Billboard	$LOCAL$/CParticleRenderer_Billboard_13442082
+{
+	BillboardingMaterial = AlphaBlend_Additive_Soft;
+	Diffuse = "Textures/Fx/Flame_01.png";
+	AtlasDefinition = "Textures/Fx/AtlasX2.pkat";
+	BillboardMode = VelocityAxisAligned;
+	AxisScale = 5.0000000e-001;
+	SoftnessDistance = 4.0000000e+000;
+}
+CParticleEvolver_Physics	$LOCAL$/CParticleEvolver_Physics_DB4F286D
+{
+	Drag = 1.0000000e+000;
+	VelocityFieldSampler = "Turbulence";
+}
+CParticleAttributeDeclaration	$LOCAL$/CParticleAttributeDeclaration_C9008BCB
+{
+	AttributeName = "SpawnInterval";
+	DefaultValueF4 = float4(1.0000000e-001, 0.0000000e+000, 0.0000000e+000, 0.0000000e+000);
+	HasMin = true;
+	HasMax = true;
+	MaxValueF4 = float4(1.0000000e+000, 1.0000000e+000, 1.0000000e+000, 1.0000000e+000);
+	MaxValueI4 = int4(10, 10, 10, 10);
+}
+CParticleFieldDeclaration	$LOCAL$/CParticleFieldDeclaration_1EF7E0EA
+{
+	FieldName = "Interval";
+}
+CParticleFieldDeclaration	$LOCAL$/CParticleFieldDeclaration_F87C3CF5
+{
+	FieldName = "Interval";
+}
+CParticleEvolver_Localspace	$LOCAL$/LocalSpace_1
+{
+	ChildList = 
+	{
+		"$LOCAL$/Script_1",
+	};
+}
+CParticleEvolver_Localspace	$LOCAL$/LocalSpace_2
+{
+}
+CParticleEvolver_Localspace	$LOCAL$/LocalSpace_3
+{
+	ChildList = 
+	{
+		"$LOCAL$/CParticleEvolver_Physics_DB4F286D",
+		"$LOCAL$/Script_2",
+	};
+}
+CParticleAttributeDeclaration	$LOCAL$/CParticleAttributeDeclaration_97AB6ADB
+{
+	AttributeName = "Scale";
+	DefaultValueF4 = float4(1.0000000e+000, 0.0000000e+000, 0.0000000e+000, 0.0000000e+000);
+	HasMin = true;
+	MaxValueF4 = float4(1.0000000e+001, 1.0000000e+000, 1.0000000e+000, 1.0000000e+000);
+	MaxValueI4 = int4(10, 10, 10, 10);
+}
+CParticleFieldDeclaration	$LOCAL$/CParticleFieldDeclaration_BF4DA53A
+{
+	FieldName = "Accel";
+	FieldType = float3;
+	TransformFilter = rotate;
+}

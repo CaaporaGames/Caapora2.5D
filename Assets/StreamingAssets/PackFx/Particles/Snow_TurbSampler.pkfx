@@ -1,0 +1,318 @@
+Version = 1.8.2.25321;
+CParticleEffect	$LOCAL$/Resource
+{
+	EditorInfosPosition = int2(73, 52);
+	OnSpawn = "$LOCAL$/Spawner";
+	CustomAttributes = "$LOCAL$/_GlobalAttributes";
+	Autostart = true;
+}
+CActionFactoryParticleSpawnerBase	$LOCAL$/Snow_TurbSample
+{
+	EditorInfosPosition = int2(-288, -61);
+	Descriptor = "$LOCAL$/CParticleDescriptor_AE135B2A";
+	Infinite = true;
+	DurationInSeconds = 2.0000000e+000;
+	FluxFactorExpression = "Density";
+}
+CParticleDescriptor	$LOCAL$/CParticleDescriptor_AE135B2A
+{
+	EditorInfosPosition = int2(-392, -44);
+	Renderer = "$LOCAL$/CParticleRenderer_Billboard_9136D2F4";
+	CustomFields = 
+	{
+		"$LOCAL$/CParticleFieldDeclaration_EE765E37",
+		"$LOCAL$/CParticleFieldDeclaration_1FB2FB35",
+		"$LOCAL$/CParticleFieldDeclaration_4A5918E6",
+		"$LOCAL$/CParticleFieldDeclaration_7ED2415D",
+	};
+	SpawnEvaluator = "$LOCAL$/CCompilerSyntaxNodeExpression_5566F5E7";
+	States = 
+	{
+		"$LOCAL$/CParticleState_3AF8190E",
+	};
+}
+CActionFactoryWithChilds	$LOCAL$/Spawner
+{
+	EditorInfosPosition = int2(-162, -81);
+	ChildList = 
+	{
+		"$LOCAL$/Snow_TurbSample",
+		"$LOCAL$/Other",
+	};
+}
+CParticleRenderer_Billboard	$LOCAL$/CParticleRenderer_Billboard_9136D2F4
+{
+	EditorInfosPosition = int2(-508, -63);
+	BillboardingMaterial = AlphaBlend_Additive_Soft;
+	Diffuse = "Textures/Fx/DirtPieces_01.png";
+	AtlasDefinition = "Textures/Fx/AtlasX2.pkat";
+	AxisScale = 3.9999999e-002;
+}
+CCompilerSyntaxNodeExpression	$LOCAL$/CCompilerSyntaxNodeExpression_5566F5E7
+{
+	EditorInfosPosition = int2(-508, 22);
+	Expression = "function void	Eval()
+{
+	Life = 100;
+	Size = 0.01;
+	Position = float3(rand(-Zone.x, Zone.x), Zone.y, rand(-Zone.z, Zone.z));
+	TextureID = rand(0, 4);
+	Color = float4(1) * 0.5;
+	Rotation = rand(-pi, pi);
+	ScalarRotationSpeed = rand(-1, 1);
+	Accel = float3(Gravity).0y0 + Wind;
+}
+
+function void	PostEval()
+{
+	// PostEval is world Space
+	// use MinHeight as world spawn y
+	MinHeight = KillMinHeight;
+}";
+}
+CParticleState	$LOCAL$/CParticleState_3AF8190E
+{
+	EditorInfosPosition = int2(-508, 65);
+	StateName = "State_0";
+	Evolvers = 
+	{
+		"$LOCAL$/CParticleEvolver_Physics_36D6D4BD",
+		"$LOCAL$/Evolver_1",
+		"$LOCAL$/Script_1",
+	};
+}
+CParticleEvolver_Physics	$LOCAL$/CParticleEvolver_Physics_36D6D4BD
+{
+	EditorInfosPosition = int2(-590, 86);
+	Drag = 1.0000000e+000;
+	DieOnContact = true;
+	BounceRestitution = 5.0000001e-002;
+	BouncesBeforeDeath = 10;
+}
+CParticleSamplerProceduralTurbulence	$LOCAL$/CParticleSamplerProceduralTurbulence_EDDA0D03
+{
+	SamplerName = "Turb";
+	Strength = 5.0000000e-001;
+	TimeScale = 1.0000000e+000;
+}
+CParticleAttributeList	$LOCAL$/_GlobalAttributes
+{
+	EditorInfosPosition = int2(-599, -20);
+	AttributeList = 
+	{
+		"$LOCAL$/CParticleAttributeDeclaration_1615D22E",
+		"$LOCAL$/CParticleAttributeDeclaration_CE80A589",
+		"$LOCAL$/CParticleAttributeDeclaration_858D162A",
+		"$LOCAL$/CParticleAttributeDeclaration_B1BBEF9C",
+		"$LOCAL$/CParticleAttributeDeclaration_237C59B2",
+	};
+	SamplerList = 
+	{
+		"$LOCAL$/CParticleSamplerProceduralTurbulence_EDDA0D03",
+		"$LOCAL$/CParticleSamplerProceduralTurbulence_946A28C4",
+	};
+}
+CParticleAttributeDeclaration	$LOCAL$/CParticleAttributeDeclaration_CE80A589
+{
+	AttributeName = "Density";
+	DefaultValueF4 = float4(2.0000000e+003, 0.0000000e+000, 0.0000000e+000, 0.0000000e+000);
+	HasMin = true;
+	MaxValueF4 = float4(1.0000000e+004, 1.0000000e+000, 1.0000000e+000, 1.0000000e+000);
+	MaxValueI4 = int4(10, 10, 10, 10);
+}
+CParticleFieldDeclaration	$LOCAL$/CParticleFieldDeclaration_EE765E37
+{
+	FieldName = "Color";
+	FieldType = float4;
+}
+CParticleAttributeDeclaration	$LOCAL$/CParticleAttributeDeclaration_1615D22E
+{
+	AttributeName = "Zone";
+	AttributeType = float3;
+	DefaultValueF4 = float4(1.0000000e+001, 5.0000000e+000, 1.0000000e+001, 0.0000000e+000);
+	HasMin = true;
+	MaxValueF4 = float4(1.0000000e+002, 1.0000000e+002, 1.0000000e+002, 1.0000000e+000);
+	MaxValueI4 = int4(10, 10, 10, 10);
+}
+CParticleAttributeDeclaration	$LOCAL$/CParticleAttributeDeclaration_858D162A
+{
+	AttributeName = "Wind";
+	AttributeType = float3;
+	DefaultValueF4 = float4(5.0000000e-001, 0.0000000e+000, 0.0000000e+000, 0.0000000e+000);
+	MinValueF4 = float4(-1.0000000e+000, -1.0000000e+000, -1.0000000e+000, 0.0000000e+000);
+	MaxValueF4 = float4(1.0000000e+000, 1.0000000e+000, 1.0000000e+000, 1.0000000e+000);
+	MaxValueI4 = int4(10, 10, 10, 10);
+}
+CParticleFieldDeclaration	$LOCAL$/CParticleFieldDeclaration_1FB2FB35
+{
+	FieldName = "Accel";
+	FieldType = float3;
+}
+CParticleAttributeDeclaration	$LOCAL$/CParticleAttributeDeclaration_B1BBEF9C
+{
+	AttributeName = "Gravity";
+	DefaultValueF4 = float4(-7.5000000e-001, 0.0000000e+000, 0.0000000e+000, 0.0000000e+000);
+	MinValueF4 = float4(-1.0000000e+001, 0.0000000e+000, 0.0000000e+000, 0.0000000e+000);
+	MaxValueF4 = float4(1.0000000e+001, 1.0000000e+000, 1.0000000e+000, 1.0000000e+000);
+	MaxValueI4 = int4(10, 10, 10, 10);
+}
+CParticleSamplerProceduralTurbulence	$LOCAL$/CParticleSamplerProceduralTurbulence_946A28C4
+{
+	SamplerName = "WindTurb";
+	Scale = 5.0000000e+000;
+	Strength = 8.0000004e-003;
+	TimeScale = 1.0000000e-001;
+	Interpolator = Linear;
+	UseNoiseDerivatives = true;
+	Lacunarity = 1.7241380e-001;
+	Gain = 5.6650251e-001;
+}
+CParticleEvolver_Script	$LOCAL$/Script_1
+{
+	Expression = "$LOCAL$/CCompilerSyntaxNodeExpression_AC47D4D7";
+}
+CCompilerSyntaxNodeExpression	$LOCAL$/CCompilerSyntaxNodeExpression_AC47D4D7
+{
+	Expression = "function void	Eval()
+{	
+	VelocityField = WindTurb.sample(Position);
+	
+	kill(Position.y < MinHeight);
+}
+";
+}
+CParticleFieldDeclaration	$LOCAL$/CParticleFieldDeclaration_4A5918E6
+{
+	FieldName = "VelocityField";
+	FieldType = float3;
+	TransformFilter = full;
+}
+CParticleDescriptor	$LOCAL$/CParticleDescriptor_7FF4BF52
+{
+	EditorInfosPosition = int2(-392, -44);
+	Renderer = "$LOCAL$/CParticleRenderer_Billboard_87F9C77D";
+	CustomFields = 
+	{
+		"$LOCAL$/CParticleFieldDeclaration_E8910D84",
+		"$LOCAL$/CParticleFieldDeclaration_8C123897",
+		"$LOCAL$/CParticleFieldDeclaration_77BD67A6",
+		"$LOCAL$/CParticleFieldDeclaration_74141CE4",
+	};
+	SpawnEvaluator = "$LOCAL$/CCompilerSyntaxNodeExpression_FB07515B";
+	States = 
+	{
+		"$LOCAL$/CParticleState_AACC4DBA",
+	};
+}
+CParticleRenderer_Billboard	$LOCAL$/CParticleRenderer_Billboard_87F9C77D
+{
+	EditorInfosPosition = int2(-508, -63);
+	BillboardingMaterial = AlphaBlend_Additive_Soft;
+	Diffuse = "Textures/Fx/DirtPieces_01.png";
+	AtlasDefinition = "Textures/Fx/AtlasX2.pkat";
+	AxisScale = 3.9999999e-002;
+}
+CParticleFieldDeclaration	$LOCAL$/CParticleFieldDeclaration_E8910D84
+{
+	FieldName = "Color";
+	FieldType = float4;
+}
+CParticleFieldDeclaration	$LOCAL$/CParticleFieldDeclaration_8C123897
+{
+	FieldName = "Accel";
+	FieldType = float3;
+}
+CParticleFieldDeclaration	$LOCAL$/CParticleFieldDeclaration_77BD67A6
+{
+	FieldName = "VelocityField";
+	FieldType = float3;
+	TransformFilter = rotate;
+}
+CCompilerSyntaxNodeExpression	$LOCAL$/CCompilerSyntaxNodeExpression_FB07515B
+{
+	EditorInfosPosition = int2(-508, 22);
+	Expression = "function void	Eval()
+{
+	Life = 100;
+	Size = 0.01;
+	Position  = float3(rand(-Zone.x, Zone.x), Zone.y * ninja, rand(-Zone.z, Zone.z));
+	TextureID = rand(0,4);
+	Color = float4(0.5).111w;
+	Rotation = rand(-pi, pi);
+	ScalarRotationSpeed = rand(-1, 1);
+	Accel = float3(Gravity).0y0 + Wind;
+	MinHeight = KillMinHeight;
+}
+";
+}
+CParticleState	$LOCAL$/CParticleState_AACC4DBA
+{
+	EditorInfosPosition = int2(-508, 65);
+	StateName = "State_0";
+	Evolvers = 
+	{
+		"$LOCAL$/CParticleEvolver_Physics_540FC205",
+		"$LOCAL$/CParticleEvolver_Rotation_B3F1D6AC",
+		"$LOCAL$/CParticleEvolver_Script_CE38A4DF",
+	};
+}
+CParticleEvolver_Physics	$LOCAL$/CParticleEvolver_Physics_540FC205
+{
+	EditorInfosPosition = int2(-590, 86);
+	Drag = 1.0000000e+000;
+	DieOnContact = true;
+	BounceRestitution = 5.0000001e-002;
+	BouncesBeforeDeath = 10;
+}
+CParticleEvolver_Rotation	$LOCAL$/CParticleEvolver_Rotation_B3F1D6AC
+{
+}
+CParticleEvolver_Script	$LOCAL$/CParticleEvolver_Script_CE38A4DF
+{
+	Expression = "$LOCAL$/CCompilerSyntaxNodeExpression_B81AA58E";
+}
+CCompilerSyntaxNodeExpression	$LOCAL$/CCompilerSyntaxNodeExpression_B81AA58E
+{
+	Expression = "function void	Eval()
+{
+	VelocityField = WindTurb.sample(Position);
+
+	kill(Position.y < MinHeight);
+}
+";
+}
+CActionFactoryParticleSpawnerBase	$LOCAL$/PreWarm
+{
+	EditorInfosPosition = int2(-288, -61);
+	Descriptor = "$LOCAL$/CParticleDescriptor_7FF4BF52";
+	SpawnCount = 8.0000000e+000;
+	FluxFactorExpression = "Density";
+}
+CActionFactoryWithChilds	$LOCAL$/Other
+{
+	ChildList = 
+	{
+		"$LOCAL$/PreWarm",
+	};
+}
+CParticleEvolver_Rotation	$LOCAL$/Evolver_1
+{
+}
+CParticleAttributeDeclaration	$LOCAL$/CParticleAttributeDeclaration_237C59B2
+{
+	AttributeName = "KillMinHeight";
+	AttributeDescription = "Kill snow that falls below this height";
+	HasMin = true;
+	HasMax = true;
+	MinValueF4 = float4(-1.0000000e+001, 0.0000000e+000, 0.0000000e+000, 0.0000000e+000);
+	MaxValueF4 = float4(1.0000000e+001, 1.0000000e+000, 1.0000000e+000, 1.0000000e+000);
+	MaxValueI4 = int4(10, 10, 10, 10);
+}
+CParticleFieldDeclaration	$LOCAL$/CParticleFieldDeclaration_7ED2415D
+{
+	FieldName = "MinHeight";
+}
+CParticleFieldDeclaration	$LOCAL$/CParticleFieldDeclaration_74141CE4
+{
+	FieldName = "MinHeight";
+}

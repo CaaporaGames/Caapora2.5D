@@ -1,0 +1,154 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &100000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400000}
+  - 114: {fileID: 11400000}
+  - 114: {fileID: 11400002}
+  m_Layer: 0
+  m_Name: Lightning
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &400000
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 20, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 325033367, guid: 097bb12263a8c413f87630c377349664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FxAttributesList:
+  - m_Descriptor:
+      Type: 30
+      MinMaxFlag: 0
+      Name: 524742
+      Description: 
+      DefaultValue0: 0.6
+      DefaultValue1: 0.8
+      DefaultValue2: 1
+      DefaultValue3: 0
+      MinValue0: 0
+      MinValue1: 0
+      MinValue2: 0
+      MinValue3: 0
+      MaxValue0: 0
+      MaxValue1: 0
+      MaxValue2: 0
+      MaxValue3: 0
+    m_Value0: 0.6
+    m_Value1: 0.8
+    m_Value2: 1
+    m_Value3: 0
+  - m_Descriptor:
+      Type: 28
+      MinMaxFlag: 0
+      Name: 4c656e677468
+      Description: 
+      DefaultValue0: 20
+      DefaultValue1: 0
+      DefaultValue2: 0
+      DefaultValue3: 0
+      MinValue0: 0
+      MinValue1: 0
+      MinValue2: 0
+      MinValue3: 0
+      MaxValue0: 0
+      MaxValue1: 0
+      MaxValue2: 0
+      MaxValue3: 0
+    m_Value0: 20
+    m_Value1: 0
+    m_Value2: 0
+    m_Value3: 0
+  - m_Descriptor:
+      Type: 28
+      MinMaxFlag: 0
+      Name: 53636174746572
+      Description: 
+      DefaultValue0: 0.5
+      DefaultValue1: 0
+      DefaultValue2: 0
+      DefaultValue3: 0
+      MinValue0: 0
+      MinValue1: 0
+      MinValue2: 0
+      MinValue3: 0
+      MaxValue0: 0
+      MaxValue1: 0
+      MaxValue2: 0
+      MaxValue3: 0
+    m_Value0: 0.5
+    m_Value1: 0
+    m_Value2: 0
+    m_Value3: 0
+  - m_Descriptor:
+      Type: 28
+      MinMaxFlag: 0
+      Name: 5363616c65
+      Description: 
+      DefaultValue0: 0.25
+      DefaultValue1: 0
+      DefaultValue2: 0
+      DefaultValue3: 0
+      MinValue0: 0
+      MinValue1: 0
+      MinValue2: 0
+      MinValue3: 0
+      MaxValue0: 0
+      MaxValue1: 0
+      MaxValue2: 0
+      MaxValue3: 0
+    m_Value0: 0.25
+    m_Value1: 0
+    m_Value2: 0
+    m_Value3: 0
+  m_PlayOnStart: 1
+  m_FxName: 5061727469636c65732f4c696768746e696e675f467073436f6e73747261696e742e706b6678
+  m_BoundFx: {fileID: 102900000, guid: bf57de63f4f84354a909f016da897d6b, type: 3}
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 577e52a2cb32b8a4e8e773b9d2a10b60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InstanciateOnDeath: {fileID: 0}
+  m_Time: 1
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 100000}
+  m_IsPrefabParent: 1

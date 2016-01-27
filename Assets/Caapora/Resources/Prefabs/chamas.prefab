@@ -49,6 +49,7 @@ GameObject:
   - 4: {fileID: 480360}
   - 108: {fileID: 10857882}
   - 114: {fileID: 11468670}
+  - 122: {fileID: 12282244}
   m_Layer: 0
   m_Name: Light
   m_TagString: Untagged
@@ -75,7 +76,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 181590}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -22.015615, z: -41.799942}
+  m_LocalPosition: {x: 0, y: 0, z: -41.799942}
   m_LocalScale: {x: 1.3899765, y: 1.375976, z: 1}
   m_Children: []
   m_Father: {fileID: 493700}
@@ -87,7 +88,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 167464}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -555.7767, y: 173.13297, z: 154.30022}
+  m_LocalPosition: {x: -555.7767, y: 173.13297, z: 30.30008}
   m_LocalScale: {x: 0.71943665, y: 0.7267569, z: 1}
   m_Children:
   - {fileID: 480360}
@@ -119,9 +120,9 @@ Light:
   m_GameObject: {fileID: 181590}
   m_Enabled: 1
   serializedVersion: 6
-  m_Type: 0
+  m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.5
   m_Range: 467.24698
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -214,9 +215,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mode: 0
   _size: {x: 1, y: 1, z: 1}
-  _position: {x: 15, y: 27, z: -5}
+  _position: {x: 16, y: 28, z: -5}
   _isAlignment: 1
-  _isShowBounds: 0
+  _isShowBounds: 1
 --- !u!114 &11483002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -228,6 +229,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f21c27087f066a4593336244dd60aa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!122 &12282244
+Halo:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 181590}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4281414098
+  m_Size: 5
 --- !u!198 &19871842
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -276,7 +288,7 @@ ParticleSystem:
   looping: 1
   prewarm: 0
   playOnAwake: 1
-  moveWithTransform: 1
+  moveWithTransform: 0
   scalingMode: 2
   InitialModule:
     serializedVersion: 2
