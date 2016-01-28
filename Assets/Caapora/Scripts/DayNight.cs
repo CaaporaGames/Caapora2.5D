@@ -39,7 +39,7 @@ public class DayNight : MonoBehaviour
         dayStart = 300;
         nightStage1 = 1000 ;
         nightStart = 1200;
-        currentTime = 720;
+        currentTime = 1100;
 
 
         StartCoroutine(TimeOfDay());

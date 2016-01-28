@@ -120,7 +120,6 @@ GameObject:
   - 224: {fileID: 22421584}
   - 223: {fileID: 22328550}
   - 114: {fileID: 11462058}
-  - 114: {fileID: 11484826}
   m_Layer: 5
   m_Name: healthBar
   m_TagString: Untagged
@@ -202,7 +201,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &408600
 Transform:
   m_ObjectHideFlags: 1
@@ -222,7 +221,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 152348}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 127.99996, y: 239.99998, z: 2.5999997}
+  m_LocalPosition: {x: 79.99997, y: 231.99998, z: 24.600058}
   m_LocalScale: {x: 10.262935, y: 11.3857155, z: 50}
   m_Children:
   - {fileID: 408600}
@@ -266,7 +265,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.10380622, g: 0.2352941, b: 0.12647656, a: 0}
+  m_BackGroundColor: {r: 0.10380622, g: 0.2352941, b: 0.12647656, a: 1}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -720,7 +719,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mode: 0
   _size: {x: 0.7, y: 0.7, z: 1.2}
-  _position: {x: 19, y: 11, z: 0}
+  _position: {x: 17, y: 12, z: 0}
   _isAlignment: 1
   _isShowBounds: 1
 --- !u!114 &11456636
@@ -853,22 +852,6 @@ MonoBehaviour:
   _position: {x: 25, y: 17, z: -3}
   _isAlignment: 1
   _isShowBounds: 1
---- !u!114 &11484826
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 161654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!114 &11496588
 MonoBehaviour:
   m_ObjectHideFlags: 1

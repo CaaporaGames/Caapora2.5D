@@ -97,7 +97,6 @@ GameObject:
   - 224: {fileID: 22466136}
   - 223: {fileID: 22312202}
   - 114: {fileID: 11405540}
-  - 114: {fileID: 11476272}
   m_Layer: 5
   m_Name: healthBar
   m_TagString: Untagged
@@ -136,7 +135,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 126394}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 95.99996, y: 255.99998, z: 129.4987}
+  m_LocalPosition: {x: 95.99996, y: 255.99998, z: 24.900059}
   m_LocalScale: {x: 1.3758205, y: 1.3588367, z: 1.3588367}
   m_Children:
   - {fileID: 428128}
@@ -258,22 +257,6 @@ MonoBehaviour:
   _isKinematic: 1
   _interpolation: 1
   _collisionDetectionMode: 0
---- !u!114 &11476272
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 196290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!114 &11484422
 MonoBehaviour:
   m_ObjectHideFlags: 1

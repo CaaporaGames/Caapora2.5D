@@ -130,8 +130,7 @@ namespace Caapora {
             else
                 walk();
 
-            currentLevel = StatsController.GetCurrentLevel();
-            currentXp = StatsController.GetCurrentXp();
+           
 
             AutomaticMovement(this);
 

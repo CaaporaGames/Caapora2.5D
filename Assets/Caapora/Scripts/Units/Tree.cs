@@ -12,14 +12,7 @@ public class Tree : CreatureBase {
         protected override IsoRigidbody iso_rigidyBody { get; set; }
         protected override IsoObject iso_object { get; set; }
 
-        public override void Update () {
-            base.Update();
-	
-	    }
 
-        public void Start(){
-            base.Start();
-        }
 
         void RecoverLife()
         {

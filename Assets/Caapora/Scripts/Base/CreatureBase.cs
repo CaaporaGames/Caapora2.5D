@@ -43,8 +43,9 @@ namespace Caapora
   
         protected void Start()
         {
+            iso_object = gameObject.GetComponent<IsoObject>();
 
-            if(transform.Find("healthBar/LifeBar") != null)
+            if (transform.Find("healthBar/LifeBar") != null)
                  LifeBar = transform.Find("healthBar/LifeBar").GetComponent<Image>();
         
         }
@@ -60,7 +61,7 @@ namespace Caapora
             }
 
 
-            if (transform.Find("healthBar/LifeBar") != null)
+            if (LifeBar != null)
                 UpdateBar();
 
             if (_life > 1000)
@@ -79,7 +80,7 @@ namespace Caapora
         public void Die()
         {
 
-            if (gameObject.GetComponent<IsoObject>().positionZ < -15 || _life <= 0)
+            if (iso_object.positionZ < -15 || _life <= 0)
             {
 
                 Destroy(gameObject);

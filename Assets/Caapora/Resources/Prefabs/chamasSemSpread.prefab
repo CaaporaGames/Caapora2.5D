@@ -45,9 +45,9 @@ GameObject:
   - 212: {fileID: 21259726}
   - 95: {fileID: 9508432}
   - 114: {fileID: 11441906}
-  - 114: {fileID: 11456126}
   - 114: {fileID: 11483002}
   - 114: {fileID: 11465892}
+  - 114: {fileID: 11406742}
   m_Layer: 0
   m_Name: chamasSemSpread
   m_TagString: Flame
@@ -74,7 +74,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 132610}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00002207, y: 0.00002352259, z: -59.599983}
+  m_LocalPosition: {x: 0, y: 0, z: -59.599983}
   m_LocalScale: {x: 1.4463795, y: 1.5415765, z: 1}
   m_Children: []
   m_Father: {fileID: 493700}
@@ -86,7 +86,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 167464}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -219.77667, y: 133.13298, z: 5.9999967}
+  m_LocalPosition: {x: -235.77667, y: 157.13298, z: 19.100037}
   m_LocalScale: {x: 0.69138145, y: 0.6486866, z: 1}
   m_Children:
   - {fileID: 416292}
@@ -118,21 +118,21 @@ Light:
   m_GameObject: {fileID: 132610}
   m_Enabled: 1
   serializedVersion: 6
-  m_Type: 2
+  m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.5
-  m_Range: 467.24698
-  m_SpotAngle: 19
+  m_Intensity: 3
+  m_Range: 400
+  m_SpotAngle: 7
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
-    m_Resolution: 2
+    m_Type: 0
+    m_Resolution: 0
     m_Strength: 1
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 2.7
   m_Cookie: {fileID: 0}
-  m_DrawHalo: 1
+  m_DrawHalo: 0
   m_Flare: {fileID: 0}
   m_RenderMode: 0
   m_CullingMask:
@@ -143,6 +143,20 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
+--- !u!114 &11406742
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 167464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4febe544112bb4678bdd59fa963c802d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isKinematic: 0
+  _interpolation: 0
+  _collisionDetectionMode: 0
 --- !u!114 &11428456
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -156,7 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mode: 0
   _size: {x: 1, y: 1, z: 1}
-  _position: {x: 24, y: 15, z: -5}
+  _position: {x: 20, y: 12, z: 0}
   _isAlignment: 1
   _isShowBounds: 1
 --- !u!114 &11441906
@@ -172,23 +186,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mode: 0
   _size: {x: 1, y: 1, z: 1}
-  _position: {x: 19, y: 10, z: 0}
+  _position: {x: 20, y: 12, z: 0}
   _isAlignment: 1
   _isShowBounds: 1
---- !u!114 &11456126
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 167464}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4febe544112bb4678bdd59fa963c802d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _isKinematic: 0
-  _interpolation: 0
-  _collisionDetectionMode: 1
 --- !u!114 &11465892
 MonoBehaviour:
   m_ObjectHideFlags: 1
