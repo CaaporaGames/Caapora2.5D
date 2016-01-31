@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using IsoTools;
 using UnityEngine.UI;
 
+namespace Caapora {
+
+
+
 public class Inventory : MonoBehaviour {
 
 
-    public List<GameObject> itemList = new List<GameObject>();
+    private static List<GameObject> itemList = new List<GameObject>();
     public static Inventory instance;
     
     
@@ -18,23 +22,39 @@ public class Inventory : MonoBehaviour {
 	}
 	
 
-	void Update () {
-
-        
-	}
 
     
     public static bool isEmpty()
     {
-        return instance.itemList.Count == 0;
+        return itemList.Count == 0;
     }
 
 
    
     public static GameObject getItem()
     {
-        return instance.itemList[0];
+        return itemList[0];
     }
 
-    
+
+    public static void AddItem(GameObject item)
+    {
+
+        itemList.Add(item);
+
+    }
+
+    public static void RemoveItem(GameObject item)
+    {
+
+        if (!isEmpty())
+        {
+            itemList.Remove(item);
+
+        }
+           
+    }
+
+
+}
 }

@@ -15,22 +15,26 @@ namespace Caapora
         public bool stopWalking = false;
         protected Image ManaBar;
         public string _moveDirection;
+        private GameObject Water;
+        private GameObject Bucket;
 
         protected override IsoObject iso_object { get; set; }
         protected override IsoRigidbody iso_rigidyBody { get; set; }
 
-        public virtual void Start()
+        public virtual void Awake()
         {
-            base.Start();
+      
 
             _animator = GetComponent<Animator>();
             prevPosition = Vector3.zero;
 
-
         }
 
         
-    
+        public virtual void Start()
+        {
+            base.Start();
+        }
         
         public virtual void Update()
         {
@@ -50,38 +54,36 @@ namespace Caapora
 
                 _animator.SetTrigger("Atack2");
 
-               
-                switch (InputController.instance.lookingAt)
-                {
-
-                        
-                    case "up":
-                        StartCoroutine(launchOject("north", 5));
-                        break;
-                    case "down":
-                        StartCoroutine(launchOject("south", 5));
-                        break;
-                    case "right":
-                        StartCoroutine(launchOject("east", 5));
-                        break;
-                    case "left":
-                        StartCoroutine(launchOject("west", 5));
-                        break;
-                    default:
-                        StartCoroutine(launchOject("south", 5));
-                        break;
-
-                }
+                StartCoroutine(launchOject("Water", 5));
 
             }
 
         }
 
 
-        public IEnumerator launchOject(string direction, float distance)
+        public IEnumerator launchOject(string type, float distance)
         {
+            Debug.Log("Lançando objeto");
 
-            var objeto = Instantiate(Resources.Load("Prefabs/splashWaterPrefab")) as GameObject;
+            GameObject objeto;
+
+            switch (type)
+            {
+                case "Water":
+                    objeto = Instantiate(Resources.Load("Prefabs/splashWaterPrefab")) as GameObject;
+                    break;
+                case "Bucket":
+                    GameObject baldeTmp = Inventory.getItem();
+                    Debug.Log("lancando balde");
+                    Debug.Log(baldeTmp.ToString());
+
+                    baldeTmp.GetComponent<Balde>().Active();
+                    objeto = baldeTmp;
+                    break;
+                default:
+                    objeto = Instantiate(Resources.Load("Prefabs/splashWaterPrefab")) as GameObject;
+                    break;
+            }
 
 
             var playerCurPosition = GetComponent<IsoObject>().position;
@@ -92,28 +94,28 @@ namespace Caapora
             IsoObject obj = objeto.GetComponent<IsoObject>();
             objRb.mass = 0.1f;
    
-            if (direction == "east")
+            if (InputController.instance.lookingAt == "right")
             {
                 obj.position = playerCurPosition + (Vector3.right + Vector3.down) / 3;
                 objRb.velocity = (Vector3.right + Vector3.down) * 3;
                 balde.UseWalter();
             }
 
-            if (direction == "west")
+            if (InputController.instance.lookingAt == "left")
             {
                 obj.position = playerCurPosition + (Vector3.left + Vector3.up) / 3;
                 objRb.velocity = (Vector3.left + Vector3.up) * 3;
                 balde.UseWalter();
             }
 
-            if (direction == "north")
+            if (InputController.instance.lookingAt == "up")
             {
                 obj.position = playerCurPosition + (Vector3.up + Vector3.right) / 3;
                 objRb.velocity = (Vector3.up + Vector3.right) * 3;
                 balde.UseWalter();
             }
 
-            if (direction == "south")
+            if (InputController.instance.lookingAt == "down")
             {
                 obj.position = playerCurPosition + (Vector3.down + Vector3.left) / 3;
                 objRb.velocity = (Vector3.down + Vector3.left) * 3;

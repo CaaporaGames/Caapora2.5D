@@ -18,8 +18,8 @@ namespace Caapora {
     public bool canFillBucket;
     private Vector3 direction;
     private float currentXp;
-    private    Text StatusHP;
-    private    GameObject balde;
+    private  Text StatusHP;
+    private  GameObject balde;
 
     private Image CaaporaLifeBar;
     private Text Altura;
@@ -31,7 +31,9 @@ namespace Caapora {
 
         public void Awake()
         {
-           
+
+
+            Debug.Log("Caapora: Iniciando novamente");
 
             if (_instance == null)
             {
@@ -59,11 +61,9 @@ namespace Caapora {
             CaaporaLifeBar = GameObject.Find("CaaporaStatus/life").GetComponent<Image>();
 
             StatusHP = GameObject.Find("CaaporaStatus/Status/hp").GetComponent<Text>();
-            balde = GameObject.Find("baldeVazioPrefab");
-
-           
            
 
+            Debug.Log("Balde em Awake Caapora = " + balde);
           
         }
 
@@ -92,6 +92,7 @@ namespace Caapora {
    
             base.Start();
 
+            balde = GameObject.Find("baldeVazioPrefab");
 
             _animator = GetComponentInChildren<Animator>();
 
@@ -104,12 +105,21 @@ namespace Caapora {
 
         }
 
+        private void OnLevelWasLoaded()
+        {
+
+            balde = GameObject.Find("baldeVazioPrefab");
+
+        }
 
         public override void Update()
         {
-
+            Debug.Log("Em Update de caapora " + balde);
             base.Update();
 
+
+            if (Input.GetKey(KeyCode.F))
+                LeaveBucket();
 
             //Altura.text = String.Format("{0:0.00}" , iso_object.positionZ);
 
@@ -147,13 +157,17 @@ namespace Caapora {
 
             if (Inventory.isEmpty())
             {
+                Debug.Log("inventory esta vazio");
 
+                
 
                 if (canCatch(balde))
                 {
 
+                    Debug.Log("pode pegar o balde");
+
                     // Exibe a dica de tela
-                    Advice.ShowAdvice(true);
+                    Advice.instance.ShowAdvice(true);
 
                     // Checa por entrada de dados
                     if (Input.GetKeyDown(KeyCode.A) || InputController.instance.AClick)
@@ -161,8 +175,7 @@ namespace Caapora {
 
 
                         AddItemToInventory(balde);
-
-                        // Migra a animação para a do balde
+                       
                         _animator.SetTrigger("Catch");
 
                         balde.SetActive(false);
@@ -250,6 +263,23 @@ namespace Caapora {
 
 
       
+        public void LeaveBucket()
+        {
+            
+
+            if (!Inventory.isEmpty())
+            {
+                Debug.Log("Soldando o balde");
+               StartCoroutine(launchOject("Bucket", 5));
+                Inventory.RemoveItem(balde);
+                _animator.SetTrigger("WithoutBucket");
+            
+            }
+                 
+
+            
+
+        }
 
         void CheckProximity()
         {
@@ -279,7 +309,7 @@ namespace Caapora {
       
         void AddItemToInventory(GameObject item)
         {
-            Inventory.instance.itemList.Add(item);
+            Inventory.AddItem(item);
 
             // Temporário
             GameObject.Find("item1").GetComponent<Image>().sprite = Resources.Load("Sprites/balde", typeof(Sprite)) as Sprite;

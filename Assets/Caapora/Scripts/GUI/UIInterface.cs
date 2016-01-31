@@ -25,7 +25,6 @@ public class UIInterface : MonoBehaviour {
                 {
                     _instance = FindObjectOfType<UIInterface>();
 
-                    DontDestroyOnLoad(_instance.gameObject);
                 }
 
                 return _instance;
@@ -38,7 +37,7 @@ public class UIInterface : MonoBehaviour {
             {
 
                 _instance = this;
-                DontDestroyOnLoad(this);
+
             }
             else
             {

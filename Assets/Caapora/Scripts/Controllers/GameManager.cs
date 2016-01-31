@@ -36,6 +36,7 @@ public class GameManager: MonoBehaviour {
     private ConversationBallon txtBallonConversation;
 
 
+
 	public int PathID;
     public Sprite enemy;
     public bool showIntroduction = false;
@@ -81,8 +82,12 @@ public class GameManager: MonoBehaviour {
 
         }
 
+    
         public void PrepareGame()
         {
+
+            Debug.Log("Prepare: Iniciando novamente");
+
             _totalOfFlames = 0;
 
             _instance.CurrentTimeLeft = TimeLeft ;
@@ -90,6 +95,8 @@ public class GameManager: MonoBehaviour {
             _instance.gameover = false;
 
             UIInterface.instance.Show();
+
+            Caapora.instance.LeaveBucket();
             
            
 

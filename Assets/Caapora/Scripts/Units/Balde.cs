@@ -13,11 +13,7 @@ public class Balde : MonoBehaviour {
         instance = this;
 	}
 	
-	// Não funcionando pois o objeto é desativado quando é pego
-	void Update () {
 
-
-    }
 
 
     public void UseWalter()
@@ -30,6 +26,12 @@ public class Balde : MonoBehaviour {
 
             updateInventoryStatus();
 
+    }
+
+    public void Active()
+    {
+
+        gameObject.SetActive(true);
     }
 
 
