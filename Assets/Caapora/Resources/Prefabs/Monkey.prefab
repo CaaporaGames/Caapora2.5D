@@ -219,8 +219,8 @@ MonoBehaviour:
   _targetPos: {fileID: 0}
   stepTicks: 0.5
   stepRndTicks: 0.5
-  npc_start: 1
   time: 7
+  npc_start: 1
   IsNear: 0
 --- !u!114 &11435234
 MonoBehaviour:
@@ -300,6 +300,7 @@ MonoBehaviour:
   CBTPrefab: {fileID: 0}
   prevPosition: {x: 0, y: 0, z: 0}
   stopWalking: 0
+  _moveDirection: 
 --- !u!114 &11455398
 MonoBehaviour:
   m_ObjectHideFlags: 1

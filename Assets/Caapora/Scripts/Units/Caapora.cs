@@ -13,22 +13,22 @@ namespace Caapora {
 	
 	public GameObject go;
 	public IsoObject caapora;
-	public static bool isPlayingAnimation;
 	public static Caapora _instance;
-    public string _moveDirection;
     public Sprite baldeCheio;
     public bool canFillBucket;
     private Vector3 direction;
     private float currentXp;
     private    Text StatusHP;
     private    GameObject balde;
-    private bool _running = false;
+
     private Image CaaporaLifeBar;
     private Text Altura;
     private GameObject FakeRigidbody;
 
+   private bool _running = false;
 
-       
+
+
         public void Awake()
         {
            
@@ -130,11 +130,7 @@ namespace Caapora {
             else
                 walk();
 
-           
-
-            AutomaticMovement(this);
-
-
+     
 
             if (!GameManager.isAnimating)
                 StatusHP.text = _life.ToString();
@@ -417,73 +413,7 @@ namespace Caapora {
 
 
        
-        public static IEnumerator AnimateCaapora(string direction, int steps){
-		
-			instance.caapora = instance.gameObject.GetComponent<IsoObject> ();
-
-
-			isPlayingAnimation = true;
-			
-
-			for (int i = 0; i < steps; i++)
-            {
-
-                if (direction == "left")
-                    moveDirection = "left";
-
-                if (direction == "right")
-                    moveDirection = "right";
-
-                if (direction == "up")
-                    moveDirection = "up";
-
-                if (direction == "down")
-                    moveDirection = "down";
-
-                if (direction == "jump")
-                    InputController.instance.AClick = true;
-
-                isPlayingAnimation = (i == steps - 1) ? false : true;
-				
-				yield return new WaitForSeconds(.08f);
-			}
-
-        }
-
-
-
-        public static string moveDirection
-        {
-            get
-            {
-                return instance._moveDirection;
-            }
-
-            set
-            {
-                instance._moveDirection = value;
-            }
-        }
-
-
-
-      
-        public static IEnumerator ShakePlayer(){
-
-			instance.caapora = instance.gameObject.GetComponent<IsoObject> ();
-	
-			for (int i = 0; i < 10; i++) {
-
-				
-				instance.iso_rigidyBody.velocity = new Vector3 ( 0, 0, 0.5f);
-
-				yield return new WaitForSeconds(.08f);	
-
-			
-			}
-		
-	    }
-
+       
 
 
 

@@ -60,17 +60,29 @@ namespace Caapora.Pathfinding {
 			}
 		}
 	}
-	
-    // retorna um vizinho de cada vez respeitando as restrições de limites de mapa
-	public List<Node> GetNeighbours(Node node) {
+
+
+        protected bool IsDiagonal(int x, int y)
+        {
+
+            if (x != 0 && y != 0)
+                return true;
+
+            return false;
+        }
+
+        // retorna um vizinho de cada vez respeitando as restrições de limites de mapa
+        public List<Node> GetNeighbours(Node node) {
 		List<Node> neighbours = new List<Node>();
 		// Verifica as posições vizinhas que são de -1 à 1 
 		for (int x = -1; x <= 1; x++) {
 			for (int y = -1; y <= 1; y++) {
-                // exclui a própria posição    
-				if (x == 0 && y == 0)
+
+                // exclui a própria posição    ou diagonal
+				if ((x == 0 && y == 0) || IsDiagonal(x,y))
 					continue;
 				
+                
 				int checkX = node.gridX + x;
 				int checkY = node.gridY + y;
 				

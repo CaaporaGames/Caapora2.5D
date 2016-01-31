@@ -62,7 +62,7 @@ public class Configuration : MonoBehaviour {
 
 
             entry.eventID = EventTriggerType.PointerDown;
-            entry.callback.AddListener((eventData) => { Caapora.moveDirection = direction; });
+            entry.callback.AddListener((eventData) => { Caapora.instance.moveDirection = direction; });
             trigger.triggers.Add(entry);
 
 
@@ -156,7 +156,7 @@ public class Configuration : MonoBehaviour {
             entry.callback.AddListener((eventData) =>
             {
 
-                Caapora.moveDirection = "";
+                Caapora.instance.moveDirection = "";
                 InputController.instance.BClick = false;
                 InputController.instance.AClick = false;
                 InputController.instance.ZClick = false;
@@ -184,7 +184,7 @@ public class Configuration : MonoBehaviour {
             entry.callback.AddListener((eventData) =>
             {
 
-               Caapora.moveDirection = "";
+               Caapora.instance.moveDirection = "";
 
 
             }

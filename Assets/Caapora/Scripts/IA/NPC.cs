@@ -2,43 +2,52 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using IsoTools;
-
-
+using System;
 
 namespace Caapora.Pathfinding {
 
     public class NPC : Pathfinding {
 
-        private bool move, canStart;
+
         public IEnumerator updatePosition;
         public IEnumerator animatePath;
 
         private IsoObject seekerIso;
-        public GameObject _targetPos;
+        private IsoRigidbody seekerRigidybody;
         private IsoObject _targetIsoObject;
-
+        private IsoWorld world;
         private NPCBase NPCCharacter;
+        public GameObject _targetPos;
+
         public float stepTicks = 0.5f;
         public float stepRndTicks = 0.5f;
-        public  bool npc_start;
-        private IsoWorld world;
-        public int time;
-        public bool IsNear;
+
+
+        public int time;  
         private int MinDistance;
+
+        private bool move, canStart;
+        public bool npc_start;
+        public bool IsNear;
+        private bool MoveTiming;
 
 
       
 
         void Start()
         {
+
+
             IsNear = false;
             move = false;
             canStart = true;
             npc_start = true;
+            MoveTiming = true;
 
             time = 12;
             NPCCharacter = GetComponent<NPCBase>();
             seekerIso = GetComponent<IsoObject>();
+            seekerRigidybody = GetComponent<IsoRigidbody>();
 
             cachedSeekerPos = seekerIso.position;
             cachedTargetPos = _targetPos.GetComponent<IsoObject>().position;
@@ -73,14 +82,18 @@ namespace Caapora.Pathfinding {
            // if (grid.path.Count < MinDistance && grid.path.Count > 1)
            //     canStart = false;
 
-            if (IsTargetNear())
-                IsNear = true; 
+          //  if (IsTargetNear())
+          //      IsNear = true; 
 
         }
 
 
         public bool IsTargetNear()
         {
+
+            if (grid.path == null)
+                return false;
+
             return grid.path.Count < 3 && grid.path.Count > 1;
         }
 
@@ -118,7 +131,7 @@ namespace Caapora.Pathfinding {
 
         WaitForSeconds RndWait()
         {
-            return new WaitForSeconds(stepTicks + Random.Range(0.0f, stepRndTicks));
+            return new WaitForSeconds(stepTicks + UnityEngine.Random.Range(0.0f, stepRndTicks));
         }
 
   
@@ -165,29 +178,36 @@ namespace Caapora.Pathfinding {
 
            
             float t = 0.0f;
-            // Vector3 correctedPathPos = new Vector3(n.GetWorldPos().x, 1, n.GetWorldPos().z);
-            // não sei porque, mas foi necessário fazer a coversão
-            // foi necessário criar uma variável apenas para essa finalizade para não sobrescrever a posição original
 
             Vector3 tmpWorldPosition  = world.ScreenToIso(n.worldPosition);
 
             Vector3 correctedPathPos = tmpWorldPosition;
 
+            //seekerIso.position =   Vector3.Lerp(currentPos, correctedPathPos, t);
+
+
             while (t < 1f)
             {
                 t += Time.deltaTime;
-          
-                seekerIso.position =   Vector3.Lerp(currentPos, correctedPathPos, t);
+
+                var Velocity = currentPos - correctedPathPos;
+
+                float dotUp = Vector3.Dot(Velocity, Vector3.down);
+                float dotRight = Vector3.Dot(Velocity, Vector3.left);
+
+
+                if (MoveTiming != false)
+                    StartCoroutine(NPCMovement(dotRight, dotUp));
 
                 NPCCharacter.stopWalking = false;
 
                 NPCCharacter.prevPosition = currentPos;
 
-                yield return null;
+
+                yield return null; 
+
             }
-
-
-            seekerIso.position = correctedPathPos;
+                //  seekerIso.position = correctedPathPos;
 
      
             currentPos = correctedPathPos;
@@ -198,13 +218,10 @@ namespace Caapora.Pathfinding {
            
             if (index < grid.path.Count)
             {
-                
+
 
                 StartCoroutine(UpdatePosition(currentPos, grid.path[index], index));
-
-                
-
-              
+        
             }
                
             else
@@ -219,15 +236,48 @@ namespace Caapora.Pathfinding {
                 
         }
 
+        private IEnumerator NPCMovement(float dotRight, float dotUp)
+        {
+  
+
+            MoveTiming = false;
+
+            if (dotUp > 0)
+            {
+               GetComponent<NPCBase>().moveUp();
+           
+            }
+            else if (dotUp < 0)
+            {
+                GetComponent<NPCBase>().moveDown();
+             
+            }
+            else if (dotRight > 0)
+            {
+                GetComponent<NPCBase>().moveRight();
+           
+            }
+            else if (dotRight < 0)
+            {
+              GetComponent<NPCBase>().moveLeft();
+               
+            }
+
+
+            yield return new WaitForSeconds(0.1f);
+
+            MoveTiming = true;
+
+        }
 
         public Vector3 targetPos
         {
 
 
-            get { return _targetPos.GetComponent<IsoObject>().position; }
+            get { return _targetIsoObject.position; }
             set
             {
-                _targetPos.GetComponent<IsoObject>().position = value;
+                _targetIsoObject.position = value;
             }
         }
 

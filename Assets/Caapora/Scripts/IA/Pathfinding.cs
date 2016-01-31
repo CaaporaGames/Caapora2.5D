@@ -65,7 +65,8 @@ public class Pathfinding : MonoBehaviour {
         }
     }
     
-
+    
+ 
 
     protected void RetracePath(Node startNode, Node endNode)
     {

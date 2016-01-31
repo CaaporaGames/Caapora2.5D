@@ -30,14 +30,6 @@ public class CaaporaConversation : MonoBehaviour {
 	
 	}
 
-	// Use this for initialization
-	void Start () {
-	
-
-
-
-
-	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -69,7 +61,7 @@ public class CaaporaConversation : MonoBehaviour {
 			instance.StartCoroutine(AnimateText(instance.goatText[i]));
 			yield return new WaitForSeconds(3f);
 		}
-		Destroy(GameObject.Find ("Tela de Conversa"));
+		Destroy(GameObject.Find("Tela de Conversa"));
 		
 
 	}

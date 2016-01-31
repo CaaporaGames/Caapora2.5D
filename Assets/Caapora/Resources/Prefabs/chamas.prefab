@@ -32,7 +32,8 @@ GameObject:
   - 114: {fileID: 11456126}
   - 114: {fileID: 11483002}
   - 114: {fileID: 11432198}
-  m_Layer: 0
+  - 58: {fileID: 5874634}
+  m_Layer: 14
   m_Name: chamas
   m_TagString: Flame
   m_Icon: {fileID: 0}
@@ -87,13 +88,27 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 167464}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -555.7767, y: 173.13297, z: 22.70005}
+  m_LocalPosition: {x: -555.7767, y: 173.13297, z: 20.00004}
   m_LocalScale: {x: 0.71943665, y: 0.7267569, z: 1}
   m_Children:
   - {fileID: 480360}
   - {fileID: 436640}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!58 &5874634
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 167464}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0.000030517578, y: 11.5}
+  serializedVersion: 2
+  m_Radius: 15.981583
 --- !u!95 &9508432
 Animator:
   serializedVersion: 3

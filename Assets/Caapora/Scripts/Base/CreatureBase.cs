@@ -96,7 +96,7 @@ namespace Caapora
 
             collisionTime = 0;
 
-            if (iso_collision.gameObject.name == "Altar")
+            if (iso_collision.gameObject.tag == "Altar")
             {
                 
                 _life = _life + 10;

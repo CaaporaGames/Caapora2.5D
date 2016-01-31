@@ -10,9 +10,11 @@ namespace Caapora
 
 
         protected static bool _canLauchWater = true;
+        public static bool isPlayingAnimation;
         public Vector3 prevPosition;
         public bool stopWalking = false;
         protected Image ManaBar;
+        public string _moveDirection;
 
         protected override IsoObject iso_object { get; set; }
         protected override IsoRigidbody iso_rigidyBody { get; set; }
@@ -23,20 +25,20 @@ namespace Caapora
 
             _animator = GetComponent<Animator>();
             prevPosition = Vector3.zero;
-        
+
+
         }
 
         
     
-        public override void Update()
+        
+        public virtual void Update()
         {
-
             base.Update();
+            MainController();
 
-          
         }
 
-        
 
         public void ThrowWater()
         {
@@ -127,62 +129,122 @@ namespace Caapora
         }
 
 
-        public void AutomaticMovement(IAutoMovable character)
+        
+
+
+        public IEnumerator CharacterMovement(string direction, int steps)
         {
 
-            var _currentPosition = iso_object;
 
-            var TmpPrevPosition = new Vector2(Mathf.Floor(prevPosition.x), Mathf.Floor(prevPosition.y));
-            var TmpCurrentPosition = new Vector2(Mathf.Floor(_currentPosition.positionX), Mathf.Floor(_currentPosition.positionY));
+            isPlayingAnimation = true;
 
 
-            if (prevPosition == Vector3.zero || stopWalking)
+            for (int i = 0; i < steps; i++)
             {
-               // _animator.SetTrigger("Down");
+
+                moveDirection = direction;
+
+                if (direction == "jump")
+                    InputController.instance.AClick = true;
+
+                isPlayingAnimation = (i == steps - 1) ? false : true;
+
+                yield return new WaitForSeconds(.02f);
+
+                moveDirection = "";
             }
-            else
+
+        }
+
+
+
+        public string moveDirection
+        {
+            get
+            {
+                return _moveDirection;
+            }
+
+            set
+            {
+                _moveDirection = value;
+            }
+        }
+
+
+
+
+        public IEnumerator ShakePlayer()
+        {
+
+           // instance.caapora = instance.gameObject.GetComponent<IsoObject>();
+
+            for (int i = 0; i < 10; i++)
             {
 
-                if (TmpPrevPosition.x == TmpCurrentPosition.x + 1)
+
+                iso_rigidyBody.velocity = new Vector3(0, 0, 0.5f);
+
+                yield return new WaitForSeconds(.08f);
+
+
+            }
+
+        }
+
+
+
+        private void MainController()
+        {
+
+
+
+            if (isPlayingAnimation)
+                animator.speed = 1;
+
+
+            if (iso_rigidyBody)
+            {
+
+
+                if (moveDirection == "left")
                 {
 
-                    character.moveLeft();
+                    moveLeft();
+
+                }
+                else if (moveDirection == "right")
+                {
+
+                    moveRight();
+
+                }
+                else if (moveDirection == "down")
+                {
+
+                    moveDown();
+
+                }
+                else if (moveDirection == "up")
+                {
+
+                    moveUp();
 
                 }
 
 
-                else if (TmpPrevPosition.x == TmpCurrentPosition.x - 1)
+                else
                 {
 
-                    character.moveRight();
-
-
-                }
-
-
-
-                else if (TmpPrevPosition.y == TmpCurrentPosition.y + 1)
-                {
-
-                    character.moveUp();
-
-
-                }
-
-
-                else if (TmpPrevPosition.y == TmpCurrentPosition.y - 1)
-                {
-
-                    character.moveDown();
-
-
+                    animator.SetTrigger("Idle");
                 }
 
             }
 
         }
 
-        
+
+
         private bool canLauchWater()
         {
 

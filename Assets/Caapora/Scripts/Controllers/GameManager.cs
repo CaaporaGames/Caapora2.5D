@@ -32,6 +32,8 @@ public class GameManager: MonoBehaviour {
 	public Vector3 LastUsedDoorPosition;
     private GameObject SceneInformation;
     private Caapora player;
+    public GameObject txtBallon;
+    private ConversationBallon txtBallonConversation;
 
 
 	public int PathID;
@@ -56,6 +58,7 @@ public class GameManager: MonoBehaviour {
 
             CameraAux = GameObject.Find("CameraAux");
             SceneInformation = GameObject.Find("Informacoes");
+            txtBallonConversation = txtBallon.GetComponent<ConversationBallon>();
 
             if (!showIntroduction)
             {
@@ -80,12 +83,15 @@ public class GameManager: MonoBehaviour {
 
         public void PrepareGame()
         {
+            _totalOfFlames = 0;
+
             _instance.CurrentTimeLeft = TimeLeft ;
 
             _instance.gameover = false;
 
             UIInterface.instance.Show();
             
+           
 
         }
 
@@ -433,6 +439,21 @@ public class GameManager: MonoBehaviour {
         if(showIntroduction)
             Camera.main.enabled = false;
 
+            
+        Debug.Log("Entrou em Introduction");
+
+        StartCoroutine(Caapora.instance.CharacterMovement("left", 10));
+
+        yield return new WaitForSeconds(3f);
+
+        StartCoroutine(Caapora.instance.ShakePlayer());
+
+        yield return new WaitForSeconds(1f);
+
+      //  txtBallonConversation.instance.ActiveBallon(true); 
+
+        StartCoroutine(CaaporaConversation.AnimateFrase());
+
 
         StartCoroutine(hideAndShowObject(GameObject.Find("Informacoes"), 3));
 
@@ -451,7 +472,7 @@ public class GameManager: MonoBehaviour {
         MainCamera.enabled = true;
 
        
-        player.GetComponent<Animator>().SetTrigger("CaaporaIdle");
+       // player.GetComponent<Animator>().SetTrigger("CaaporaIdle");
 
 
 		ConversationPanel.ActivePanel (true);

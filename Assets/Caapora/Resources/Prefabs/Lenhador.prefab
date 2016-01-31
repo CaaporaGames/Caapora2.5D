@@ -65,15 +65,15 @@ GameObject:
   - 114: {fileID: 11429430}
   - 114: {fileID: 11471300}
   - 114: {fileID: 11474682}
-  - 114: {fileID: 11441168}
   - 114: {fileID: 11469156}
+  - 114: {fileID: 11496704}
   m_Layer: 16
   m_Name: Lenhador
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &470124
 Transform:
   m_ObjectHideFlags: 1
@@ -81,7 +81,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 191144}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 351.99994, y: 368, z: 1.6000001}
+  m_LocalPosition: {x: 351.99994, y: 368, z: 4.0999985}
   m_LocalScale: {x: 49.432022, y: 52.664078, z: 1}
   m_Children:
   - {fileID: 22408824}
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mode: 0
-  _size: {x: 1, y: 1, z: 1}
+  _size: {x: 0.7, y: 0.7, z: 1.2}
   _position: {x: 33, y: 11, z: 1}
   _isAlignment: 1
   _isShowBounds: 1
@@ -147,22 +147,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11441168
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 191144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b256250c588ee4e4590a3e58eaa69b1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _material: {fileID: 0}
-  _isTrigger: 0
-  _size: {x: 1, y: 1, z: 1}
-  _rotate: {x: 0, y: 0, z: 0}
-  _offset: {x: 0.5, y: 0.5, z: 0.5}
 --- !u!114 &11441264
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -220,10 +204,11 @@ MonoBehaviour:
     agillity: 0
     baseDefence: 0
     baseAttack: 10
-  speed: 5
+  speed: 15
   CBTPrefab: {fileID: 158360, guid: f191b9ce59692a44b851d1ce680bfa95, type: 2}
   prevPosition: {x: 0, y: 0, z: 0}
   stopWalking: 0
+  _moveDirection: 
   foe: {fileID: 0}
 --- !u!114 &11471300
 MonoBehaviour:
@@ -256,8 +241,8 @@ MonoBehaviour:
   _targetPos: {fileID: 0}
   stepTicks: 0.5
   stepRndTicks: 0.5
+  time: 10
   npc_start: 1
-  time: 3
   IsNear: 0
 --- !u!114 &11480060
 MonoBehaviour:
@@ -286,6 +271,22 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11496704
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 191144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b256250c588ee4e4590a3e58eaa69b1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _material: {fileID: 0}
+  _isTrigger: 0
+  _size: {x: 0.7, y: 0.7, z: 1.2}
+  _rotate: {x: 0, y: 0, z: 0}
+  _offset: {x: 0.35, y: 0.35, z: 0.6}
 --- !u!212 &21200968
 SpriteRenderer:
   m_ObjectHideFlags: 1

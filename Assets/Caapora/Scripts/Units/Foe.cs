@@ -19,7 +19,6 @@ public class Foe : NPCBase {
 	private void  Start () {
         base.Start();
 
-        speed = 0.2f;
         instance = this;
 
         FoeNPC = GetComponent<NPC>();

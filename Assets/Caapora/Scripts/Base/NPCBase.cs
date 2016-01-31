@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using IsoTools;
-
+using System.Collections;
 
 namespace Caapora{
 
@@ -17,7 +17,6 @@ public abstract class NPCBase : CharacterBase {
 
         base.Start();
 
-
         instance = this;
 
         currentLevel = StatsController.GetCurrentLevel();
@@ -26,6 +25,7 @@ public abstract class NPCBase : CharacterBase {
 
 
     }
+
 
         public override void OnIsoCollisionEnter(IsoCollision iso_collision)
         {
@@ -41,18 +41,11 @@ public abstract class NPCBase : CharacterBase {
             }
         }
 
-        public override void Update () {
-            base.Update();
-            
-
-            AutomaticMovement(this);
-
-
-        }
 
 
 
-       public string movingTo
+
+        public string movingTo
         {
             set
             {
@@ -65,56 +58,53 @@ public abstract class NPCBase : CharacterBase {
         }
 
 
-public override void moveLeft()
-{
+        public override void moveLeft()
+        {
+
+            iso_rigidyBody.velocity = new Vector3(-speed , 0 , 0);
+            _animator.SetTrigger("Left");
+
+        }
+
+        public override void moveRight()
+        {
+
+            iso_rigidyBody.velocity = new Vector3(speed, 0, 0);
+            _animator.SetTrigger("Right");
+
+        }
 
 
-    iso_rigidyBody.velocity = new Vector3(-this.speed, this.speed, 0);
+        public override void moveDown()
+        {
 
-    _animator.SetTrigger("Left");
-
-}
-
-public override void moveRight()
-{
+            iso_rigidyBody.velocity = new Vector3(0, -speed, 0);
+            _animator.SetTrigger("Down");
 
 
-    iso_rigidyBody.velocity = new Vector3(this.speed, -this.speed, 0);
-    _animator.SetTrigger("Right");
-
-}
+        }
 
 
-public override void moveDown()
-{
+        public override void moveUp()
+        {
 
-    iso_rigidyBody.velocity = new Vector3(this.speed, this.speed, 0);
-    _animator.SetTrigger("Up");
+            iso_rigidyBody.velocity = new Vector3(0, speed, 0);
+            _animator.SetTrigger("Up");
 
-
-}
-
-
-public override void moveUp()
-{
-
-    iso_rigidyBody.velocity = new Vector3(-this.speed, -this.speed, 0);
-    _animator.SetTrigger("Down");
-
-}
+        }
 
 
 
-public void Jump()
-{
-    iso_rigidyBody.velocity = new Vector3(0, 0, this.speed);
+        public void Jump()
+        {
+            iso_rigidyBody.velocity = new Vector3(0, 0, speed);
 
 
-}
+        }
 
 
 
-}  // end NPCController
+}  // end NPCBase
 
 
 
