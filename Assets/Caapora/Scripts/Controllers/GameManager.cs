@@ -74,7 +74,7 @@ public class GameManager: MonoBehaviour {
                 StartCoroutine(Introduction());
             }
 
-            player = GameObject.Find("Player").GetComponent<Caapora>();
+           
 
             instance.UnPause();
 
@@ -82,11 +82,20 @@ public class GameManager: MonoBehaviour {
 
         }
 
-    
+
+        private void OnLevelWasLoaded()
+        {
+            if(GameObject.Find("Player") != null)
+                player = GameObject.Find("Player").GetComponent<Caapora>();
+
+        }
+
+
+
         public void PrepareGameInit()
         {
 
-
+     
             _totalOfFlames = 0;
 
             _instance.CurrentTimeLeft = TimeLeft ;
@@ -106,10 +115,14 @@ public class GameManager: MonoBehaviour {
 
         public void PrepareNextGame()
         {
+            
+            _instance.gameover = true;
 
             _instance.StopAllCoroutines();
 
             Caapora.instance.LeaveBucket();
+
+
 
         }
 
@@ -135,6 +148,8 @@ public class GameManager: MonoBehaviour {
     {
             PopulatePool();
 
+            player = GameObject.Find("Player").GetComponent<Caapora>();
+
             if (_instance == null)
             {
 
@@ -156,14 +171,16 @@ public class GameManager: MonoBehaviour {
 
     void Update()
     {
-         
-        
-        CurrentTimeLeft -= Time.deltaTime;
+
+
+
+            CurrentTimeLeft -= Time.deltaTime;
 
 
       
-            if (!gameover)
+            if (!_instance.gameover)
             {
+
                 if (WinCondition())
                     YouWin();
 
@@ -194,16 +211,19 @@ public class GameManager: MonoBehaviour {
 
         public bool WinCondition()
     {
+            if (_instance.gameover)
+                return false;
 
-        return GameObject.FindWithTag("Flame") == null && CurrentTimeLeft > 0;
+
+            return GameObject.FindWithTag("Flame") == null && CurrentTimeLeft > 0;
 
     }
 
     public void YouWin()
     {
+            
 
-
-            gameover = true;
+            _instance.gameover = true;
             StopGame();
             UIInterface.instance.winnerModal.SetActive(true);
 
@@ -212,13 +232,17 @@ public class GameManager: MonoBehaviour {
 
     private bool LoseCondition()
     {
-       bool conditionTmp = true;
 
-       if (player != null)
-            conditionTmp = player.GetComponent<IsoObject>().positionZ < -15 || player.life <= 0 || CurrentTimeLeft <= 0;
+       bool conditionTmp = false;
 
-            if (Application.isLoadingLevel)
+            if (_instance.gameover)
                 return false;
+
+            if (player != null)
+            {
+
+                conditionTmp = player.GetComponent<IsoObject>().positionZ < -15 || player.life <= 0 || CurrentTimeLeft <= 0;
+            }
 
        return conditionTmp;
         
@@ -226,12 +250,13 @@ public class GameManager: MonoBehaviour {
 
     public void GameOVer()
     {
-            gameover = true;
+            _instance.gameover = true;
             StopGame();
             UIInterface.instance.loserModal.SetActive(true);
 
 
-    }
+
+        }
 
     public void Pause()
     {
@@ -446,8 +471,7 @@ public class GameManager: MonoBehaviour {
         if(showIntroduction)
             Camera.main.enabled = false;
 
-            
-        Debug.Log("Entrou em Introduction");
+           
 
         StartCoroutine(Caapora.instance.CharacterMovement("left", 10));
 

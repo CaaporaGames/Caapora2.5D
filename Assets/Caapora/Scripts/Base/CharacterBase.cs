@@ -23,8 +23,8 @@ namespace Caapora
 
         public virtual void Awake()
         {
-      
 
+            _canLauchWater = true;
             _animator = GetComponent<Animator>();
             prevPosition = Vector3.zero;
 
@@ -46,10 +46,10 @@ namespace Caapora
 
         public void ThrowWater()
         {
-           
 
             if (canLauchWater())
             {
+
                 _canLauchWater = false;
 
                 _animator.SetTrigger("Atack2");
@@ -246,6 +246,7 @@ namespace Caapora
 
         private bool canLauchWater()
         {
+            
 
             return !Inventory.isEmpty() && Inventory.getItem().GetComponent<Balde>().waterPercent > 0  && _canLauchWater;
         }
