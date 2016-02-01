@@ -15,19 +15,34 @@ public class StatsController : MonoBehaviour {
         private Text levelText;
         private Text xpText;
 
-	// Use this for initialization
+
 	void Start () {
 		instance = this;
-		//DontDestroyOnLoad (gameObject);
+		
 
           
             levelText = GameObject.Find("CaaporaStatus/level").GetComponent<Text>();
             xpText = GameObject.Find("CaaporaStatus/xp").GetComponent<Text>();
 
         }
-	
-	// Update is called once per frame
-	void Update () {
+
+
+
+        void OnLevelWasLoaded()
+        {
+
+            if(GameObject.Find("CaaporaStatus/level") != null)
+            {
+                levelText = GameObject.Find("CaaporaStatus/level").GetComponent<Text>();
+                xpText = GameObject.Find("CaaporaStatus/xp").GetComponent<Text>();
+
+            }
+             
+
+
+        }
+
+        void Update () {
 
 
             levelText.text = "Lv. " + GetCurrentLevel().ToString();

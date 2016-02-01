@@ -86,7 +86,7 @@ public class Configuration : MonoBehaviour {
                 switch (type)
                 {
                     case "Exit":
-                        Application.Quit();
+                        GameManager.instance.LoadNextLevel("MenuPrincipal");
                         break;
                     case "Skip":
                         GameManager.instance.hideConversationPanel();

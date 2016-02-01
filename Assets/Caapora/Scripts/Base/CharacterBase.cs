@@ -63,7 +63,7 @@ namespace Caapora
 
         public IEnumerator launchOject(string type, float distance)
         {
-            Debug.Log("Lançando objeto");
+
 
             GameObject objeto;
 
@@ -74,9 +74,6 @@ namespace Caapora
                     break;
                 case "Bucket":
                     GameObject baldeTmp = Inventory.getItem();
-                    Debug.Log("lancando balde");
-                    Debug.Log(baldeTmp.ToString());
-
                     baldeTmp.GetComponent<Balde>().Active();
                     objeto = baldeTmp;
                     break;

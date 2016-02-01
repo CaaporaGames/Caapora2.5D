@@ -17,18 +17,19 @@ public class LevelController : MonoBehaviour {
 
         instance = this;
         levelText = GameObject.Find("Level").GetComponent<Text>();
+
     }
 
-    private void OnLevelWasLoaded()
+    void OnLevelWasLoaded()
     {
-
-        levelText = GameObject.Find("Level").GetComponent<Text>();
+        if(GameObject.Find("Level") != null)
+          levelText = GameObject.Find("Level").GetComponent<Text>();
 
     }
 
     void Update () {
-
-        levelText.text = "Level: " + GetCurrentLevel().ToString();
+        if(levelText != null)
+         levelText.text = "Level: " + GetCurrentLevel().ToString();
 
     }
 

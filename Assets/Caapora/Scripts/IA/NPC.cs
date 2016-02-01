@@ -44,7 +44,6 @@ namespace Caapora.Pathfinding {
             npc_start = true;
             MoveTiming = true;
 
-            time = 12;
             NPCCharacter = GetComponent<NPCBase>();
             seekerIso = GetComponent<IsoObject>();
             seekerRigidybody = GetComponent<IsoRigidbody>();
@@ -64,16 +63,17 @@ namespace Caapora.Pathfinding {
         {
             MinDistance = 18;
 
-  
             if (npc_start)
             {
+                StartCoroutine(enableNPCTimer());
+
 
                 if (!move)
                     find();
 
                 AnimatePath();
 
-                StartCoroutine(enableNPCTimer());
+               
 
             }
 
@@ -122,6 +122,7 @@ namespace Caapora.Pathfinding {
 
         IEnumerator enableNPCTimer()
         {
+
             npc_start = false;
             yield return new WaitForSeconds(time);
             npc_start = true;
@@ -156,7 +157,7 @@ namespace Caapora.Pathfinding {
 
         void AnimatePath()
         {
-            
+
             move = false;
                 
             Vector3 SeekerCurrentPos = seekerIso.position;
@@ -164,8 +165,10 @@ namespace Caapora.Pathfinding {
 
             if (canStart)
             {
-                updatePosition = UpdatePosition(SeekerCurrentPos, grid.path[0], 0);
-                StartCoroutine(updatePosition);
+                if(grid.path != null) { 
+                 updatePosition = UpdatePosition(SeekerCurrentPos, grid.path[0], 0);
+                 StartCoroutine(updatePosition);
+                }
             }
 
         }

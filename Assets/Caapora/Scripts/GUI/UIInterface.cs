@@ -88,6 +88,31 @@ public class UIInterface : MonoBehaviour {
         {
             _instance.gameObject.SetActive(true);
         }
+
+
+        public static IEnumerator showAndHideObject(GameObject go, int seconds)
+        {
+           
+                go.SetActive(true);
+                yield return new WaitForSeconds(seconds);
+                go.SetActive(false);
+                yield return new WaitForSeconds(seconds);
+
+         
+
+        }
+
+
+        public static IEnumerator hideAndShowObject(GameObject go, int seconds)
+        {
+
+
+            go.SetActive(false);
+            yield return new WaitForSeconds(seconds);
+            go.SetActive(true);
+        }
     }
+
+
 
 }

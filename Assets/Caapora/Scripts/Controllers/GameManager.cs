@@ -55,7 +55,7 @@ public class GameManager: MonoBehaviour {
     void Awake()
     {
 
-            instance.PrepareGame();
+            instance.PrepareGameInit();
 
             CameraAux = GameObject.Find("CameraAux");
             SceneInformation = GameObject.Find("Informacoes");
@@ -83,10 +83,9 @@ public class GameManager: MonoBehaviour {
         }
 
     
-        public void PrepareGame()
+        public void PrepareGameInit()
         {
 
-            Debug.Log("Prepare: Iniciando novamente");
 
             _totalOfFlames = 0;
 
@@ -96,15 +95,26 @@ public class GameManager: MonoBehaviour {
 
             UIInterface.instance.Show();
 
+            _instance.StopAllCoroutines();
+
             Caapora.instance.LeaveBucket();
-            
+
            
 
         }
 
 
+        public void PrepareNextGame()
+        {
 
-     public static GameManager instance
+            _instance.StopAllCoroutines();
+
+            Caapora.instance.LeaveBucket();
+
+        }
+
+
+        public static GameManager instance
      {
         get
         {
@@ -146,7 +156,7 @@ public class GameManager: MonoBehaviour {
 
     void Update()
     {
-        
+         
         
         CurrentTimeLeft -= Time.deltaTime;
 
@@ -182,7 +192,7 @@ public class GameManager: MonoBehaviour {
     }
 
 
-    public bool WinCondition()
+        public bool WinCondition()
     {
 
         return GameObject.FindWithTag("Flame") == null && CurrentTimeLeft > 0;
@@ -202,8 +212,16 @@ public class GameManager: MonoBehaviour {
 
     private bool LoseCondition()
     {
+       bool conditionTmp = true;
 
-        return player.GetComponent<IsoObject>().positionZ < -15 || player.life <= 0 || CurrentTimeLeft <= 0;
+       if (player != null)
+            conditionTmp = player.GetComponent<IsoObject>().positionZ < -15 || player.life <= 0 || CurrentTimeLeft <= 0;
+
+            if (Application.isLoadingLevel)
+                return false;
+
+       return conditionTmp;
+        
     }
 
     public void GameOVer()
@@ -263,7 +281,11 @@ public class GameManager: MonoBehaviour {
 
     public void LoadNextLevel(string scene)
     {
-     
+
+      // if (scene == "MenuPrincipal")
+      //      Caapora.instance.KeepObject(false);
+
+       instance.PrepareNextGame();
        
        UIInterface.instance.Hide();
 
@@ -356,33 +378,11 @@ public class GameManager: MonoBehaviour {
     public static void ShowObjectAPeriodOfTime(GameObject go, int seconds)
     {
         
-        instance.StartCoroutine(showAndHideObject(go, seconds));
+        instance.StartCoroutine(UIInterface.showAndHideObject(go, seconds));
 
     }
 
 
-
-    public static IEnumerator showAndHideObject(GameObject go, int seconds)
-    {
-
-        
-        go.SetActive(true);
-        yield return new WaitForSeconds(seconds);
-        go.SetActive(false);
-        yield return new WaitForSeconds(seconds);
-    }
-
-
-    public static IEnumerator hideAndShowObject(GameObject go, int seconds)
-    {
-
-
-        go.SetActive(false);
-        yield return new WaitForSeconds(seconds);
-        go.SetActive(true);
-    }
-
-   
 
 
     public IEnumerator CaaporaHit()
@@ -462,14 +462,14 @@ public class GameManager: MonoBehaviour {
         StartCoroutine(CaaporaConversation.AnimateFrase());
 
 
-        StartCoroutine(hideAndShowObject(GameObject.Find("Informacoes"), 3));
+        StartCoroutine(UIInterface.hideAndShowObject(GameObject.Find("Informacoes"), 3));
 
         yield return new WaitForSeconds(3f);
 
-        StartCoroutine(showAndHideObject(GameObject.Find("Informacoes"), 3));
+        StartCoroutine(UIInterface.showAndHideObject(GameObject.Find("Informacoes"), 3));
 
 
-        StartCoroutine(hideAndShowObject(GameObject.Find("CanvasGUIContainer"), 7));
+        StartCoroutine(UIInterface.hideAndShowObject(GameObject.Find("CanvasGUIContainer"), 7));
 
 
 

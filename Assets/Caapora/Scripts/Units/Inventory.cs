@@ -11,20 +11,62 @@ public class Inventory : MonoBehaviour {
 
 
     private static List<GameObject> itemList = new List<GameObject>();
-    public static Inventory instance;
+    private static Inventory _instance;
     
     
 
     void Start () {
 
-        instance = this;
+        _instance = this;
 
 	}
-	
+
+        public void Awake()
+        {
 
 
-    
-    public static bool isEmpty()
+            if (_instance == null)
+            {
+
+                DontDestroyOnLoad(this);
+
+
+                _instance = this;
+
+            }
+
+            else
+            {
+
+                if (this != _instance)
+                    Destroy(gameObject);
+            }
+
+
+
+        }
+
+
+        public static Inventory instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    DontDestroyOnLoad(_instance);
+
+                    _instance = FindObjectOfType<Inventory>() as Inventory;
+                }
+
+                return _instance;
+            }
+        }
+
+
+
+
+
+        public static bool isEmpty()
     {
         return itemList.Count == 0;
     }

@@ -9,8 +9,6 @@ namespace Caapora {
     [System.Serializable]
     public class Caapora : CharacterBase {
 
-
-	
 	public GameObject go;
 	public IsoObject caapora;
 	public static Caapora _instance;
@@ -25,15 +23,13 @@ namespace Caapora {
     private Text Altura;
     private GameObject FakeRigidbody;
 
-   private bool _running = false;
-
+    private bool _running = false;
+    private bool keepObjectOnLevelLoad;
 
 
         public void Awake()
         {
 
-
-            Debug.Log("Caapora: Iniciando novamente");
 
             if (_instance == null)
             {
@@ -49,12 +45,17 @@ namespace Caapora {
             {
               
                 if (this != _instance)
+                {
+              
                     Destroy(gameObject);
+                }
+                   
             }
 
 
 
             canFillBucket = false;
+            keepObjectOnLevelLoad = true;
 
             //Altura = GameObject.Find("Altura").GetComponent<Text>();
 
@@ -63,10 +64,11 @@ namespace Caapora {
             StatusHP = GameObject.Find("CaaporaStatus/Status/hp").GetComponent<Text>();
            
 
-            Debug.Log("Balde em Awake Caapora = " + balde);
+
           
         }
 
+  
 
         public static Caapora instance
         {
@@ -74,9 +76,7 @@ namespace Caapora {
             {
                 if (_instance == null)
                 {
-
-
-                    DontDestroyOnLoad(_instance);
+                        DontDestroyOnLoad(_instance);
 
                     _instance = FindObjectOfType<Caapora>() as Caapora;
                 }
@@ -108,13 +108,16 @@ namespace Caapora {
         private void OnLevelWasLoaded()
         {
 
+          //  if (!keepObjectOnLevelLoad)
+          //         Destroy(gameObject);
+
             balde = GameObject.Find("baldeVazioPrefab");
 
         }
 
         public override void Update()
         {
-            Debug.Log("Em Update de caapora " + balde);
+        
             base.Update();
 
 
@@ -129,10 +132,9 @@ namespace Caapora {
                // SoundManager.instance.PlaySingle(SoundManager.instance.river);
 
             }
-     
-         
-             
 
+
+          
             UpdateCaaporaStatus();
 
             if (_running)
@@ -157,19 +159,14 @@ namespace Caapora {
 
             if (Inventory.isEmpty())
             {
-                Debug.Log("inventory esta vazio");
 
                 
 
                 if (canCatch(balde))
                 {
 
-                    Debug.Log("pode pegar o balde");
-
-                    // Exibe a dica de tela
                     Advice.instance.ShowAdvice(true);
 
-                    // Checa por entrada de dados
                     if (Input.GetKeyDown(KeyCode.A) || InputController.instance.AClick)
                     {
 
@@ -190,7 +187,16 @@ namespace Caapora {
 
 
         }  //End Update()
- 
+
+
+        public void KeepObject(bool b)
+        {
+
+            keepObjectOnLevelLoad = b;
+
+        }
+
+
 
         private void OnIsoCollisionEnter(IsoCollision iso_collision)
         {
@@ -269,10 +275,11 @@ namespace Caapora {
 
             if (!Inventory.isEmpty())
             {
-                Debug.Log("Soldando o balde");
-               StartCoroutine(launchOject("Bucket", 5));
-                Inventory.RemoveItem(balde);
+
                 _animator.SetTrigger("WithoutBucket");
+                StartCoroutine(launchOject("Bucket", 5));
+                Inventory.RemoveItem(balde);
+                
             
             }
                  
