@@ -57,7 +57,7 @@ namespace Caapora {
             canFillBucket = false;
             keepObjectOnLevelLoad = true;
 
-            //Altura = GameObject.Find("Altura").GetComponent<Text>();
+            Altura = GameObject.Find("Altura").GetComponent<Text>();
 
             CaaporaLifeBar = GameObject.Find("CaaporaStatus/life").GetComponent<Image>();
 
@@ -124,7 +124,7 @@ namespace Caapora {
             if (Input.GetKey(KeyCode.F))
                 LeaveBucket();
 
-            //Altura.text = String.Format("{0:0.00}" , iso_object.positionZ);
+            Altura.text = String.Format("{0:0.00}" , iso_object.positionZ);
 
             if (canFillBucket)
             {
