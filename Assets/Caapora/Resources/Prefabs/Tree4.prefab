@@ -75,6 +75,7 @@ MonoBehaviour:
   _material: {fileID: 0}
   _isTrigger: 0
   _size: {x: 0.9, y: 0.9, z: 1.2}
+  _rotate: {x: 0, y: 0, z: 0}
   _offset: {x: 0.5, y: 0.5, z: -0.3}
 --- !u!212 &21254926
 SpriteRenderer:

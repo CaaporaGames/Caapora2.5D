@@ -117,7 +117,7 @@ namespace Caapora
             {
 
 
-                if (Input.GetKey(KeyCode.LeftArrow) || Caapora.instance.moveDirection == "left")
+                if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A) ||  Caapora.instance.moveDirection == "left")
                 {
 
                     lookingAt = "left";
@@ -126,14 +126,14 @@ namespace Caapora
           
 
                 }
-                else if (Input.GetKey(KeyCode.RightArrow) || Caapora.instance.moveDirection == "right")
+                else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D) || Caapora.instance.moveDirection == "right")
                 {
                     lookingAt = "right";
                     Caapora.instance.moveRight();
 
 
                 }
-                else if (Input.GetKey(KeyCode.DownArrow) || Caapora.instance.moveDirection == "down")
+                else if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S) || Caapora.instance.moveDirection == "down")
                 {
 
                     lookingAt = "down";
@@ -141,7 +141,7 @@ namespace Caapora
 
 
                 }
-                else if (Input.GetKey(KeyCode.UpArrow) || Caapora.instance.moveDirection == "up")
+                else if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W) || Caapora.instance.moveDirection == "up")
                 {
                     lookingAt = "up";
                     Caapora.instance.moveUp();
@@ -188,7 +188,7 @@ namespace Caapora
 
                 }
 
-                if (Input.GetKeyDown(KeyCode.D))
+                if (Input.GetKeyDown(KeyCode.Space))
                 {
                     Caapora.instance.Jump();
                     GameManager.instance.Pause();
