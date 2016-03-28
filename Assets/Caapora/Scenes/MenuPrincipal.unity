@@ -2107,7 +2107,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 903498555}
-  - 114: {fileID: 903498556}
   - 114: {fileID: 903498557}
   m_Layer: 0
   m_Name: Menu
@@ -2129,17 +2128,6 @@ Transform:
   - {fileID: 89748696}
   m_Father: {fileID: 0}
   m_RootOrder: 1
---- !u!114 &903498556
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 903498554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 245c39dc63d73fc44a4dc6629ace1f29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &903498557
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,8 +1,14 @@
-# Caapora RPG
-### Note: Cyanogen users
+# About 
+
+A Simple Action RPG Game based on Tupi-Guarani mythology in Brazil made on top of Unity 3D using C# 
+
+## Note: Cyanogen users
 O audio pode não funcionar corretamente em Androids com CyanogenMod por conta de um bug em um módulo que habilita automaticamente a funcionalidade Audio Fast Path
 
+The audio may not work properly on Devices that uses CyanogenMod due to a bug on a module that automaticly enable the Audio Fast Path  
+
 para corrigir:
+To fix it:
 
 1. (optional) adb shell pm list features shows `feature:android.hardware.audio.low_latency`
 1. Rename/remove `/system/etc/permissions/android.hardware.audio.low_latency.xml`
@@ -10,211 +16,26 @@ para corrigir:
 
 mas informações em: http://forum.unity3d.com/threads/android-sound-problem.359341/page-2
 
-## Funcionalidades 
-
-
-1. Telas  
-
-1.1 Menu principal 
-1.1 Start Game 
-1.1 Load 
-1.1 Opções 
-1.1 Música de Fundo 
-
-
-1. Introdução 
-
-
-1.1 Exibir História 
-
-
-1.1 Start Game 
-
-
-1.1 Música de Fundo 
-
-
- 
-
-
-1. Loading 
-
-
-1.1 Carregar Jogo  
-
-
- 
-
- 1.  Introdução  
-
-
-   1.1 Exibir Informações da Fase 
-
-
-   Esconder controles, balões de avisos, telas de conversa e balões de conversas 
-
-
-   Iniciar conversação automática 
-
-
-   Botão para pular 
-
-
-   Iniciar deslocamento automático 
-
-
-   Executar música de fundo 
-
-
-    
-
-
- 1.   Controle do Personagem 
-
-
-    Controle por Teclado 
-
-
-    Setas 
-
-
-    Botões A/B 
-
-
-    Botão Start 
-
-
-     
-
-
-     Controle por Touch  
-
-
-     Mesmo que o de cima 
-
-
-      
-
-
-      Controle por IA 
-
-
-      Implantar 
-
-
-       
-
-
-   1. Eventos de Jogabilidade 
-
-
-       Monkey  
-
-
-       Seguir o Jogador 
-
-
-       Colisão com Fogo Caapora 
-
-
-       Exibir no Painel 
-
-
-       Executar animação 
-
-
-       Piscar em vermelho 
-
-
-       Reduzir life 
-
-
-       Colisão com Fogo Monkey 
-
-
-       Idém 
-
-
-       Pegar Balde 
-
-
-       Pegar com o botão A 
-
-
-       Adicionar a Classe Inventory 
-
-
-       Adicionar ao Painel 
-
-
-       Mudar Animação 
-
-
-       Coletar água no Rio 
-
-
-       Encher balde com água 
-
-
-       Aumentar nível de água no Painel 
-
-
-       Executar animação 
-
-
-       Jogar Agua 
-
-
-       Jogar com o botão B 
-
-
-       Checar se há água 
-
-
-       Reduzir nível de água no Painel 
-
-
-       Só jogar quando houver água 
-
-
-       Executar animação 
-
-
-       Apagar chama ao colidir com ela 
-
-
-       Chamas 
-
-
-       Aumentar automaticamente com o passar do tempo 
-
-
-        
-
-	  1. Estados do Game 
-
-
-	  Gameover 
-
-
-	  Caipora sem life 
-
-
-	  Monkey sem life 
-
-
-	  Winner 
-
-
-	  Fogo Apagado 
-
-
-	  Animais Recuperados 
-
-
-	  Try Again 
-
-
-	  Retornar ao início da Fase
+# Features
+
+
+1. Unity UI Screens 
+1. Loading Screen with Loading Bar
+1. Pause
+1. Combat Text and Hit Effect
+1. Conversation Panel
+1. Background Music and some audio effects
+1. Level System
+1. Life Bar with Unity UI    
+1. Isometric 2.5D World with Isometric 2.5D Toolset asset
+1. Lighting 
+1. Sprite Based Character with WASD Control
+1. Mobile Suport and Touch Jostick
+1. AI Pathfinding ( adapted from Sebastian Lague Youtube tutorial https://www.youtube.com/watch?v=nhiFx28e7JY ) 
+1. Some Mecanisms using  Collision detection
+1. Inventory, Stats Controller, Sound Controller Scripts
+1. Day Night Cycle 
+1. Simple Object Pooling System
+1. Scenario Presention
 
 
