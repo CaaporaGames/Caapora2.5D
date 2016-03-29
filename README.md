@@ -39,3 +39,12 @@ mas informações em: http://forum.unity3d.com/threads/android-sound-problem.359
 1. Scenario Presention
 
 
+# Screenshots
+
+![Image of Caapora](https://github.com/romulolink/Caapora2.5D/blob/master/Caapora0.png)
+
+![Image of Caapora](https://github.com/romulolink/Caapora2.5D/blob/master/Caapora1.png)
+
+![Image of Caapora](https://github.com/romulolink/Caapora2.5D/blob/master/Caapora2.png)
+
+![Image of Caapora](https://github.com/romulolink/Caapora2.5D/blob/master/Caapora3.png)
